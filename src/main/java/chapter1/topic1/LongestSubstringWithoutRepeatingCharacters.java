@@ -18,7 +18,7 @@ import java.util.Map;
 public class LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
-        String  str = "dvdf";
+        String  str = "pwwkew";
 
         LongestSubstringWithoutRepeatingCharacters longest = new LongestSubstringWithoutRepeatingCharacters();
 
@@ -49,9 +49,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
                         maxLength = length;
                     }
 
-                    startIndex = j;
+                    startIndex = index + 1;
 
-                    length = 1;
+                    length = j - index;
                     charIndicesMap.put(arr[j], j);
 
                     continue;
