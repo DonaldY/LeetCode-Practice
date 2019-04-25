@@ -35,6 +35,7 @@ public class LeetCode_8 {
         System.out.println(leetCode_8.myAtoi(" "));
         System.out.println(leetCode_8.myAtoi(" -42")); // -42
         System.out.println(leetCode_8.myAtoi("   +0 123")); // 0
+        System.out.println(leetCode_8.myAtoi("+1")); // 1
     }
 
     public int myAtoi(String str) {
@@ -44,14 +45,14 @@ public class LeetCode_8 {
             return 0;
         }
 
-        str = trimAllWhitespace(str);
+        int index = trimFrontWhitespace(str);
 
-        if (str.isEmpty()) {
+        if (index >= str.length()) {
 
             return 0;
         }
 
-        char firstChar = str.charAt(0);
+        char firstChar = str.charAt(index);
 
         if (firstChar != '-' && firstChar != '+' && firstChar < '0' || firstChar > '9' ) {
 
@@ -62,17 +63,15 @@ public class LeetCode_8 {
 
         int flag = 1; // 用于判断正负
 
-        if (firstChar >= '0' && firstChar <= '9') {
-
-            result  = firstChar - '0';
-        }
-
         if (firstChar == '-') {
 
             flag = -1;
+            ++index;
+        } else if (firstChar == '+') {
+            ++index;
         }
 
-        for (int i = 1; i < str.length(); ++i ) {
+        for (int i = index; i < str.length(); ++i ) {
 
             char c = str.charAt(i);
 
@@ -97,18 +96,17 @@ public class LeetCode_8 {
         return result;
     }
 
-    private String trimAllWhitespace(String str) {
+    private int trimFrontWhitespace(String str) {
 
         int len = str.length();
-        StringBuilder sb = new StringBuilder(str.length());
 
         for(int i = 0; i < len; ++i) {
             char c = str.charAt(i);
-            if (!Character.isWhitespace(c)) {
-                sb.append(c);
+            if (c != ' ') {
+                return i;
             }
         }
 
-        return sb.toString();
+        return len - 1;
     }
 }
