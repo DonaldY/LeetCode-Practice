@@ -62,7 +62,17 @@ public class LeetCode_10 {
 
                 if (i > 0) {
 
-                    s.charAt(i);
+                    char tempChar = s.charAt(i - 1);
+
+                    if (tempChar == '.') {
+
+                        if (i + 1 >= p.length()) {
+
+                            return true;
+                        }
+
+
+                    }
                 }
 
             }
