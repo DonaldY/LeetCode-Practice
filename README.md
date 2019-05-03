@@ -13,3 +13,4 @@
 |    7 |   |   Easy      |
 |    8 | String to Integer (atoi)  |   Easy      |
 |    9 | Palindrome Number  |   Easy      |
+|    10 | Regular Expression Matching  |   Hard      |

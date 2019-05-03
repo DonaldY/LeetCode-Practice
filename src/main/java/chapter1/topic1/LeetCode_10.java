@@ -44,6 +44,8 @@ package chapter1.topic1;
  * 1. 把所有可能都列举出来，然后匹配
  * 2. 逐字匹配，遇到 * 联系上下文
  *
+ * 实际解决:
+ * 1.
  */
 public class LeetCode_10 {
 
