@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * LeetCode 1
+ * LeetCode 1 : Two Sum
  *
  * indices: 索引
  *
@@ -33,7 +33,7 @@ import java.util.Map;
  *    若遇到重复的则更新索引
  *    时间 o(n), 空间 o(n)
  */
-public class TwoSum {
+public class LeetCode_1 {
 
     public static void main(String[] args) {
 
