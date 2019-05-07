@@ -1,5 +1,7 @@
 package chapter1.topic3;
 
+import java.util.Stack;
+
 /**
  * 101. Symmetric Tree
  *
@@ -21,8 +23,11 @@ package chapter1.topic3;
 
  * 题意： 判断二叉树是否对称
  *
- * 1. 每一层进行比较（回文比较）
- *    BFS 可以拿到按层级拿取节点
+ * 1. 递归判断左右子树
+ *    3 与 3 是否相等
+ *
+ * 2. 用栈来判断
+ *    （去掉递归）
  */
 
 class TreeNode {
@@ -41,8 +46,10 @@ public class LeetCode_101 {
 
         LeetCode_101 leetCode = new LeetCode_101();
         System.out.println(leetCode.isSymmetric(tree1));
-
         System.out.println(leetCode.isSymmetric(tree2));
+
+        System.out.println(leetCode.isSymmetricNode(tree1));
+        System.out.println(leetCode.isSymmetricNode(tree2));
     }
 
     private static TreeNode initTree1() {
@@ -95,5 +102,41 @@ public class LeetCode_101 {
         }
 
         return left == null && right == null;
+    }
+
+    // Time o(n), Space o(n)
+    public boolean isSymmetricNode(TreeNode root) {
+
+        if (null == root) return true;
+
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+
+        stack.push(root.left);
+        stack.push(root.right);
+
+        while (!stack.isEmpty()) {
+
+            TreeNode rightNode = stack.pop();
+            TreeNode leftNode = stack.pop();
+
+            if (leftNode == null && rightNode == null) continue;
+
+            if (leftNode == null || rightNode == null) {
+
+                return false;
+            }
+
+            if (rightNode.val != leftNode.val) {
+
+                return false;
+            }
+
+            stack.push(leftNode.left);
+            stack.push(rightNode.right);
+            stack.push(leftNode.right);
+            stack.push(rightNode.left);
+        }
+
+        return true;
     }
 }
