@@ -54,8 +54,6 @@ public class LeetCode_206 {
     // Time: o(n) Space: o(1) faster: 100%
     public ListNode reverseList(ListNode head) {
 
-        if (head == null) return null;
-
         ListNode pre = null;
         ListNode curr = head;
         while (curr != null) {
