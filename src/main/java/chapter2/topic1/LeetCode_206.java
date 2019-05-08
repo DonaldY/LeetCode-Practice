@@ -1,8 +1,5 @@
 package chapter2.topic1;
 
-import java.util.List;
-import java.util.Stack;
-
 /**
  * 206. Reverse Linked List
  *
@@ -11,7 +8,8 @@ import java.util.Stack;
  *
  * 题意：反转链表
  *
- * 1.
+ * 1. 借助栈
+ * 2. 直接反转
  */
 
 class ListNode {
@@ -53,33 +51,22 @@ public class LeetCode_206 {
         return node1;
     }
 
-    // Time: o(n) Space: o(n) faster: 5%
+    // Time: o(n) Space: o(1) faster: 100%
     public ListNode reverseList(ListNode head) {
 
         if (head == null) return null;
 
-        Stack<ListNode> stack = new Stack<ListNode>();
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr != null) {
 
-        ListNode node = head;
-
-        while (node != null) {
-            stack.push(node);
-            node = node.next;
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
         }
+        return pre;
 
-        ListNode reverseHead = stack.pop();
-        ListNode preNode = reverseHead;
-        reverseHead.next = null;
-        while (!stack.isEmpty()) {
-
-            ListNode tempNode = stack.pop();
-            preNode.next = tempNode;
-            preNode = tempNode;
-        }
-
-        head.next = null;
-
-        return reverseHead;
     }
 
 }
