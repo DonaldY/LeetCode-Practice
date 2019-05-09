@@ -6,6 +6,8 @@ Chapter1 : leetcode 1 - 200
 
 topic : limit 50
 
+---
+
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
 |    1 | TwoSum |  Easy      | |
@@ -23,3 +25,25 @@ topic : limit 50
 
 
 Chapter1 : leetcode 201 - 400
+
+topic : limit 50
+
+---
+
+Chapter1 : leetcode 401 - 600
+
+topic : limit 50
+
+
+Chapter1 : leetcode 601 - 800
+
+topic : limit 50
+
+---
+
+Chapter1 : leetcode 801 - 1000
+
+topic : limit 50
+
+---
+
