@@ -20,7 +20,7 @@ import java.util.List;
  * 题意： 给一个数组（数组的数均唯一），求所有组合
  *
  * 思路：
- * 1.
+ * 1. 递归计算
  */
 public class LeetCode_46 {
 
