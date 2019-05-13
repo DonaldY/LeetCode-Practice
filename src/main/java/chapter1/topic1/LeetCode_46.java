@@ -1,5 +1,6 @@
 package chapter1.topic1;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,18 +22,42 @@ import java.util.List;
  *
  * 思路：
  * 1. 递归计算
+ * - 根据首字母全排序
  */
 public class LeetCode_46 {
 
     public static void main(String[] args) {
 
+        int [] arr = new int[] {1, 2, 3};
+
+        System.out.println(new LeetCode_46().permute(arr).toString());
+
     }
 
+    // Time: O(n*n!), Space: O(n) faster: 99.75%
     public List<List<Integer>> permute(int[] nums) {
 
-        if (nums == null || nums.length == 0) return Collections.EMPTY_LIST;
+        if (nums == null || nums.length == 0) return new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
 
+        List<Integer> list = new ArrayList<>();
+        for (int num: nums) list.add(num);
 
-        return null;
+        permuteRec(list, 0, result);
+        return result;
+    }
+
+    private void permuteRec(List<Integer> list, int start, List<List<Integer>> result) {
+
+        if (start == list.size()) {
+            result.add(new ArrayList<>(list));
+            return;
+        }
+
+        for (int i = start; i < list.size(); ++i) {
+            Collections.swap(list, i , start);
+            permuteRec(list, start + 1, result);
+            Collections.swap(list, start, i);
+        }
     }
 }
