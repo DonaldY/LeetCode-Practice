@@ -13,6 +13,12 @@ import java.util.Stack;
  * minStack.pop();
  * minStack.top();      --> Returns 0.
  * minStack.getMin();   --> Returns -2.
+ *
+ * 题意： 最小栈，能找到最小值
+ *
+ * 思路：
+ * 1. 存两个栈，一个用于原始数据，一个保存最小
+ *    - minStack 只保存最小的
  */
 public class LeetCode_155 {
 
