@@ -27,6 +27,7 @@ public class LeetCode_155 {
 
 }
 
+// Time: o(n) Space: o(n) faster: 73.84%
 class MinStack {
 
     private Stack<Integer> stack = new Stack<>();
