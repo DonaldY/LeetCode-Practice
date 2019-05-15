@@ -9,10 +9,18 @@ package chapter1.topic1;
  * 题意：求矩形的面积，得最大的面
  *
  * 思路：
- * 1.
+ * 1. 求每一个组合的面积
+ * 2. DP
  */
 public class LeetCode_11 {
 
+    public static void main(String[] args) {
+
+        LeetCode_11 leetCode = new LeetCode_11();
+        System.out.println(leetCode.maxArea(new int[] {1, 8, 6, 2, 5, 4, 8, 3, 7}));
+    }
+
+    // Time: o(n^2) Space: o(1) faster: 17.95%
     public int maxArea(int[] height) {
 
         int max = 0;
