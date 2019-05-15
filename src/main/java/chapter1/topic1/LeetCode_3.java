@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * LeetCode 3
+ * LeetCode 3 LongestSubstringWithoutRepeatingCharacters
  *
  * Given a string, find the length of the longest substring without repeating characters
  *
@@ -15,12 +15,12 @@ import java.util.Map;
  *
  */
 
-public class LongestSubstringWithoutRepeatingCharacters {
+public class LeetCode_3 {
 
     public static void main(String[] args) {
         String  str = "pwwkew";
 
-        LongestSubstringWithoutRepeatingCharacters longest = new LongestSubstringWithoutRepeatingCharacters();
+        LeetCode_3 longest = new LeetCode_3();
 
         System.out.println(longest.lengthOfLongestSubstring(str));
     }

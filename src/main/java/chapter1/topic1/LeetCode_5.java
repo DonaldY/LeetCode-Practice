@@ -1,7 +1,7 @@
 package chapter1.topic1;
 
 /**
- * LeetCode 5
+ * LeetCode 5 LongestPalindromicSubstring
  *
  *
  * Input: "babad"
@@ -10,11 +10,11 @@ package chapter1.topic1;
  *
  *
  */
-public class LongestPalindromicSubstring {
+public class LeetCode_5 {
 
     public static void main(String[] args) {
 
-        LongestPalindromicSubstring longestPalindromicSubstring = new LongestPalindromicSubstring();
+        LeetCode_5 longestPalindromicSubstring = new LeetCode_5();
 
         System.out.println(longestPalindromicSubstring.longestPalindrome(""));
 
