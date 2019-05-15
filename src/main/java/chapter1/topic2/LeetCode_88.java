@@ -1,7 +1,5 @@
 package chapter1.topic2;
 
-import chapter1.topic1.LeetCode_8;
-
 import java.util.Arrays;
 
 /**
@@ -12,6 +10,11 @@ import java.util.Arrays;
  * nums2 = [2,5,6],       n = 3
  *
  * Output: [1,2,2,3,5,6]
+ *
+ * 题意：合并两个有序数组
+ * 1. 比较两个数组，把最终值放入第三个数组，再赋值（不行，题意是在nums1数组上，即地址不能不变）
+ * 2. 合并两个数组，直接排序
+ * 3. 从后向前比较，然后从后放置
  */
 public class LeetCode_88 {
 
