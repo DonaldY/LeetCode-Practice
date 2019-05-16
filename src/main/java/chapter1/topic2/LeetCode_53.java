@@ -21,6 +21,13 @@ public class LeetCode_53 {
 
     public int maxSubArray(int[] nums) {
 
+        int result = Integer.MIN_VALUE;
 
+        for (int i = 0; i < nums.length; ++i) {
+
+
+        }
+
+        return result;
     }
 }
