@@ -24,6 +24,9 @@ topic : limit 50
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Regular Expression Matching  |   Easy      | 100% |
+|    53 | Maximum Subarray  |   Easy      | 95.05% |
+|    88 | Merge Sorted Array  |   Easy      | 100% |
+|    100 | Same Tree Matching  |   Easy      | 100% |
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 
