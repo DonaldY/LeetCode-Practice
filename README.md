@@ -27,6 +27,8 @@ topic : limit 50
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
+|    101 | Symmetric Tree  |   Easy      | 100% |
+|    104 | Symmetric Tree  |   Easy      | 100% |
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 

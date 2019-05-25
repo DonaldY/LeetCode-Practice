@@ -1,4 +1,4 @@
-package chapter1.topic3;
+package chapter1.topic4;
 
 /**
  * 169. Majority Element
