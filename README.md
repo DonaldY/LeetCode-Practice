@@ -23,7 +23,7 @@ topic : limit 50
 |    11 | Container With Most Water  |   Easy      | 17.95% |
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
-|    50 | Regular Expression Matching  |   Easy      | 100% |
+|    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
