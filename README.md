@@ -29,6 +29,7 @@ topic : limit 50
 |    100 | Same Tree Matching  |   Easy      | 100% |
 |    101 | Symmetric Tree  |   Easy      | 100% |
 |    104 | Symmetric Tree  |   Easy      | 100% |
+|  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 
