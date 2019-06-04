@@ -31,6 +31,7 @@ topic : limit 50
 |    104 | Symmetric Tree  |   Easy      | 100% |
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
+|  136 | Single Number  |   Easy      | 100%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 
 
