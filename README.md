@@ -33,7 +33,7 @@ topic : limit 50
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  136 | Single Number  |   Easy      | 100%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
-
+|  169 | Majority Element  |   Easy      | 76.41%|
 
 Chapter1 : leetcode 201 - 400
 
