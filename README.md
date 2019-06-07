@@ -41,6 +41,13 @@ topic : limit 50
 
 ---
 
+|    # | Title | Difficulty |  Faster
+| :--- | :----: | :----      | :----|
+|    206 | Reverse Linked List |  Easy      | 100% |
+|    234 | Palindrome Linked List    |   Easy      | 95.50% |
+|    240 | Search a 2D Matrix II |  Easy      | 100% |
+
+
 Chapter1 : leetcode 401 - 600
 
 topic : limit 50
