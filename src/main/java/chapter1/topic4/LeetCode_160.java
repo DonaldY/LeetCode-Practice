@@ -1,5 +1,7 @@
 package chapter1.topic4;
 
+import java.util.List;
+
 /**
  * 160. Intersection of Two Linked Lists
  *
@@ -31,6 +33,47 @@ public class LeetCode_160 {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
+        return null;
+    }
 
+    // Time: o(m + n), Space: o(1)
+    public ListNode getIntersectionNodeWithLen(ListNode headA, ListNode headB) {
+
+        int lenA = 0, lenB = 0;
+
+        for (ListNode p = headA; p != null; p = p.next, ++lenA);
+        for (ListNode q = headB; q != null; q = q.next, ++lenB);
+
+        ListNode p = headA, q = headB;
+
+        if (lenA > lenB)
+            for (int i = 0; i < lenA - lenB; ++i) p = p.next;
+        else
+            for (int i = 0; i < lenB - lenA; ++i) q = q.next;
+
+        while (p != q) {
+
+            p = p.next;
+            q = q.next;
+        }
+
+        return p;
+    }
+
+    // Time: o(m + n), Space: o(1), faster: 97.23%
+    // 距离差问题，循环查找
+    public ListNode getIntersectionNodeWithoutLen(ListNode headA, ListNode headB) {
+
+        if (headA == null || headB == null) return null;
+        ListNode p = headA, q = headB;
+
+        // 这个前提必须有相交点
+        while (p != q) {
+
+            p = p == null ? headB : p.next;
+            q = q == null ? headA : q.next;
+        }
+
+        return p;
     }
 }
