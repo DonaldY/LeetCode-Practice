@@ -6,16 +6,34 @@ import java.util.List;
 /**
  * LeetCode 4
  *
+ * Example 1:
+ *
+ * nums1 = [1, 3]
+ * nums2 = [2]
+ *
+ * The median is 2.0
+ * Example 2:
+ *
+ * nums1 = [1, 2]
+ * nums2 = [3, 4]
+ *
+ * The median is (2 + 3)/2 = 2.5
+ *
+ * 题意： 求两个数组中位数
+ *
+ * 思路： 1. 合并两个数组，求出中间的数（注意奇偶）
+ *
+ * 2. 如果一个算法要 log，则每次运算，数据集要减少一般
  *
  */
-public class MedianOfTwoSortedArrays {
+public class LeetCode_4 {
 
     public static void main(String[] args) {
 
         int [] num1 = new int[] {1, 2};
         int [] num2 = new int[] {3, 4};
 
-        MedianOfTwoSortedArrays median = new MedianOfTwoSortedArrays();
+        LeetCode_4 median = new LeetCode_4();
 
         System.out.println(median.findMedianSortedArrays(num1, num2));
     }
