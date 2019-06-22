@@ -61,6 +61,10 @@ Chapter1 : leetcode 601 - 800
 
 topic : limit 50
 
+|    # | Title | Difficulty |  Faster
+| :--- | :----: | :----      | :----|
+|    704 | Binary Search |  Easy      | 100% |
+
 ---
 
 Chapter1 : leetcode 801 - 1000
