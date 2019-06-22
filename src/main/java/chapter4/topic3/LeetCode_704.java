@@ -25,6 +25,8 @@ public class LeetCode_704 {
     // Time: o(log(n)) ,Space: o(1), Faster: 100.00%
     public int search(int[] nums, int target) {
 
+        if (nums == null) return -1;
+
         int low = 0, high = nums.length - 1;
 
         while (low <= high) {
