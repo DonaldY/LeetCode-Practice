@@ -28,11 +28,11 @@ class ListNode {
     ListNode(int x) { val = x; }
 }
 
-public class AddTwoNumbers {
+public class LeetCode_2 {
 
     public static void main(String[] args) {
 
-        AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
+        LeetCode_2 addTwoNumbers = new LeetCode_2();
 
         ListNode l1 = initL1();
         ListNode l2 = initL2();
