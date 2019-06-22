@@ -13,7 +13,7 @@ topic : limit 50
 |    1 | TwoSum |  Easy      | |
 |    2 | Add Two Numbers    |   Easy      | |
 |    3 | Longest Substring Without Repeating Characters  |   Easy      | |
-|    4 | Median Of Two Sorted Arrays  |   Hard      | |
+|    4 | Median Of Two Sorted Arrays  |   Hard      | 100.00%  |
 |    5 | Longest Palindromic Substring  |   Easy      | |
 |    6 | ZigZag Conversion  |   Easy      | |
 |    7 |   |   Easy      | |

@@ -25,6 +25,12 @@ import java.util.List;
  *
  * 2. 如果一个算法要 log，则每次运算，数据集要减少一般
  *
+ * 即找到第k小的数
+ * f(k)
+ * 奇数： f((m + n) / 2 + 1) = f(2) = 2
+ * 偶数: (f((m + n) / 2) + f((m + n) / 2 + 1)) / 2 = (f(2) + f(3)) / 2 = 2.5
+ *
+ * 关键第k小的函数
  */
 public class LeetCode_4 {
 
@@ -82,5 +88,47 @@ public class LeetCode_4 {
             return list.get(index);
         }
 
+    }
+
+    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int total = nums1.length + nums2.length;
+        if ((total & 1) == 1) {
+            return findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1);
+        } else {
+            double a = findKthSmallestInSortedArrays(nums1, nums2, total / 2);
+            double b = findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1);
+            return (a + b) / 2;
+        }
+    }
+
+    // Time:o(log(k)) <= o(log(m + n)), Space: o(1), Faster: 100.00%
+    private double findKthSmallestInSortedArrays(int[] nums1, int[] nums2, int k) {
+
+        int len1 = nums1.length, len2 = nums2.length, base1 = 0, base2 = 0;
+
+        while (true) {
+
+            if (len1 == 0) return nums2[base2 + k - 1];
+            if (len2 == 0) return nums1[base1 + k - 1];
+            if (k == 1) return Math.min(nums1[base1], nums2[base2]);
+
+            int i = Math.min(k / 2, len1);
+            int j = Math.min(k - i, len2);
+            int a = nums1[base1 + i - 1], b = nums2[base2 + j - 1];
+
+            if (i + j == k && a == b) return a;
+
+            if (a <= b) {
+                base1 += i;
+                len1 -= i;
+                k -= i;
+            }
+
+            if (a >= b) {
+                base2 += j;
+                len2 -= j;
+                k -= j;
+            }
+        }
     }
 }
