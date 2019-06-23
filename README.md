@@ -14,7 +14,7 @@ topic : limit 50
 |    2 | Add Two Numbers    |   Easy      | |
 |    3 | Longest Substring Without Repeating Characters  |   Medium      | 92.46% |
 |    4 | Median Of Two Sorted Arrays  |   Hard      | 100.00%  |
-|    5 | Longest Palindromic Substring  |   Easy      | |
+|    5 | Longest Palindromic Substring  |   Medium      | 87.90%|
 |    6 | ZigZag Conversion  |   Easy      | |
 |    7 |   |   Easy      | |
 |    8 | String to Integer (atoi)  |   Easy      | |
