@@ -1,8 +1,9 @@
 package chapter1.topic3;
 
 
+import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Objects;
+import java.util.Map;
 import java.util.Queue;
 
 /**
@@ -13,6 +14,8 @@ import java.util.Queue;
  * 思路：
  * 1. 新元素进入栈顶，栈底元素退出
  *    若栈中已经存在新元素，则把新元素放入栈顶
+ *
+ * 2. hash表 + 双向链表
  */
 public class LeetCode_146 {
 
@@ -72,6 +75,8 @@ class LRUCache {
 
     private int capacity;
 
+    private Map<Integer, Node> map = new HashMap<>();
+
     public LRUCache(int capacity) {
 
         this.capacity = capacity;
@@ -80,7 +85,7 @@ class LRUCache {
 
     public int get(int key) {
 
-        Node node = this.contains(key);
+        Node node = map.get(key);
 
         if (node != null) {
 
@@ -92,28 +97,28 @@ class LRUCache {
         return -1;
     }
 
-    private Node contains(int key) {
-
-        return this.queue.stream().filter(node -> node.getKey() == key).findFirst().orElse(null);
-    }
-
     public void put(int key, int value) {
 
-        Node node = new Node(key, value);
+        Node node = map.get(key);
 
-        if (this.queue.contains(node)) {
+        Node newNode = new Node(key, value);
+
+        if (node != null) {
 
             queue.remove(node);
-            queue.add(node);
+            queue.add(newNode);
+            map.put(key, newNode);
             return;
         }
 
         if (queue.size() == capacity) {
 
-            queue.remove();
+            Node node1 = queue.remove();
+            map.remove(node1.getKey());
         }
 
-        queue.add(node);
+        queue.add(newNode);
+        map.put(newNode.getKey(), newNode);
     }
 }
 
