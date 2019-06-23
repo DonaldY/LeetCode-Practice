@@ -12,7 +12,7 @@ topic : limit 50
 | :--- | :----: | :----      | :----|
 |    1 | TwoSum |  Easy      | |
 |    2 | Add Two Numbers    |   Easy      | |
-|    3 | Longest Substring Without Repeating Characters  |   Easy      | |
+|    3 | Longest Substring Without Repeating Characters  |   Medium      | 92.46% |
 |    4 | Median Of Two Sorted Arrays  |   Hard      | 100.00%  |
 |    5 | Longest Palindromic Substring  |   Easy      | |
 |    6 | ZigZag Conversion  |   Easy      | |
@@ -33,6 +33,7 @@ topic : limit 50
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  136 | Single Number  |   Easy      | 100%|
 |  141 | Linked List Cycle  |   Easy      | 100%|
+|  146 | LRU Cache  |   Medium      | 5.06%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 |  169 | Majority Element  |   Easy      | 76.41%|
 
