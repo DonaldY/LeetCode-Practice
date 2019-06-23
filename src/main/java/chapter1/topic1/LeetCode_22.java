@@ -49,6 +49,7 @@ public class LeetCode_22 {
         return result;
     }
 
+    // 卡特兰数 Faster: 93.50%
     public List<String> generateParenthesesDP(int n) {
 
         if (n < 0) return new ArrayList<>();

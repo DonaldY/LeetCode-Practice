@@ -22,6 +22,7 @@ topic : limit 50
 |    10 | Regular Expression Matching  |   Hard      | |
 |    11 | Container With Most Water  |   Easy      | 17.95% |
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
+|    22 | Generate Parentheses  |   Medium      | 93.50% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
