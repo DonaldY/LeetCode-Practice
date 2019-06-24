@@ -26,6 +26,7 @@ topic : limit 50
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
+|    72 | Edit Distance  |   Hard      | 36.73% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
 |    101 | Symmetric Tree  |   Easy      | 100% |
