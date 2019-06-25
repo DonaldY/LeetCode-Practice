@@ -37,4 +37,19 @@ public class LeetCode_11 {
 
         return max;
     }
+
+    // Time:o(n), Space:o(1), Faster: 94.74%
+    public int maxWater(int [] height) {
+        int max = 0;
+        int i = 0, j = height.length - 1;
+
+        while (i < j) {
+            int cur = Math.min(height[i], height[j]) * (j - i);
+            max = Math.max(max, cur);
+            if (height[i] < height[j]) ++i;
+            else --j;
+        }
+
+        return max;
+    }
 }
