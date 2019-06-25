@@ -28,6 +28,7 @@ topic : limit 50
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    72 | Edit Distance  |   Hard      | 36.73% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
+|    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
 |    101 | Symmetric Tree  |   Easy      | 100% |
 |    102 | Binary Tree Level Order Traversal  |   Medium      | 81.28% |
