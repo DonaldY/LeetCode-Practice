@@ -30,6 +30,7 @@ topic : limit 50
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
 |    101 | Symmetric Tree  |   Easy      | 100% |
+|    102 | Binary Tree Level Order Traversal  |   Medium      | 81.28% |
 |    104 | Symmetric Tree  |   Easy      | 100% |
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
