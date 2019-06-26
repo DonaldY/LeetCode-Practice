@@ -23,6 +23,7 @@ topic : limit 50
 |    11 | Container With Most Water  |   Medium      | 94.74% |
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
 |    22 | Generate Parentheses  |   Medium      | 93.50% |
+|   35 | Search Insert Position  |   Easy      | 100% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |

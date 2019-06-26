@@ -23,6 +23,7 @@ package chapter1.topic1;
  */
 public class LeetCode_35 {
 
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int searchInsert(int[] nums, int target) {
 
         if (nums == null) return -1;
