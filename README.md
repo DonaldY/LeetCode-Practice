@@ -28,6 +28,7 @@ topic : limit 50
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    72 | Edit Distance  |   Hard      | 36.73% |
+|    74 | Search a 2D Matrix  |   Medium      | 100% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |

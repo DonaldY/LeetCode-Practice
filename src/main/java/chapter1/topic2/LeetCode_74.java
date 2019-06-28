@@ -19,6 +19,7 @@ package chapter1.topic2;
  */
 public class LeetCode_74 {
 
+    // Time: o(log(n)), Space: o(1), Faster: 100%
     public boolean searchMatrix(int[][] matrix, int target) {
 
         if (matrix == null || matrix.length == 0 ||
@@ -32,13 +33,13 @@ public class LeetCode_74 {
         while (low <= high) {
 
             int mid = (low + high) / 2;
-            int i = mid / m, j = mid % n;
-            if (mid == matrix[i][j]) {
+            int i = mid / m, j = mid % m;
+            if (target == matrix[i][j]) {
 
                 return true;
             }
-            if (mid < matrix[i][j]) high = mid - 1;
-            if (mid > matrix[i][j]) low = mid + 1;
+            if (target < matrix[i][j]) high = mid - 1;
+            if (target > matrix[i][j]) low = mid + 1;
         }
 
         return false;
