@@ -11,7 +11,7 @@ topic : limit 50
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
 |    1 | TwoSum |  Easy      | |
-|    2 | Add Two Numbers    |   Easy      | |
+|    2 | Add Two Numbers    |   Medium      | 100% |
 |    3 | Longest Substring Without Repeating Characters  |   Medium      | 92.46% |
 |    4 | Median Of Two Sorted Arrays  |   Hard      | 100.00%  |
 |    5 | Longest Palindromic Substring  |   Medium      | 87.90%|
