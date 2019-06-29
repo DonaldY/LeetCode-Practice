@@ -35,6 +35,7 @@ topic : limit 50
 |    101 | Symmetric Tree  |   Easy      | 100% |
 |    102 | Binary Tree Level Order Traversal  |   Medium      | 81.28% |
 |    104 | Symmetric Tree  |   Easy      | 100% |
+|  110 | Balanced Binary Tree  |   Easy      | 91.57%|
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  136 | Single Number  |   Easy      | 100%|
