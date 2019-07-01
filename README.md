@@ -32,6 +32,7 @@ topic : limit 50
 |    74 | Search a 2D Matrix  |   Medium      | 100% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
+|    98 | Validate Binary Search Tree  |   Medium      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
 |    101 | Symmetric Tree  |   Easy      | 100% |
 |    102 | Binary Tree Level Order Traversal  |   Medium      | 81.28% |
