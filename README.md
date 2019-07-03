@@ -39,6 +39,7 @@ topic : limit 50
 |    102 | Binary Tree Level Order Traversal  |   Medium      | 81.28% |
 |    104 | Symmetric Tree  |   Easy      | 100% |
 |  110 | Balanced Binary Tree  |   Easy      | 91.57%|
+|  121 |  Best Time to Buy and Sell Stock  |   Easy      |  87.07%|
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  136 | Single Number  |   Easy      | 100%|
