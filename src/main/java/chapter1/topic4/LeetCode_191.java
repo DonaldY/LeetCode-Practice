@@ -37,7 +37,7 @@ public class LeetCode_191 {
         return 0;
     }
 
-    // Time: o(m), Space: o(1)
+    // Time: o(m), Space: o(1), Faster: 24.17%
     public int numberOfOneWithMask(int n) {
         int mask = 1, count = 0;
         while (mask != 0) {
@@ -47,7 +47,7 @@ public class LeetCode_191 {
         return count;
     }
 
-    // Time: o(k), Space: o(1)
+    // Time: o(k), Space: o(1), Faster:100.00%
     public int numberOfOne(int n) {
         int count = 0;
         while (n != 0) {
