@@ -44,4 +44,17 @@ public class LeetCode_203 {
 
         return head;
     }
+
+    // Time: O(n), Space: O(1)
+    public ListNode remove(ListNode head, int val) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode notEqual = dummy;
+
+        while (notEqual.next != null) {
+            if (notEqual.next.val == val) notEqual.next = notEqual.next.next;
+            else notEqual = notEqual.next;
+        }
+        return dummy.next;
+    }
 }
