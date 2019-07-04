@@ -57,6 +57,7 @@ topic : limit 50
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
 |    206 | Reverse Linked List |  Easy      | 100% |
+|    226 | Invert Binary Tree    |   Easy      | 100.00% |
 |    234 | Palindrome Linked List    |   Easy      | 95.50% |
 |    240 | Search a 2D Matrix II |  Easy      | 100% |
 |    263 |  Ugly Number |  Easy      | 99.72% |
