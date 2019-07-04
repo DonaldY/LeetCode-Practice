@@ -71,5 +71,7 @@ public class LeetCode_226 {
             if (node.left != null) queue.add(node.left);
             if (node.right != null) queue.add(node.right);
         }
+
+        return node;
     }
 }
