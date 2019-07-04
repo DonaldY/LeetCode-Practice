@@ -56,6 +56,7 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
+|    203 | Remove Linked List Elements |  Easy      | 98.63% |
 |    206 | Reverse Linked List |  Easy      | 100% |
 |    226 | Invert Binary Tree    |   Easy      | 100.00% |
 |    234 | Palindrome Linked List    |   Easy      | 95.50% |
