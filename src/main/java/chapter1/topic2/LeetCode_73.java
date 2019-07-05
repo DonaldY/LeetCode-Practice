@@ -33,6 +33,8 @@ package chapter1.topic2;
  *
  * 思路：
  * 1. 两层for循环查询，并用两层for循环置
+ * 2. 用另一个数组来报存是否置零，然后查询
+ * 3.
  */
 public class LeetCode_73 {
 
