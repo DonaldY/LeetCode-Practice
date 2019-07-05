@@ -29,6 +29,7 @@ topic : limit 50
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
+|    64 | Minimum Path Sum  |   Medium      | 99.61% |
 |    72 | Edit Distance  |   Hard      | 36.73% |
 |    73 | Set Matrix Zeroes  |   Medium      | 100% |
 |    74 | Search a 2D Matrix  |   Medium      | 100% |
