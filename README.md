@@ -21,6 +21,7 @@ topic : limit 50
 |    9 | Palindrome Number  |   Easy      | |
 |    10 | Regular Expression Matching  |   Hard      | |
 |    11 | Container With Most Water  |   Medium      | 94.74% |
+|    15 | 3Sum  |   Medium      | 97.48% |
 |    19 | Remove Nth Node From End of List  |   Medium      | 100.00% |
 |    20 | Valid Parentheses  |   Medium      | 98.34% |
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
