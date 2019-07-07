@@ -32,6 +32,7 @@ topic : limit 50
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    64 | Minimum Path Sum  |   Medium      | 99.61% |
+|    69 | Sqrt(x)  |   Easy      | 100.00% |
 |    72 | Edit Distance  |   Hard      | 36.73% |
 |    73 | Set Matrix Zeroes  |   Medium      | 100% |
 |    74 | Search a 2D Matrix  |   Medium      | 100% |

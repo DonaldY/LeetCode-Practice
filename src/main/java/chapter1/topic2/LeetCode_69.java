@@ -20,6 +20,7 @@ package chapter1.topic2;
  * 1. 直接调api，然后返回整数部分
  * 2. 从1开始查找，到x/2，找到平方后最接近x的数
  * 3. 用二分搜索来减少，查询范围
+ * 4. 牛顿迭代法
  */
 public class LeetCode_69 {
 
@@ -61,5 +62,14 @@ public class LeetCode_69 {
         }
 
         return (int) high;
+    }
+
+    // Time: o(log(n)), Space: o(1), Faster: 100.00%
+    public int sqrtNewton(int x) {
+        long n = x;
+        while (n * n > x) {
+            n = (n + x / n) / 2;
+        }
+        return (int) n;
     }
 }
