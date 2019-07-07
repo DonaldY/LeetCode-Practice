@@ -77,6 +77,10 @@ topic : limit 50
 
 ---
 
+|    # | Title | Difficulty |  Faster
+| :--- | :----: | :----      | :----|
+|    461 | Hamming Distance |  Easy      | 100.00% |
+
 
 Chapter1 : leetcode 601 - 800
 
