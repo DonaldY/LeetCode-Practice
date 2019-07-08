@@ -15,7 +15,9 @@ package chapter3.topic3;
  * 题意： 找到数组中只出现过一次的数
  *
  * 思路：
- * 1. 位运算，异或
+ * 1. 位运算，异或(两个相同的数异或为 0)
+ * 2. 因为数组有序，所以相同的必定在旁边
+ *
  */
 public class LeetCode_540 {
 
@@ -35,5 +37,23 @@ public class LeetCode_540 {
         }
 
         return result;
+    }
+
+    // Time: o(log(n)), Space: o(1)
+    public int singleNumInSortedArrayBinarySearch(int [] nums) {
+
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (mid - 1 >= 0 && nums[mid - 1] == nums[mid]) {
+                --mid;
+            } else if (mid + 1 < nums.length && nums[mid + 1] == nums[mid]) {
+            } else {
+                return nums[mid];
+            }
+            if ((mid - low) % 2 == 1) high = mid - 1;
+            else low = mid + 2;
+        }
+        return -1;
     }
 }
