@@ -89,6 +89,7 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
+|    703 | Kth Largest Element in a Stream |  Medium      | 32.62% |
 |    704 | Binary Search |  Easy      | 100% |
 
 ---
