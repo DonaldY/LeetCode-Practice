@@ -70,6 +70,7 @@ topic : limit 50
 |    263 |  Ugly Number |  Easy      | 99.72% |
 |    268 |  Missing Number |  Easy      | 100% |
 |    371 |  Sum of Two Integers |  Easy      | 100% |
+|    384 |  Shuffle an Array |  Medium      | 35.46% |
 
 Chapter1 : leetcode 401 - 600
 
