@@ -22,10 +22,14 @@ import java.util.Queue;
  * 思路：
  * 1. 排序后，查找
  * 2. 举一个水池，在里面填充最大的数，把最小的数踢出
+ * 3. 快速选择法
+ *    i == k - 1 return
+ *    i > k - 1  find left
+ *    else       find right
  */
 public class LeetCode_215 {
 
-    // Time: o(n), Space: o(k), Faster: 42.15%
+    // Time: o(n * log(k)), Space: o(k), Faster: 42.15%
     public int findKthLargest(int[] nums, int k) {
 
         Queue<Integer> queue = new PriorityQueue<>(k);
@@ -41,5 +45,34 @@ public class LeetCode_215 {
         }
 
         return queue.peek();
+    }
+
+    void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    int partition(int[] nums, int low, int high) {
+        int pivot = nums[low], i = low, j = high;
+        while (i < j) {
+            while (i < j && nums[j] < pivot) --j;
+            if (i < j) swap(nums, i, j);
+            while (i < j && nums[i] >= pivot) ++i;
+            if (i < j) swap(nums, i, j);
+        }
+        return i;
+    }
+
+    // Time(avg): O(n), Time(worst): O(n^2), Space: O(1)
+    public int findKthLargestQuickSelect(int[] nums, int k) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int p = partition(nums, low, high);
+            if (p == k-1) return nums[p];
+            else if (p > k-1) high = p - 1;
+            else low = p + 1;
+        }
+        return -1;
     }
 }
