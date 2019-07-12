@@ -31,6 +31,7 @@ topic : limit 50
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
+|    56 | Merge Intervals  |   Medium      | 57.26% |
 |    64 | Minimum Path Sum  |   Medium      | 99.61% |
 |    69 | Sqrt(x)  |   Easy      | 100.00% |
 |    72 | Edit Distance  |   Hard      | 36.73% |

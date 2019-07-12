@@ -2,6 +2,7 @@ package chapter1.topic2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
  * Output: [[1,5]]
  * Explanation: Intervals [1,4] and [4,5] are considered overlapping.
  *
- * 题意：合并所有重叠区间（题目有排序）
+ * 题意：合并所有重叠区间（题目无排序）
  *
  * 思路：
  * 1. 比较大小, 小于最小，大于最大，
@@ -33,19 +34,30 @@ public class LeetCode_56 {
 
         int [][] arr = new int[][] {
 
-                new int[] {1, 3},
+                /*new int[] {1, 3},
                 new int[] {2, 6},
                 new int[] {8, 10},
-                new int[] {15, 18}
+                new int[] {15, 18}*/
+                new int[] {1, 4},
+                new int[] {0, 0}
         };
 
-        System.out.println(leetCode_56.merge(arr));
+        System.out.println(Arrays.toString(leetCode_56.merge(arr)));
     }
 
-    // Time: o(n), Space: o(n), Faster:
+    // Time: o(nlog(n)), Space: o(n), Faster: 57.26%
     public int[][] merge(int[][] intervals) {
 
         List<List<Integer>> result = new ArrayList<>(intervals.length);
+
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] t1, int[] t2) {
+                if (t1[0] > t2[0]) return 1;
+                else if (t1[0] < t2[0]) return -1;
+                return 0;
+            }
+        });
 
         for (int [] arr : intervals) {
 
