@@ -1,5 +1,7 @@
 package chapter1.topic3;
 
+import java.util.Stack;
+
 /**
  * 112. Path Sum
  *
@@ -34,5 +36,30 @@ public class LeetCode_112 {
 
         return hasPathSum(root.left, sum - root.val)
                 || hasPathSum(root.right, sum - root.val);
+    }
+
+    // Time: o(n), Space: o(n)
+    public boolean hasPathSumIterative(TreeNode root, int sum) {
+
+        if (root == null) return false;
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<Integer> sumStack = new Stack<>();
+        stack.push(root);
+        sumStack.push(sum);
+
+        while (!stack.isEmpty()) {
+            TreeNode n = stack.pop();
+            int s = sumStack.pop();
+            if (n.left == null && n.right == null && n.val == s) return true;
+            if (n.left != null) {
+                stack.push(n.left);
+                sumStack.push(s - n.val);
+            }
+            if (n.right != null) {
+                stack.push(n.right);
+                sumStack.push(s - n.val);
+            }
+        }
+        return false;
     }
 }
