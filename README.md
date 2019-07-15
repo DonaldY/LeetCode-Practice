@@ -44,6 +44,7 @@ topic : limit 50
 |    101 | Symmetric Tree  |   Easy      | 100% |
 |    102 | Binary Tree Level Order Traversal  |   Medium      | 81.28% |
 |    104 | Symmetric Tree  |   Easy      | 100% |
+|    105 | Construct Binary Tree from Preorder and Inorder Traversal  |   Medium      | 96.84% |
 |  110 | Balanced Binary Tree  |   Easy      | 91.57%|
 |  112 |  Path Sum  |   Easy      |  100.00%|
 |  121 |  Best Time to Buy and Sell Stock  |   Easy      |  87.07%|
