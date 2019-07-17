@@ -53,6 +53,7 @@ topic : limit 50
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  136 | Single Number  |   Easy      | 100%|
 |  141 | Linked List Cycle  |   Easy      | 100%|
+|  144 | Binary Tree Preorder Traversal  |   Easy      | 100%|
 |  146 | LRU Cache  |   Medium      | 5.06%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 |  169 | Majority Element  |   Easy      | 76.41%|
