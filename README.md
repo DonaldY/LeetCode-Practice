@@ -50,6 +50,7 @@ topic : limit 50
 |  112 |  Path Sum  |   Easy      |  100.00%|
 |  121 |  Best Time to Buy and Sell Stock  |   Easy      |  87.07%|
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
+|  118 | Pascal's Triangle  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  136 | Single Number  |   Easy      | 100%|
 |  141 | Linked List Cycle  |   Easy      | 100%|
