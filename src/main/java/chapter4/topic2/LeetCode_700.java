@@ -37,6 +37,7 @@ class TreeNode {
 
 public class LeetCode_700 {
 
+    // Time: o(h), Space: o(h), Faster: 100.00%
     public TreeNode searchBST(TreeNode root, int val) {
 
         if (root == null) return null;
@@ -51,5 +52,15 @@ public class LeetCode_700 {
         } else {
             return searchBST(root.right, val);
         }
+    }
+
+    // Time: o(h), Space: o(1), Faster: 100.00%
+    public TreeNode searchBSTIterative(TreeNode root, int val) {
+
+        while (root != null && val != root.val) {
+            if (val < root.val) root = root.left;
+            else root = root.right;
+        }
+        return root;
     }
 }
