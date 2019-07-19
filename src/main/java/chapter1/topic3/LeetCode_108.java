@@ -23,7 +23,7 @@ package chapter1.topic3;
  */
 public class LeetCode_108 {
 
-    // Time: o(log(n)), Space: o(n), Faster: 100.00%
+    // Time: o(n), Space: o(log(n)), Faster: 100.00%
     public TreeNode sortedArrayToBST(int[] nums) {
 
         if (nums == null || nums.length == 0) return null;
