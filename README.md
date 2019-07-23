@@ -61,6 +61,7 @@ topic : limit 50
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 |  169 | Majority Element  |   Easy      | 76.41%|
 |  191 | Number of 1 Bits  |   Easy      | 100.00%|
+|  198 | House Robber  |   Easy      | 100.00%|
 
 Chapter1 : leetcode 201 - 400
 
