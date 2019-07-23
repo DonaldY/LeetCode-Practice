@@ -17,7 +17,8 @@ package chapter1.topic2;
  *
  * 思路：
  * 1. 使用当前指针和上个指针，若当前与上个相同，则删除当前
- * 2. 用 `HashMap` 保存，然后比对
+ * 2. 使用当前指针和下个指针，若当前与下个相同，则删除下个
+ * 3. 用 `HashMap` 保存，然后比对
  */
 class ListNode {
     int val;
@@ -50,4 +51,19 @@ public class LeetCode_83 {
 
         return head;
     }
+
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public ListNode removeDuplicatesInSortedList(ListNode head) {
+        if (head == null) return null;
+        ListNode cur = head, next = head.next;
+        while (next != null) {
+            if (cur.val == next.val)
+                cur.next = next.next;
+            else
+                cur = cur.next;
+            next = next.next;
+        }
+        return head;
+    }
+
 }
