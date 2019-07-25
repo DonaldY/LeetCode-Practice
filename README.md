@@ -37,6 +37,7 @@ topic : limit 50
 |    72 | Edit Distance  |   Hard      | 36.73% |
 |    73 | Set Matrix Zeroes  |   Medium      | 100% |
 |    74 | Search a 2D Matrix  |   Medium      | 100% |
+|    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
@@ -74,7 +75,7 @@ topic : limit 50
 | :--- | :----: | :----      | :----|
 |    203 | Remove Linked List Elements |  Easy      | 98.63% |
 |    206 | Reverse Linked List |  Easy      | 100% |
-|    213 | 213. House Robber II    |   Medium      | 100.00% |
+|    213 | House Robber II    |   Medium      | 100.00% |
 |    215 | Kth Largest Element in an Array    |   Medium      | 42.15% |
 |    218 | The Skyline Problem    |   Hard      | 20.81% |
 |    226 | Invert Binary Tree    |   Easy      | 100.00% |
