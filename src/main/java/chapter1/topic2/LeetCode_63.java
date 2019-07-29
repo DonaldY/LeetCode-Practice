@@ -20,7 +20,8 @@ package chapter1.topic2;
  *
  * 思路：
  * 1. DFS
- * 2.
+ * 2. DP 判断是否遇到 block
+ * 3. DP
  */
 public class LeetCode_63 {
 
