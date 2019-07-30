@@ -111,7 +111,7 @@ topic : limit 50
 |    700 | Search in a Binary Search Tree |  Easy      | 100.00% |
 |    703 | Kth Largest Element in a Stream |  Medium      | 32.62% |
 |    704 | Binary Search |  Easy      | 100% |
-
+|    746 | Min Cost Climbing Stairs |  Easy      | 100% |
 ---
 
 Chapter1 : leetcode 801 - 1000
