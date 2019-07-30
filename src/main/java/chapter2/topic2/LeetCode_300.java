@@ -27,7 +27,7 @@ public class LeetCode_300 {
         return 0;
     }
 
-    // Time: o(n^2), Space: o(n), Faster:
+    // Time: o(n^2), Space: o(n), Faster: 27.93%
     public int lengthOfLISDP(int [] nums) {
         if (nums == null || nums.length == 0) return 0;
         int n = nums.length, max = 1;
@@ -55,7 +55,7 @@ public class LeetCode_300 {
         return low;
     }
 
-    // Time: o(n * log(n)), Space: o(n)
+    // Time: o(n * log(n)), Space: o(n), Faster:  92.62%
     public int lengthOfLISBinarySearch(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int n = nums.length, len = 0;
