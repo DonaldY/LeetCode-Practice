@@ -84,10 +84,10 @@ topic : limit 50
 |    226 | Invert Binary Tree    |   Easy      | 100.00% |
 |    234 | Palindrome Linked List    |   Easy      | 95.50% |
 |    240 | Search a 2D Matrix II |  Easy      | 100% |
-|    263 |  Ugly Number |  Easy      | 99.72% |
-|    268 |  Missing Number |  Easy      | 100% |
-|    371 |  Sum of Two Integers |  Easy      | 100% |
-|    384 |  Shuffle an Array |  Medium      | 35.46% |
+|    263 | Ugly Number |  Easy      | 99.72% |
+|    268 | Missing Number |  Easy      | 100% |
+|    371 | Sum of Two Integers |  Easy      | 100% |
+|    384 | Shuffle an Array |  Medium      | 35.46% |
 
 Chapter1 : leetcode 401 - 600
 
