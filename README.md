@@ -86,6 +86,7 @@ topic : limit 50
 |    240 | Search a 2D Matrix II |  Easy      | 100% |
 |    263 | Ugly Number |  Easy      | 99.72% |
 |    268 | Missing Number |  Easy      | 100% |
+|    283 | Move Zeroes |  Easy      | 100% |
 |    371 | Sum of Two Integers |  Easy      | 100% |
 |    384 | Shuffle an Array |  Medium      | 35.46% |
 
