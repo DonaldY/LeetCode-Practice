@@ -20,6 +20,7 @@ package chapter2.topic3;
  */
 public class LeetCode_344 {
 
+    // Time: o(n), Space: o(1), Faster: 100.00%
     public void reverseString(char[] s) {
 
         if (s == null || s.length == 0) return;
