@@ -16,7 +16,7 @@ topic : limit 50
 |    4 | Median Of Two Sorted Arrays  |   Hard      | 100.00%  |
 |    5 | Longest Palindromic Substring  |   Medium      | 87.90%|
 |    6 | ZigZag Conversion  |   Easy      | |
-|    7 |   |   Easy      | |
+|    7 | Reverse Integer  |   Easy      | 100.00% |
 |    8 | String to Integer (atoi)  |   Medium      | 100% |
 |    9 | Palindrome Number  |   Easy      | |
 |    10 | Regular Expression Matching  |   Hard      | |
