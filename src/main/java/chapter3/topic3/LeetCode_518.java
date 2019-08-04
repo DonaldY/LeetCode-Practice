@@ -77,7 +77,7 @@ public class LeetCode_518 {
         return d[coins.length][sum];
     }
 
-    // Time: o(n * sum), Space: o(n), Faster: 51.75%%
+    // Time: o(n * sum), Space: o(n), Faster: 51.75%
     public int numberOfCoinCombinationDPOsum(int sum, int [] coins) {
 
         int [] d = new int[sum + 1];
