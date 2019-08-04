@@ -43,4 +43,20 @@ public class LeetCode_322 {
         }
         return d[coins.length][amount] == Integer.MAX_VALUE ? -1 : d[coins.length][amount];
     }
+
+    // Time: O(n*sum), Space: O(sum)
+    public int minCoinCombinationOsum(int[] coins, int sum) {
+        int[] d = new int[sum+1];
+        for (int j = 1; j <= sum; ++j)
+            d[j] = Integer.MAX_VALUE;
+
+        for (int i = 1; i <= coins.length; ++i) {
+            for (int j = coins[i-1]; j <= sum; ++j) {
+                if (d[j-coins[i-1]] != Integer.MAX_VALUE) {
+                    d[j] = Math.min(d[j], d[j-coins[i-1]] + 1);
+                }
+            }
+        }
+        return d[sum] == Integer.MAX_VALUE ? -1 : d[sum];
+    }
 }
