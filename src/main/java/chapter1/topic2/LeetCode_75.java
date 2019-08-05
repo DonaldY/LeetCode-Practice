@@ -15,6 +15,7 @@ package chapter1.topic2;
  * 1. 直接用库函数排序（升序）[但题目不允许]
  * 2. 模拟排序
  * 3. 遍历数组，统计个数，然后填充
+ * 4. 双指针交换
  */
 public class LeetCode_75 {
 
@@ -48,5 +49,22 @@ public class LeetCode_75 {
 
             nums[index++] = 2;
         }
+    }
+
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public void sortThreeColorsSwap(int[] nums) {
+        if (nums == null || nums.length == 0) return;
+        int left = 0, mid = 0, right = nums.length - 1;
+        while (mid <= right) {
+            if (nums[mid] == 0) swap(nums, left++, mid++);
+            else if (nums[mid] == 1) ++mid;
+            else swap(nums, mid, right--);
+        }
+    }
+
+    private void swap(int[] nums, int i , int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
 }
