@@ -1,4 +1,4 @@
-package chapter2.topic4;
+package chapter2.topic2;
 
 /**
  * 283. Move Zeroes
