@@ -44,6 +44,7 @@ topic : limit 50
 |    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
+|    91 | Decode Ways  |   Medium      | 98.68% |
 |    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
 |    98 | Validate Binary Search Tree  |   Medium      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
