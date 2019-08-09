@@ -1,9 +1,6 @@
 package chapter1.topic1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * 23. Merge k Sorted Lists
@@ -24,7 +21,10 @@ import java.util.List;
  * 思路：
  * 1. 每个链表一个指针，分别指向
  * 2. 把所有的数存入数组，然后排序
- * 3.
+ *
+ * 3. 两个两个合并
+ * 4. 最小堆维护
+ * 5. 分治方法
  */
 public class LeetCode_23 {
 
@@ -69,5 +69,67 @@ public class LeetCode_23 {
         }
 
         return node;
+    }
+
+    private ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0), p = dummy;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                p.next = l1;
+                l1 = l1.next;
+            } else {
+                p.next = l2;
+                l2 = l2.next;
+            }
+            p = p.next;
+        }
+
+        if (l1 != null) p.next = l1;
+        if (l2 != null) p.next = l2;
+        return dummy.next;
+    }
+
+    // Time: O(k*n), Space: O(1)
+    public ListNode mergeKSortedListsOneByOne(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        ListNode result = null;
+        for (ListNode list: lists) {
+            result = mergeTwoSortedLists(result, list);
+        }
+        return result;
+    }
+
+    // Time: O(n*log(k)), Space: O(k)
+    public ListNode mergeKSortedListsMinHeap(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        Queue<ListNode> q = new PriorityQueue<>((a, b) -> a.val - b.val);
+        for (ListNode list: lists)
+            if (list != null)
+                q.add(list);
+        ListNode dummy = new ListNode(0), p = dummy;
+
+        while (!q.isEmpty()) {
+            ListNode min = q.poll();
+            p.next = min;
+            p = p.next;
+            if (min.next != null) q.add(min.next);
+        }
+        return dummy.next;
+    }
+
+    private ListNode merge(ListNode[] lists, int start, int end) {
+        if (start == end) return lists[start];
+        if (start > end) return null;
+        int mid = start + (end - start) / 2;
+        ListNode left = merge(lists, start, mid);
+        ListNode right = merge(lists, mid+1, end);
+        return mergeTwoSortedLists(left, right);
+    }
+
+    // Time: O(n*log(k)), Space: O(log(k))
+    public ListNode mergeKSortedListsDivideConquer(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        return merge(lists, 0, lists.length-1);
     }
 }
