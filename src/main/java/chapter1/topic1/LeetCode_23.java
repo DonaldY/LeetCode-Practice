@@ -48,15 +48,7 @@ public class LeetCode_23 {
 
         if (result.size() == 0) return null;
 
-        result.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer integer, Integer t1) {
-                if (integer == null || t1 == null) return -1;
-                if (integer > t1) return 1;
-                if (integer.equals(t1)) return 0;
-                return -1;
-            }
-        });
+        result.sort(Comparator.comparingInt(a -> a));
 
         ListNode node = new ListNode(result.get(0));
 
