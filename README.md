@@ -29,6 +29,7 @@ topic : limit 50
 |    20 | Valid Parentheses  |   Medium      | 98.34% |
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
 |    22 | Generate Parentheses  |   Medium      | 93.50% |
+|    23 | Merge k Sorted Lists  |   Medium      | 100.00% |
 |    28 | Implement strStr()  |   Easy      | 100.00% |
 |   35 | Search Insert Position  |   Easy      | 100% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
