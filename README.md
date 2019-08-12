@@ -107,7 +107,8 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
-|    4o9 | Longest Palindrome |  Medium      | 100.00% |
+|    409 | Longest Palindrome |  Medium      | 100.00% |
+|    450 | Delete Node in a BST |  Medium      | 100.00% |
 |    461 | Hamming Distance |  Easy      | 100.00% |
 |    518 | Coin Change 2 |  Medium      | 51.75% |
 |    540 | Single Element in a Sorted Array |  Medium      | 100.00% |

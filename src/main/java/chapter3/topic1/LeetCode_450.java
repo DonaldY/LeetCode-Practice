@@ -42,7 +42,7 @@ class TreeNode {
 
 public class LeetCode_450 {
 
-    // Time: o(h), Space: o(h)
+    // Time: o(h), Space: o(h), Faster: 100.00%
     public TreeNode deleteNode(TreeNode root, int key) {
 
         if (root == null) return root;
