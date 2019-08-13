@@ -1,4 +1,4 @@
-package chapter2.topic1;
+package chapter2.topic2;
 
 /**
  * 263. Ugly Number
