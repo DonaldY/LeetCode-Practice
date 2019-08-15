@@ -67,6 +67,7 @@ topic : limit 50
 |  131 | Palindrome Partitioning  |   Medium      | 97.45%|
 |  136 | Single Number  |   Easy      | 100%|
 |  141 | Linked List Cycle  |   Easy      | 100%|
+|  142 | Linked List Cycle II  |   Medium      | 100%|
 |  144 | Binary Tree Preorder Traversal  |   Easy      | 100%|
 |  146 | LRU Cache  |   Medium      | 5.06%|
 |  152 | Maximum Product Subarray  |   Medium      | 99.18%|
