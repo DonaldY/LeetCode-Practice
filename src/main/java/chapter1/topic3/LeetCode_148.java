@@ -47,7 +47,7 @@ public class LeetCode_148 {
         quickSort(slow.next, end);
     }
 
-    // Time: O(n*log(n)), Space: O(n)
+    // Time: O(n*log(n)), Space: O(n), Faster: 6.60%
     public ListNode quickSortList(ListNode head) {
         quickSort(head, null);
         return head;
@@ -72,7 +72,7 @@ public class LeetCode_148 {
         return dummy.next;
     }
 
-    // Time: O(n*log(n)), Space: O(log(n))
+    // Time: O(n*log(n)), Space: O(log(n)), Faster: 97.67%
     public ListNode mergeSortList(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode fast = head, slow = head;
