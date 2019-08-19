@@ -17,6 +17,8 @@ package chapter1.topic3;
  * 思路：
  * 1. 先生成数组，再排序，然后生成链表
  * 2. 丢入最小堆里，然后再生成
+ * 3. 类比快速排序
+ * 4. 归并排序
  */
 public class LeetCode_148 {
 
