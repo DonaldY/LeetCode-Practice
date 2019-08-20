@@ -68,6 +68,7 @@ topic : limit 50
 |  128 | Longest Consecutive Sequence  |   Hard      | 60.22% |
 |  131 | Palindrome Partitioning  |   Medium      | 97.45%|
 |  136 | Single Number  |   Easy      | 100%|
+|  139 | Word Break  |   Medium      | 100%|
 |  141 | Linked List Cycle  |   Easy      | 100%|
 |  142 | Linked List Cycle II  |   Medium      | 100%|
 |  144 | Binary Tree Preorder Traversal  |   Easy      | 100%|
