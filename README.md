@@ -99,6 +99,7 @@ topic : limit 50
 |    239 | Sliding Window Maximum    |   Hard      | 94.50% |
 |    240 | Search a 2D Matrix II |  Easy      | 100% |
 |    263 | Ugly Number |  Easy      | 99.72% |
+|    264 | Ugly Number II |  Medium      | 98.81% |
 |    268 | Missing Number |  Easy      | 100% |
 |    283 | Move Zeroes |  Easy      | 100% |
 |    344 | Reverse String |  Easy      | 100% |
