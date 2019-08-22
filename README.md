@@ -32,6 +32,7 @@ topic : limit 50
 |    23 | Merge k Sorted Lists  |   Medium      | 100.00% |
 |    28 | Implement strStr()  |   Easy      | 100.00% |
 |    31 | Next Permutation  |   Medium      | 89.92% |
+|    32 | Longest Valid Parentheses  |   Hard      | 100.00% |
 |    33 | Search in Rotated Sorted Array  |   Medium      | 100.00% |
 |   35 | Search Insert Position  |   Easy      | 100% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
