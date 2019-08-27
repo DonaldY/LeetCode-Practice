@@ -1,6 +1,5 @@
 package chapter1.topic1;
 
-import java.util.List;
 
 /**
  * LeetCode 2
