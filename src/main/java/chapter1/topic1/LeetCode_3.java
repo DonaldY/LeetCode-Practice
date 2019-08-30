@@ -18,16 +18,22 @@ import java.util.Map;
  * 思路：
  * 1. 暴力解决
  * 2. 滑动窗口
+ *    即双指针： i, j（i 表示起始，j 表示移动）
+ *
+ *    当j 遇到 重复数字时候， i ++， j + 1
+ *
+ *    优化：
+ *    i = index[首个重复数字下标] 开始， j = j + 1
  */
 
 public class LeetCode_3 {
 
     public static void main(String[] args) {
-        String  str = "pwwkew";
+        String  str = "abcade";
 
         LeetCode_3 longest = new LeetCode_3();
 
-        System.out.println(longest.lengthOfLongestSubstring(str));
+        System.out.println(longest.lengthOfLongestSubstring2N(str));
     }
 
     public int lengthOfLongestSubstring(String s) {
