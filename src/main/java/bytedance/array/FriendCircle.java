@@ -20,7 +20,10 @@ package bytedance.array;
  * 思路：
  * 1. dfs
  * 2. bfs
- * 3. 并查集
+ * 3. 并查集(Disjoint Set Union)
+ *    I.  先初始化，各自为组
+ *    II. 找各自的根节点
+ *    III.若不相同，则合并为同一个节点（即合并为同一颗树，其他不变），总group --
  */
 public class FriendCircle {
 
@@ -67,5 +70,41 @@ public class FriendCircle {
 
             if (m[index][i] == 1 && i != index) findFriends(m, visit, i);
         }
+    }
+
+    public int findCircleNumWithDisjointSetUnion(int [][] M) {
+
+        int [] par = new int[M.length];
+
+        int result = par.length;
+
+        for (int i = 0; i < par.length; ++i) par[i] = i;
+
+        for (int i = 0; i < M.length; ++i) {
+
+            for (int j = 0; j < M[0].length; ++j) {
+
+                if (i == j || M[i][j] != 1) continue;
+
+                int root1 = findUnitRoot(par, i);
+                int root2 = findUnitRoot(par, j);
+
+                if (root1 != root2) {
+
+                    par[root2] = root1;
+
+                    --result;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private int findUnitRoot(int[] par, int x) {
+        if (par[x] == x)
+            return x;
+        else
+            return par[x] = findUnitRoot(par, par[x]);
     }
 }
