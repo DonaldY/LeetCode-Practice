@@ -28,6 +28,7 @@ import java.util.Stack;
  *
  * 思路:
  * 1. 用优先队列保证最小值, stack保证栈
+ * 2. 或者两个栈, 一个保存原始数, 一个保存最小数(只有比当前的数小的数, 才能加入)
  */
 public class MinStack {
 
@@ -66,5 +67,31 @@ public class MinStack {
         if (stack.isEmpty() || queue.isEmpty()) return 0;
 
         return queue.peek();
+    }
+}
+
+
+// Time: o(n) Space: o(n) faster: 73.84%
+class MinStack2 {
+
+    private Stack<Integer> stack = new Stack<>();
+    private Stack<Integer> min = new Stack<>();
+
+    public void push(int x) {
+        stack.push(x);
+        if (min.isEmpty() || x <= getMin()) min.push(x);
+    }
+
+    public void pop() {
+        if (stack.peek() == getMin()) min.pop();
+        stack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return min.peek();
     }
 }
