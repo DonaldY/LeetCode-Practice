@@ -27,6 +27,7 @@ import java.util.Stack;
  * 题意: 设计最小栈
  *
  * 思路:
+ * 1. 用优先队列保证最小值, stack保证栈
  */
 public class MinStack {
 
