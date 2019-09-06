@@ -2,9 +2,6 @@ package bytedance.datastruct;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 /**
  * 数据结构 - LRU缓存机制
  *
