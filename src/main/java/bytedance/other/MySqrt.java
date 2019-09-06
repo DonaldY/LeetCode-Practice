@@ -24,6 +24,8 @@ package bytedance.other;
  *
  * 思路:
  * 1. 1 ~ x/2, 找到一个比x小的数
+ * 2. 二分查找
+ * 3. 牛顿迭代法
  *
  * Tips: 相乘可能越界
  */
@@ -36,6 +38,7 @@ public class MySqrt {
         System.out.println(mySqrt.mySqrt(2147483647));
     }
 
+    // Time: o(n), Space: o(1)
     public int mySqrt(int x) {
 
         int result = 0;
