@@ -1,4 +1,4 @@
-package chapter1.topic2;
+package chapter1.topic3;
 
 import java.util.Arrays;
 import java.util.HashSet;
