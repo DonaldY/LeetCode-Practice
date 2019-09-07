@@ -31,7 +31,20 @@ package bytedance.dp;
  * 题意: 可多次购买, 多次卖出, 求最大收益
  *
  * 思路:
- * 1. DP
+ * 1. 贪心算法
+ *
+ * 序列无非三种排列
+ *
+ * 递增，假设A<B<C<DA<B<C<D
+ * 递减，假设A>B>C>DA>B>C>D
+ * 无序，假设A<B>C<DA<B>C<D
+ * 对于递增序列，最大的差值就是D−AD−A，因为(D−A)=(D−C)+(C−B)+(B−A)>(D−C)+(B−A)(D−A)=(D−C)+(C−B)+(B−A)>(D−C)+(B−A)
+ * 对于递减序列，为0
+ *
+ * 对于无序序列，总可以找到若干个递增序列，就上面的例子而言最大差值为(B−A)+(D−C)(B−A)+(D−C)，
+ * 而实际上也可以写成(D−C)+max(C−B,0)+(B−A)(D−C)+max(C−B,0)+(B−A)，和递增序列的形式是一样的
+ *
+ * 所以只要依次计算prices[i]−prices[i−1]prices[i]−prices[i−1]即可
  */
 public class MaxProfitII {
 
