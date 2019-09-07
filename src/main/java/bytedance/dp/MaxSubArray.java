@@ -15,6 +15,10 @@ package bytedance.dp;
  *
  * 思路:
  * 1. 两层for循环
+ * 2. DP
+ *    如果前面累加的数 <= 0, 则对后面的数没有贡献
+ *    1. 若前面的值累加 <= 0, 则下标从当前开始
+ *    2. 判断每次求最大值
  */
 public class MaxSubArray {
 
@@ -42,5 +46,40 @@ public class MaxSubArray {
         return max;
     }
 
+    // Time: o(n), Space: o(1)
+    public int maxSubOfArray(int[] nums) {
 
+        if (nums == null || nums.length == 0) return 0;
+
+        int max = nums[0], temp = 0;
+
+        for (int i = 0; i < nums.length; ++i) {
+
+            temp += nums[i];
+
+            if (temp < 0) {
+
+                max = Math.max(max, temp);
+                temp = 0;
+                continue;
+            }
+
+            max = Math.max(max, temp);
+        }
+
+        return max;
+    }
+
+    // Time: o(n), Space: o(1)
+    public int maxSubOfArray2(int [] nums) {
+
+        int max = Integer.MIN_VALUE, cur = 0;
+
+        for (int i = 0; i < nums.length; ++i) {
+            cur = cur <= 0 ? nums[i] : (cur + nums[i]);
+            max = Math.max(max, cur);
+        }
+
+        return max;
+    }
 }
