@@ -22,7 +22,7 @@ package bytedance.array;
  *
  * 思路:
  * 1. 两层 for 循环
- * 2.
+ * 2. 指针判断
  */
 public class FindLengthOfLCIS {
 
@@ -44,6 +44,31 @@ public class FindLengthOfLCIS {
             }
 
             if (len > result) result = len;
+        }
+
+        return result;
+    }
+
+    // Time: o(n), Space: o(1)
+    public int findLengthOfLCIS2(int [] nums) {
+
+        if (nums == null || nums.length == 0) return 0;
+
+        int result = 1;
+
+        int len = 1;
+
+        for (int i = 1; i < nums.length; ++i) {
+
+            if (nums[i] <= nums[i - 1]) {
+
+                len = 1;
+                continue;
+            }
+
+            ++len;
+
+            result = Math.max(len, result);
         }
 
         return result;
