@@ -1,6 +1,7 @@
 package bytedance.string;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,5 +65,14 @@ public class ReverseWords {
         }
 
         return stringBuffer.toString();
+    }
+
+    public String reverseWords2(String s) {
+
+        String[] words = s.trim().split(" +");
+
+        Collections.reverse(Arrays.asList(words));
+
+        return String.join(" ", words);
     }
 }
