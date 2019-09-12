@@ -11,8 +11,11 @@ package bytedance.linkedlist;
  *
  * 思路:
  * 若相交, 则最后节点一定相同
+ *
+ * 其实只要保证两个指针走的距离一样就行, 如同下面两个方法
+ *
  * 1. 长度相同, 先找到两个链表的长度, 再在同长度下查找
- * 2. 交互查找
+ * 2. 交互查找, 两指针都走了同样的距离
  */
 public class IntersectionNode {
 
@@ -36,6 +39,22 @@ public class IntersectionNode {
 
             p = p.next;
             q = q.next;
+        }
+
+        return p;
+    }
+
+    // Time: o(n + m), Space: o(1)
+    public ListNode getIntersectionNodeWithoutLen(ListNode headA, ListNode headB) {
+
+        if (headA == null || headB == null) return null;
+
+        ListNode p = headA, q = headB;
+
+        while (p != q) {
+
+            p = p == null ? headB : p.next;
+            q = q == null ? headA : q.next;
         }
 
         return p;
