@@ -59,4 +59,14 @@ public class LeetCode_876 {
 
         return p;
     }
+
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public ListNode getMiddleNodeOnePass(ListNode head) {
+        ListNode fast = head, slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
 }
