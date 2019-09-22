@@ -145,3 +145,4 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
+|    876 | Min Cost Climbing Stairs |  Easy      | 100% |

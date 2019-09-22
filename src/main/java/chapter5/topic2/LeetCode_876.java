@@ -24,6 +24,7 @@ package chapter5.topic2;
  *
  * 思路：
  * 1. 求总数，再找中间节点
+ * 2. 快指针 和 慢指针
  */
 class ListNode {
     int val;
