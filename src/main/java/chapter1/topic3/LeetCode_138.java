@@ -1,6 +1,7 @@
 package chapter1.topic3;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。
@@ -70,5 +71,63 @@ public class LeetCode_138 {
         }
 
         return map.get(head);
+    }
+
+    // Time: o(n), Space: o(n), Faster: 99.80%
+    public Node copyListWithRandomPointer(Node head) {
+
+        if (head == null) return null;
+
+        Map<Node, Node> map = new HashMap<>();
+
+        Node copyHead = new Node(head.val, null, null);
+
+        map.put(head, copyHead);
+
+        for (Node p = head.next, q = copyHead; p != null; p = p.next, q = q.next) {
+            q.next = new Node(p.val, null, null);
+            map.put(p, q.next);
+        }
+
+        for (Node p = head, q = copyHead; p != null; p = p.next, q = q.next) {
+            if (p.random != null) {
+                q.random = map.get(p.random);
+            }
+        }
+
+        return copyHead;
+    }
+
+    // Time: o(n), Space: o(1), Faster: 99.80%
+    public Node copyListWithRandomPointer01(Node head) {
+
+        if (head == null) return null;
+
+        // 创建初始节点
+        for (Node p = head; p != null; p = p.next.next) {
+            Node copy = new Node(p.val, null, null);
+            copy.next = p.next;
+            p.next = copy;
+        }
+
+        // 建立 random 关系
+        for (Node p = head; p != null; p = p.next.next) {
+            if (p.random != null) {
+                p.next.random = p.random.next;
+            }
+        }
+
+        // 建立 next 关系
+        Node dummy = new Node(0, null, null);
+        Node p = head, cp = dummy;
+        while (p != null) {
+
+            Node copy = p.next, next = p.next.next;
+            cp.next = copy;
+            cp = copy;
+            p.next = next;
+            p = next;
+        }
+        return dummy.next;
     }
 }
