@@ -69,6 +69,7 @@ topic : limit 50
 |  128 | Longest Consecutive Sequence  |   Hard      | 60.22% |
 |  131 | Palindrome Partitioning  |   Medium      | 97.45%|
 |  136 | Single Number  |   Easy      | 100%|
+|  138 | Random List Node  |   Medium      | 100%|
 |  139 | Word Break  |   Medium      | 100%|
 |  141 | Linked List Cycle  |   Easy      | 100%|
 |  142 | Linked List Cycle II  |   Medium      | 100%|
@@ -78,6 +79,7 @@ topic : limit 50
 |  152 | Maximum Product Subarray  |   Medium      | 99.18%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 |  169 | Majority Element  |   Easy      | 76.41%|
+|  189 | Rotate  |   Easy      | 100.00%|
 |  191 | Number of 1 Bits  |   Easy      | 100.00%|
 |  198 | House Robber  |   Easy      | 100.00%|
 |  200 | Number of Islands  |   Easy      | 100.00%|
@@ -145,4 +147,4 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
-|    876 | Min Cost Climbing Stairs |  Easy      | 100% |
+|    876 | Middle Node |  Easy      | 100% |
