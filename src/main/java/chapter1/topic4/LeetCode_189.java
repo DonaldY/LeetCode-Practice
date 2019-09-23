@@ -33,9 +33,12 @@ import java.util.Stack;
  */
 public class LeetCode_189 {
 
+    // Time: o(n), Space: o(n), Faster: 36.74%
     public void rotate(int[] nums, int k) {
 
-        if (k <= 0) return;
+        if (nums == null || nums.length == 0 || k <= 0) return;
+
+        k = k % nums.length;
 
         Stack<Integer> stack = new Stack<>();
 
