@@ -27,8 +27,11 @@ import java.util.*;
  *
  * 思路：
  * 1. 直接查找
- *    1. 遍历一遍拷贝所有节点, 利用对象引用特性
+ *    1. 遍历一遍拷贝所有节点
+ *    2. 建立连接，利用对象引用特性
  *
+ * 2. 直接查找
+ *    1. 遍历一遍拷贝所有节点, 利用对象引用特性
  */
 public class LeetCode_133 {
 
@@ -101,6 +104,34 @@ public class LeetCode_133 {
         for (Node n : node.neighbors) {
 
             traverseGraph(n, map, set);
+        }
+    }
+
+    // Time: o(n ^ 2), Space: o(n), Faster: 100.00%
+    public Node cloneGraph2(Node node) {
+
+        if (node == null) return null;
+
+        Map<Node, Node> map = new HashMap<>();
+
+        traverse(node, map);
+
+        return map.get(node);
+    }
+
+    private void traverse(Node node, Map<Node, Node> map) {
+
+        if (node == null || map.containsKey(node)) return;
+
+        Node copyNode = new Node(node.val, new ArrayList<>());
+
+        map.put(node, copyNode);
+
+        for (Node neighbor : node.neighbors) {
+
+            traverse(neighbor, map);
+
+            copyNode.neighbors.add(map.get(neighbor));
         }
     }
 }
