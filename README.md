@@ -50,6 +50,7 @@ topic : limit 50
 |    76 | Minimum Window Substring  |   Hard      | 88.65% |
 |    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
+|    86 | Partition List  |   Medium      | 100.00% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    91 | Decode Ways  |   Medium      | 98.68% |
 |    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
