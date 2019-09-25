@@ -28,6 +28,8 @@ package chapter1.topic1;
  * 2. 下标法
  *    在可达坐标下，添加步长数
  *
+ * 3. 下标法（减空间复杂度）
+ *
  */
 public class LeetCode_45 {
 
@@ -56,7 +58,7 @@ public class LeetCode_45 {
     // Time: o(n), Space: o(n), Faster: 48.30%
     public int numOfJumpToLast(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
-        int n = nums.length, max = 0;
+        int n = nums.length, max = 0; // 最远可达的下标
         int[] d = new int[n];
         for (int i = 0; i < n; ++i) {
             if (max >= n - 1) return d[n - 1];
@@ -66,6 +68,23 @@ public class LeetCode_45 {
             for (int j = last; j > i && d[j] == 0; --j) {
                 d[j] = d[i] + 1;
             }
+        }
+        return -1;
+    }
+
+    // Time: o(n), Space: o(1), Faster: 99.99%
+    public int numOfJumpToLast01(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        if (nums.length == 1) return 0;
+        int n = nums.length, max = 0, jumps = 0, currEnd = 0;
+        for (int i = 0; i < n; ++i) {
+            if (max >= n - 1) return jumps + 1;
+            if (i > max) return  -1;
+            if (i > currEnd) {
+                ++jumps;
+                currEnd = max;
+            }
+            max = Math.max(max, i + nums[i]);
         }
         return -1;
     }
