@@ -38,6 +38,7 @@ topic : limit 50
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
+|    55 | Jump Game  |   Medium      | 99.10% |
 |    56 | Merge Intervals  |   Medium      | 57.26% |
 |    62 | Unique Paths  |   Medium      | 100.00% |
 |    63 | Unique Paths II  |   Medium      | 100.00% |
