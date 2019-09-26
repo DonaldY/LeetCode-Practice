@@ -21,6 +21,16 @@ package chapter1.topic1;
  * 1. 先找到最大值，
  *    从左开始计算, 若比当前最大值小，则减，直至到最大值
  *    从右开始计算, 若比当前最大值小，则减，直至到最大值
+ *
+ * 2. 从左到右扫描，再从右到左扫描，min(leftMax, rightMax) - originalNum
+ *    原数据： 0 2 0 4 0 1 2
+ *    左边扫： 0 2 2 4 4 4 4 取最大值
+ *    右边扫： 4 4 4 4 2 2 2 取最大值
+ *    最小减： 0 0 2 0 2 1 0 min(leftMax, rightMax) - originalNum
+ *
+ * 3. 简化 2， 空间复杂度
+ *    记录左右两边指针，向中间扫
+ *    公式： min(leftMax, rightMax) - originalNum
  */
 public class LeetCode_42 {
 
@@ -49,5 +59,50 @@ public class LeetCode_42 {
         }
 
         return sum;
+    }
+
+    // Time: O(n), Space: O(n)
+    public int waterCanBeTrap(int[] height) {
+
+        if (height == null || height.length == 0) return 0;
+
+        int n = height.length, leftMax = -1, rightMax = -1, water = 0;
+
+        int[] d = new int[n];
+
+        for (int i = 0; i < n; ++i) {
+
+            leftMax = Math.max(leftMax, height[i]);
+            d[i] = leftMax;
+        }
+
+        for (int i = n-1; i >= 0; --i) {
+
+            rightMax = Math.max(rightMax, height[i]);
+            d[i] = Math.min(d[i], rightMax);
+            water += (d[i] - height[i]);
+        }
+
+        return water;
+    }
+
+    // Time: O(n), Space: O(1), Faster: 98.20%
+    public int waterCanBeTrapO1(int[] height) {
+
+        if (height == null || height.length == 0) return 0;
+
+        int leftMax = -1, rightMax = -1, water = 0;
+
+        int i = 0, j = height.length - 1;
+
+        while (i <= j) {
+
+            leftMax = Math.max(leftMax, height[i]);
+            rightMax = Math.max(rightMax, height[j]);
+            if (leftMax < rightMax) water += (leftMax - height[i++]);
+            else water += (rightMax - height[j--]);
+        }
+
+        return water;
     }
 }

@@ -35,6 +35,7 @@ topic : limit 50
 |    32 | Longest Valid Parentheses  |   Hard      | 100.00% |
 |    33 | Search in Rotated Sorted Array  |   Medium      | 100.00% |
 |   35 | Search Insert Position  |   Easy      | 100% |
+|    42 | Trapping Rain Water  |   Hard      | 98.20% |
 |    45 | Jump Game II  |   Hard      | 99.99% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
