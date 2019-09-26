@@ -43,6 +43,7 @@ topic : limit 50
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    55 | Jump Game  |   Medium      | 99.10% |
 |    56 | Merge Intervals  |   Medium      | 57.26% |
+|    61 | Rotate List  |   Medium      | 100.00% |
 |    62 | Unique Paths  |   Medium      | 100.00% |
 |    63 | Unique Paths II  |   Medium      | 100.00% |
 |    64 | Minimum Path Sum  |   Medium      | 99.61% |
