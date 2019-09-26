@@ -34,7 +34,8 @@ topic : limit 50
 |    31 | Next Permutation  |   Medium      | 89.92% |
 |    32 | Longest Valid Parentheses  |   Hard      | 100.00% |
 |    33 | Search in Rotated Sorted Array  |   Medium      | 100.00% |
-|   35 | Search Insert Position  |   Easy      | 100% |
+|    34 | Find First and Last Position of Element in Sorted Array  |   Medium      | 100% |
+|    35 | Search Insert Position  |   Easy      | 100% |
 |    42 | Trapping Rain Water  |   Hard      | 98.20% |
 |    45 | Jump Game II  |   Hard      | 99.99% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |

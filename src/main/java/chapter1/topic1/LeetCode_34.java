@@ -35,7 +35,7 @@ public class LeetCode_34 {
         leetCode_34.searchRange(new int[]{5,7,7,8,8,10}, 8);
     }
 
-    // Time: O(logn), Space: O(1), Faster: 100.00%
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int[] searchRange(int[] nums, int target) {
 
         if (nums == null || nums.length == 0) return new int[]{-1, -1};
@@ -73,5 +73,25 @@ public class LeetCode_34 {
         }
 
         return new int[]{start, end};
+    }
+
+    private int binarySearchLastOne(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (target < nums[mid]) high = mid - 1;
+            else low = mid + 1;
+        }
+        return high;
+    }
+
+    // Time: O(log(n)), Space: O(1)
+    public int[] binarySearchFirstAndLastPosition(int[] nums, int target) {
+        if (nums == null || nums.length == 0) return new int[]{-1, -1};
+        int end = binarySearchLastOne(nums, target);
+        int start = binarySearchLastOne(nums, target-1) + 1;
+        if (start >= 0 && start <= end && end < nums.length)
+            return new int[]{start, end};
+        else return new int[]{-1, -1};
     }
 }
