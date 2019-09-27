@@ -36,6 +36,7 @@ topic : limit 50
 |    33 | Search in Rotated Sorted Array  |   Medium      | 100.00% |
 |    34 | Find First and Last Position of Element in Sorted Array  |   Medium      | 100% |
 |    35 | Search Insert Position  |   Easy      | 100% |
+|    39 | Combination Sum  |   Medium      | 99.83% |
 |    42 | Trapping Rain Water  |   Hard      | 98.20% |
 |    45 | Jump Game II  |   Hard      | 99.99% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
