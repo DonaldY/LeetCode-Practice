@@ -40,6 +40,7 @@ topic : limit 50
 |    42 | Trapping Rain Water  |   Hard      | 98.20% |
 |    45 | Jump Game II  |   Hard      | 99.99% |
 |    46 | Regular Expression Matching  |   Easy      | 99.75% |
+|    48 | Rotate Image  |   Medium      | 100.00% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
 |    53 | Maximum Subarray  |   Easy      | 95.05% |
 |    55 | Jump Game  |   Medium      | 99.10% |
