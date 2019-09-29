@@ -56,6 +56,7 @@ topic : limit 50
 |    74 | Search a 2D Matrix  |   Medium      | 100% |
 |    75 | Sort Colors  |   Medium      | 100% |
 |    76 | Minimum Window Substring  |   Hard      | 88.65% |
+|    78 | Subsets  |   Medium      | 100.00% |
 |    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
 |    86 | Partition List  |   Medium      | 100.00% |
