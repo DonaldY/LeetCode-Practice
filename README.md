@@ -57,6 +57,7 @@ topic : limit 50
 |    75 | Sort Colors  |   Medium      | 100% |
 |    76 | Minimum Window Substring  |   Hard      | 88.65% |
 |    78 | Subsets  |   Medium      | 100.00% |
+|    79 | Word Search  |   Medium      | 87.88% |
 |    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
 |    86 | Partition List  |   Medium      | 100.00% |
@@ -75,6 +76,7 @@ topic : limit 50
 |  112 |  Path Sum  |   Easy      |  100.00%|
 |  121 |  Best Time to Buy and Sell Stock  |   Easy      |  87.07%|
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
+|  117 | Populating Next Right Pointers in Each Node II  |   Medium      | 41.10%|
 |  118 | Pascal's Triangle  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
 |  128 | Longest Consecutive Sequence  |   Hard      | 60.22% |
