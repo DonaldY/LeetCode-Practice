@@ -70,7 +70,7 @@ public class LeetCode_78 {
         for (int i = 0; i < N; ++i) {
             List<Integer> elem = new ArrayList<>();
             for (int j = 0; j < n; ++j)
-                if (((i >> j) & 1) == 1)
+                if (((i >> j) & 1) == 1) // 0&0=0;   0&1=0;    1&0=0;     1&1=1;
                     elem.add(nums[j]);
             result.add(elem);
         }
