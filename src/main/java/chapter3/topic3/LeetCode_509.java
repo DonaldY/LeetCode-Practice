@@ -37,7 +37,7 @@ package chapter3.topic3;
  */
 public class LeetCode_509 {
 
-    // Time: O(n), Space: O(1), Faster: 26.11%
+    // Time: O(2 ^ n), Space: O(n), Faster: 26.11%
     public int fib(int N) {
 
         if (N == 0) return 0;
