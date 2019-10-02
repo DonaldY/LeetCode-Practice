@@ -15,7 +15,13 @@ package chapter2.topic1;
  *
  * 思路：
  * 1. 每一个数字计算一遍 o(n * log10(n))
- * 2.
+ * 2. 按位求数量
+ *    abcde
+ *    ab 为 high， de 为 low
+ *    factor: 1/10/100 ...
+ *    c == 0 => high * factor
+ *    c == 1 => high * factor + low + 1
+ *    else => (high + 1) * factor
  *
  */
 public class LeetCode_233 {
