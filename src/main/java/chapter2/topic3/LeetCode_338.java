@@ -64,7 +64,7 @@ public class LeetCode_338 {
         return cnt;
     }
 
-    // Time: O(n * k), Space: O(1), Faster:
+    // Time: O(n * k), Space: O(1), Faster: 99.78%
     public int[] countBitsWith(int num) {
 
         if (num < 0) return new int[0];
