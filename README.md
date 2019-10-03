@@ -112,6 +112,7 @@ topic : limit 50
 |    215 | Kth Largest Element in an Array    |   Medium      | 42.15% |
 |    218 | The Skyline Problem    |   Hard      | 20.81% |
 |    226 | Invert Binary Tree    |   Easy      | 100.00% |
+|    232 | Implement Queue using Stacks    |   Easy      | 36.88% |
 |    233 | Number of Digit One    |   Hard      | 100.00% |
 |    234 | Palindrome Linked List    |   Easy      | 95.50% |
 |    239 | Sliding Window Maximum    |   Hard      | 94.50% |
