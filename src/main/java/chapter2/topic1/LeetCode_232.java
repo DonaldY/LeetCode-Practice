@@ -85,4 +85,33 @@ public class LeetCode_232 {
         }
     }
 
+    class MyQueue2 {
+
+        private Stack<Integer> in = new Stack<>(), out = new Stack<>();
+
+        private void transferIfEmpty() {
+            if (out.empty())
+                while (!in.empty())
+                    out.push(in.pop());
+        }
+
+        public void push(int x) {
+            in.push(x);
+        }
+
+        public int pop() {
+            transferIfEmpty();
+            return out.pop();
+        }
+
+        public int peek() {
+            transferIfEmpty();
+            return out.peek();
+        }
+
+        public boolean empty() {
+            return in.empty() && out.empty();
+        }
+    }
+
 }
