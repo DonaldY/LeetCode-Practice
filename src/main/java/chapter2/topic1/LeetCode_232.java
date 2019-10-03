@@ -85,6 +85,7 @@ public class LeetCode_232 {
         }
     }
 
+    // Time: O(n), Space: O(n), Faster: 99.65%
     class MyQueue2 {
 
         private Stack<Integer> in = new Stack<>(), out = new Stack<>();
