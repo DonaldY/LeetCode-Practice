@@ -33,11 +33,12 @@ import java.util.Queue;
  *
  * 思路：
  * 1. 前序遍历将树放入队列中，然后取出赋值
+ * 2. 一边做前序遍历，一边做二叉树(右左根)
  *
  */
 public class LeetCode_114 {
 
-    // Time: O(n), Space: O(h), Faster: 68.72%
+    // Time: O(n), Space: O(n), Faster: 68.72%
     public void flatten(TreeNode root) {
 
         if (root == null) return;
@@ -62,5 +63,18 @@ public class LeetCode_114 {
         queue.add(root);
         preOrderTraversal(root.left, queue);
         preOrderTraversal(root.right, queue);
+    }
+
+
+    private TreeNode prev = null;
+
+    // Time: O(n), Space: O(n), Faster: 100.00%
+    public void flattenReversePreorder(TreeNode root) {
+        if (root == null) return;
+        flattenReversePreorder(root.right);
+        flattenReversePreorder(root.left);
+        root.left = null;
+        root.right = prev;
+        prev = root;
     }
 }
