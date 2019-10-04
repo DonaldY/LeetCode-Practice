@@ -84,4 +84,37 @@ public class LeetCode_207 {
 
         return false;
     }
+
+    // Time: O(V + E), Space: O(V + E), Faster: 76.35%
+    public boolean canFinishTopSortAdjList(int numCourses, int[][] prerequisites) {
+
+        if (numCourses <= 1 || prerequisites == null || prerequisites.length == 0)
+            return true;
+
+        int [] inDegree = new int[numCourses];
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < numCourses; ++i)
+            graph.add(new LinkedList<>());
+
+        for (int [] pair : prerequisites) {
+            graph.get(pair[1]).add(pair[0]);
+            ++inDegree[pair[0]];
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < inDegree.length; ++i)
+            if (inDegree[i] == 0)
+                q.add(i);
+
+        int count = 0;
+        while (!q.isEmpty()) {
+            int v = q.poll();
+            ++count;
+            for (int i : graph.get(v)) {
+                --inDegree[i];
+                if (inDegree[i] == 0) q.add(i);
+            }
+        }
+        return count == numCourses;
+    }
 }
