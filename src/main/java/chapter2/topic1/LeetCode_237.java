@@ -29,7 +29,7 @@ package chapter2.topic1;
  */
 public class LeetCode_237 {
 
-    // Time: O(1), Space: O(1), Faster:
+    // Time: O(1), Space: O(1), Faster: 100.00%
     public void deleteNode(ListNode node) {
 
         if (node == null) return;
