@@ -22,12 +22,19 @@ package chapter2.topic1;
  * Output: [4,5,9]
  * Explanation: You are given the third node with value 1, the linked list should become 4 -> 5 -> 9 after calling your function.
  *
+ * 题意： 只给出要删除节点的指针，需要删除这个节点
  *
+ * 思路：
+ * 当前节点赋值下一个节点的值，删除下一个节点
  */
 public class LeetCode_237 {
 
-    // Time: O(n), Space: O(1), Faster:
+    // Time: O(1), Space: O(1), Faster:
     public void deleteNode(ListNode node) {
 
+        if (node == null) return;
+
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 }
