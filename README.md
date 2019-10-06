@@ -91,6 +91,7 @@ topic : limit 50
 |  146 | LRU Cache  |   Medium      | 5.06%|
 |  148 | Sort List  |   Medium      | 97.67%|
 |  152 | Maximum Product Subarray  |   Medium      | 99.18%|
+|  153 | Find Minimum in Rotated Sorted Array  |   Medium      | 100.00%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 |  169 | Majority Element  |   Easy      | 76.41%|
 |  189 | Rotate  |   Easy      | 100.00%|
