@@ -46,6 +46,28 @@
 
 ### 3）二分
 
+1. 旋转部分有序数组
+```java
+/**
+* 4,5,6,7,0,1,2
+* 
+* 从中找到最小值
+*/
+public class LeetCode_153 {
+
+    public int findMinEarlyReturn(int[] nums) {
+        int low = 0, high = nums.length - 1;
+        while (low < high) {
+            if (nums[low] < nums[high]) return nums[low]; // 剪枝
+            int mid = low + (high - low) / 2;
+            if (nums[mid] > nums[high]) low = mid + 1;
+            else high = mid;
+        }
+        return nums[low];
+    }
+}
+```
+
 ### 4）贪心
 
 
