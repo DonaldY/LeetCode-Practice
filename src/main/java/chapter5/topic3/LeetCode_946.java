@@ -40,10 +40,11 @@ import java.util.Stack;
  */
 public class LeetCode_946 {
 
-    // Time: O(n * n), Space: O(n), Faster: 51.30%
+    // 空间复杂度为 2n，计算下就可以了。
+    // Time: O(n), Space: O(n), Faster: 51.30%
     public boolean validateStackSequences(int[] pushed, int[] popped) {
 
-        if (pushed == null || popped == null) return true;
+        if (pushed == null || popped == null) return false;
 
         if (pushed.length != popped.length) return false;
 
@@ -64,5 +65,25 @@ public class LeetCode_946 {
 
         return stack.isEmpty();
 
+    }
+
+    // Time: O(n), Space: O(n)
+    public boolean validateStackSequencesArray(int[] pushed, int[] popped) {
+        if (pushed == null || popped == null
+                || pushed.length != popped.length)
+            return false;
+
+        int[] stack = new int[pushed.length];
+
+        int p = 0, top = -1;
+
+        for (int num: pushed) {
+            stack[++top] = num;
+            while (top != -1 && stack[top] == popped[p]) {
+                --top;
+                ++p;
+            }
+        }
+        return top == -1;
     }
 }

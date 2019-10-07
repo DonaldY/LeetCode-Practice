@@ -84,6 +84,13 @@ public class LeetCode_153 {
 
 ### 1）栈
 
+```java
+// Example
+public class LeetCode {
+    Stack<Integer> stack = new Stack<>();
+}
+```
+
 ### 2）队列
 
 
