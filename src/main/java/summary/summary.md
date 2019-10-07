@@ -87,6 +87,7 @@ public class LeetCode_153 {
 ```java
 // Example
 public class LeetCode {
+    // 无法初始化长度，所以可能会动态扩容，这时候用数组可能更有效
     Stack<Integer> stack = new Stack<>();
 }
 ```
