@@ -76,6 +76,7 @@ topic : limit 50
 |  112 |  Path Sum  |   Easy      |  100.00%|
 |  121 |  Best Time to Buy and Sell Stock  |   Easy      |  87.07%|
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
+|  113 | Path Sum II  |   Medium      | 100%|
 |  117 | Populating Next Right Pointers in Each Node II  |   Medium      | 41.10%|
 |  118 | Pascal's Triangle  |   Easy      | 100%|
 |  125 | Valid Palindrome  |   Easy      | 99.83%|
@@ -169,4 +170,5 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
-|    876 | Middle Node |  Easy      | 100% |
+|    876 | Middle Node |  Easy      | 100.00% |
+|    946 | Validate Stack Sequences |  Medium      | 98.43% |
