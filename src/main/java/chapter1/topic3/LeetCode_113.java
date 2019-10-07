@@ -1,8 +1,6 @@
 package chapter1.topic3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * 113. Path Sum II
@@ -38,7 +36,7 @@ import java.util.List;
  */
 public class LeetCode_113 {
 
-    // Time:O(), Space: O(), Faster: 100.00%
+    // Time:O(n), Space: O(n), Faster: 100.00%
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
 
         if (root == null) return Collections.emptyList();
@@ -65,6 +63,41 @@ public class LeetCode_113 {
         if (root.left != null) traversal(root.left, sum - root.val, list, result);
         if (root.right != null) traversal(root.right, sum - root.val, list, result);
 
-        list.remove(list.size() - 1);
+        list.remove(list.size() - 1); // Time: O(1)
+    }
+
+    // Time:O(n), Space: O(n), Faster: 100.00%
+    public List<List<Integer>> pathSumIterative(TreeNode root, int sum) {
+
+        if (root == null) return Collections.emptyList();
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        List<Integer> elem = new ArrayList<>();
+
+        Stack<TreeNode> stack = new Stack<>();
+        Set<TreeNode> visited = new HashSet<>();
+
+        int curSum = 0;
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                elem.add(root.val);
+                curSum += root.val;
+                visited.add(root);
+                stack.push(root);
+                root = root.left;
+            }
+            TreeNode n = stack.peek();
+            if (n.right == null || visited.contains(n.right)) {
+                if (n.left == null && n.right == null && curSum == sum)
+                    result.add(new ArrayList<>(elem));
+                stack.pop();
+                elem.remove(elem.size() - 1);
+                curSum -= n.val;
+                root = null;
+            } else root = n.right;
+        }
+        return result;
     }
 }
