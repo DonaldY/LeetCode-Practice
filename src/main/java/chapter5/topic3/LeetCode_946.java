@@ -67,7 +67,7 @@ public class LeetCode_946 {
 
     }
 
-    // Time: O(n), Space: O(n)
+    // Time: O(n), Space: O(n), Faster: 98.43%
     public boolean validateStackSequencesArray(int[] pushed, int[] popped) {
         if (pushed == null || popped == null
                 || pushed.length != popped.length)
