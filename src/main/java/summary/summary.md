@@ -105,8 +105,23 @@ public class LeetCode {
 
 ### 2）队列
 
+```java
+// Example
+public class LeetCode {
+    // LinkedList 实现队列和双向队列的接口, Deque
+    Queue<Character> queue = new LinkedList<>();
+}
+```
+
 
 ## （3）树与图
+
+1. 树
+> 树的递归遍历也可以用栈来模拟
+```java
+
+
+```
 
 ### 1）最近公共祖先
 
