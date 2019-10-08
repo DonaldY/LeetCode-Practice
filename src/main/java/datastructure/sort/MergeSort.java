@@ -49,7 +49,7 @@ public class MergeSort {
     }
 
     // Time: O(n * log(n)), Space: O(n)
-    public void sortInterative(int [] arr) {
+    public void sortIterative(int [] arr) {
 
         if (arr == null || arr.length == 0) return;
 
