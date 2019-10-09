@@ -22,7 +22,11 @@ import java.util.Map;
  *
  * 思路：
  * 1. 统计所有数的出现次数，然后过滤只有1个次数
- * 2.
+ * 2. 位运算。（ 1 ^ 1 = 0 异或 ）
+ *    分组 （为了拆分 1 ^ 8）
+ *    1. 先遍历一遍都异或，找出值
+ *    2. 再遍历一遍，
+ *
  */
 public class LeetCode_260 {
 
@@ -53,5 +57,31 @@ public class LeetCode_260 {
         }
 
         return result;
+    }
+
+    // Time: O(n), Space: O(1), Faster: 99.62%
+    public int[] singleNumberXOR(int [] nums) {
+        int xor = 0, mask = 1;
+        for (int num : nums) xor ^= num;
+        while ((xor & mask) == 0) mask <<= 1;
+        int x = 0, y = 0;
+        for (int num : nums) {
+            if ((num & mask) == 0) x ^= num;
+            else y ^= num;
+        }
+        return new int[]{x, y};
+    }
+
+    // Time: O(n), Space: O(1), Faster: 99.62%
+    public int[] singleNumberXOR2(int [] nums) {
+        int xor = 0;
+        for (int num : nums) xor ^= num;
+        int mask = xor & (-xor);
+        int x = 0, y = 0;
+        for (int num : nums) {
+            if ((num & mask) == 0) x ^= num;
+            else y ^= num;
+        }
+        return new int[]{x, y};
     }
 }
