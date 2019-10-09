@@ -25,7 +25,7 @@ package chapter3.topic2;
  *
  * 思路：
  * 1. 先找出所有的逆序对，然后在过滤 nums[i] > 2 * nums[j]
- * 2. 直接查找
+ * 2. 分治
  */
 public class LeetCode_493 {
 
