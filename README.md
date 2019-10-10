@@ -120,6 +120,7 @@ topic : limit 50
 |    232 | Implement Queue using Stacks    |   Easy      | 36.88% |
 |    233 | Number of Digit One    |   Hard      | 100.00% |
 |    234 | Palindrome Linked List    |   Easy      | 95.50% |
+|    236 | Lowest Common Ancestor of a Binary Tree    |   Medium      | 71.07% |
 |    237 | Delete Node in a Linked List    |   Easy      | 100.00% |
 |    239 | Sliding Window Maximum    |   Hard      | 94.50% |
 |    240 | Search a 2D Matrix II |  Easy      | 100% |
