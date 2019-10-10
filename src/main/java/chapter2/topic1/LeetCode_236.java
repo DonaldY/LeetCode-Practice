@@ -1,6 +1,8 @@
 package chapter2.topic1;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -30,7 +32,12 @@ import java.util.Queue;
  *
  * 思路：
  * 1. 将p和q的父节点均保存下来，然后逐一比对
- * 2.
+ * 2. 递归中查找
+ *    1. 如果当前节点为空，或者等于目标节点p 或 q，则返回当前节点
+ *    2. 否则递归到左右子树上进行处理，返回值分别为 left 和 right
+ *    3. 如果 left 和 right 非空，则说明在左右子树上各找到一个节点，于是当前的根节点就是最近公共祖先
+ *       如果 left 和 right 只有一个非空，则返回那个非空的节点
+ *       如果都为空，就返回空指针
  */
 public class LeetCode_236 {
 
@@ -98,5 +105,36 @@ public class LeetCode_236 {
         if(left != null) return left;
 
         return right;
+    }
+
+    // Time: O(n), Space: O(n)
+    public TreeNode lcaWithPath(TreeNode root, TreeNode p, TreeNode q) {
+        List<TreeNode> ppath = new ArrayList<>();
+        List<TreeNode> qpath = new ArrayList<>();
+        search(root, p, ppath);
+        search(root, q, qpath);
+        int i = 0, len = Math.min(ppath.size(), qpath.size());
+        while (i < len && ppath.get(i) == qpath.get(i)) ++i;
+        return ppath.get(i-1);
+    }
+
+    private boolean search(TreeNode root, TreeNode node, List<TreeNode> path) {
+        if (root == null) return false;
+        path.add(root);
+        if (root == node) return true;
+        boolean ret = search(root.left, node, path) || search(root.right, node, path);
+        if (ret) return true;
+        path.remove(path.size()-1);
+        return false;
+    }
+
+    // Time: O(n), Space: O(n)
+    public TreeNode lcaExtend(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lcaExtend(root.left, p, q);
+        TreeNode right = lcaExtend(root.right, p, q);
+        if (left != null && right != null) return root;
+        else if (left != null) return left;
+        else return right;
     }
 }
