@@ -39,7 +39,10 @@ import java.util.stream.Collectors;
  *
  * 思路：
  * 1. 按空格分割，过滤空格，逆序输出
- *
+ * 2. 翻转
+ *    1. 去空格
+ *    2. 单词内部反转
+ *    3. 整个字符串翻转
  */
 public class LeetCode_151 {
 
@@ -75,5 +78,35 @@ public class LeetCode_151 {
         Collections.reverse(Arrays.asList(words));
 
         return String.join(" ", words);
+    }
+
+    // Time:O(n), Space:O(n), Faster: 99.86%
+    public String reversWords3(String s) {
+        if (s == null || s.length() == 0) return s;
+
+        char [] str = s.toCharArray();
+
+        int p = 0, q = 0, end = str.length - 1;
+
+        while (end >= 0 && str[end] == ' ') --end;
+        while (q <= end) {
+            int start = p;
+            while (q <= end && str[q] == ' ') ++q;
+            while (q <= end && str[q] != ' ') str[p++] = str[q++];
+            reverse(str, start, p - 1);
+            if (q <= end) str[p++] = ' ';
+        }
+        reverse(str, 0, p - 1);
+        return new String(str, 0, p);
+    }
+
+    private void reverse(char[] str, int i, int j) {
+
+        for (; i < j; ++i, --j) {
+
+            char tmp = str[i];
+            str[i] = str[j];
+            str[j] = tmp;
+        }
     }
 }
