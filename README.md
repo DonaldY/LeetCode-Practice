@@ -143,6 +143,7 @@ topic : limit 50
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
 |    409 | Longest Palindrome |  Medium      | 100.00% |
+|    448 | Find All Numbers Disappeared in an Array |  Easy      | 99.99% |
 |    450 | Delete Node in a BST |  Medium      | 100.00% |
 |    461 | Hamming Distance |  Easy      | 100.00% |
 |    493 | Reverse Pairs |  Hard      | 93.92% |
