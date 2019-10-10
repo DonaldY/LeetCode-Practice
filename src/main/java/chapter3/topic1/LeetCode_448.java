@@ -28,6 +28,8 @@ import java.util.List;
  *
  * 思路：
  * 1. 用数组保存已经存在的数字
+ * 2. 复用原数组
+ *    1. 因为数组的数字全为正，那么把出现过的数字标记为其相反数
  *
  */
 public class LeetCode_448 {
@@ -53,4 +55,19 @@ public class LeetCode_448 {
 
         return result;
     }
+
+    // Time: O(n), Space: O(1), Faster: 78.62%
+    public List<Integer> findDisappearedNumbersO1(int[] nums) {
+        if (nums == null || nums.length == 0) return Collections.emptyList();
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < nums.length; ++i) {
+            int idx = Math.abs(nums[i]) - 1;
+            if (nums[idx] > 0) nums[idx] = -nums[idx];
+        }
+        for (int i = 0; i < nums.length; ++i)
+            if (nums[i] > 0)
+                result.add(i+1);
+        return result;
+    }
+
 }
