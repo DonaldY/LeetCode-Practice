@@ -40,7 +40,8 @@ package chapter2.topic1;
  */
 public class LeetCode_235 {
 
-    // Time: O(log(n)), Space: O(n), Faster: 100.00%
+    // 树的高度
+    // Time: O(h), Space: O(h), Faster: 100.00%
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
         if (root == null) return null;
@@ -60,4 +61,24 @@ public class LeetCode_235 {
 
         return null;
     }
+
+    // Time: O(h), Space: O(h)
+    public TreeNode lcaRecursive(TreeNode root, TreeNode p, TreeNode q) {
+        if (p.val < root.val && q.val < root.val)
+            return lcaRecursive(root.left, p, q);
+        else if (p.val > root.val && q.val > root.val)
+            return lcaRecursive(root.right, p, q);
+        else return root;
+    }
+
+    // Time: O(h), Space: O(1)
+    public TreeNode lcaIterative(TreeNode root, TreeNode p, TreeNode q) {
+        while (root != null) {
+            if (p.val < root.val && q.val < root.val) root = root.left;
+            else if (p.val > root.val && q.val > root.val) root = root.right;
+            else return root;
+        }
+        return null;
+    }
+
 }
