@@ -148,6 +148,7 @@ topic : limit 50
 |    448 | Find All Numbers Disappeared in an Array |  Easy      | 99.99% |
 |    450 | Delete Node in a BST |  Medium      | 100.00% |
 |    461 | Hamming Distance |  Easy      | 100.00% |
+|    470 | Implement Rand10() Using Rand7() |  Medium      | 73.42% |
 |    493 | Reverse Pairs |  Hard      | 93.92% |
 |    509 | Fibonacci Number |  Easy      | 100.00% |
 |    518 | Coin Change 2 |  Medium      | 51.75% |
