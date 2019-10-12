@@ -1,5 +1,7 @@
 package chapter3.topic3;
 
+import java.util.Stack;
+
 /**
  * 538. Convert BST to Greater Tree
  *
@@ -52,5 +54,24 @@ public class LeetCode_538 {
         int cur = traverse(root.right, sum);
         root.val += cur;
         return traverse(root.left, root.val);
+    }
+
+    // Time: O(n), Space: O(n)
+    public TreeNode convertBSTIterative(TreeNode root) {
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode cur = root;
+        int sum = 0;
+
+        while (cur != null || !st.empty()) {
+            while (cur != null) {
+                st.push(cur);
+                cur = cur.right;
+            }
+            cur = st.pop();
+            cur.val += sum;
+            sum = cur.val;
+            cur = cur.left;
+        }
+        return root;
     }
 }
