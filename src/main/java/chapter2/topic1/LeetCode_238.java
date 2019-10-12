@@ -58,4 +58,38 @@ public class LeetCode_238 {
 
         return nums;
     }
+
+    // Time: O(n), Space: O(1)
+    public int[] productExceptSelfO1(int[] nums) {
+        int n = nums.length;
+        int[] output = new int[n];
+        output[n-1] = nums[n-1];
+
+        for (int j = n-2; j >= 0; --j)
+            output[j] = output[j+1] * nums[j];
+        for (int i = 1; i < n; ++i)
+            nums[i] = nums[i-1] * nums[i];
+
+        int first = output[1], last = nums[n-2];
+        for (int i = 1; i < n-1; ++i)
+            output[i] = nums[i-1] * output[i+1];
+        output[0] = first; output[n-1] = last;
+        return output;
+    }
+
+    // Time: O(n), Space: O(1)
+    public int[] productExceptSelfNotChangeInputO1(int[] nums) {
+        int n = nums.length;
+        int[] output = new int[n];
+        output[0] = 1;
+        for (int i = 1; i < n; ++i)
+            output[i] = output[i-1] * nums[i-1];
+
+        int right = 1;
+        for (int i = n-1; i >= 0; --i) {
+            output[i] *= right;
+            right *= nums[i];
+        }
+        return output;
+    }
 }
