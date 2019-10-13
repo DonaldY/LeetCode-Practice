@@ -1,5 +1,8 @@
 package chapter3.topic1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 437. Path Sum III
  *
@@ -30,10 +33,13 @@ package chapter3.topic1;
  * 2.  5 -> 2 -> 1
  * 3. -3 -> 11
  *
- * 题意： 在树中找到求和后，值相等的
+ * 题意： 在树中找到求和后，值相等的.
+ * 其中，路径不需要开始于根节点，或结束于叶子节点。但必须是从父节点到子节点。
  *
  * 思路：
  * 1. 每一个节点往下的分支都需要查找
+ *
+ * 3. 哈希表记录前缀路径和
  */
 public class LeetCode_437 {
 
@@ -71,5 +77,41 @@ public class LeetCode_437 {
         result += findPath(root.right, num, sum);
 
         return result;
+    }
+
+    // Time: O(n^2), Space: O(n), Faster: 52.72%
+    public int pathSumRecursive(TreeNode root, int sum) {
+        if (root == null) return 0;
+        return pathFrom(root, sum) +
+                pathSumRecursive(root.left, sum) +
+                pathSumRecursive(root.right, sum);
+    }
+
+    private int pathFrom(TreeNode root, int sum) {
+        if (root == null) return 0;
+        int cnt = 0;
+        if (root.val == sum) ++cnt;
+        cnt += pathFrom(root.left, sum - root.val);
+        cnt += pathFrom(root.right, sum - root.val);
+        return cnt;
+    }
+
+    // Time: O(n), Space: O(n), Faster: 95.86%
+    public int pathSumPrefixSum(TreeNode root, int sum) {
+        Map<Integer, Integer> prefixSum = new HashMap<>();
+        prefixSum.put(0, 1);
+        return dfs(root, 0, sum, prefixSum);
+    }
+
+    private int dfs(TreeNode root, int cur, int sum,
+                    Map<Integer, Integer> prefixSum) {
+        if (root == null) return 0;
+        cur += root.val;
+        int cnt = prefixSum.getOrDefault(cur - sum, 0);
+        prefixSum.put(cur, prefixSum.getOrDefault(cur, 0) + 1);
+        cnt += dfs(root.left, cur, sum, prefixSum);
+        cnt += dfs(root.right, cur, sum, prefixSum);
+        prefixSum.put(cur, prefixSum.get(cur) - 1);
+        return cnt;
     }
 }
