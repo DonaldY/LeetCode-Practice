@@ -1,5 +1,7 @@
 package chapter1.topic2;
 
+import java.util.Stack;
+
 /**
  * 84. Largest Rectangle in Histogram
  *
@@ -33,6 +35,23 @@ public class LeetCode_84 {
             while (l >= 0 && heights[l] >= heights[i]) --l;
             while (r < n && heights[r] >= heights[i]) ++r;
             max = Math.max(max, heights[i] * (r - l - 1));
+        }
+        return max;
+    }
+
+    // Time: O(n), Space: O(n), Faster: 49.57%
+    public int largestRectangleAreaStack(int[] heights) {
+        if (heights == null || heights.length == 0) return 0;
+        int max = 0, n = heights.length;
+        Stack<Integer> st = new Stack<>();
+        for (int r = 0; r <= n; ++r) {
+            int h = r == n ? 0 : heights[r];
+            while (!st.empty() && h < heights[st.peek()]) {
+                int idx = st.pop();
+                int l = st.empty() ? - 1 : st.peek();
+                max = Math.max(max, heights[idx] * (r - l - 1));
+            }
+            st.push(r);
         }
         return max;
     }
