@@ -60,6 +60,7 @@ topic : limit 50
 |    79 | Word Search  |   Medium      | 87.88% |
 |    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
+|    84 | Largest Rectangle in Histogram  |   Hard      | 15.78% |
 |    86 | Partition List  |   Medium      | 100.00% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    91 | Decode Ways  |   Medium      | 98.68% |
