@@ -162,6 +162,7 @@ topic : limit 50
 |    518 | Coin Change 2 |  Medium      | 51.75% |
 |    538 | Convert BST to Greater Tree |  Easy      | 99.95% |
 |    540 | Single Element in a Sorted Array |  Medium      | 100.00% |
+|    543 | Diameter of Binary Tree |  Easy      | 100.00% |
 |    557 | Reverse Words in a String III |  Easy      | 98.86% |
 |    581 | Shortest Unsorted Continuous Subarray |  Easy      | 100.00% |
 
