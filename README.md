@@ -61,6 +61,7 @@ topic : limit 50
 |    82 | Remove Duplicates from Sorted List II  |   Medium      | 100.00% |
 |    83 | Remove Duplicates from Sorted List  |   Easy      | 100.00% |
 |    84 | Largest Rectangle in Histogram  |   Hard      | 49.57% |
+|    85 | Maximal Rectangle  |   Hard      | 99.70% |
 |    86 | Partition List  |   Medium      | 100.00% |
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    91 | Decode Ways  |   Medium      | 98.68% |
