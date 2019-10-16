@@ -1,38 +1,38 @@
-package chapter1.topic2;
+package chapter2.topic1;
 
 /**
- * 85. Maximal Rectangle
+ * 221. Maximal Square
  *
- * Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
+ * Given a 2D binary matrix filled with 0's and 1's,
+ * find the largest square containing only 1's and return its area.
  *
  * Example:
  *
  * Input:
- * [
- *   ["1","0","1","0","0"],
- *   ["1","0","1","1","1"],
- *   ["1","1","1","1","1"],
- *   ["1","0","0","1","0"]
- * ]
- * Output: 6
  *
- * 题意： 找到最大矩形面积
+ * 1 0 1 0 0
+ * 1 0 1 1 1
+ * 1 1 1 1 1
+ * 1 0 0 1 0
+ *
+ * Output: 4
+ *
+ * 题意： 找到最大的正方形面积
  *
  * 思路：
- * 1. 从上往下，若此行为 '1', 增加1, 若0, 则为0
- * 2. 每行都求直方图一样（看 leetcode 84）
- *
- *    1 0 1 0 0  1 0 1 0 0
- *    1 1 1 1 1  2 1 2 1 1
- *    0 0 1 1 1  0 0 1 1 1
- *
+ * 1. 在 Leetcode 85上， 选择最小的然后相乘
  */
-public class LeetCode_85 {
+public class LeetCode_221 {
 
-    // Time: O(m * n), Space: O(n), Faster: 99.70%
-    public int maximalRectangle(char[][] matrix) {
+    // Time: O(m * n), Space: O(n), Faster: 99.64%
+    public int maximalSquare(char[][] matrix) {
+
+        return maximalRectangle(matrix);
+    }
+
+    private int maximalRectangle(char[][] matrix) {
         if (matrix == null || matrix.length == 0
-            || matrix[0] == null || matrix[0].length == 0)
+                || matrix[0] == null || matrix[0].length == 0)
             return 0;
         int m = matrix.length, n = matrix[0].length;
         int [] heights = new int[n];
@@ -54,7 +54,7 @@ public class LeetCode_85 {
             while (top != -1 && h < heights[st[top]]) {
                 int idx = st[top --];
                 int l = top == -1 ? -1 : st[top];
-                max = Math.max(max, heights[idx] * (r - l - 1));
+                max = Math.max(max, (int) Math.pow((double) Math.min(heights[idx], (r - l - 1)), 2));
             }
             st[++top] = r;
         }
