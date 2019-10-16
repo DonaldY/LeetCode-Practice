@@ -69,8 +69,4 @@ public class LeetCode_543 {
         }
         return diameter;
     }
-
-    public int test(TreeNode root) {
-
-    }
 }
