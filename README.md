@@ -66,6 +66,7 @@ topic : limit 50
 |    88 | Merge Sorted Array  |   Easy      | 100% |
 |    91 | Decode Ways  |   Medium      | 98.68% |
 |    94 | Binary Tree Inorder Traversal  |   Easy      | 100% |
+|    96 | Unique Binary Search Trees  |   Medium      | 100% |
 |    98 | Validate Binary Search Tree  |   Medium      | 100% |
 |    100 | Same Tree Matching  |   Easy      | 100% |
 |    101 | Symmetric Tree  |   Easy      | 100% |
