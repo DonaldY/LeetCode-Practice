@@ -137,6 +137,7 @@ topic : limit 50
 |    264 | Ugly Number II |  Medium      | 98.81% |
 |    268 | Missing Number |  Easy      | 100% |
 |    283 | Move Zeroes |  Easy      | 100% |
+|    287 | Find the Duplicate Number |  Medium      | 100% |
 |    338 | Counting Bits |  Medium      | 99.78% |
 |    344 | Reverse String |  Easy      | 100% |
 |    371 | Sum of Two Integers |  Easy      | 100% |
