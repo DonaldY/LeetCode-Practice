@@ -221,6 +221,31 @@ public class LeetCode {
 }
 ```
 
+3. 最大连续乘积（可改为最小连续乘积）
+```java
+// curMin 表示当前最小值,  curMax 表示当前最大值
+public class LeetCode_152 {
+    // Time: o(n), Space: o(1), Faster: 99.18%
+    public int maxProduct(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int max = nums[0], currMax = nums[0], currMin = nums[0];
+        for (int i = 1; i < nums.length; ++i) {
+            int a = currMax * nums[i], b = currMin * nums[i], c = nums[i];
+            currMax = max(a, b, c);
+            currMin = min(a, b, c);
+            max = Math.max(max, currMax);
+        }
+        return max;
+    }
+    private int max(int a, int b, int c) {
+        return Math.max(Math.max(a, b), c);
+    }
+    private int min(int a, int b, int c) {
+        return Math.min(Math.min(a, b), c);
+    }
+}
+```
+
 ### 3） 计数问题
 
 
