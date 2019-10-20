@@ -1,5 +1,7 @@
 package chapter1.topic2;
 
+import java.util.Arrays;
+
 /**
  * 53. Maximum Subarray
  *
@@ -20,7 +22,7 @@ public class LeetCode_53 {
         LeetCode_53 leetCode = new LeetCode_53();
 
         // [-2,1,-3,4,-1,2,1,-5,4]
-        System.out.println(leetCode.maxSumOfSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        System.out.println(Arrays.toString(leetCode.maxSumOfSubArray3(new int[]{4, -1, 2, 1, -5, 4})));
     }
 
     // Time: O(n ^ 2), Space: O(1), Faster: 5.05%
@@ -37,14 +39,6 @@ public class LeetCode_53 {
         return max;
     }
 
-    public int test(int [] nums) {
-        int max = Integer.MIN_VALUE;
-        for (int cur = 0; cur < nums.length; ++cur) {
-
-        }
-        return 1;
-    }
-
     // Time: O(n), Space: O(1), Faster: 95.05%
     public int maxSumOfSubArray(int[] nums) {
         int max = Integer.MIN_VALUE, cur = 0;
@@ -56,6 +50,29 @@ public class LeetCode_53 {
 
         return max;
     }
+
+    // [4,-1,2,1,-5,4]
+public int[] maxSumOfSubArray3(int [] nums) {
+    if (nums == null || nums.length == 0) return new int[]{-1, -1};
+
+    // 1. 更新最大值时，需记录开始下标
+    int max = Integer.MIN_VALUE, start = 0 , end = 0, cur = 0;
+    for (int i = 0, j = 0; i < nums.length; ++i) {
+        if (cur <= 0) {
+            cur = nums[i];
+            j = i;
+        } else {
+            cur += nums[i];
+        }
+
+        if (cur > max) {
+            max = cur;
+            start = j;
+            end = i;
+        }
+    }
+    return new int[]{start, end};
+}
 }
 
 

@@ -177,6 +177,50 @@ public class MergeSort {
 
 ### 2） 最长子序列
 
+1. 连续子序列的最大和
+```java
+// 当前累计和为负数是没有意义的, cur表示子序列的和
+public class LeetCode_53 {
+    // Time: O(n), Space: O(1), Faster: 95.05%
+    public int maxSumOfSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE, cur = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            cur = cur <= 0 ? nums[i] : (cur + nums[i]);
+            max = Math.max(max, cur);
+        }
+        return max;
+    }
+}
+```
+
+2. 连续子序列的最大和的下标
+```java
+// 在连续子序列的最大和的变形题
+public class LeetCode {
+    public int[] maxSumOfSubArray3(int [] nums) {
+        if (nums == null || nums.length == 0) return new int[]{-1, -1};
+    
+        // 1. 更新最大值时，需记录开始下标
+        int max = Integer.MIN_VALUE, start = 0 , end = 0, cur = 0;
+        for (int i = 0, j = 0; i < nums.length; ++i) {
+            if (cur <= 0) {
+                cur = nums[i];
+                j = i;
+            } else {
+                cur += nums[i];
+            }
+    
+            if (cur > max) {
+                max = cur;
+                start = j;
+                end = i;
+            }
+        }
+        return new int[]{start, end};
+    }
+}
+```
+
 ### 3） 计数问题
 
 
