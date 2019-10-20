@@ -17,11 +17,27 @@ package chapter1.topic4;
  * 题意： 求连续子列，最大值
  *
  * 思路：
- * 1. 两层for循环
+ * 1. 两层for循环 O(n ^ 2)
  * 2. 动态规划
  *
  */
 public class LeetCode_152 {
+    public static void main(String[] args) {
+        LeetCode_152 leetCode_152 = new LeetCode_152();
+    }
+    // Time: O(n ^ 2), Space: O(1), Faster:
+    public int maxProduct2(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; ++i) {
+            int sum = nums[i];
+            max = Math.max(max, sum);
+            for (int j = i + 1; j < nums.length; ++j) {
+                sum *= nums[j];
+                max = Math.max(sum, max);
+            }
+        }
+        return max;
+    }
 
     private int max(int a, int b, int c) {
         return Math.max(Math.max(a, b), c);
