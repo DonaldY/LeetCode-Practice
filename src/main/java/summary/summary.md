@@ -248,6 +248,39 @@ public class LeetCode_152 {
 
 ### 3） 计数问题
 
+1. 位运算
+```java
+// 在成对的数组中找到单个数字
+// 1. HashSet 2. 位运算：异或
+class LeetCode_136 {
+    public int singleNumber(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int result = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            result ^= nums[i];
+        }
+        return result;
+    }
+}
+
+// 只出现一次的两个数字
+// 1. HashMap, 2. 位运算，分两批
+class LeetCode_260 {
+    public int[] singleNumberXOR(int [] nums) {
+        int xor = 0, mask = 1;
+        // 最低位 1 来划分两组
+        for (int num : nums) xor ^= num;
+        while ((xor & mask) == 0) mask <<= 1;
+        int x = 0, y = 0;
+        for (int num : nums) {
+            if ((num & mask) == 0) x ^= num;
+            else y ^= num;
+        }
+        return new int[]{x, y};
+    }
+}
+```
+
 
 ## （5）基础技巧
 

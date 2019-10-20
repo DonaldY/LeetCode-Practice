@@ -1,4 +1,4 @@
-package chapter3.topic2;
+package chapter2.topic2;
 
 import java.util.HashMap;
 import java.util.Map;
