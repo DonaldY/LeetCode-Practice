@@ -43,7 +43,7 @@ public class LeetCode_647 {
         if (s == null || s.length() == 0) return 0;
 
         int n = s.length(), count = 0;
-        boolean[][] d = new boolean[n][n];
+        boolean[][] d = new boolean[n][n]; // 是否为回文子串
 
         for (int i = n - 1; i >= 0; --i) {
             for (int j = i; j < n; ++j) {

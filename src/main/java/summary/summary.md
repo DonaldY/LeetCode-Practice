@@ -142,8 +142,6 @@ public class MergeSort {
 
 ## （2）搜索算法
 
-### 1） 回溯
-
 > `DFS` 和 `BFS` 用递归方式的话
 > 如果每次展开的状态都需要记录，空间复杂度是指数级增长的。
 > 如果求解的目标状态是一个值，不是一条路径或者一个序列，这时候额外需要的辅助空间是线性增长的。
@@ -154,10 +152,21 @@ public class MergeSort {
 2. BFS(递归/栈)
 
 
+### 1） 回溯
+
+回溯是一种算法思想
+
+回溯就是通过不同的尝试来生成问题的解，有点类似于穷举，但是和穷举不同的是回溯会“剪枝”
 
 ### 2） 递归
 
+递归是一种算法结构
+
+一个递归就是在函数中调用函数本身来解决问题
+
 ### 3） 剪枝
+
+剪枝: 过滤已经知道错误的用例
 
 
 ## （3）图论
@@ -419,6 +428,131 @@ public class LeetCode {
 ### 2）可并堆
 
 ## （6）字符串
+
+1. 回文字符串
+> 两指针，左右指针对比
+
+2. 一个字符串的回文子串个数
+> aba -> a, b, c, aba
+> 1. 暴力法， O(n ^ 3)
+> 2. 从当前位置，向两边扩展
+> 3. 动态规划（两指针）
+>    当  i == j时，
+>    当  i + 1 == j时，
+>    否则 s(i) == s(j) && s(i + 1, j - 1) 是否回文?
+
+3. 没有重复字符的最长子串长度
+> abcabcbb -> abc , 即 3
+> 1. 暴力破解法： 2层for循环， 只要这个子串没有重复子串即可求长度。
+> 2. 滑动窗口法： 两个指针 i 和 j
+>    当 出现重复字母时， i 移动到第一个重复字母出现的下一个位置
+```java
+public class LeetCode_3 {
+
+    // Time: O(n), Space: O(m)，m 是字符集大小
+    public int lengthOfLongestSubstring1N(String s) {
+        int[] index = new int[256];
+        Arrays.fill(index, -1);
+        int maxLen = 0;
+        for (int i=0, j=0; j < s.length(); ++j) {
+            i = Math.max(index[s.charAt(j)] + 1, i);
+            maxLen = Math.max(maxLen, j - i + 1);
+            index[s.charAt(j)] = j;
+        }
+        return maxLen;
+    }
+
+}
+```
+
+3. 括号的合法排列
+> 给你 n 对括号，你要返回这 n 对括号的所有合法排列方式。
+> 
+```java
+public class LeetCode_22 {
+
+    public List<String> generateParentheses(int n) {
+
+        if (n < 0) return Collections.emptyList();
+        List<String> result = new ArrayList<>();
+        generate(result, "", n, n);
+        return result;
+    }
+    
+    void generate(List<String> result, String str, int left, int right) {
+        if (left == 0 && right == 0) {
+            result.add(str);
+        } else {
+            if (left > 0) generate(result, str + '(', left - 1, right);
+            if (right > left) generate(result, str + '(', left, right - 1);
+        }
+    }
+
+    // 卡特兰数 Faster: 93.50%
+    public List<String> generateParenthesesDP(int n) {
+
+        if (n < 0) return new ArrayList<>();
+        List<List<String>> d = new ArrayList<>(n + 1);
+        for (int i = 0; i < n + 1; ++i) d.add(new ArrayList<>());
+        d.get(0).add("");
+        for (int i = 1; i < n + 1; ++i) {
+            for (int j = 0; j < i; ++j) {
+                for (String left: d.get(j)) {
+                    for (String right: d.get(i - j - 1)) {
+                        d.get(i).add('(' + left + ')' + right);
+                    }
+                }
+            }
+        }
+        return d.get(n);
+    }
+}
+```
+
+4. 编辑距离
+```java
+/**
+* 给你两个字符串，你要求出由其中一个字符串转成另一个所需要的最少编辑操作次数。
+* 允许的操作有 3 种，分别是：替换一个字符，插入一个字符和删除一个字符。
+* 
+* s1: car
+  s2: ba
+  你要把 car 转成 ba，需要先把 c 替换成 b，然后再删除 r。总共操作 2 次，因此它们的编辑距离是 2。
+*/
+public class LeetCode_72 {
+
+    public int minDistance(String word1, String word2) {
+
+        return editDistance(word1, word2);
+    }
+
+    public int editDistance(String s, String t) {
+        if (s == null || t == null) return 0;
+
+        int m = s.length() + 1, n = t.length() + 1;
+        int [][] d = new int[m][n];
+
+        for (int i = 0; i < m; ++i)
+            d[i][0] = i;
+        for (int j = 0; j < n; ++j)
+            d[0][j] = j;
+
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    d[i][j] = d[i-1][j-1];
+                } else {
+                    d[i][j] = Math.min(Math.min(d[i-1][j-1], d[i][j-1]), d[i-1][j]) + 1;
+                }
+            }
+        }
+
+        return d[m-1][n-1];
+    }
+}
+```
+
+
 
 ### 1）字典树
 
