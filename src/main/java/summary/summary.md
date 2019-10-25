@@ -44,6 +44,8 @@
 
 ### 1） 快速排序
 
+1. 选基; 2. 分割; 3. 递归;
+
 ```java
 public class QuickSort {
 
@@ -84,6 +86,11 @@ public class QuickSort {
 ### 2） 归并排序
 
 可分为递归版本和迭代版本
+
+思想：
+- 把当前序列平分成两个子序列
+- 递归地对子序列进行排序
+- 把排序好的子序列再合并成一个有序的序列
 
 ```java
 public class MergeSort {
