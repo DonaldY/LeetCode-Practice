@@ -414,12 +414,136 @@ public class LeetCode {
 
 1. 树
 > 树的递归遍历也可以用栈来模拟
+
+2. 树的层序遍历
 ```java
+public class LeetCode {
 
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    // Time: O(n), Space: O(n)
+    public List<List<Integer>> levelOrderTraversal(TreeNode root) {
+        if (root == null) return new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            List<Integer> elem = new ArrayList<>();
+            int size = q.size();
+            for (int i = 0; i < size; ++i) {
+                TreeNode s = q.poll();
+                elem.add(s.val);
+                if (s.left != null) q.add(s.left);
+                if (s.right != null) q.add(s.right);
+            }
+            result.add(elem);
+        }
+
+        return result;
+    }
+
+}
 ```
 
+2. 二叉搜索树的定义是：
+> 1. 左子树所有节点上的值都小于根节点上的值
+> 2. 右子树所有节点上的值都大于根节点上的值
+> 3. 左右子树同时也为二叉搜索树
+
 ### 1）最近公共祖先
+
+```java
+/* 题意： 找到两个节点的最小父节点
+ *
+ * 思路：
+ * 1. 将p和q的父节点均保存下来，然后逐一比对
+ * 2. 递归中查找
+ *    1. 如果当前节点为空，或者等于目标节点p 或 q，则返回当前节点
+ *    2. 否则递归到左右子树上进行处理，返回值分别为 left 和 right
+ *    3. 如果 left 和 right 非空，则说明在左右子树上各找到一个节点，于是当前的根节点就是最近公共祖先
+ *       如果 left 和 right 只有一个非空，则返回那个非空的节点
+ *       如果都为空，就返回空指针
+ */
+public class LeetCode_236 {
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    private boolean search(TreeNode root, TreeNode node, List<TreeNode> path) {
+        if (root == null) return false;
+        path.add(root);
+        if (root == node) return true;
+        boolean ret = search(root.left, node, path) || search(root.right, node, path);
+        if (ret) return true;
+        path.remove(path.size()-1);
+        return false;
+    }
+
+    // Time: O(n), Space: O(n)
+    public TreeNode lcaWithPath(TreeNode root, TreeNode p, TreeNode q) {
+        List<TreeNode> ppath = new ArrayList<>();
+        List<TreeNode> qpath = new ArrayList<>();
+        search(root, p, ppath);
+        search(root, q, qpath);
+        int i = 0, len = Math.min(ppath.size(), qpath.size());
+        while (i < len && ppath.get(i) == qpath.get(i)) ++i;
+        return ppath.get(i-1);
+    }
+
+    // Time: O(n), Space: O(n)
+    public TreeNode lcaExtend(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lcaExtend(root.left, p, q);
+        TreeNode right = lcaExtend(root.right, p, q);
+        if (left != null && right != null) return root;
+        else if (left != null) return left;
+        else return right;
+    }
+
+}
+```
+
+二叉搜索树中节点的最近公共祖先
+```java
+public class LeetCode_235 {
+
+    // 树的高度
+    // Time: O(h), Space: O(h)
+    public TreeNode lcaRecursive(TreeNode root, TreeNode p, TreeNode q) {
+        if (p.val < root.val && q.val < root.val)
+            return lcaRecursive(root.left, p, q);
+        else if (p.val > root.val && q.val > root.val)
+            return lcaRecursive(root.right, p, q);
+        else return root;
+    }
+
+    // Time: O(h), Space: O(1)
+    public TreeNode lcaIterative(TreeNode root, TreeNode p, TreeNode q) {
+        while (root != null) {
+            if (p.val < root.val && q.val < root.val) root = root.left;
+            else if (p.val > root.val && q.val > root.val) root = root.right;
+            else return root;
+        }
+        return null;
+    }
+}
+```
 
 ### 2）并查集
 
