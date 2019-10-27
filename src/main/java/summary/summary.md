@@ -144,7 +144,11 @@ public class MergeSort {
 }
 ```
 
-### 3） 计数排序
+### 3）计数排序
+
+
+### 4）拓扑排序
+
 
 
 ## （2）搜索算法
@@ -553,8 +557,50 @@ public class LeetCode_235 {
 
 ## （5）堆
 
+1. 数据流中第 K 大的元素
+```java
+public class LeetCode_703 {
+
+    public class KthLargestElementInStream {
+
+        // 优先队列，默认就是一个最小堆实现
+        private Queue<Integer> minHeap = new PriorityQueue<>();
+        private int k;
+
+        // Time: o(n * log(k)), Space: o(k), Faster: 32.62%
+        public KthLargestElementInStream(int k, int [] nums) {
+            this.k = k;
+            for (int num : nums) add(num);
+        }
+
+        // Time: o(log(k))
+        public int add (int val) {
+            if (minHeap.size() < k) {
+                minHeap.add(val);
+            } else if (val > minHeap.peek()) {
+                minHeap.poll();
+                minHeap.add(val);
+            }
+            return minHeap.peek();
+        }
+    }
+
+}
+```
 
 ### 1）大/小根堆
+
+```java
+public class LeetCode {
+    
+    // 最小堆
+    private Queue<Integer> minHeap = new PriorityQueue<>();
+    
+    // 使用 reverseOrder 来使优先队列作为最大堆
+    Queue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+}
+```
+
 
 ### 2）可并堆
 
