@@ -182,6 +182,52 @@ public class MergeSort {
 
 ## （3）图论
 
+1. 图拷贝
+```java
+public class LeetCode_133 {
+
+    class Node {
+        public int val;
+        public List<Node> neighbors;
+
+        public Node() {}
+
+        public Node(int _val,List<Node> _neighbors) {
+            val = _val;
+            neighbors = _neighbors;
+        }
+    }
+
+    // Time: o(n ^ 2), Space: o(n), Faster: 100.00%
+    public Node cloneGraph(Node node) {
+
+        if (node == null) return null;
+
+        Map<Node, Node> map = new HashMap<>();
+
+        traverse(node, map);
+
+        return map.get(node);
+    }
+
+    private void traverse(Node node, Map<Node, Node> map) {
+
+        if (node == null || map.containsKey(node)) return;
+
+        Node copyNode = new Node(node.val, new ArrayList<>());
+
+        map.put(node, copyNode);
+
+        for (Node neighbor : node.neighbors) {
+
+            traverse(neighbor, map);
+
+            copyNode.neighbors.add(map.get(neighbor));
+        }
+    }
+}
+```
+
 ### 1） 最短路
 
 
@@ -414,7 +460,7 @@ public class LeetCode {
 ```
 
 
-## （3）树与图
+## （3）树
 
 1. 树
 > 树的递归遍历也可以用栈来模拟
