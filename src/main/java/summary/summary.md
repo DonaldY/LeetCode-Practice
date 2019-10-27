@@ -688,3 +688,64 @@ public class LeetCode_72 {
 ### 1）字典树
 
 ### 2）后缀树
+
+
+### 3) 前缀树(Trie)
+
+
+
+```java
+public class LeetCode_208 {
+
+    // Faster: 56.86%
+    class Trie {
+
+        private class TrieNode {
+            boolean endOfWord;
+            TrieNode [] children;
+            TrieNode() {
+                this.endOfWord = false;
+                this.children = new TrieNode[26];
+            }
+        }
+
+        private TrieNode root;
+        
+        public Trie() {
+            this.root = new TrieNode();
+        }
+
+        public void insert(String word) {
+            TrieNode cur = root;
+            for (int i = 0; i < word.length(); ++i) {
+                int idx = word.charAt(i) - 'a';
+                if (cur.children[idx] == null) cur.children[idx] = new TrieNode();
+                cur = cur.children[idx];
+            }
+            cur.endOfWord = true;
+        }
+
+        public boolean search(String word) {
+            TrieNode node = searchEndNode(word);
+            return node != null && node.endOfWord;
+        }
+        
+        public boolean startsWith(String prefix) {
+            TrieNode node = searchEndNode(prefix);
+            return node != null;
+        }
+
+        private TrieNode searchEndNode(String str) {
+            TrieNode cur = root;
+            for (int i = 0; i < str.length() && cur != null; ++i) {
+                int idx = str.charAt(i) - 'a';
+                cur = cur.children[idx];
+            }
+            return cur;
+        }
+    }
+}
+
+```
+
+
