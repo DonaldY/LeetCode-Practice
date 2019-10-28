@@ -149,7 +149,53 @@ public class MergeSort {
 
 ### 4）拓扑排序
 
+```java
 
+public class LeetCode_207 {
+
+    // Time: O(V + E), Space: O(V + E), Faster: 89.95%
+    public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
+
+        if (numCourses <= 1 || prerequisites == null) return true;
+
+        List<List<Integer>> graph = new ArrayList<>(numCourses);
+
+        for (int i = 0; i < numCourses; ++i)
+            graph.add(new LinkedList<>());
+
+        for (int [] pair: prerequisites)
+            graph.get(pair[1]).add(pair[0]);
+
+        boolean[] checked = new boolean[numCourses];
+        boolean[] visited = new boolean[numCourses];
+
+        for (int i = 0; i < numCourses; ++i)
+            if (!checked[i] && hasCycle(graph, visited, checked, i))
+                return false;
+
+        return true;
+    }
+
+    private boolean hasCycle(List<List<Integer>> graph, boolean[] visited,
+                             boolean[] checked, int v) {
+
+        if (visited[v]) return true;
+
+        visited[v] = true;
+
+        for (int i : graph.get(v)) {
+
+            if (!checked[i] && hasCycle(graph, visited, checked, i))
+                return true;
+        }
+
+        checked[v] = true;
+        visited[v] = false;
+
+        return false;
+    }
+}
+```
 
 ## （2）搜索算法
 
