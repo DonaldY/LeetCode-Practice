@@ -581,16 +581,6 @@ public class LeetCode_236 {
         }
     }
 
-    private boolean search(TreeNode root, TreeNode node, List<TreeNode> path) {
-        if (root == null) return false;
-        path.add(root);
-        if (root == node) return true;
-        boolean ret = search(root.left, node, path) || search(root.right, node, path);
-        if (ret) return true;
-        path.remove(path.size()-1);
-        return false;
-    }
-
     // Time: O(n), Space: O(n)
     public TreeNode lcaWithPath(TreeNode root, TreeNode p, TreeNode q) {
         List<TreeNode> ppath = new ArrayList<>();
@@ -601,6 +591,16 @@ public class LeetCode_236 {
         while (i < len && ppath.get(i) == qpath.get(i)) ++i;
         return ppath.get(i-1);
     }
+    
+    private boolean search(TreeNode root, TreeNode node, List<TreeNode> path) {
+            if (root == null) return false;
+            path.add(root);
+            if (root == node) return true;
+            boolean ret = search(root.left, node, path) || search(root.right, node, path);
+            if (ret) return true;
+            path.remove(path.size()-1);
+            return false;
+        }
 
     // Time: O(n), Space: O(n)
     public TreeNode lcaExtend(TreeNode root, TreeNode p, TreeNode q) {
