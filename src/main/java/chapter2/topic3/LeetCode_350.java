@@ -29,6 +29,7 @@ import java.util.*;
  *
  * 思路：
  * 1. 用 HashMap 来存储一个数组的元素
+ * 2. 排序后，在进行对比
  */
 public class LeetCode_350 {
 
@@ -58,6 +59,29 @@ public class LeetCode_350 {
         int [] result = new int[list.size()];
 
         for (int i = 0; i < list.size(); ++i) result[i] = list.get(i);
+
+        return result;
+    }
+
+    // Time: O(m * log(m) + n * log(n)), Space: O(k), Faster: 92.85%
+    public int[] intersectSort(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        int i = 0, j = 0, m = nums1.length, n = nums2.length;
+        List<Integer> list = new ArrayList<>();
+        while (i < m && j < n) {
+            if (nums1[i] == nums2[j]) {
+                list.add(nums1[i]);
+                ++i; ++j;
+            } else if (nums1[i] < nums2[j]) {
+                ++i;
+            } else ++j;
+        }
+
+        int [] result = new int[list.size()];
+
+        for (int k = 0; k < list.size(); ++k) result[k] = list.get(k);
 
         return result;
     }
