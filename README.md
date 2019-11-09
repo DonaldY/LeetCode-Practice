@@ -140,6 +140,7 @@ topic : limit 50
 |    287 | Find the Duplicate Number |  Medium      | 100% |
 |    338 | Counting Bits |  Medium      | 99.78% |
 |    344 | Reverse String |  Easy      | 100% |
+|    350 | Intersection of Two Arrays II |  Easy      | 100% |
 |    371 | Sum of Two Integers |  Easy      | 100% |
 |    384 | Shuffle an Array |  Medium      | 35.46% |
 |    387 | First Unique Character in a String |  Medium      | 80.46% |
