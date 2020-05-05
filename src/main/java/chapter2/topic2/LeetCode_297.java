@@ -44,6 +44,7 @@ import java.util.Queue;
 public class LeetCode_297 {
 
     // Encodes a tree to a single string.
+    // Time: O(n), Space: O(n), Faster: 66.63%
     public String serialize(TreeNode root) {
 
         if (root == null) return "[]";

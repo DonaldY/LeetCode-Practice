@@ -138,6 +138,7 @@ topic : limit 50
 |    268 | Missing Number |  Easy      | 100% |
 |    283 | Move Zeroes |  Easy      | 100% |
 |    287 | Find the Duplicate Number |  Medium      | 100% |
+|    297 | Serialize and Deserialize Binary Tree |  Hard      | 66.63% |
 |    338 | Counting Bits |  Medium      | 99.78% |
 |    344 | Reverse String |  Easy      | 100% |
 |    350 | Intersection of Two Arrays II |  Easy      | 100% |
