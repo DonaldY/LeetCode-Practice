@@ -45,9 +45,12 @@ import java.util.List;
  * 从s中找到p的所有连续组合，并返回每一组的第一个下标
  *
  * 思路：
- * 1. 滑动窗口(hash表)
+ * 1. 滑动窗口(hash表), 暴力法
  *    1. hash表， s、p映射
  *    2. 遍历s，每次对比
+ *
+ * 2. 滑动窗口(hash表), 两个指针
+ *    1. 用left、right指针表示， len(right - left) == p.length()， 则表示相等了。
  */
 public class LeetCode_438 {
 
@@ -95,6 +98,30 @@ public class LeetCode_438 {
             sAtr[s.charAt(i)] --;
         }
 
+        return result;
+    }
+
+    // Time: O(n), Space: O(k), Faster: 95.14%
+    public List<Integer> findAnagramsOn(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if (s == null || p == null || s.length() < p.length()) return result;
+        int sLen = s.length(), pLen = p.length();
+        char[] pc = new char[26];
+        for (int i = 0; i < pLen; ++i) {
+            pc[p.charAt(i) - 'a']++;
+        }
+
+        int left = 0, right = 0;
+        while (right < sLen) {
+            if (pc[s.charAt(right) - 'a'] > 0) {
+                pc[s.charAt(right) - 'a']--;
+                ++right;
+            } else {
+                pc[s.charAt(left) - 'a']++;
+                ++left;
+            }
+            if (right - left == pLen) result.add(left);
+        }
         return result;
     }
 }
