@@ -142,6 +142,7 @@ topic : limit 50
 |    297 | Serialize and Deserialize Binary Tree |  Hard      | 66.63% |
 |    338 | Counting Bits |  Medium      | 99.78% |
 |    344 | Reverse String |  Easy      | 100% |
+|    347 | Top K Frequent Elements |  Medium      | 86.69% |
 |    350 | Intersection of Two Arrays II |  Easy      | 100% |
 |    371 | Sum of Two Integers |  Easy      | 100% |
 |    384 | Shuffle an Array |  Medium      | 35.46% |
