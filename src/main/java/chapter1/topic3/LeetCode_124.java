@@ -36,7 +36,8 @@ package chapter1.topic3;
  * 另外，单个节点也算一条路径。注意，路径不一定会经过原始二叉树的根节点。
  *
  * 思路：
- * 1. 递归算子树
+ * 1. 暴力法，递归算子树
+ *    左子树、右子树、左子树+右子树+根，求总值
  * 2.
  */
 public class LeetCode_124 {
@@ -55,44 +56,7 @@ public class LeetCode_124 {
         }
     }
 
-    public int maxPathSum(TreeNode root) {
-
-        if (null == root) {
-
-            return 0;
-        }
-
-        return findMaxPathSum( root);
-    }
-
-    private int findMaxPathSum(TreeNode root) {
-
-        if (null == root) {
-
-            return 0;
-        }
-
-        int left = findMaxPathSum(root.left);
-        left = left > 0 ? left : 0;
-
-        int right = findMaxPathSum(root.right);
-        right = right > 0 ? right : 0;
-
-        return root.val + left + right;
-    }
-
-    private int max3(int a, int b, int c) {
-        return Math.max(a, Math.max(b, c));
-    }
-
-    private int maxPathSumFrom(TreeNode root) {
-        if (root == null) return 0;
-        int leftMax = Math.max(maxPathSumFrom(root.left), 0);
-        int rightMax = Math.max(maxPathSumFrom(root.right), 0);
-        return root.val + Math.max(leftMax, rightMax);
-    }
-
-    // Time: O(n^2), Space: O(n)
+    // Time: O(n^2), Space: O(n), Faster:  5.08%
     public int maxPathSumBruteForce(TreeNode root) {
         if (root == null) return Integer.MIN_VALUE;
         int leftMax = Math.max(maxPathSumFrom(root.left), 0);
@@ -104,18 +68,29 @@ public class LeetCode_124 {
         );
     }
 
+    private int maxPathSumFrom(TreeNode root) {
+        if (root == null) return 0;
+        int leftMax = Math.max(maxPathSumFrom(root.left), 0);
+        int rightMax = Math.max(maxPathSumFrom(root.right), 0);
+        return root.val + Math.max(leftMax, rightMax);
+    }
+
+    private int max3(int a, int b, int c) {
+        return Math.max(a, Math.max(b, c));
+    }
+
+    // Time: O(n), Space: O(n), Faster: 100.00%
+    public int maxPathSumOn(TreeNode root) {
+        int[] max = new int[]{Integer.MIN_VALUE};
+        maxPathSumFromRootAndCompute(root, max);
+        return max[0];
+    }
+
     private int maxPathSumFromRootAndCompute(TreeNode root, int[] max) {
         if (root == null) return 0;
         int leftMax = Math.max(maxPathSumFromRootAndCompute(root.left, max), 0);
         int rightMax = Math.max(maxPathSumFromRootAndCompute(root.right, max), 0);
         max[0] = Math.max(max[0], root.val + leftMax + rightMax);
         return root.val + Math.max(leftMax, rightMax);
-    }
-
-    // Time: O(n), Space: O(n)
-    public int maxPathSumOn(TreeNode root) {
-        int[] max = new int[]{Integer.MIN_VALUE};
-        maxPathSumFromRootAndCompute(root, max);
-        return max[0];
     }
 }
