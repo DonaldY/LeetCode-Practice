@@ -1,7 +1,6 @@
 package chapter2.topic2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author donald
@@ -48,7 +47,7 @@ import java.util.List;
 public class LeetCode_295 {
 
 
-    // Time: O(n ^ 2), Space: O(n), Faster: 8.39%
+    // Time: O(n), Space: O(n), Faster: 8.39%
     List<Integer> datas = new ArrayList<>();
     public void addNum(int num) {
 
@@ -72,5 +71,28 @@ public class LeetCode_295 {
         }
 
         return datas.get(size / 2);
+    }
+
+    public class MedianFinderHeap {
+
+        private final Queue<Integer> minHeap = new PriorityQueue<>();
+        private final Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // Time: O(log(n)), Faster: 43.70%
+        public void addNum(int num) {
+            minHeap.add(num);
+            maxHeap.add(minHeap.poll());
+            if (maxHeap.size() - minHeap.size() > 1)
+                minHeap.add(maxHeap.poll());
+        }
+
+        // Time: O(1)
+        public double findMedian() {
+            if (maxHeap.size() > minHeap.size()) {
+                return maxHeap.peek();
+            } else {
+                return (maxHeap.peek() + minHeap.peek()) / 2.0;
+            }
+        }
     }
 }
