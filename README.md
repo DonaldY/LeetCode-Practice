@@ -140,6 +140,7 @@ topic : limit 50
 |    283 | Perfect Squares |  Medium      | 99.91% |
 |    283 | Move Zeroes |  Easy      | 100% |
 |    287 | Find the Duplicate Number |  Medium      | 100% |
+|    295 | Find Median from Data Stream |  Hard      | 43.70% |
 |    297 | Serialize and Deserialize Binary Tree |  Hard      | 66.63% |
 |    338 | Counting Bits |  Medium      | 99.78% |
 |    344 | Reverse String |  Easy      | 100% |
