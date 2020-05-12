@@ -142,6 +142,7 @@ topic : limit 50
 |    287 | Find the Duplicate Number |  Medium      | 100% |
 |    295 | Find Median from Data Stream |  Hard      | 43.70% |
 |    297 | Serialize and Deserialize Binary Tree |  Hard      | 66.63% |
+|    310 | Minimum Height Trees |  Medium      | 97.60% |
 |    338 | Counting Bits |  Medium      | 99.78% |
 |    344 | Reverse String |  Easy      | 100% |
 |    347 | Top K Frequent Elements |  Medium      | 86.69% |
