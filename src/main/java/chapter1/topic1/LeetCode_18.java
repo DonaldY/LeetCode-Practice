@@ -55,7 +55,7 @@ import java.util.List;
  */
 public class LeetCode_18 {
 
-    // Time: O(n ^ 2), Space: O(1), Faster:  61.27%
+    // Time: O(n ^ 3), Space: O(1), Faster:  61.27%
     public List<List<Integer>> fourSum(int[] nums, int target) {
 
         if (null == nums || nums.length < 4) return Collections.emptyList();
@@ -95,4 +95,36 @@ public class LeetCode_18 {
 
         return result;
     }
+
+    // Time: O(n^3), Space: O(1), Faster: 90.26%
+    public List<List<Integer>> fourSum2(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null || nums.length < 4) return result;
+        Arrays.sort(nums);
+
+        for (int p = nums.length-1; p >= 3; --p) {
+            if (4*nums[p] < target) break;
+            for (int k = p-1; k >= 2; --k) {
+                if (3*nums[k]+nums[p] < target) break;
+                int newTarget = target - nums[k] - nums[p];
+                int i = 0, j = k-1;
+                while (i < j) {
+                    if (nums[i] + nums[j] == newTarget) {
+                        result.add(Arrays.asList(nums[i], nums[j], nums[k], nums[p]));
+                        while (i < j && nums[i+1] == nums[i]) ++i;
+                        while (i < j && nums[j-1] == nums[j]) --j;
+                        ++i; --j;
+                    } else if (nums[i] + nums[j] < newTarget) {
+                        ++i;
+                    } else {
+                        --j;
+                    }
+                }
+                while (k >= 2 && nums[k-1] == nums[k]) --k;
+            }
+            while (p >= 3 && nums[p-1] == nums[p]) --p;
+        }
+        return result;
+    }
+
 }

@@ -26,6 +26,7 @@ topic : limit 50
 |    14 | Longest Common Prefix  |   Easy      | 74.21% |
 |    15 | 3Sum  |   Medium      | 97.48% |
 |    16 | 3Sum Closest  |   Medium      | 98.26% |
+|    18 | 4Sum  |   Medium      | 90.26% |
 |    19 | Remove Nth Node From End of List  |   Medium      | 100.00% |
 |    20 | Valid Parentheses  |   Medium      | 98.34% |
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
