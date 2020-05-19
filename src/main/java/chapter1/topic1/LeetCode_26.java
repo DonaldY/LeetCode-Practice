@@ -66,4 +66,14 @@ public class LeetCode_26 {
 
         return result;
     }
+
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public int removeDuplicates2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int p = 1;
+        for (int q = 1; q < nums.length; ++q)
+            if (nums[q] != nums[q-1])
+                nums[p++] = nums[q];
+        return p;
+    }
 }

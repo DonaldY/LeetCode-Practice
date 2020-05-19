@@ -32,6 +32,7 @@ topic : limit 50
 |    21 | Merge Two Sorted Lists  |   Easy      | 100% |
 |    22 | Generate Parentheses  |   Medium      | 93.50% |
 |    23 | Merge k Sorted Lists  |   Medium      | 100.00% |
+|    26 | Remove Duplicates from Sorted Array  |   Easy      | 100.00% |
 |    28 | Implement strStr()  |   Easy      | 100.00% |
 |    31 | Next Permutation  |   Medium      | 89.92% |
 |    32 | Longest Valid Parentheses  |   Hard      | 100.00% |
