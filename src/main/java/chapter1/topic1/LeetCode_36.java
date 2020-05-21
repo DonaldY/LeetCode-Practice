@@ -1,5 +1,8 @@
 package chapter1.topic1;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author donald
  * @date 2020/5/20
@@ -65,9 +68,27 @@ package chapter1.topic1;
  */
 public class LeetCode_36 {
 
-
-
     public boolean isValidSudoku(char[][] board) {
 
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < 9; ++i) {
+            set.clear();
+            for (int j = 0; j < 9; ++j) {
+                if (board[i][j] == '.') continue;
+                if (!set.add(board[i][j])) return false;
+            }
+            set.clear();
+            for (int j = 0; j < 9; ++j) {
+                if (board[j][i] == '.') continue;
+                if (!set.add(board[j][i])) return false;
+            }
+            set.clear();
+            for (int j = 0; j < 9; ++j) {
+                int r = 3*(i/3) + j/3, c = 3*(i%3) + j%3;
+                if (board[r][c] == '.') continue;
+                if (!set.add(board[r][c])) return false;
+            }
+        }
+        return true;
     }
 }
