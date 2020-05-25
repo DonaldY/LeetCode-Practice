@@ -39,7 +39,7 @@ topic : limit 50
 |    33 | Search in Rotated Sorted Array  |   Medium      | 100.00% |
 |    34 | Find First and Last Position of Element in Sorted Array  |   Medium      | 100% |
 |    35 | Search Insert Position  |   Easy      | 100% |
-|    35 | Valid Sudoku  |   Medium      | 100% |
+|    36 | Valid Sudoku  |   Medium      | 100% |
 |    39 | Combination Sum  |   Medium      | 99.83% |
 |    41 | First Missing Positive  |   Hard      | 100.00% |
 |    42 | Trapping Rain Water  |   Hard      | 98.20% |

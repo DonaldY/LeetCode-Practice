@@ -60,6 +60,7 @@ import java.util.Set;
  * The given board size is always 9x9.
  *
  * 题意：
+ * 每一行、每一列、每一个小正方形，不出现重复数字即可。
  *
  *
  * 思路：
@@ -68,7 +69,7 @@ import java.util.Set;
  */
 public class LeetCode_36 {
 
-    // Time: O(),
+    // Time: O(n ^ 2), Space: O(n), Faster: 82.23%
     public boolean isValidSudoku(char[][] board) {
 
         Set<Character> set = new HashSet<>();
@@ -88,6 +89,26 @@ public class LeetCode_36 {
                 int r = 3*(i/3) + j/3, c = 3*(i%3) + j%3;
                 if (board[r][c] == '.') continue;
                 if (!set.add(board[r][c])) return false;
+            }
+        }
+        return true;
+    }
+
+    // Time: O(n ^ 2), Space: O(n ^ 2), Faster: 100.00%
+    public boolean isValidSudoku2DArray(char[][] board) {
+        boolean[][] rowSeen = new boolean[9][9];
+        boolean[][] colSeen = new boolean[9][9];
+        boolean[][] boxSeen = new boolean[9][9];
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                if (board[i][j] == '.') continue;
+                int x = board[i][j] - '1';
+                int k = (i/3) * 3 + j/3;
+                if (rowSeen[i][x] || colSeen[j][x] || boxSeen[k][x])
+                    return false;
+                rowSeen[i][x] = true;
+                colSeen[j][x] = true;
+                boxSeen[k][x] = true;
             }
         }
         return true;
