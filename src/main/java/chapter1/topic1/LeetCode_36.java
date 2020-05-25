@@ -68,6 +68,7 @@ import java.util.Set;
  */
 public class LeetCode_36 {
 
+    // Time: O(),
     public boolean isValidSudoku(char[][] board) {
 
         Set<Character> set = new HashSet<>();
