@@ -64,7 +64,6 @@ public class LeetCode_226 {
         queue.add(node);
 
         while (!queue.isEmpty()) {
-            TreeNode node1 = queue.poll();
             TreeNode temp = node.left;
             node.left = node.right;
             node.right = temp;
