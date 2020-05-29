@@ -44,7 +44,8 @@ topic : limit 50
 |    41 | First Missing Positive  |   Hard      | 100.00% |
 |    42 | Trapping Rain Water  |   Hard      | 98.20% |
 |    45 | Jump Game II  |   Hard      | 99.99% |
-|    46 | Regular Expression Matching  |   Easy      | 99.75% |
+|    46 | Permutations  |   Easy      | 99.75% |
+|    47 | Permutations II  |   Medium      | 99.75% |
 |    48 | Rotate Image  |   Medium      | 100.00% |
 |    49 | Group Anagrams  |   Medium      | 99.46% |
 |    50 | Implement pow(x, n)  |   Easy      | 100% |
