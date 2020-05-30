@@ -189,6 +189,7 @@ topic : limit 50
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
 |    617 | Merge Two Binary Trees |  Easy      | 100.00% |
+|    633 | Sum of Square Numbers |  Easy      | 97.09% |
 |    700 | Search in a Binary Search Tree |  Easy      | 100.00% |
 |    703 | Kth Largest Element in a Stream |  Medium      | 32.62% |
 |    704 | Binary Search |  Easy      | 100% |
