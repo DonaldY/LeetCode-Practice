@@ -87,7 +87,7 @@ public class LeetCode_145 {
         return result;
     }
 
-    // Time: O(n), Space: O(n)
+    // Time: O(n), Space: O(n), Faster: 100.00%
     public List<Integer> postorderTraversalIterative2(TreeNode root) {
         LinkedList<Integer> result = new LinkedList<>();
         if (root == null) return result;
