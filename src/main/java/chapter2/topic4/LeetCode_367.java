@@ -30,7 +30,8 @@ package chapter2.topic4;
  * 求完全平方数，不能使用库里的 sqrt
  *
  * 思路：
- * 从 2 ～ n/2 二分查找
+ * 1. 从 1 ～ n 二分查找
+ * 2. 缩小距离，再次对比
  */
 public class LeetCode_367 {
 
@@ -47,5 +48,14 @@ public class LeetCode_367 {
             else head = mid + 1;
         }
         return false;
+    }
+
+    // Time: O(log(num)), Space: O(1)
+    public boolean isPerfectSquareNewton(int num) {
+        long x = num;
+        while (x*x > num) {
+            x = (x + num/x) / 2;
+        }
+        return x*x == num;
     }
 }
