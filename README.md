@@ -154,6 +154,7 @@ topic : limit 50
 |    344 | Reverse String |  Easy      | 100% |
 |    347 | Top K Frequent Elements |  Medium      | 86.69% |
 |    350 | Intersection of Two Arrays II |  Easy      | 100% |
+|    367 | Valid Perfect Square |  Easy      | 100% |
 |    371 | Sum of Two Integers |  Easy      | 100% |
 |    384 | Shuffle an Array |  Medium      | 35.46% |
 |    387 | First Unique Character in a String |  Medium      | 80.46% |
