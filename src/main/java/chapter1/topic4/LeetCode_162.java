@@ -57,4 +57,20 @@ public class LeetCode_162 {
 
         return nums.length -1;
     }
+
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
+    public int findPeakElementBinarySearch(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int low = 0, high = nums.length-1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            int left = mid-1 >= 0 ? nums[mid-1] : Integer.MIN_VALUE;
+            int right = mid+1 < nums.length ? nums[mid+1] : Integer.MIN_VALUE;
+            if (nums[mid] > left && nums[mid] > right) return mid;
+            else if (left > nums[mid]) high = mid - 1;
+            else low = mid + 1;
+        }
+        return low;
+    }
+
 }
