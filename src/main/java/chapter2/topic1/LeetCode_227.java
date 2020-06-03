@@ -1,7 +1,5 @@
 package chapter2.topic1;
 
-import java.util.Stack;
-
 /**
  * @author donald
  * @date 2020/6/3
@@ -44,8 +42,10 @@ import java.util.Stack;
  * - 根据运算符进行整数运算
  * - 跳过（忽略）空格
  *
- * 1. 数字栈：用于存放数字; 操作符栈：用于存放操作符
+ * 1. 数字栈：用于存放数字; 操作符栈：用于存放操作符。
+ *    高操作符的先运算
  *
+ * 2. 把和分为两部分， sum  和 part
  */
 public class LeetCode_227 {
 
