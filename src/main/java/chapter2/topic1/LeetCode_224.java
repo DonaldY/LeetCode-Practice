@@ -1,5 +1,7 @@
 package chapter2.topic1;
 
+import java.util.Stack;
+
 /**
  * @author donald
  * @date 2020/6/4
@@ -34,15 +36,40 @@ package chapter2.topic1;
  * 注意，给出的表达式总是有效的，并且不允许使用内置的字符串求值函数。
  *
  * 思路：
- * 使用堆栈进行操作
+ * 1. 使用两个栈进行操作， 一个数字栈，一个操作符栈
  *
  */
 public class LeetCode_224 {
 
     public int calculate(String s) {
 
-        if (null == s || s.length() == 0) return 0;
+        int n = s.length();
+        Stack<Integer> nums = new Stack<>();
+        Stack<Character> ops = new Stack<>();
+        ops.push('(');
 
-        return 0;
+        for (int i = 0; i <= n; ++i) {
+            if (i == n || s.charAt(i) == ')') {
+                int sum = 0, num = nums.pop();
+                while (ops.peek() != '(') {
+                    if (ops.pop() == '-') num = -num;
+                    sum += num;
+                    num = nums.pop();
+                }
+                sum += num;
+                nums.push(sum);
+                ops.pop();
+            } else if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                int num = s.charAt(i) - '0';
+                while (i+1 < n && s.charAt(i+1) >= '0' && s.charAt(i+1) <= '9') {
+                    num = num * 10 + s.charAt(i+1) - '0';
+                    ++i;
+                }
+                nums.push(num);
+            } else if (s.charAt(i) == '+' || s.charAt(i) == '-' || s.charAt(i) == '(') {
+                ops.push(s.charAt(i));
+            }
+        }
+        return nums.peek();
     }
 }
