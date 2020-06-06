@@ -72,4 +72,28 @@ public class LeetCode_224 {
         }
         return nums.peek();
     }
+
+    // Time: O(n), Space: O(n)
+    public int calculateOneStack(String s) {
+        int sum = 0, op = 1, n = s.length();
+        Stack<Integer> ops = new Stack<>();
+        ops.push(1);
+
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                int num = s.charAt(i) - '0';
+                while (i+1 < n && s.charAt(i+1) >= '0' && s.charAt(i+1) <= '9') {
+                    num = num * 10 + s.charAt(i+1) - '0';
+                    ++i;
+                }
+                sum += ops.peek() * op * num;
+            } else if (s.charAt(i) == '(') {
+                ops.push(ops.peek() * op);
+                op = 1;
+            } else if (s.charAt(i) == ')') ops.pop();
+            else if (s.charAt(i) == '+') op = 1;
+            else if (s.charAt(i) == '-') op = -1;
+        }
+        return sum;
+    }
 }
