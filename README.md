@@ -131,6 +131,7 @@ topic : limit 50
 |    215 | Kth Largest Element in an Array    |   Medium      | 42.15% |
 |    218 | The Skyline Problem    |   Hard      | 20.81% |
 |    221 | Maximal Square    |   Hard      | 99.64% |
+|    224 | Basic Calculator    |   Hard      | 100.00% |
 |    226 | Invert Binary Tree    |   Easy      | 100.00% |
 |    227 | Basic Calculator II    |   Medium      | 96.37% |
 |    232 | Implement Queue using Stacks    |   Easy      | 36.88% |
