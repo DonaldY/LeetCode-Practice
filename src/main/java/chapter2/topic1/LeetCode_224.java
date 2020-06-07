@@ -37,10 +37,17 @@ import java.util.Stack;
  *
  * 思路：
  * 1. 使用两个栈进行操作， 一个数字栈，一个操作符栈
+ *    1. 遇到数字，则入栈 nums
+ *    2. 遇到 +, -, ( 则入栈 ops
+ *    3. 遇到 ), 则计算对括号内的表达式
+ *    4. 跳过 (忽略) 空格
+ *
+ * 2. 把括号去掉，打平后计算
  *
  */
 public class LeetCode_224 {
 
+    // Time: O(n), Space: O(n), Faster: 34.52%
     public int calculate(String s) {
 
         int n = s.length();
@@ -73,7 +80,7 @@ public class LeetCode_224 {
         return nums.peek();
     }
 
-    // Time: O(n), Space: O(n)
+    // Time: O(n), Space: O(n), Faster: 55.83%
     public int calculateOneStack(String s) {
         int sum = 0, op = 1, n = s.length();
         Stack<Integer> ops = new Stack<>();
