@@ -109,6 +109,7 @@ topic : limit 50
 |  162 | Find Peak Element  |   Easy      | 100.00%|
 |  167 | Two Sum II - Input array is sorted  |   Easy      | 100.00%|
 |  169 | Majority Element  |   Easy      | 76.41%|
+|  172 | Factorial Trailing Zeroes  |   Easy      | 21.13%|
 |  189 | Rotate  |   Easy      | 100.00%|
 |  191 | Number of 1 Bits  |   Easy      | 100.00%|
 |  198 | House Robber  |   Easy      | 100.00%|

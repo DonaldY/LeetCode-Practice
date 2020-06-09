@@ -31,7 +31,7 @@ package chapter1.topic4;
  */
 public class LeetCode_172 {
 
-    // Time: O(log(n)), Space: O(1), Faster: 21.13%
+    // Time: O(log5(n)), Space: O(1), Faster: 21.13%
     public int trailingZeroes(int n) {
 
         int cnt = 0;
