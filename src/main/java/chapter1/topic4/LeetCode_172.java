@@ -25,12 +25,23 @@ package chapter1.topic4;
  *
  * 思路：
  * 1. 先求出整数，再求得0的个数
- * 2.
+ *
+ * 2. 取决于5的个数
  *
  */
 public class LeetCode_172 {
 
+    // Time: O(log(n)), Space: O(1), Faster: 21.13%
     public int trailingZeroes(int n) {
 
+        int cnt = 0;
+
+        while (n > 0) {
+
+            n /= 5;
+            cnt += n;
+        }
+
+        return cnt;
     }
 }
