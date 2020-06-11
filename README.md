@@ -123,6 +123,7 @@ topic : limit 50
 
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
+|    202 | Happy Number |  Easy      | 86.41% |
 |    203 | Remove Linked List Elements |  Easy      | 98.63% |
 |    206 | Reverse Linked List |  Easy      | 100% |
 |    207 | Course Schedule |  Medium      | 89.95% |

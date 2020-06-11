@@ -34,9 +34,15 @@ import java.util.Set;
  * 反向思考：出口是什么， 出现重复的数。
  *
  * 思路：
+ * 这题跟单链表是否循环类似
+ *
  * 1. 暴力算法，每次都求和。
  *    用一个hashset保存结果
  *
+ * 2. 快慢指针
+ *
+ * 3. 只需要4次变换就会成为 <= 100 的数
+ *    可以先预处理 100 以内的数
  */
 public class LeetCode_202 {
 
@@ -65,4 +71,43 @@ public class LeetCode_202 {
 
         return false;
     }
+
+    private int transform(int n) {
+        int sum = 0;
+        while (n != 0) {
+            int a = n % 10;
+            sum += a * a;
+            n /= 10;
+        }
+        return sum;
+    }
+    // Time: O(1), Space: O(1), Faster: 86.41%
+    public boolean isHappyTwoPointer(int n) {
+        if (n <= 0) return false;
+        int fast = n, slow = n;
+        while (true) {
+            fast = transform(transform(fast));
+            slow = transform(slow);
+            if (fast == 1) return true;
+            if (fast == slow) return false;
+        }
+    }
+
+    private static final boolean[] happy = new boolean[101];
+    static {
+        happy[1] = true; happy[7] = true; happy[10] = true; happy[13] = true;
+        happy[19] = true; happy[23] = true; happy[28] = true; happy[31] = true;
+        happy[32] = true; happy[44] = true; happy[49] = true; happy[68] = true;
+        happy[70] = true; happy[79] = true; happy[82] = true; happy[86] = true;
+        happy[91] = true; happy[94] = true; happy[97] = true; happy[100] = true;
+    }
+
+    // Time: O(1), Space: O(1), Faster: 26.39%
+    public boolean isHappyMath(int n) {
+        if (n <= 0) return false;
+        while (n > 100)
+            n = transform(n);
+        return happy[n];
+    }
+
 }
