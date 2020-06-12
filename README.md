@@ -83,6 +83,7 @@ topic : limit 50
 |    108 | Convert Sorted Array to Binary Search Tree  |   Easy      | 100.00%  |
 |  110 | Balanced Binary Tree  |   Easy      | 91.57%|
 |  112 |  Path Sum  |   Easy      |  100.00%|
+|  116 |  Populating Next Right Pointers in Each Node  |   Medium      | 53.13% |
 |  121 |  Best Time to Buy and Sell Stock  |   Easy      |  87.07%|
 |  122 |  Best Time to Buy and Sell Stock II  |   Easy      |  94.50%|
 |  111 | Minimum Depth of Binary Tree  |   Easy      | 100%|
