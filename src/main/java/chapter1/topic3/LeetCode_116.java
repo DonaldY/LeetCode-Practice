@@ -110,4 +110,33 @@ public class LeetCode_116 {
 
         return root;
     }
+
+    // Time: O(n), Space: O(log(n))
+    public Node connectRecursive(Node root) {
+        if (root == null || root.left == null) return root;
+        root.left.next = root.right;
+        if (root.next != null)
+            root.right.next = root.next.left;
+        connectRecursive(root.left);
+        connectRecursive(root.right);
+        return root;
+    }
+
+    // Time: O(n), Space: O(1)
+    public Node connectIterative(Node root) {
+        if (root == null) return null;
+        Node leftMost = root, p;
+        while (leftMost.left != null) {
+            p = leftMost;
+            while (p != null) {
+                p.left.next = p.right;
+                if (p.next != null)
+                    p.right.next = p.next.left;
+                p = p.next;
+            }
+            leftMost = leftMost.left;
+        }
+        return root;
+    }
+
 }
