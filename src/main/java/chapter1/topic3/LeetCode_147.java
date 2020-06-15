@@ -63,4 +63,36 @@ public class LeetCode_147 {
 
         return head;
     }
+
+    // Time: O(n^2), Space: O(1)
+    public ListNode insertionSortList2(ListNode head) {
+        ListNode dummy = new ListNode(0), p;
+        ListNode cur = head, next;
+        while (cur != null) {
+            next = cur.next;
+            p = dummy;
+            while (p.next != null && cur.val >= p.next.val)
+                p = p.next;
+            cur.next = p.next;
+            p.next = cur;
+            cur = next;
+        }
+        return dummy.next;
+    }
+
+    // Time: O(n^2), Space: O(1), Faster: 98.70%
+    public ListNode insertionSortListFast(ListNode head) {
+        ListNode dummy = new ListNode(0), p = dummy;
+        ListNode cur = head, next;
+        while (cur != null) {
+            next = cur.next;
+            if (p.next != null && cur.val < p.next.val) p = dummy;
+            while (p.next != null && cur.val >= p.next.val)
+                p = p.next;
+            cur.next = p.next;
+            p.next = cur;
+            cur = next;
+        }
+        return dummy.next;
+    }
 }
