@@ -103,6 +103,7 @@ topic : limit 50
 |  144 | Binary Tree Preorder Traversal  |   Easy      | 100%|
 |  145 | Binary Tree Postorder Traversal  |   Easy      | 100%|
 |  146 | LRU Cache  |   Medium      | 5.06%|
+|  147 | Insertion Sort List  |   Easy      | 98.70%|
 |  148 | Sort List  |   Medium      | 97.67%|
 |  151 | Reverse Words in a String  |   Medium      | 99.86% |
 |  152 | Maximum Product Subarray  |   Medium      | 99.18%|
