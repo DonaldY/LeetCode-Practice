@@ -47,4 +47,22 @@ public class MoveZeroes {
             }
         }
     }
+
+    // 双指针 Time: o(n), Space: o(1), Faster: 100.00%
+    public void moveZeroesSwap(int [] nums) {
+
+        if (nums == null || nums.length == 0) return;
+
+        int slow = 0;
+
+        for (int fast = 0; fast < nums.length; ++fast) {
+            if (nums[fast] != 0) {
+                int temp = nums[fast];
+                nums[fast] = nums[slow];
+                nums[slow] = temp;
+
+                ++slow;
+            }
+        }
+    }
 }
