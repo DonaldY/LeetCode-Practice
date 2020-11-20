@@ -86,6 +86,7 @@ public class LeetCode_147 {
         ListNode cur = head, next;
         while (cur != null) {
             next = cur.next;
+            // 减少不必要判断，不让p每次都从头开始判断
             if (p.next != null && cur.val < p.next.val) p = dummy;
             while (p.next != null && cur.val >= p.next.val)
                 p = p.next;
