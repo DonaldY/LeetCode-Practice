@@ -16,7 +16,19 @@ package bytedance.linkedlist;
  * 当 k = 3 时，应当返回: 3->2->1->4->5
  *
  * 思路：
- * 1. 直接反转
+ *              -------------
+ *       1  --> | 2  -->  3 | -->  4  -->  5
+ *              -------------
+ *       ^        ^       ^
+ *       |        |       |
+ *      pre      curr    next
+ *
+ * 链表结点按照 k 个一组分组，所以可以使用一个指针 head 依次指向每组的头结点。
+ * 这个指针每次向前移动 k 步，直至链表结尾。
+ * 对于每个分组，先判断它的长度是否大于等于 k。若是，就翻转这部分链表，否则不需要翻转。
+ *
+ * 在翻转子链表的时候，不仅需要子链表头结点 head，还需要有 head 的上一个结点 pre，以便翻转完后把子链表再接回 pre。
+ *
  */
 public class ReverseNodesInKGroup {
 
@@ -36,54 +48,59 @@ public class ReverseNodesInKGroup {
 
         ReverseNodesInKGroup r = new ReverseNodesInKGroup();
 
-        r.reverseKGroup(node1, 3);
+        ListNode node = r.reverseKGroup(node1, 2);
+
+        while (node != null) {
+
+            System.out.println(node.val);
+            node = node.next;
+        }
     }
 
-    // Time: 0(n), Space: 0(1), Faster:
+    // Time: 0(n), Space: 0(1), Faster: 100.00%
     public ListNode reverseKGroup(ListNode head, int k) {
 
-        ListNode cur = head;
-        ListNode p = cur, q;
+        ListNode dummp = new ListNode(0);
+
+        ListNode pre = dummp, curr = head, next = head;
 
         int cnt = k;
 
-        while (cur != null) {
+        while (next != null) {
 
-            if (cnt == k) {
+            if (cnt == 1) {
 
-                p = cur;
-                --cnt;
+                ListNode start = curr, end = next;
+                next = next.next;
+                end.next = null;
+                curr = next;
 
-            } else if (cnt == 1) {
+                reverse(start);
 
-                q = cur;
-                reverse(p, q);
+                pre.next = end;
+                pre = start;
+                start.next = next;
+
                 cnt = k;
-
-            } else {
-
-                --cnt;
+                continue;
             }
-
-            cur = cur.next;
+            --cnt;
+            next = next.next;
         }
 
-        return head;
+        return dummp.next;
     }
 
-    private static void reverse(ListNode p, ListNode q) {
+    private void reverse(ListNode curr) {
 
-        ListNode cur = p;
-        int t = q.val;
+        ListNode pre = null;
 
-        while (cur != q) {
+        while (curr != null) {
 
-            int tmp = cur.val;
-            cur.val = t;
-
-            t = tmp;
-            cur = cur.next;
+            ListNode tmp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = tmp;
         }
-        cur.val = t;
     }
 }
