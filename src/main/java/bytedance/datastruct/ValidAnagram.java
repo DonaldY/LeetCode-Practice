@@ -21,7 +21,8 @@ import java.util.Map;
  *
  * 思路：
  * 1. 用两个 hashMap 存储，然后两个 map 对比
- * 2.
+ * 2. 排序， 之后一一对比
+ * 3. 用一个 26 字母表，遍历 s 增，遍历 t 减，看最后字母表是否为0
  */
 public class ValidAnagram {
 
