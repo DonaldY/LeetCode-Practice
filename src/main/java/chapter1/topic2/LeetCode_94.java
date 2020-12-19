@@ -23,6 +23,8 @@ import java.util.Stack;
  * 1. 模拟中序遍历，进行遍历, 递归遍历
  * 2. 先加根节点左边的数，在加根节点，再加根节点右边的树
  *
+ * 1. 递归
+ * 2. 栈
  */
 public class LeetCode_94 {
 

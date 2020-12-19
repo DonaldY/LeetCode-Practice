@@ -19,6 +19,10 @@ import java.util.Stack;
  * 题意： 给一棵树，给出其前序遍历
  *
  * 题意： 按思路输出
+ *
+ * 思路：
+ * 1. 递归
+ * 2. 栈方式
  */
 public class LeetCode_144 {
 
