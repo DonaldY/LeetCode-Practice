@@ -44,6 +44,7 @@ public class LeetCode_70 {
         return cnt;
     }
 
+    // 超时
     public int climbstairsRecursive(int n) {
 
         if (n < 2) return 1;
