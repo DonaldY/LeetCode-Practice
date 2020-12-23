@@ -1,6 +1,5 @@
 package chapter1.topic3;
 
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 

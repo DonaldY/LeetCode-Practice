@@ -53,7 +53,7 @@ public class LeetCode_111 {
         return minDepth(root.right) + 1;
     }
 
-    // Time: o(n) Space: o(n)
+    // Time: o(n) Space: o(n), Faster: 80.09%
     public int minDepthWith(TreeNode root) {
 
         if (root == null) return 0;
