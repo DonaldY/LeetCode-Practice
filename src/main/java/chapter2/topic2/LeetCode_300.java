@@ -21,7 +21,7 @@ import java.util.Arrays;
  *
  * d(i) = max(d(j)+1), a(i) > a(j)
  *
- * 2. DP 保存结尾最小的数字
+ * 2. DP 保存结尾最小的数字， 例如蜘蛛纸牌
  */
 public class LeetCode_300 {
 
@@ -82,11 +82,14 @@ public class LeetCode_300 {
     // Time: o(n * log(n)), Space: o(n), Faster:  92.62%
     public int lengthOfLISBinarySearch(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
-        int n = nums.length, len = 0;
-        int [] d = new int[n];
+        // 牌堆数初始化为 0
+        int len = 0;
+        int [] d = new int[nums.length];
         for (int x : nums) {
             int i = binarySearchInsertPosition(d, len, x);
+            // 把这张牌放到牌堆顶
             d[i] = x;
+            // 没找到合适的牌堆，新建一堆
             if (i == len) ++len;
         }
         return len;
