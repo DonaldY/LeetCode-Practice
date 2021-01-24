@@ -52,27 +52,27 @@ public class LeetCode_53 {
     }
 
     // [4,-1,2,1,-5,4]
-public int[] maxSumOfSubArray3(int [] nums) {
-    if (nums == null || nums.length == 0) return new int[]{-1, -1};
+    public int[] maxSumOfSubArray3(int [] nums) {
+        if (nums == null || nums.length == 0) return new int[]{-1, -1};
 
-    // 1. 更新最大值时，需记录开始下标
-    int max = Integer.MIN_VALUE, start = 0 , end = 0, cur = 0;
-    for (int i = 0, j = 0; i < nums.length; ++i) {
-        if (cur <= 0) {
-            cur = nums[i];
-            j = i;
-        } else {
-            cur += nums[i];
-        }
+        // 1. 更新最大值时，需记录开始下标
+        int max = Integer.MIN_VALUE, start = 0 , end = 0, cur = 0;
+        for (int i = 0, j = 0; i < nums.length; ++i) {
+            if (cur <= 0) {
+                cur = nums[i];
+                j = i;
+            } else {
+                cur += nums[i];
+            }
 
-        if (cur > max) {
-            max = cur;
-            start = j;
-            end = i;
+            if (cur > max) {
+                max = cur;
+                start = j;
+                end = i;
+            }
         }
+        return new int[]{start, end};
     }
-    return new int[]{start, end};
-}
 }
 
 
