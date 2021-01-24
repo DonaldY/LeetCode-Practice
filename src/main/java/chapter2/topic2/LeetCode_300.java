@@ -84,13 +84,13 @@ public class LeetCode_300 {
         if (nums == null || nums.length == 0) return 0;
         // 牌堆数初始化为 0
         int len = 0;
-        int [] d = new int[nums.length];
+        int [] top = new int[nums.length];
         for (int x : nums) {
-            int i = binarySearchInsertPosition(d, len, x);
+            int left = binarySearchInsertPosition(top, len, x);
             // 把这张牌放到牌堆顶
-            d[i] = x;
+            top[left] = x;
             // 没找到合适的牌堆，新建一堆
-            if (i == len) ++len;
+            if (left == len) ++len;
         }
         return len;
     }
