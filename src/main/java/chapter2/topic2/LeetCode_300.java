@@ -1,5 +1,7 @@
 package chapter2.topic2;
 
+import java.util.Arrays;
+
 /**
  * 300. Longest Increasing Subsequence
  *
@@ -23,8 +25,30 @@ package chapter2.topic2;
  */
 public class LeetCode_300 {
 
+    // Time: O(n^2), Space: O(n), Faster: 15.08%
     public int lengthOfLIS(int[] nums) {
-        return 0;
+
+        int [] dp = new int[nums.length];
+
+        Arrays.fill(dp, 1);
+        for (int i = 0; i < nums.length; ++i) {
+            for (int j = 0; j < i; ++j) {
+
+                if (nums[i] > nums[j]) {
+
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+
+        int result = 0;
+
+        for (int value : dp) {
+
+            result = Math.max(result, value);
+        }
+
+        return result;
     }
 
     // Time: o(n^2), Space: o(n), Faster: 27.93%
