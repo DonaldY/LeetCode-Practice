@@ -43,11 +43,6 @@ package chapter1.topic2;
  */
 public class LeetCode_72 {
 
-    public int minDistance(String word1, String word2) {
-
-        return editDistance(word1, word2);
-    }
-
     // Time: o(m * n), Space: o(m * n), Faster: 36.73%
     public int editDistance(String s, String t) {
         if (s == null || t == null) return 0;
@@ -71,5 +66,27 @@ public class LeetCode_72 {
         }
 
         return d[m-1][n-1];
+    }
+
+    public int minDistance(String s1, String s2) {
+        int m = s1.length(), n = s2.length();
+        int [][] dp = new int[m + 1][n + 1];
+        // base case
+        for (int i = 1; i <= m; ++i)
+            dp[i][0] = i;
+        for (int j = 1; j <= n; ++j)
+            dp[0][j] = j;
+        // 自底向上求解
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
+                }
+            }
+        }
+        // 存储整个 s1 和 s2 的最小编辑距离
+        return dp[m][n];
     }
 }
