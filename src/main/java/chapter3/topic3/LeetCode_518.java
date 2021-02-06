@@ -112,6 +112,8 @@ public class LeetCode_518 {
         }
         return d[sum];
     }
+
+    // Time: o(n * sum), Space: o(n), Faster: 61.52%
     public int numberOfCoinCombinationDPOsum2(int sum, int [] coins) {
 
         int [] dp = new int[sum + 1];
@@ -119,7 +121,7 @@ public class LeetCode_518 {
         // base case
         dp[0] = 1;
 
-        for (int i = 1; i <= coins.length; ++i) {
+        for (int i = 0; i < coins.length; ++i) {
             for (int j = 1; j <= sum; ++j) {
                 if (j - coins[i] >= 0) {
                     dp[j] = dp[j] + dp[j - coins[i]];
