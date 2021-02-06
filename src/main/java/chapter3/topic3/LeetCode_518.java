@@ -66,6 +66,8 @@ public class LeetCode_518 {
     public int numberOfCoinCombinationDP(int sum, int [] coins) {
 
         int [][] d = new int[coins.length + 1][sum + 1];
+
+        // base case
         for (int i = 0; i <= coins.length; ++i) d[i][0] = 1;
 
         for (int i = 1; i <= coins.length; ++i) {
@@ -75,6 +77,25 @@ public class LeetCode_518 {
             }
         }
         return d[coins.length][sum];
+    }
+
+    public int numberOfCoinCombinationDP2(int sum, int [] coins) {
+
+        int [][] dp = new int[coins.length + 1][sum + 1];
+
+        // base case
+        for (int i = 0; i <= coins.length; ++i) dp[i][0] = 1;
+
+        for (int i = 1; i <= coins.length; ++i) {
+            for (int j = 1; j <= sum; ++j) {
+                if (j - coins[i - 1] >= 0) {
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i - 1]];
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+        return dp[coins.length][sum];
     }
 
     // Time: o(n * sum), Space: o(n), Faster: 51.75%
@@ -90,5 +111,21 @@ public class LeetCode_518 {
             }
         }
         return d[sum];
+    }
+    public int numberOfCoinCombinationDPOsum2(int sum, int [] coins) {
+
+        int [] dp = new int[sum + 1];
+
+        // base case
+        dp[0] = 1;
+
+        for (int i = 1; i <= coins.length; ++i) {
+            for (int j = 1; j <= sum; ++j) {
+                if (j - coins[i] >= 0) {
+                    dp[j] = dp[j] + dp[j - coins[i]];
+                }
+            }
+        }
+        return dp[sum];
     }
 }
