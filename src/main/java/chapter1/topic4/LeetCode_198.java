@@ -37,6 +37,27 @@ public class LeetCode_198 {
         System.out.println(leetCode_198.rob(new int[] {1, 2, 3, 1}));
     }
 
+    // 超出时间
+    public int rob0(int[] nums) {
+
+        return dp(nums, 0);
+    }
+
+    // 返回 nums[start..] 能获得的最大值
+    private int dp(int[] nums, int start) {
+
+        if (start >= nums.length) {
+            return 0;
+        }
+
+        return Math.max(
+                // 不取钱，去下间房
+                dp(nums, start + 1),
+                // 取钱，去下下间房
+                nums[start] + dp(nums, start + 2)
+        );
+    }
+
     // Time: o(n), Space: o(n), Faster: 100.00%
     public int rob(int[] nums) {
 
