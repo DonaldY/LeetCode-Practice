@@ -84,13 +84,13 @@ public class LeetCode_198 {
 
         if (nums == null || nums.length == 0) return 0;
 
-        int d1 = 0, d2 = 0;
+        int d1;
 
         d1 = nums[0];
 
         if (nums.length == 1) return d1;
 
-        d2 = Math.max(nums[0], nums[1]);
+        int d2 = Math.max(nums[0], nums[1]);
 
         for (int i = 2; i < nums.length; ++i) {
 
