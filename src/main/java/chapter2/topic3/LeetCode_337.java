@@ -65,7 +65,8 @@ public class LeetCode_337 {
             return memo.get(root);
         }
         // 取，然后去下下家做选择
-        int doIt = root.val + (root.left == null ? 0 : rob(root.left.left) + rob(root.left.right)) + (root.right == null ? 0 : rob(root.right.left) + rob(root.right.right));
+        int doIt = root.val + (root.left == null ? 0 : rob(root.left.left) + rob(root.left.right))
+                + (root.right == null ? 0 : rob(root.right.left) + rob(root.right.right));
 
         // 不取，然后去下家做选择
         int notDo = rob(root.left) + rob(root.right);
