@@ -46,6 +46,7 @@ package chapter7.topic3;
  *
  * 思路：
  * 1. dp
+ * 2. dp 状态数组优化
  */
 public class LeetCode_1312 {
 
