@@ -106,6 +106,8 @@ public class LeetCode_10 {
         if (s == null || p == null) return false;
         int m = s.length(), n = p.length();
         boolean[][] d = new boolean[m+1][n+1];
+
+        // base case
         d[0][0] = true;
         for (int i = 1; i <= m; ++i)
             d[i][0] = false;
