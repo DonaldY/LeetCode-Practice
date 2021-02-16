@@ -58,7 +58,7 @@ package chapter1.topic1;
  */
 public class LeetCode_26 {
 
-    // Time: O(), Space: O(1), Faster: 22.10%
+    // Time: O(n), Space: O(1), Faster: 22.10%
     public int removeDuplicates(int[] nums) {
 
         if (nums == null || nums.length == 0) return 0;
@@ -84,5 +84,24 @@ public class LeetCode_26 {
             if (nums[q] != nums[q-1])
                 nums[p++] = nums[q];
         return p;
+    }
+
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    // 慢指针slow走在后面， 快指针走在前面探路，找到一个不重复的元素就填到 slow 的位置，并然 slow 前进异步。
+    public int removeDuplicates3(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        int slow = 0, fast = 1;
+        while (fast < nums.length) {
+            if (nums[fast] != nums[slow]) {
+
+                ++slow;
+                // 维护 nums[0..slow] 无重复
+                nums[slow] = nums[fast];
+            }
+            ++ fast;
+        }
+        // 长度为索引 + 1
+        return slow + 1;
     }
 }
