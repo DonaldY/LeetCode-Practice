@@ -121,7 +121,7 @@ public class LeetCode_5 {
         return right - left - 1;
     }
 
-    // Time: o(n ^ 2), Space: o(1)
+    // Time: o(n ^ 2), Space: o(1), Faster: 86.79%
     public String longestPalindromeExpand(String s) {
         if (s == null || s.length() == 0) return "";
         int start = 0, maxLen = 0;
