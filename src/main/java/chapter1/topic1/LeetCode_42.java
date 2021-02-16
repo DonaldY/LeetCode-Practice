@@ -31,6 +31,11 @@ package chapter1.topic1;
  * 3. 简化 2， 空间复杂度
  *    记录左右两边指针，向中间扫
  *    公式： min(leftMax, rightMax) - originalNum
+ *
+ * 暴力解法 -> 备忘录解法 -> 双指针解法
+ * 1. 暴力解法： 两次循环
+ * 2. 在暴力解法之上，把左右边的最值都存储起来
+ * 3. 双指针解法：边走边计算
  */
 public class LeetCode_42 {
 
@@ -86,7 +91,7 @@ public class LeetCode_42 {
         return water;
     }
 
-    // Time: O(n), Space: O(1), Faster: 98.20%
+    // 双指针法： Time: O(n), Space: O(1), Faster: 98.20%
     public int waterCanBeTrapO1(int[] height) {
 
         if (height == null || height.length == 0) return 0;
@@ -104,5 +109,56 @@ public class LeetCode_42 {
         }
 
         return water;
+    }
+
+    // 暴力解法： Time: O(N ^ 2), Space: O(1), Faster: 12.92%
+    public int trap1(int [] height) {
+
+        int n = height.length, sum = 0;
+
+        for (int i = 1; i < n - 1; ++i) {
+
+            int leftMax = 0, rightMax = 0;
+            // 找到右边最高的柱子
+            for (int j = i; j < n; ++j) {
+                rightMax = Math.max(rightMax, height[j]);
+            }
+            // 找到左边最高的柱子
+            for (int j = i; j >= 0; --j) {
+                leftMax = Math.max(leftMax, height[j]);
+            }
+            sum += Math.min(rightMax, leftMax) - height[i];
+        }
+
+        return sum;
+    }
+
+    // 备忘录解法： Time: O(N), Space: O(N), Faster: 99.94%
+    public int trap2(int [] height) {
+
+        int[] leftHeight = new int[height.length];
+        int[] rightHeight = new int[height.length];
+
+        leftHeight[0] = height[0];
+        rightHeight[height.length - 1] = height[height.length - 1];
+
+        for (int i = 1; i < height.length; ++i) {
+
+            leftHeight[i] = Math.max(leftHeight[i - 1], height[i]);
+        }
+
+        for (int i = height.length - 2; i >= 0; --i) {
+
+            rightHeight[i] = Math.max(height[i], rightHeight[i + 1]);
+        }
+
+        int n = height.length, sum = 0;
+
+        for (int i = 1; i < n - 1; ++i) {
+
+            sum += Math.min(leftHeight[i], rightHeight[i]) - height[i];
+        }
+
+        return sum;
     }
 }
