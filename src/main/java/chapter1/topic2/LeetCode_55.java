@@ -24,7 +24,7 @@ package chapter1.topic2;
  * 题意： 根据所在位置的数值，可以选择跳的步数（3, 则可以跳 1 或 2 或 3 步）， 能否跳到数组某尾
  *
  * 思路：
- * 1. 贪心法，
+ * 1. 贪心法
  */
 public class LeetCode_55 {
 
@@ -37,10 +37,30 @@ public class LeetCode_55 {
         for (int i = 0; i < nums.length; ++i) {
 
             if (max >= nums.length - 1) return true;
+            // 可能碰到了 0, 卡住跳不动
             if (i > max) return false;
+            // 不断计算能跳到的最远距离
             max = Math.max(max, i + nums[i]);
         }
 
         return false;
+    }
+
+    // Time: o(n), Space: o(1), Faster: 81.62%
+    public boolean canJump2(int[] nums) {
+
+        if (nums == null || nums.length == 0) return false;
+
+        int farthest = 0;
+        for (int i = 0; i < nums.length - 1; ++i) {
+
+            // 不断计算能跳到的最远距离
+            farthest = Math.max(farthest, i + nums[i]);
+
+            // 可能碰到了 0, 卡住跳不动
+            if (i >= farthest) return false;
+        }
+
+        return farthest >= nums.length - 1;
     }
 }
