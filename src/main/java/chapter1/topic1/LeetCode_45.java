@@ -88,4 +88,26 @@ public class LeetCode_45 {
         }
         return -1;
     }
+
+    // Time: o(n), Space: o(1), Faster: 96.35%
+    public int jumpOther(int[] nums) {
+
+        if (nums == null || nums.length == 0) return -1;
+
+        int n = nums.length;
+        // 站在索引i，最多能跳到索引 end
+        int end = 0;
+        // 从索引 [i..end] 起跳，最远能跳到的距离
+        int farthest = 0;
+        // 记录跳跃次数
+        int jumps = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            farthest = Math.max(nums[i] + i, farthest);
+            if (end == i) {
+                ++jumps;
+                end = farthest;
+            }
+        }
+        return jumps;
+    }
 }
