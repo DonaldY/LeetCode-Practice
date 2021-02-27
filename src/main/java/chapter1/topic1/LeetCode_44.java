@@ -90,7 +90,7 @@ public class LeetCode_44 {
         return d[m][n];
     }
 
-    // Time: O(m*n), Space: O(1)
+    // Time: O(m*n), Space: O(1), Faster: 100.00%
     public boolean isMatchGreedy(String s, String p) {
         if (s == null || p == null) return false;
         int m = s.length(), n = p.length();
