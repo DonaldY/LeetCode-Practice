@@ -48,12 +48,9 @@ public class LeetCode_131 {
     public List<List<String>> partition(String s) {
 
         if (s == null || s.length() == 0) return Collections.emptyList();
-
         List<List<String>> result = new ArrayList<>();
-
         int n = s.length();
         boolean[][] d = new boolean[n][n];
-
         for (int i = n - 1; i >= 0; --i) {
             for (int j = i; j < n; ++j) {
                 if (i == j) d[i][j] = true;
@@ -61,9 +58,7 @@ public class LeetCode_131 {
                 else d[i][j] = s.charAt(i) == s.charAt(j) && d[i + 1][j - 1];
             }
         }
-
         partition(s, 0, d, result, new ArrayList<>());
-
         return result;
     }
 }
