@@ -29,21 +29,6 @@ import java.util.List;
  */
 public class LeetCode_131 {
 
-    private void partition(String s, int start, boolean[][] d,
-                           List<List<String>> result, List<String> elem) {
-        if (start >= s.length()) {
-            result.add(new ArrayList<>(elem));
-        } else {
-            for (int end = start; end < s.length(); ++end) {
-                if (d[start][end]) {
-                    elem.add(s.substring(start, end + 1));
-                    partition(s, end + 1, d, result, elem);
-                    elem.remove(elem.size() - 1);
-                }
-            }
-        }
-    }
-
     // Time: o(2 ^ n), Space: o(n ^ 2), Faster: 97.45%
     public List<List<String>> partition(String s) {
 
@@ -60,5 +45,42 @@ public class LeetCode_131 {
         }
         partition(s, 0, d, result, new ArrayList<>());
         return result;
+    }
+
+    private void partition(String s, int start, boolean[][] d,
+                           List<List<String>> result, List<String> elem) {
+        if (start >= s.length()) {
+            result.add(new ArrayList<>(elem));
+        } else {
+            for (int end = start; end < s.length(); ++end) {
+                if (d[start][end]) {
+                    elem.add(s.substring(start, end + 1));
+                    partition(s, end + 1, d, result, elem);
+                    elem.remove(elem.size() - 1);
+                }
+            }
+        }
+    }
+
+    // Time: O(n^2), Space: O(1)
+    public int countPalindromicSubstringsExpand(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int count = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            // 奇数
+            count += expand(s, i, i);
+            // 偶数
+            count += expand(s, i, i+1);
+        }
+        return count;
+    }
+
+    int expand(String s, int left, int right) {
+        int count = 0;
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            ++count;
+            --left; ++right;
+        }
+        return count;
     }
 }
