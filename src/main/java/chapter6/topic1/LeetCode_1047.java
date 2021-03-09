@@ -29,7 +29,8 @@ import java.util.List;
  * 题意： 删除重复字母
  *
  * 思路：
- * 1. 暴力法： 每次删除后，重新查找
+ * 1. 暴力法： 每次删除
+ * 2. 利用栈思想
  */
 public class LeetCode_1047 {
 
@@ -42,12 +43,16 @@ public class LeetCode_1047 {
         int n = S.length();
         int i = 0;
         while (i < n){
-            if (i + 1 < n && S.charAt(i) == S.charAt(i+1)){
+            // 正常情况下，发现两个元素相等
+            if (i + 1 < n && S.charAt(i) == S.charAt(i+1)) {
+                // 向后移动
                 i += 2;
             }else {
                 int len = sb.length();
+                // 若当前元素与结果最后元素相等的话：
                 if (len > 0 && S.charAt(i) == sb.charAt(len - 1)){
-                    sb.deleteCharAt(len-1); // 数组频繁移动
+                    // 删除后一位
+                    sb.deleteCharAt(len-1);
                 }else {
                     sb.append(S.charAt(i));
                 }
