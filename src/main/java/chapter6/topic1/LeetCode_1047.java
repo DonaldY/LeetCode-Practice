@@ -64,7 +64,7 @@ public class LeetCode_1047 {
 
     // Time: O(n), Space: O(1), Faster: 73.62%
     public String removeDuplicatesWithStack(String S) {
-        StringBuffer stack = new StringBuffer();
+        StringBuilder stack = new StringBuilder();
         int top = -1;
         for (int i = 0; i < S.length(); ++i) {
             char ch = S.charAt(i);
