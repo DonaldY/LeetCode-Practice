@@ -51,7 +51,7 @@ public class LeetCode_705 {
 
 }
 
-// Time: O(), Space: O(), Faster: 45.90%
+// Time: O(n), Space: O(n), Faster: 45.90%
 class MyHashSet {
 
     private static final int BASE = 769;
@@ -101,7 +101,7 @@ class MyHashSet {
     }
 }
 
-// Time: O(), Space: O(), Faster: 99.77%
+// Time: O(n), Space: O(n), Faster: 99.77%
 class MyHashSet2 {
 
     long[] set;
