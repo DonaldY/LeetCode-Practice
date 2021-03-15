@@ -50,15 +50,19 @@ public class LeetCode_54 {
 
         while (left < right ) {
 
+            // 从左到右
             for (int i = left; i < right; ++i) result.add(matrix[top][i]);
             if (++top >= bottom) break;
 
+            // 从上到下
             for (int i = top; i < bottom; ++i) result.add(matrix[i][right - 1]);
             if (--right <= left) break;
 
+            // 从右到左
             for (int i = right - 1; i >= left; --i) result.add(matrix[bottom - 1][i]);
             if (--bottom <= top) break;
 
+            // 从下到上
             for (int i = bottom - 1; i >= top; --i) result.add(matrix[i][left]);
             if (++left >= right) break;
         }
