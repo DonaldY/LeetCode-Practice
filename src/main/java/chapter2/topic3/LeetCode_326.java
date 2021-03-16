@@ -68,7 +68,7 @@ public class LeetCode_326 {
             )
     );
 
-    // Time: O(1), Space: O(1)
+    // Time: O(1), Space: O(1), Faster: 10.70%
     public boolean isPowerOfThreeHashSet(int n) {
         return set.contains(n);
     }
