@@ -39,7 +39,6 @@ import java.util.Arrays;
  * 思路：
  * 1. 暴力法： 每个数计算，除 (1~ 根号本身数)
  * 2. 筛数法： 2 是一个素数，那么所有 2 的倍数
- * 3.
  */
 public class LeetCode_204 {
 
