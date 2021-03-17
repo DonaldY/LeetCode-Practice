@@ -83,7 +83,7 @@ public class LeetCode_101 {
         return node;
     }
 
-    // Time o(n), Space o(n)
+    // Time o(n), Space o(n), Faster: 100.00%
     public boolean isSymmetric(TreeNode root) {
         if (null == root) {
             return true;
@@ -104,7 +104,7 @@ public class LeetCode_101 {
         return left == null && right == null;
     }
 
-    // Time o(n), Space o(n)
+    // Time o(n), Space o(n), Faster: 28.14%
     public boolean isSymmetricNode(TreeNode root) {
 
         if (null == root) return true;
