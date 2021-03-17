@@ -93,4 +93,24 @@ public class LeetCode_124 {
         max[0] = Math.max(max[0], root.val + leftMax + rightMax);
         return root.val + Math.max(leftMax, rightMax);
     }
+
+    int ans = Integer.MIN_VALUE;
+
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public int maxPathSum(TreeNode root) {
+
+        oneSideMax(root);
+
+        return ans;
+    }
+
+    private int oneSideMax(TreeNode root) {
+        if (root == null) return 0;
+        int left = Math.max(0, oneSideMax(root.left));
+        int right = Math.max(0, oneSideMax(root.right));
+
+        // 后序遍历
+        ans = Math.max(ans, left + right + root.val);
+        return Math.max(left, right) + root.val;
+    }
 }
