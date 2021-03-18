@@ -21,6 +21,7 @@ import java.util.Stack;
  *
  * 思路：
  * 1. dfs一个个路径判断
+ * 2. 迭代方式： 使用栈
  */
 public class LeetCode_112 {
 
