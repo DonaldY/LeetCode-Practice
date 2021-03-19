@@ -39,7 +39,7 @@ public class LeetCode_112 {
                 || hasPathSum(root.right, sum - root.val);
     }
 
-    // Time: o(n), Space: o(n)
+    // Time: o(n), Space: o(n), Faster: 12.69%
     public boolean hasPathSumIterative(TreeNode root, int sum) {
 
         if (root == null) return false;
