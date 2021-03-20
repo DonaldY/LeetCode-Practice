@@ -25,6 +25,16 @@ import java.util.Map;
  */
 public class LeetCode_106 {
 
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
     // Time: o(n), Space: o(n), Faster: 66.41%
     public TreeNode buildTree(int[] inorder, int[] postorder) {
 
