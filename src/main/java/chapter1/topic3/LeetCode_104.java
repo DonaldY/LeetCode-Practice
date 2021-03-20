@@ -48,7 +48,7 @@ public class LeetCode_104 {
 
         Queue<TreeNode> queue = new LinkedList<>();
 
-        ((LinkedList<TreeNode>) queue).add(root);
+        queue.add(root);
 
         while (!queue.isEmpty()) {
 
@@ -57,8 +57,8 @@ public class LeetCode_104 {
             for (int i = 0; i < size; ++i) {
 
                 TreeNode node = queue.poll();
-                if (node.left != null) ((LinkedList<TreeNode>) queue).add(node.left);
-                if (node.right != null) ((LinkedList<TreeNode>) queue).add(node.right);
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
             }
 
             ++maxDepth;
