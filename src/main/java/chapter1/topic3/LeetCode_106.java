@@ -21,7 +21,7 @@ import java.util.Map;
  * 题意：根据中序和后序，构建一颗二叉树
  *
  * 思路：
- * 1.
+ * 1. 根据后序找根，再在中序分组
  */
 public class LeetCode_106 {
 
