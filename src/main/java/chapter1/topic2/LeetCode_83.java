@@ -18,7 +18,6 @@ package chapter1.topic2;
  * 思路：
  * 1. 使用当前指针和上个指针，若当前与上个相同，则删除当前
  * 2. 使用当前指针和下个指针，若当前与下个相同，则删除下个
- * 3. 用 `HashMap` 保存，然后比对
  */
 class ListNode {
     int val;
