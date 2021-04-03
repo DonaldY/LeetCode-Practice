@@ -33,7 +33,7 @@ import java.util.Map;
  *
  * 题意： 至少有多少只兔子
  *
- * 思路：
+ * 思路 - 1：
  * 相同的答案可能是颜色相同的兔子，用 Map 维持计数。
  * 若相同答案的兔子超出数量，则重新计数。
  * 若相同颜色为0, 则直接加1.
@@ -42,11 +42,16 @@ import java.util.Map;
  *          若超过则重新计数
  *
  * 特殊案例： [0, 0, 1, 1, 1]  result : 6
+ *
+ *
+ * 思路 - 2：
+ * 如果有 x 只兔子都回答 y，则至少有 x / (y + 1) 向上取整; 且每种颜色有 y + 1 只兔子
+ * 所以兔子数最少为 [x / (y + 1)] * (y + 1)
  */
 public class LeetCode_781 {
 
     // Time: O(n), Space: O(n), Faster: 68.18%
-    public int numRabbits(int[] answers) {
+    public int numRabbits1(int[] answers) {
 
         if (null == answers || answers.length == 0) return 0;
 
@@ -79,5 +84,18 @@ public class LeetCode_781 {
         }
 
         return result;
+    }
+
+    public int numRabbits2(int[] answers) {
+        Map<Integer, Integer> count = new HashMap<Integer, Integer>();
+        for (int y : answers) {
+            count.put(y, count.getOrDefault(y, 0) + 1);
+        }
+        int ans = 0;
+        for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
+            int y = entry.getKey(), x = entry.getValue();
+            ans += (x + y) / (y + 1) * (y + 1);
+        }
+        return ans;
     }
 }
