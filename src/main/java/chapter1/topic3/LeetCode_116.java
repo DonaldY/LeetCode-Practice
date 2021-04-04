@@ -52,27 +52,20 @@ import java.util.Queue;
  * 3. 递归方法
  * 4. 遍历方法
  */
-
-
 public class LeetCode_116 {
 
     class Node {
         public int val;
-        public Node left;
-        public Node right;
-        public Node next;
+        public Node left, right, next;
 
-        public Node() {}
-
-        public Node(int _val) {
-            val = _val;
+        public Node(int val) {
+            this.val = val;
         }
 
-        public Node(int _val, Node _left, Node _right, Node _next) {
-            val = _val;
-            left = _left;
-            right = _right;
-            next = _next;
+        public Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
 
@@ -130,5 +123,4 @@ public class LeetCode_116 {
         }
         return root;
     }
-
 }
