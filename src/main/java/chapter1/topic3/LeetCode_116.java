@@ -82,33 +82,24 @@ public class LeetCode_116 {
         if (null == root) return root;
 
         Queue<Node> queue = new LinkedList<>();
-
         queue.add(root);
 
         while (!queue.isEmpty()) {
-
             Node preNode = queue.poll();
-
             int size = queue.size();
 
             if (preNode.left != null) queue.add(preNode.left);
             if (preNode.right != null) queue.add(preNode.right);
 
             while (size > 0) {
-
                 Node node = queue.poll();
-
                 preNode.next = node;
-
                 preNode = node;
-
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
-
                 --size;
             }
         }
-
         return root;
     }
 
