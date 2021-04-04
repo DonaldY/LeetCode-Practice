@@ -92,21 +92,6 @@ public class LeetCode_236 {
         return null;
     }
 
-    // Time:O(n), Space:O(n), Faster: 71.07%
-    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
-
-        if(root == null || root == p || root == q) return root;
-
-        TreeNode left = lowestCommonAncestor2(root.left, p, q);
-
-        TreeNode right = lowestCommonAncestor2(root.right, p, q);
-
-        if(left != null && right != null) return root;
-        if(left != null) return left;
-
-        return right;
-    }
-
     // Time: O(n), Space: O(n)
     public TreeNode lcaWithPath(TreeNode root, TreeNode p, TreeNode q) {
         List<TreeNode> ppath = new ArrayList<>();
@@ -128,7 +113,7 @@ public class LeetCode_236 {
         return false;
     }
 
-    // Time: O(n), Space: O(n)
+    // Time: O(n), Space: O(n), Faster: 71.07%
     public TreeNode lcaExtend(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) return root;
         TreeNode left = lcaExtend(root.left, p, q);
