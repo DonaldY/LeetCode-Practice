@@ -25,9 +25,11 @@ package chapter1.topic4;
  * 思路：
  * 1. 直接查找
  * 2. 二分搜索变体
+ * 3. 二分搜索提前查找
  */
 public class LeetCode_153 {
 
+    // 方法二：
     // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int findMin(int[] nums) {
         int low = 0, high = nums.length - 1;
@@ -39,6 +41,7 @@ public class LeetCode_153 {
         return nums[low];
     }
 
+    // 方法三：
     // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int findMinEarlyReturn(int[] nums) {
         int low = 0, high = nums.length - 1;
