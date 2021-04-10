@@ -23,10 +23,12 @@ package chapter2.topic2;
  * 思路：
  * 1. 一个数质因分解， 看这个数中是否有除 2 3 5之外的数
  * 2. 是否为 2, 3, 5的倍数，或两个组合的倍数，或2 3 5的倍数
+ *
+ * 时间复杂度 O(m + n + l) : 分别对应 2 3 5 的个数
  */
 public class LeetCode_263 {
 
-    // Time: o(m + n +1) , Space: o(1), Faster: 99.72%
+    // Time: o(m + n + l) , Space: o(1), Faster: 99.72%
     public boolean isUgly(int num) {
 
         if (num <= 0) return false;
