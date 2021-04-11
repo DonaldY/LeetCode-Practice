@@ -96,7 +96,7 @@ public class LeetCode_116 {
         return root;
     }
 
-    // Time: O(n), Space: O(log(n))
+    // Time: O(n), Space: O(log(n)), Faster: 100%
     public Node connectRecursive(Node root) {
         if (root == null || root.left == null) return root;
         root.left.next = root.right;
@@ -107,7 +107,7 @@ public class LeetCode_116 {
         return root;
     }
 
-    // Time: O(n), Space: O(1)
+    // Time: O(n), Space: O(1), Faster: 100%
     public Node connectIterative(Node root) {
         if (root == null) return null;
         Node leftMost = root, p;
