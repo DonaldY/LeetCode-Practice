@@ -43,7 +43,7 @@ import java.util.Arrays;
  */
 public class LeetCode_179 {
 
-    // Time: O(n ^ 2), Space: O(1), Faster:
+    // Time: O(n ^ 2), Space: O(1), Faster: 5.16%
     public String largestNumber(int[] nums) {
 
         if (nums == null || nums.length == 0) return "0";
@@ -61,6 +61,10 @@ public class LeetCode_179 {
             }
         }
 
+        if (nums[0] == 0) {
+            return "0";
+        }
+
         StringBuilder stringBuilder = new StringBuilder();
 
         for (int num : nums) {
@@ -73,40 +77,15 @@ public class LeetCode_179 {
 
     public static void main(String[] args) {
 
-        System.out.println(isCompare(3, 34));
+        System.out.println(isCompare(999999991,9));
     }
 
     private static boolean isCompare(int s, int p) {
 
-        char[] ss = String.valueOf(s).toCharArray();
-        char[] pp = String.valueOf(p).toCharArray();
+        long num1 = Long.parseLong(String.valueOf(s) + String.valueOf(p));
+        long num2 = Long.parseLong(String.valueOf(p) + String.valueOf(s));
 
-        int len = Math.min(ss.length, pp.length);
-
-        char[] sss = new char[len + 1];
-        char[] ppp = new char[len + 1];
-
-        for (int i = 0; i < len ; ++i) {
-
-            sss[i] = ss[i];
-            ppp[i] = pp[i];
-        }
-
-        if (ss.length == len) sss[len] = ss[len - 1];
-        if (pp.length == len) ppp[len] = pp[len - 1];
-
-        for (int i = 0; i < len + 1; ++i) {
-
-            if (sss[i] > ppp[i]) {
-
-                return false;
-            } else if (sss[i] < ppp[i]) {
-
-                return true;
-            }
-        }
-
-        return false;
+        return num1 <= num2;
     }
 
     // Time: O(nlogn * nlogn), Space: O(1), Faster: 99.50%
