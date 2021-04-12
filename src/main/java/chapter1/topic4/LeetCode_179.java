@@ -1,5 +1,7 @@
 package chapter1.topic4;
 
+import java.util.Arrays;
+
 /**
  * @author donald
  * @date 2021/04/12
@@ -69,7 +71,12 @@ public class LeetCode_179 {
         return stringBuilder.toString();
     }
 
-    private boolean isCompare(int s, int p) {
+    public static void main(String[] args) {
+
+        System.out.println(isCompare(3, 34));
+    }
+
+    private static boolean isCompare(int s, int p) {
 
         char[] ss = String.valueOf(s).toCharArray();
         char[] pp = String.valueOf(p).toCharArray();
@@ -100,5 +107,34 @@ public class LeetCode_179 {
         }
 
         return false;
+    }
+
+    // Time: O(nlogn * nlogn), Space: O(1), Faster: 99.50%
+    public String largestNumber2(int[] nums) {
+        int n = nums.length;
+        Integer[] numsArr = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            numsArr[i] = nums[i];
+        }
+
+        Arrays.sort(numsArr, (x, y) -> {
+            long sx = 10, sy = 10;
+            while (sx <= x) {
+                sx *= 10;
+            }
+            while (sy <= y) {
+                sy *= 10;
+            }
+            return (int) (-sy * x - y + sx * y + x);
+        });
+
+        if (numsArr[0] == 0) {
+            return "0";
+        }
+        StringBuilder ret = new StringBuilder();
+        for (int num : numsArr) {
+            ret.append(num);
+        }
+        return ret.toString();
     }
 }
