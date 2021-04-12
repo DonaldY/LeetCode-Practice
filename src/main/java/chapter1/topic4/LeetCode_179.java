@@ -116,4 +116,24 @@ public class LeetCode_179 {
         }
         return ret.toString();
     }
+
+    // Time: O(n*logn), Space: O(N), Faster: 91.49%
+    public String largestNumber3(int[] nums) {
+
+        int n = nums.length;
+        String[] numsToWord = new String[n];
+
+        for(int i = 0; i < n; i++){
+            numsToWord[i] = String.valueOf(nums[i]);
+        }
+
+        Arrays.sort(numsToWord,(a,b)-> (b+a).compareTo(a+b));
+
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < n; i++){
+            sb.append(numsToWord[i]);
+        }
+        String res = sb.toString();
+        return res.charAt(0)== '0' ? "0" : res;
+    }
 }
