@@ -24,7 +24,8 @@ import java.util.Queue;
  * 题意： 求任意两节点的最小值
  *
  * 思路：
- * 前序遍历每个结点，根据搜索树的特性找到当前结点左子树最大值和右子树最小值，用当前结点的值分别和找到的两个值做差，取最小即可。
+ * 1. 前序遍历每个结点，根据搜索树的特性找到当前结点左子树最大值和右子树最小值，用当前结点的值分别和找到的两个值做差，取最小即可。
+ * 2. 中序遍历
  *
  * Tips: 差值最小是相邻的节点
  */
@@ -76,27 +77,22 @@ public class LeetCode_783 {
         return min;
     }
 
-    int pre;
-    int ans;
+    //pre记录前一节点
+    private TreeNode pre = null;
+    private int res = Integer.MAX_VALUE;
+
     // Time: O(n), Space: O(h), Faster: 100.00%
     public int minDiffInBST2(TreeNode root) {
-        ans = Integer.MAX_VALUE;
-        pre = -1;
         dfs(root);
-        return ans;
+        return res;
     }
-
-    public void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+    private void dfs(TreeNode root){
+        if(root == null) return;
         dfs(root.left);
-        if (pre == -1) {
-            pre = root.val;
-        } else {
-            ans = Math.min(ans, root.val - pre);
-            pre = root.val;
+        if(pre != null){
+            res = Math.min(root.val - pre.val,res);   //记录最小
         }
+        pre = root;
         dfs(root.right);
     }
 }
