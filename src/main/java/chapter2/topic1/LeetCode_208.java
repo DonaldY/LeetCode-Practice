@@ -28,7 +28,7 @@ package chapter2.topic1;
  */
 public class LeetCode_208 {
 
-    // Faster: 56.86%
+    // Faster: 87.89%
     class Trie {
 
         private class TrieNode {
