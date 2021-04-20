@@ -16,10 +16,12 @@ package chapter1.topic1;
  *
  * 思路：
  * 1. 使用API
- * 2.
+ * 2. 2层 for
+ * 3. 双指针
  */
 public class LeetCode_28 {
 
+    // 方法三： 双指针
     // Time: o(n * m), Space: o(1), Faster: 100.00%
     public int strStr(String haystack, String needle) {
 
