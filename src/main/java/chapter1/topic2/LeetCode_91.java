@@ -70,7 +70,7 @@ public class LeetCode_91 {
         return d[s.length()];
     }
 
-    // Time: O(n), Space: O(1)
+    // Time: O(n), Space: O(1), Faster: 100.00%
     public int numberOfDecodingsDPO1(String s) {
         int first = 1;
         int second = s.charAt(0) != '0' ? 1 : 0;
