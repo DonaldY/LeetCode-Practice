@@ -36,7 +36,7 @@ import java.util.Set;
  */
 public class LeetCode_633 {
 
-    // Time: O(c ^ 1/2), Space: O(c ^ 1/2)
+    // Time: O(c ^ 1/2), Space: O(c ^ 1/2), Faster: 6.98%
     public boolean judgeSquareSumHashSet(int c) {
         int x = (int) Math.sqrt(c);
         Set<Integer> set = new HashSet<>();
