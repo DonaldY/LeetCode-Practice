@@ -29,24 +29,19 @@ public class LeetCode_7 {
         System.out.println(leetCode.reverse(1534236469));
     }
 
+    // Faster: 100%
     public int reverse(int x) {
 
         long result = 0;
-
         int t = Math.abs(x);
-
         int isFirst = 0;
-
         int temp = 0;
 
         while ( t > 0) {
 
             temp = t % 10;
-
             t /= 10;
-
             if (isFirst == 0 && temp == 0) {
-
                 continue;
             }
 
@@ -56,20 +51,18 @@ public class LeetCode_7 {
             }
 
             result = result * 10;
-
             result += temp;
-
             isFirst = 1;
         }
 
         if (x < 0) {
-
             result = -result;
         }
 
         return (int) result;
     }
 
+    // Faster: 100%
     public int reverse2(int x) {
         int rev = 0;
         while (x != 0) {
