@@ -19,8 +19,8 @@ import java.util.Map;
  * 返回链表的深度拷贝
  *
  * 思路：
- * 1. 把所有节点都保存下来，然后再逐个创建
- * 2. 更
+ * 1. 两次遍历： 先创建所有节点，再把节点 random 关联上
+ * 2. 创建节点的时候，就创建对应的 random
  */
 public class LeetCode_138 {
 
