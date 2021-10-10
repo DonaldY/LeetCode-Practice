@@ -10,10 +10,12 @@ package chapter3.topic1;
  *
  * 思路：
  * 1. 暴力法：一层一层相减
+ *
  * 2. 数学公式法1：等差数列(高斯求和)
  *    - 如果完整的行有 i 行, 对前i行求和, sum = (0 + i) × (i - 0 + 1) / 2 <= n
  *    - 然后逐个遍历即可
  *    - 要防止整型溢出, 使用long long
+ *
  * 3. 数学公式法2：一元二次方程，求得 root
  *    求和公式：n = x * (x + 1) / 2
  *    因 x >=0，解不等式：
@@ -40,19 +42,20 @@ public class LeetCode_441 {
     }
 
     // 2. 数学公式：等差数列
-    // Time: o(n), Space: o(1), Faster: 17.84%
+    // Time: o(n), Space: o(1), Faster: 100.00%
     public int arrangeCoins2(int n) {
-        long i = 0;
-        while ((long)(i * (i + 1)) < (long) (2 * n)) {
-            ++i;
+        long l = 1, r = n;
+        while (l < r) {
+            long mid = l + r + 1 >> 1;
+            if (mid * (mid + 1) / 2 <= n) l = mid;
+            else r = mid - 1;
         }
-        if ((long)(i * (i + 1)) == (long) (2 * n)) return (int)i;
-        return (int)i - 1;
+        return (int)r;
     }
 
-    // 3. 数学公式：
-    // Time: o(n), Space: o(1), Faster: 17.84%
+    // 3. 数学公式：  求解一元二次方程 求根公式
+    // Time: o(n), Space: o(1), Faster: 100.00%
     public int arrangeCoins3(int n) {
-        return (int)((Math.sqrt(1 + 8 * n) - 1) / 2);
+        return (int)((Math.sqrt((long)8 * n + 1) - 1) / 2);
     }
 }
