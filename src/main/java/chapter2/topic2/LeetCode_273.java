@@ -24,7 +24,7 @@ package chapter2.topic2;
  * Input: num = 1234567891
  * Output: "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
  *
- *
+ * 1. 直接干：迭代法
  */
 public class LeetCode_273 {
 
