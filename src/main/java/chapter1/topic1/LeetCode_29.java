@@ -31,10 +31,12 @@ package chapter1.topic1;
  *
  * 思路：
  * 1. 位运算：模拟除
- * 2. 二分查找 + 快速称
+ * 2. 二分查找 + 快速乘
  */
 public class LeetCode_29 {
 
+    // 2. 二分查找 + 快速乘
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int divide(int dividend, int divisor) {
         // 考虑被除数为最小值的情况
         if (dividend == Integer.MIN_VALUE) {
