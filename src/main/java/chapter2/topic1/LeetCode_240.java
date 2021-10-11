@@ -50,6 +50,7 @@ public class LeetCode_240 {
         System.out.println(leetCode.searchMatrix(matrix2 , -5));
     }
 
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public boolean searchMatrix(int[][] matrix, int target) {
 
         if (matrix == null || matrix.length == 0 ||
