@@ -25,14 +25,16 @@ package chapter1.topic4;
  * 输出：0
  * ```
  *
- * 题意：
+ * 题意： 找最小数
  *
  *
  * 思路：
- *
+ * 1. 直接遍历查找
+ * 2. 二分查找
  */
 public class LeetCode_154 {
 
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int findMin(int[] nums) {
 
         int low = 0;
