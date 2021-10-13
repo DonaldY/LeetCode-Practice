@@ -177,6 +177,7 @@ topic : limit 50
 |    # | Title | Difficulty |  Faster
 | :--- | :----: | :----      | :----|
 |    409 | Longest Palindrome |  Medium      | 100.00% |
+|    412 | Fizz Buzz |  Easy      | 39.58% |
 |    437 | Path Sum III |  Easy      | 52.72% |
 |    438 | Find All Anagrams in a String |  Medium      | 95.14% |
 |    441 | Arranging Coins |  Easy      | 100% |
