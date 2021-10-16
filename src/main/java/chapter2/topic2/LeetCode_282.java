@@ -80,7 +80,7 @@ public class LeetCode_282 {
     int target;
     List<String> ans;
 
-    // Time: O(4^n), Space: O(n), Faster:
+    // Time: O(4^n), Space: O(n), Faster: 82.85%
     public List<String> addOperators(String num, int target) {
         this.n = num.length();
         this.num = num;

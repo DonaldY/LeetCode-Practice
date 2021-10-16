@@ -153,7 +153,7 @@ topic : limit 50
 |    264 | Ugly Number II |  Medium      | 98.81% |
 |    268 | Missing Number |  Easy      | 100% |
 |    273 | Integer to English Words |  Easy      | 100% |
-|    283 | Perfect Squares |  Medium      | 99.91% |
+|    282 | Expression Add Operators |  Hard      | 82.85% |
 |    283 | Move Zeroes |  Easy      | 100% |
 |    287 | Find the Duplicate Number |  Medium      | 100% |
 |    295 | Find Median from Data Stream |  Hard      | 43.70% |
