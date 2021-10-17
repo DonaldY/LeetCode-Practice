@@ -139,6 +139,7 @@ topic : limit 50
 |    224 | Basic Calculator    |   Hard      | 55.83% |
 |    226 | Invert Binary Tree    |   Easy      | 100.00% |
 |    227 | Basic Calculator II    |   Medium      | 96.37% |
+|    230 | Kth Smallest Element in a BST    |   Medium      | 37.14% |
 |    232 | Implement Queue using Stacks    |   Easy      | 36.88% |
 |    233 | Number of Digit One    |   Hard      | 100.00% |
 |    234 | Palindrome Linked List    |   Easy      | 95.50% |
