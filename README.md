@@ -132,6 +132,7 @@ topic : limit 50
 |    207 | Course Schedule |  Medium      | 89.95% |
 |    208 | Implement Trie (Prefix Tree) |  Medium      | 56.86% |
 |    210 | Course Schedule II |  Medium      | 80.56% |
+|    211 | Design Add and Search Words Data Structure |  Medium      | 67.98% |
 |    213 | House Robber II    |   Medium      | 100.00% |
 |    215 | Kth Largest Element in an Array    |   Medium      | 42.15% |
 |    218 | The Skyline Problem    |   Hard      | 20.81% |
