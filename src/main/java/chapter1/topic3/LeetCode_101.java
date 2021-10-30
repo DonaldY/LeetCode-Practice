@@ -35,6 +35,12 @@ class TreeNode {
     TreeNode left;
     TreeNode right;
     TreeNode(int x) { val = x; }
+
+    TreeNode(int x, TreeNode left, TreeNode right) {
+        this.left = left;
+        this.right = right;
+        this.val = x;
+    }
 }
 
 public class LeetCode_101 {
