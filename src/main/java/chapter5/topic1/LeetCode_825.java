@@ -42,5 +42,6 @@ public class LeetCode_825 {
 
     public int numFriendRequests(int[] ages) {
 
+        return 0;
     }
 }
