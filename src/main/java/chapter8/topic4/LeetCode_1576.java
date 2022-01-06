@@ -42,6 +42,8 @@ package chapter8.topic4;
  */
 public class LeetCode_1576 {
 
+    // Time: O(C * n), Space: O(1), Faster: 100%
+    // 时间复杂度：O(C×n)，其中 n 是字符串的长度，需要遍历一遍字符串，C 表示可替代字符的数量，在本题中 C=3。
     public String modifyString(String s) {
         int n = s.length();
         char[] arr = s.toCharArray();
