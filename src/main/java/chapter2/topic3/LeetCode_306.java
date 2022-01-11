@@ -41,6 +41,7 @@ package chapter2.topic3;
  */
 public class LeetCode_306 {
 
+    // Faster: 100.00%
     public boolean isAdditiveNumber(String num) {
         int len = num.length();
         if (len < 3) {
