@@ -46,6 +46,7 @@ public class LeetCode_1996 {
     // Time: O(nlogn), Space: O(1), Faster: 91.94%
     public int numberOfWeakCharacters(int[][] properties) {
 
+        // 第一个元素降序，第二元素升序
         // [1,3],[1,2],[4,5],[3,7]
         // --->
         // [4,5],[3,7],[1,2],[1,3]
