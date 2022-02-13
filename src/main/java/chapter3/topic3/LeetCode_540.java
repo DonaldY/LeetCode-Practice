@@ -39,7 +39,7 @@ public class LeetCode_540 {
         return result;
     }
 
-    // Time: o(log(n)), Space: o(1)
+    // Time: o(log(n)), Space: o(1), Faster: 100.00%
     public int singleNumInSortedArrayBinarySearch(int [] nums) {
 
         int low = 0, high = nums.length - 1;
