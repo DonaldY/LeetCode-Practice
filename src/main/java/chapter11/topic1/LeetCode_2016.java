@@ -40,7 +40,7 @@ package chapter11.topic1;
  */
 public class LeetCode_2016 {
 
-    // Time: O(n ^ 2), Space: O(1), Faster:
+    // Time: O(n), Space: O(1), Faster: 100.00%
     public int maximumDifference(int[] nums) {
 
         if (null == nums || nums.length == 0) return -1;
