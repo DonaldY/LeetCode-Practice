@@ -22,10 +22,14 @@ package chapter2.topic2;
  * 示例 1:
  * 输入: num = 0
  * 输出: 0
+ *
+ * 思路：
+ * 1. 模拟
+ * 2. 数学：而利用「同余式相加」性质，等价于每个数分别对 99 取模之和
  */
 public class LeetCode_258 {
 
-    // Faster: 100.00%
+    // Time：O(lognum), Space：O(1), Faster: 100.00%
     public int addDigits(int num) {
         int ans = num;
         while (ans >= 10) {
@@ -42,5 +46,10 @@ public class LeetCode_258 {
             num /= 10;
         }
         return ans;
+    }
+
+    // Time：O(1), Space：O(1), Faster: 100.00%
+    public int addDigits2(int num) {
+        return (num - 1) % 9 + 1;
     }
 }
