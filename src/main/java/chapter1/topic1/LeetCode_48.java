@@ -61,6 +61,7 @@ public class LeetCode_48 {
 
         int n = matrix.length;
 
+        // 1. 先主对角线，两边互换
         for (int i = 0; i < n; ++i) {
             for (int j = i; j < n; ++j) {
                 int tmp = matrix[i][j];
@@ -68,6 +69,8 @@ public class LeetCode_48 {
                 matrix[j][i] = tmp;
             }
         }
+
+        // 2. 再中轴线两边互换
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n / 2; ++j) {
                 int tmp = matrix[i][j];
