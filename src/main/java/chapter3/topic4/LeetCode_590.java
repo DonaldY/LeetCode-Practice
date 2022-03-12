@@ -39,7 +39,7 @@ class Node {
 
 public class LeetCode_590 {
 
-    // Time: O(n), Space: O(1), Faster: 94.21%
+    // Time: O(n), Space: O(1), Faster: 100.00%
     public List<Integer> postorder(Node root) {
 
         if (null == root) return Collections.emptyList();
