@@ -27,7 +27,7 @@ import java.util.Set;
  * 输出："apple"
  * 解释："apply" 和 "apple" 都能由词典中的单词组成。但是 "apple" 的字典序小于 "apply"
  *
- *
+ * 题意： 前缀相同，且最长
  */
 public class LeetCode_720 {
 
