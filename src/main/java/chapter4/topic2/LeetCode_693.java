@@ -48,4 +48,21 @@ public class LeetCode_693 {
         }
         return true;
     }
+
+    public boolean hasAlternatingBits2(int n) {
+        int cur = -1;
+        while (n != 0) {
+            int u = n & 1;
+            if ((cur ^ u) == 0) return false;
+            cur = u; n >>= 1;
+        }
+        return true;
+    }
+
+    public boolean hasAlternatingBits3(int n) {
+        int x = n ^ (n >> 1);
+        return (x & (x + 1)) == 0;
+    }
+
+
 }
