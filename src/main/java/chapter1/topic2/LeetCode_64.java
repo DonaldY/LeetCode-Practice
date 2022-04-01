@@ -29,6 +29,7 @@ package chapter1.topic2;
  */
 public class LeetCode_64 {
 
+    // 方法二：DP
     // Time: o(m * n), Space: o(m * n), Faster: 90.23%
     public int minSumOfPath(int [][] grid) {
         int m = grid.length, n = grid[0].length;
@@ -53,6 +54,7 @@ public class LeetCode_64 {
         return d[m-1][n-1];
     }
 
+    // 方法三：DP 优化版
     // Time: o(m * n), Space: o(n), Faster: 99.61%
     public int minSumOfPath1dArray(int [][] grid) {
         int m = grid.length, n = grid[0].length;
@@ -76,6 +78,7 @@ public class LeetCode_64 {
 
     private int sum = Integer.MAX_VALUE;
 
+    // 方法一： DFS
     // 方向只有向右或向左
     public int minPathSum(int[][] grid) {
 
