@@ -60,9 +60,8 @@ import java.util.List;
  *
  * 思路：
  * 1. DFS，暴力解法
- *
  * 2. 找到无环无向图的中心
- *
+ * 3. DP
  */
 public class LeetCode_310 {
 
