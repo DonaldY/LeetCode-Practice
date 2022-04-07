@@ -29,7 +29,7 @@ package chapter4.topic4;
  */
 public class LeetCode_796 {
 
-    // Time: O(1), Space: O(1), Faster: 100.00%
+    // Time: O(n), Space: O(n), Faster: 100.00%
     public boolean rotateString(String s, String goal) {
         return s.length() == goal.length() && (s + s).contains(goal);
     }
