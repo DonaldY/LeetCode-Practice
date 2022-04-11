@@ -22,7 +22,7 @@ package chapter2.topic4;
  * 题意： 求数
  *
  * 思路：
- * 1. 遍历每一位
+ * 1. 乘法原理： 每一位的可能 9 * 9 * 8 ....
  */
 public class LeetCode_357 {
 
