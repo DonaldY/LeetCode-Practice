@@ -56,6 +56,7 @@ public class LeetCode_380 {
 }
 
 // Faster: 82.04%
+// 2022.4.13 Faster: 51.32%
 class RandomizedSet {
 
     private final Map<Integer, Integer> map = new HashMap<>();
