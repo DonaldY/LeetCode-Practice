@@ -79,7 +79,7 @@ public class LeetCode_64 {
     private int sum = Integer.MAX_VALUE;
 
     // 方法一： DFS
-    // 方向只有向右或向左
+    // 方向只有向右或向左, 超出时间范围 O((m*n)^2)
     public int minPathSum(int[][] grid) {
 
         findMinPathSum(grid, 0, 0 , 0);
