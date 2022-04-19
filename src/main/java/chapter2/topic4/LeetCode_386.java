@@ -29,6 +29,7 @@ import java.util.List;
  */
 public class LeetCode_386 {
 
+    // Time: O(n), Space: O(1), Faster: 44.06%
     public List<Integer> lexicalOrder(int n) {
         List<Integer> ret = new ArrayList<>();
         int number = 1;
