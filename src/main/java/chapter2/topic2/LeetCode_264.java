@@ -26,7 +26,7 @@ public class LeetCode_264 {
         return 0;
     }
 
-    // Time: o(n * log(n)), Space: o(n), Faster: 20.16%
+    // Time: o(n * log(n)), Space: o(n), Faster: 5.19%
     public int getNthUglyNumberMinHeap(int n) {
         int uglyNum = -1;
         Queue<Integer> q = new PriorityQueue<>();
@@ -45,7 +45,7 @@ public class LeetCode_264 {
         return uglyNum;
     }
 
-    // Time: O(n), Space: O(n), Faster: 98.81%
+    // Time: O(n), Space: O(n), Faster: 98.33%
     public int getNthUglyNumberDP(int n) {
         if (n <= 0) return -1;
         int[] uglyNums = new int[n];
