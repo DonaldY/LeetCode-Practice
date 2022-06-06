@@ -63,7 +63,7 @@ public class LeetCode_10 {
         System.out.println(leetCode.isMatch("mississippi", "mis*is*p*.")); // false
     }
 
-    // Faster: 11.51%
+    // Faster: 5.34%
     public boolean isMatch(String s, String p) {
 
         // 正则串为空
