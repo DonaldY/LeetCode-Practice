@@ -83,6 +83,7 @@ public class LeetCode_297 {
     // Time: O(n), Space: O(n)
     public TreeNode deserialize(String data) {
         if (data.equals("[]")) return null;
+        // 去掉前后的 [], 再分割元素
         String[] elems = data.substring(1, data.length() - 1).split(",");
         TreeNode[] trees = new TreeNode[elems.length];
         for (int i = 0; i < elems.length; ++i)
