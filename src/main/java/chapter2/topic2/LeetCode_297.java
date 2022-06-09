@@ -85,9 +85,12 @@ public class LeetCode_297 {
         if (data.equals("[]")) return null;
         // 去掉前后的 [], 再分割元素
         String[] elems = data.substring(1, data.length() - 1).split(",");
+        // 1. 存储树节点
         TreeNode[] trees = new TreeNode[elems.length];
+        // 2. 创建树节点
         for (int i = 0; i < elems.length; ++i)
             trees[i] = elems[i].equals("null") ? null : new TreeNode(Integer.valueOf(elems[i]));
+        // 3. 构造树节点关系
         int i = 1;
         for (TreeNode tree : trees) {
             if (tree != null) {
