@@ -40,13 +40,6 @@ public class LeetCode_51 {
         return result;
     }
 
-    private List<String> buildList(char[][] board) {
-        List<String> list = new ArrayList<>();
-        for (char[] row: board)
-            list.add(new String(row));
-        return list;
-    }
-
     private void solve(int row, int n, List<List<String>> result,
                        char[][] board, boolean[][] visited) {
         if (row == n) {
@@ -54,6 +47,7 @@ public class LeetCode_51 {
             return;
         }
         for (int col = 0; col < n; ++col) {
+            // 列、主对角线、副对角线
             if (!visited[0][col] && !visited[1][row-col+n] && !visited[2][row+col]) {
                 board[row][col] = 'Q';
                 visited[0][col] = visited[1][row-col+n] = visited[2][row+col] = true;
@@ -62,5 +56,12 @@ public class LeetCode_51 {
                 board[row][col] = '.';
             }
         }
+    }
+
+    private List<String> buildList(char[][] board) {
+        List<String> list = new ArrayList<>();
+        for (char[] row: board)
+            list.add(new String(row));
+        return list;
     }
 }
