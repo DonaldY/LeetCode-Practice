@@ -60,8 +60,9 @@ public class LeetCode_51 {
 
     private List<String> buildList(char[][] board) {
         List<String> list = new ArrayList<>();
-        for (char[] row: board)
+        for (char[] row: board) {
             list.add(new String(row));
+        }
         return list;
     }
 }
