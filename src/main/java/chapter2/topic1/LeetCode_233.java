@@ -79,6 +79,7 @@ public class LeetCode_233 {
         return f(n);
     }
 
+    // 先求高位，在求低位
     private int f(int n) {
         // 上一级递归 n = 20、10之类的整十整百之类的情况；以及n=0的情况
         if (n == 0) return 0;
@@ -90,12 +91,12 @@ public class LeetCode_233 {
         int length = s.length();
 
         // 这个base是解题速度100%的关键，本例中的是999中1的个数：300
-        // 99的话就是20 ; 9的话就是1 ；9999就是4000 这里大家应该发现规律了吧。
+        // 99的话就是20 ; 9的话就是1 ; 9999就是4000 这里大家应该发现规律了吧。
         int base = (length - 1) * (int) Math.pow(10, length - 2);
 
-        //high就是最高位的数字
+        // high就是最高位的数字
         int high = s.charAt(0) - '0';
-        //cur就是当前所数量级，即1000
+        // cur就是当前所数量级，即1000
         int cur = (int) Math.pow(10, length - 1);
         if (high == 1) {
 
@@ -103,8 +104,8 @@ public class LeetCode_233 {
             // 剩下的f函数就是求1000~1234中由234产生的1的个数
             return base + 1 + n - cur + f(n - high * cur);
         } else {
-            // high： 代表有多少个
-            // base： 计算()
+            // high：代表有多少个
+            // base：计算(999) 的多少个 × 总共有几个
             return base * high + cur + f(n - high * cur);
         }
     }
