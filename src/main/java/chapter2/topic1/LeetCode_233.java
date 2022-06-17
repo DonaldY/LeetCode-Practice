@@ -14,7 +14,7 @@ package chapter2.topic1;
  * 题意：在[1, n], 位数上 1 出现的次数
  *
  * 思路：
- * 1. 每一个数字计算一遍 o(n * log10(n))
+ * 1. 暴力法：每一个数字计算一遍 o(n * log10(n))
  * 2. 按位求数量
  *    abcde
  *    ab 为 high， de 为 low
@@ -23,6 +23,7 @@ package chapter2.topic1;
  *    c == 1 => high * factor + low + 1
  *    else => (high + 1) * factor
  *
+ * 3. 方法三：找规律
  */
 public class LeetCode_233 {
 
@@ -70,6 +71,41 @@ public class LeetCode_233 {
             }
             factor = factor * 10;
         }
-        return (int)count;
+        return (int) count;
+    }
+
+    // 方法三： 找规律
+    public int countDigitOne3(int n) {
+        return f(n);
+    }
+
+    private int f(int n) {
+        // 上一级递归 n = 20、10之类的整十整百之类的情况；以及n=0的情况
+        if (n == 0) return 0;
+        // n < 10 即为个位，这样子只有一个1
+        if (n < 10) return 1;
+
+        String s = String.valueOf(n);
+        //长度：按例子来说是4位
+        int length = s.length();
+
+        // 这个base是解题速度100%的关键，本例中的是999中1的个数：300
+        // 99的话就是20 ; 9的话就是1 ；9999就是4000 这里大家应该发现规律了吧。
+        int base = (length - 1) * (int) Math.pow(10, length - 2);
+
+        //high就是最高位的数字
+        int high = s.charAt(0) - '0';
+        //cur就是当前所数量级，即1000
+        int cur = (int) Math.pow(10, length - 1);
+        if (high == 1) {
+
+            // 最高位为1，1+n-cur就是1000~1234中由千位数提供的1的个数，
+            // 剩下的f函数就是求1000~1234中由234产生的1的个数
+            return base + 1 + n - cur + f(n - high * cur);
+        } else {
+            // high： 代表有多少个
+            // base： 计算()
+            return base * high + cur + f(n - high * cur);
+        }
     }
 }
