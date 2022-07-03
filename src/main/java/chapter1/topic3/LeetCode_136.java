@@ -44,6 +44,7 @@ public class LeetCode_136 {
         return 0;
     }
 
+    // 方法一：
     // Time: o(n) Space o(n)
     public int getSingleNumberByHashMap(int[] nums) {
 
@@ -74,13 +75,15 @@ public class LeetCode_136 {
         return 0;
     }
 
+    // 方法二：数学公式计算
+    // Time: o(n) Space: o(n) faster: 20.52%
     public int getSingleNumberWithSet(int[] nums) {
 
         Set<Integer> set = new HashSet<Integer>();
         int sum = 0, uniqueSum = 0;
         for (int num : nums) {
             if (!set.contains(num)) {
-                uniqueSum += sum;
+                uniqueSum += num;
                 set.add(num);
             }
             sum += num;
@@ -88,7 +91,8 @@ public class LeetCode_136 {
         return 2 * uniqueSum - sum;
     }
 
-    // Time: o(n) Space: o(1) faster: 100%
+    // 方法三：
+    // Time: o(n) Space: o(1) faster: 99.98%
     public int getSingleNumberWithXOR(int[] nums) {
         int result = 0;
 
