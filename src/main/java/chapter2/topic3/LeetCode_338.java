@@ -35,7 +35,7 @@ package chapter2.topic3;
  */
 public class LeetCode_338 {
 
-    // Time: O(n * k), Space: O(1), Faster:
+    // Time: O(n * k), Space: O(1), Faster: 39.00%
     public int[] countBits(int num) {
 
         if (num < 0) return new int[0];
@@ -55,16 +55,14 @@ public class LeetCode_338 {
         int cnt = 0;
 
         while (num != 0) {
-
             num &= (num - 1);
-
             ++cnt;
         }
 
         return cnt;
     }
 
-    // Time: O(n * k), Space: O(1), Faster: 99.78%
+    // Time: O(n * k), Space: O(1), Faster: 99.98%
     public int[] countBitsWith(int num) {
 
         if (num < 0) return new int[0];
