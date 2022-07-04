@@ -76,6 +76,7 @@ public class LeetCode_234 {
             cur = next;
         }
 
+        // 奇数，跳过当前
         if (len % 2 == 1) cur = cur.next;
         for (; pre != null && cur != null; pre = pre.next, cur = cur.next) {
             if (pre.val != cur.val) return false;
