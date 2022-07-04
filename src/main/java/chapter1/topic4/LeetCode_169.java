@@ -27,7 +27,7 @@ public class LeetCode_169 {
         System.out.println(leetCode.majorityElement(new int[]{2,2,1,1,1,2,2}));
     }
 
-    // Time: o(n) , Space: o(1), Faster: 76.41%
+    // Time: o(n) , Space: o(1), Faster: 99.96%
     public int majorityElement(int[] nums) {
 
         int num = 0, count = 0;
@@ -38,7 +38,6 @@ public class LeetCode_169 {
             else --count;
 
             if (count <= 0) {
-
                 num = nums[i];
                 count = 1;
             }
