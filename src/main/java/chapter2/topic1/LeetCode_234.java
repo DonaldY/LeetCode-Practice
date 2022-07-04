@@ -22,6 +22,7 @@ import java.util.Stack;
  */
 public class LeetCode_234 {
 
+    // 方法一：
     // Time: o(n) Space: o(n) faster: 21.12%
     public boolean isPalindrome(ListNode head) {
 
@@ -46,6 +47,7 @@ public class LeetCode_234 {
         return true;
     }
 
+    // 方法二：
     // Time: O(n), Space: O(n) faster: 13.56%
     public boolean isPalindromeUsingStack(ListNode head) {
         Stack<Integer> s = new Stack<Integer>();
@@ -59,7 +61,8 @@ public class LeetCode_234 {
         return true;
     }
 
-    // Time: O(n), Space: O(1) faster:95.50%
+    // 方法三：
+    // Time: O(n), Space: O(1) faster:98.72%
     public boolean isPalindromeReverseList(ListNode head) {
         int len = 0;
         for (ListNode p = head; p != null; p = p.next, ++len);
