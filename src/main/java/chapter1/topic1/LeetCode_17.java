@@ -27,14 +27,14 @@ import java.util.List;
  * 题意： 电话号码
  *
  * 思路：
- * 1. 直接匹配查询
+ * 1. 直接匹配查询: dfs
  */
 public class LeetCode_17 {
 
     List<String> number = Arrays.asList("abc", "def", "ghi", "jkl", "mno",
             "pqrs", "tuv", "wxyz");
 
-    // Time: O(4 ^ n), Space: O(n), Faster: 100.00%
+    // Time: O(4 ^ n), Space: O(n), Faster: 15.69%
     public List<String> letterCombinations(String digits) {
 
         if (digits == null || digits.length() == 0) return Collections.emptyList();
