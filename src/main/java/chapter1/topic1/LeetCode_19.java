@@ -73,4 +73,26 @@ public class LeetCode_19 {
         return dummy.next;
     }
 
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public ListNode removeNthFromEnd3(ListNode head, int n) {
+        if (null == head || n <= 0) return null;
+
+        int cnt = 0;
+        for (ListNode node = head; node != null; node = node.next) {
+            ++cnt;
+        }
+
+        ListNode dummy = new ListNode(0, head);
+        ListNode cur = dummy;
+        int num = cnt - n;
+
+        while (num-- > 0) {
+            cur = cur.next;
+        }
+
+        cur.next = cur.next.next;
+
+        return dummy.next;
+    }
+
 }
