@@ -62,9 +62,11 @@ public class LeetCode_19 {
         dummy.next = head;
         ListNode p = dummy, q = dummy;
 
+        // 先 q 走 n 步
         for (; n > 0 && q.next != null; --n) q = q.next;
-        if (n != 0) return dummy.next;
+        if (n != 0) return dummy.next; // 防止 n > 链表长度
 
+        // p 和 q 再一起走，直到 q 走到底， p 在 q 前n步
         while (q.next != null) {
             p = p.next;
             q = q.next;
