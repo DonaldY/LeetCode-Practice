@@ -42,32 +42,25 @@ public class LeetCode_34 {
 
         int start = -1, end = -1;
 
+        // 先找到第一个
         for (int left = 0, right = nums.length - 1; left <= right;) {
 
             int mid = (right + left) / 2;
             if (nums[mid] == target) {
 
-                start = mid;
+                start = mid; // 赋值
+                end = mid;   // 赋值
                 break;
             } else if (target < nums[mid]) right = mid - 1;
             else left = mid + 1;
         }
 
+        // 向左查找第一个
         while (start >= 1 && nums[start] == nums[start - 1]) {
             --start;
         }
 
-        for (int left = 0, right = nums.length - 1; left <= right;) {
-
-            int mid = (right + left) / 2;
-            if (nums[mid] == target) {
-
-                end = mid;
-                break;
-            } else if (target < nums[mid]) right = mid - 1;
-            else left = mid + 1;
-        }
-
+        // 向右查找最后一个
         while (end >= 0 && end <= nums.length - 2 && nums[end] == nums[end + 1]) {
             ++end;
         }
@@ -85,7 +78,7 @@ public class LeetCode_34 {
         return high;
     }
 
-    // Time: O(log(n)), Space: O(1)
+    // Time: O(log(n)), Space: O(1), Faster: 100.00%
     public int[] binarySearchFirstAndLastPosition(int[] nums, int target) {
         if (nums == null || nums.length == 0) return new int[]{-1, -1};
         int end = binarySearchLastOne(nums, target);
