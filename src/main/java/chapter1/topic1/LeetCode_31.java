@@ -1,5 +1,7 @@
 package chapter1.topic1;
 
+import java.util.Arrays;
+
 /**
  * 31. Next Permutation
  *
@@ -18,6 +20,16 @@ package chapter1.topic1;
  * 3. 再对 i ~ p 进行升序
  */
 public class LeetCode_31 {
+
+    public static void main(String[] args) {
+
+        int [] nums = new int[] {4, 2, 1};
+
+        LeetCode_31 leetCode_31 = new LeetCode_31();
+        leetCode_31.nextPermutation(nums);
+
+        System.out.println(Arrays.toString(nums));
+    }
 
     private void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
