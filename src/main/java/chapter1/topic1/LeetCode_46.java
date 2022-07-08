@@ -34,7 +34,7 @@ public class LeetCode_46 {
 
     }
 
-    // Time: O(n*n!), Space: O(n) faster: 99.75%
+    // Time: O(n*n!), Space: O(n) faster: 80.69%
     public List<List<Integer>> permute(int[] nums) {
 
         if (nums == null || nums.length == 0) return new ArrayList<>();
