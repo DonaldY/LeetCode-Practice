@@ -21,7 +21,7 @@ import java.util.List;
  * 题意： 给一个数组（数组的数均唯一），求所有组合
  *
  * 思路：
- * 1. 递归计算
+ * 1. 递归计算: 每个字母交换
  * - 根据首字母全排序
  */
 public class LeetCode_46 {
