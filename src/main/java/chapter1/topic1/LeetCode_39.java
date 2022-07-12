@@ -39,10 +39,12 @@ import java.util.List;
  * 思路：
  * 1. 递归，选自身或者选下一个
  * 2. 在一基础上， 排序，减枝
+ *
+ * 排列组合题
  */
 public class LeetCode_39 {
 
-    // Time: O(n ^ (target / min)), Space: O(target / min), Faster:  99.83%
+    // Time: O(n ^ (target / min)), Space: O(target / min), Faster: 93.23%
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
 
         if (candidates == null || candidates.length == 0) return null;
