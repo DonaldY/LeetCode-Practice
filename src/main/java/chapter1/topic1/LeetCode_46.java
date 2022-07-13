@@ -34,10 +34,10 @@ public class LeetCode_46 {
 
     }
 
-    // Time: O(n*n!), Space: O(n) faster: 80.69%
+    // Time: O(n*n!), Space: O(n), Faster: 80.69%
     public List<List<Integer>> permute(int[] nums) {
 
-        if (nums == null || nums.length == 0) return new ArrayList<>();
+        if (nums == null || nums.length == 0) return Collections.emptyList();
         List<List<Integer>> result = new ArrayList<>();
 
         List<Integer> list = new ArrayList<>();
@@ -49,15 +49,17 @@ public class LeetCode_46 {
 
     private void permuteRec(List<Integer> list, int start, List<List<Integer>> result) {
 
+        // 结束条件：最后节点了
         if (start == list.size()) {
             result.add(new ArrayList<>(list));
             return;
         }
 
+        // 选择列表
         for (int i = start; i < list.size(); ++i) {
-            Collections.swap(list, i , start);
-            permuteRec(list, start + 1, result);
-            Collections.swap(list, start, i);
+            Collections.swap(list, i , start);        // 选择
+            permuteRec(list, start + 1, result); // 调用
+            Collections.swap(list, start, i);         // 撤销选择
         }
     }
 }
