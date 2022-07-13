@@ -60,17 +60,21 @@ public class LeetCode_39 {
 
     private void combSum(int [] nums, int target, int start, List<Integer> elem,
                          List<List<Integer>> result) {
+        // 结束条件：最后节点了
         if (target == 0) {
-
             result.add(new ArrayList<>(elem));
             return;
         }
 
+        // 结束条件：超出目标值
         if (target < 0) return;
         for (int i = start; i < nums.length; ++i) {
-            if (nums[i] > target) break;
+            if (nums[i] > target) break; // 剪枝叶：超出目标值
+            // 选择
             elem.add(nums[i]);
+            // 调用
             combSum(nums, target - nums[i], i, elem, result);
+            // 撤销选择
             elem.remove(elem.size() - 1); // T: O(1)
         }
     }
