@@ -27,11 +27,11 @@ package chapter1.topic2;
  * 你要判断给你的单词是否存在于字符矩阵中。
  *
  * 思路：
- * 1. 暴力搜索
+ * 1. 暴力搜索 dfs
  */
 public class LeetCode_79 {
 
-    // Time: O(m * n * 3 ^ k), Space: O(n * m), Faster: 87.88%
+    // Time: O(m * n * 3 ^ k), Space: O(n * m), Faster: 62.80%
     public boolean exist(char[][] board, String word) {
 
         if (word == null || word.length() == 0) return true;
