@@ -34,6 +34,7 @@ import java.util.List;
  */
 public class LeetCode_78 {
 
+    // 方法一：回溯法
     // Time: O(2 ^ n), Space: O(n), Faster: 100.00%
     public List<List<Integer>> subsets(int[] nums) {
 
@@ -57,6 +58,7 @@ public class LeetCode_78 {
         }
     }
 
+    // 方法二：位运算
     // Time: O(n * 2 ^ n), Space: O(1), Faster: 41.71%%
     public List<List<Integer>> subsetsBit(int[] nums) {
 
