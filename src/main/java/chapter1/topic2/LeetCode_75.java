@@ -16,9 +16,11 @@ package chapter1.topic2;
  * 2. 模拟排序
  * 3. 遍历数组，统计个数，然后填充
  * 4. 双指针交换
+ * 5. 3次遍历交换
  */
 public class LeetCode_75 {
 
+    // 方法三：统计
     // Time: o(n), Space: o(1), Faster: 100.00%
     public void sortColors(int[] nums) {
 
@@ -51,13 +53,17 @@ public class LeetCode_75 {
         }
     }
 
+    // 方法四：双指针交换
     // Time: O(n), Space: O(1), Faster: 100.00%
     public void sortThreeColorsSwap(int[] nums) {
         if (nums == null || nums.length == 0) return;
         int left = 0, mid = 0, right = nums.length - 1;
         while (mid <= right) {
+            // 遇到0 就交换，放最左边
             if (nums[mid] == 0) swap(nums, left++, mid++);
+            // 遇到1 增加指针
             else if (nums[mid] == 1) ++mid;
+            // 遇到2 就交换，放最右边
             else swap(nums, mid, right--);
         }
     }
@@ -66,5 +72,39 @@ public class LeetCode_75 {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
+    }
+
+    //方法五：遍历
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public void sortColors3(int[] nums) {
+        if (null == nums || nums.length == 0) return;
+
+        int i = 0;
+        for (int j = 0; j < nums.length; ++j) {
+            if (nums[j] == 0) {
+                int tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tmp;
+                ++i;
+            }
+        }
+
+        for (int j = i; j < nums.length; ++j) {
+            if (nums[j] == 1) {
+                int tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tmp;
+                ++i;
+            }
+        }
+
+        for (int j = i; j < nums.length; ++j) {
+            if (nums[j] == 2) {
+                int tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tmp;
+                ++i;
+            }
+        }
     }
 }
