@@ -2,9 +2,9 @@ package chapter1.topic2;
 
 /**
  * 96. Unique Binary Search Trees
- *
+ * <p>
  * Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
- *
+ * <p>
  * Example:
  *
  * Input: 3
@@ -32,10 +32,12 @@ public class LeetCode_96 {
     public int numTrees(int n) {
         if (n < 0) return 0;
         int[] d = new int[n + 1];
-        d[0] = 1;
-        for (int i = 1; i <= n; ++i)
-            for (int j = 1; j <= i; ++j)
+        d[0] = 1; // 只有一个节点
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i; ++j) {
                 d[i] += d[j - 1] * d[i - j];
+            }
+        }
 
         return d[n];
     }
@@ -46,6 +48,6 @@ public class LeetCode_96 {
         long result = 1;
         for (int k = 1; k <= n; ++k)
             result = result * (n + k) / k;
-        return (int)(result / (n + 1));
+        return (int) (result / (n + 1));
     }
 }
