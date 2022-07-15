@@ -32,7 +32,7 @@ public class LeetCode_96 {
     public int numTrees(int n) {
         if (n < 0) return 0;
         int[] d = new int[n + 1];
-        d[0] = 1; // 只有一个节点
+        d[0] = 1; // 只有一个节点//
         for (int i = 1; i <= n; ++i) {
             for (int j = 1; j <= i; ++j) {
                 d[i] += d[j - 1] * d[i - j];
