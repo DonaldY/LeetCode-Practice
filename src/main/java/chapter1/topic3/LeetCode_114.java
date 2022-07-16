@@ -38,6 +38,7 @@ import java.util.Queue;
  */
 public class LeetCode_114 {
 
+    // 方法一：
     // Time: O(n), Space: O(n), Faster: 68.72%
     public void flatten(TreeNode root) {
 
@@ -68,6 +69,7 @@ public class LeetCode_114 {
 
     private TreeNode prev = null;
 
+    // 方法二： 递归，逆转前序遍历
     // Time: O(n), Space: O(n), Faster: 100.00%
     public void flattenReversePreorder(TreeNode root) {
         if (root == null) return;
