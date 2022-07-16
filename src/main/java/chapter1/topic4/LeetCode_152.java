@@ -25,7 +25,9 @@ public class LeetCode_152 {
     public static void main(String[] args) {
         LeetCode_152 leetCode_152 = new LeetCode_152();
     }
-    // Time: O(n ^ 2), Space: O(1), Faster:
+
+    // 方式一：暴力法
+    // Time: O(n ^ 2), Space: O(1), Faster: 5.01%
     public int maxProduct2(int[] nums) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; ++i) {
@@ -39,15 +41,8 @@ public class LeetCode_152 {
         return max;
     }
 
-    private int max(int a, int b, int c) {
-        return Math.max(Math.max(a, b), c);
-    }
-
-    private int min(int a, int b, int c) {
-        return Math.min(Math.min(a, b), c);
-    }
-
-    // Time: o(n), Space: o(1), Faster: 99.18%
+    // 方式二：动态规划
+    // Time: o(n), Space: o(1), Faster: 66.15%
     public int maxProduct(int[] nums) {
 
         if (nums == null || nums.length == 0) return 0;
@@ -66,5 +61,13 @@ public class LeetCode_152 {
         }
 
         return max;
+    }
+
+    private int max(int a, int b, int c) {
+        return Math.max(Math.max(a, b), c);
+    }
+
+    private int min(int a, int b, int c) {
+        return Math.min(Math.min(a, b), c);
     }
 }
