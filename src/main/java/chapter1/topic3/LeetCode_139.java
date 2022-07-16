@@ -29,11 +29,15 @@ import java.util.Set;
  * 1. 暴力，直接每个都查找
  * 2. 动态规划： d(i) 表示前 i 个字符（下标 0 ～ i - 1）组成的子串是否能分解成列表中的若干字串
  *
+ *    0 ~ j -1  j ~ i -1
  *
+ *    d(j) && s(j, i - 1) in list ==> d(i) = true
+ *    d(0) = true
+ *    求 d(n)
  */
 public class LeetCode_139 {
 
-    // Time: o(n ^ 2), Space: o(n + m), Faster: 94.47%
+    // Time: o(n ^ 2), Space: o(n + m), Faster: 89.44%
     public boolean wordBreak(String s, List<String> wordDict) {
 
         int n = s.length();
