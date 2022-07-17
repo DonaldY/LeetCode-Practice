@@ -26,7 +26,7 @@ public class LeetCode_152 {
         LeetCode_152 leetCode_152 = new LeetCode_152();
     }
 
-    // 方式一：暴力法
+    // 方式一：暴力法//
     // Time: O(n ^ 2), Space: O(1), Faster: 5.01%
     public int maxProduct2(int[] nums) {
         int max = Integer.MIN_VALUE;
