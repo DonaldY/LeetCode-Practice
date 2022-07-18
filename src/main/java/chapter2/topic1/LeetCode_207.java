@@ -48,15 +48,18 @@ public class LeetCode_207 {
 
         if (numCourses <= 1 || prerequisites == null) return true;
 
+        // 构建图： 构建邻接表
         List<List<Integer>> graph = new ArrayList<>(numCourses);
-
-        for (int i = 0; i < numCourses; ++i)
+        for (int i = 0; i < numCourses; ++i) {
             graph.add(new LinkedList<>());
-
-        for (int[] pair : prerequisites)
+        }
+        for (int[] pair : prerequisites) {
             graph.get(pair[1]).add(pair[0]);
+        }
 
+        // 记录这个节点之后是否有环， true 无环 false 可能有环
         boolean[] checked = new boolean[numCourses];
+        // 标记是否访问过
         boolean[] visited = new boolean[numCourses];
 
         for (int i = 0; i < numCourses; ++i)
@@ -92,20 +95,26 @@ public class LeetCode_207 {
         if (numCourses <= 1 || prerequisites == null || prerequisites.length == 0)
             return true;
 
+        // 记录每个节点的入度数
         int[] inDegree = new int[numCourses];
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < numCourses; ++i)
-            graph.add(new LinkedList<>());
 
+        // 构建邻接表
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < numCourses; ++i) {
+            graph.add(new LinkedList<>());
+        }
+        // 建立节点的关系
         for (int[] pair : prerequisites) {
             graph.get(pair[1]).add(pair[0]);
             ++inDegree[pair[0]];
         }
 
         Queue<Integer> q = new LinkedList<>();
-        for (int i = 0; i < inDegree.length; ++i)
-            if (inDegree[i] == 0)
+        for (int i = 0; i < inDegree.length; ++i) {
+            if (inDegree[i] == 0) {
                 q.add(i);
+            }
+        }
 
         int count = 0;
         while (!q.isEmpty()) {
