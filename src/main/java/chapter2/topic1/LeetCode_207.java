@@ -43,7 +43,7 @@ import java.util.*;
  */
 public class LeetCode_207 {
 
-    // Time: O(V + E), Space: O(V + E), Faster: 89.95%
+    // Time: O(V + E), Space: O(V + E), Faster: 64.27%
     public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
 
         if (numCourses <= 1 || prerequisites == null) return true;
@@ -85,7 +85,7 @@ public class LeetCode_207 {
         return false;
     }
 
-    // Time: O(V + E), Space: O(V + E), Faster: 76.35%
+    // Time: O(V + E), Space: O(V + E), Faster: 39.75%
     public boolean canFinishTopSortAdjList(int numCourses, int[][] prerequisites) {
 
         if (numCourses <= 1 || prerequisites == null || prerequisites.length == 0)
