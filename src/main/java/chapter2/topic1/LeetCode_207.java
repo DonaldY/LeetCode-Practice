@@ -37,12 +37,12 @@ import java.util.*;
  *       单向连通图
  *
  * 思路：
- * 1. 一个个查询（DFS），然后删除
- * 2. 利用图，走一圈，没有发现回路即可
- * 3. 拓扑排序
+ * 1. 一个个查询（DFS） + 回溯 : 利用图，走一圈，没有发现回路即可
+ * 2. 拓扑排序 : 入度 和 出度
  */
 public class LeetCode_207 {
 
+    // 方法一： dfs + 回溯
     // Time: O(V + E), Space: O(V + E), Faster: 64.27%
     public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
 
@@ -53,7 +53,7 @@ public class LeetCode_207 {
         for (int i = 0; i < numCourses; ++i)
             graph.add(new LinkedList<>());
 
-        for (int [] pair: prerequisites)
+        for (int[] pair : prerequisites)
             graph.get(pair[1]).add(pair[0]);
 
         boolean[] checked = new boolean[numCourses];
@@ -85,18 +85,19 @@ public class LeetCode_207 {
         return false;
     }
 
+    // 方法二： 拓扑排序
     // Time: O(V + E), Space: O(V + E), Faster: 39.75%
     public boolean canFinishTopSortAdjList(int numCourses, int[][] prerequisites) {
 
         if (numCourses <= 1 || prerequisites == null || prerequisites.length == 0)
             return true;
 
-        int [] inDegree = new int[numCourses];
+        int[] inDegree = new int[numCourses];
         List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < numCourses; ++i)
             graph.add(new LinkedList<>());
 
-        for (int [] pair : prerequisites) {
+        for (int[] pair : prerequisites) {
             graph.get(pair[1]).add(pair[0]);
             ++inDegree[pair[0]];
         }
