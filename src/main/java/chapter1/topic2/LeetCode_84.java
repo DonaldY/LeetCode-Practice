@@ -48,10 +48,28 @@ public class LeetCode_84 {
             int h = r == n ? 0 : heights[r];
             while (!st.empty() && h < heights[st.peek()]) {
                 int idx = st.pop();
-                int l = st.empty() ? - 1 : st.peek();
+                int l = st.empty() ? -1 : st.peek();
                 max = Math.max(max, heights[idx] * (r - l - 1));
             }
             st.push(r);
+        }
+        return max;
+    }
+
+    // 用数组模拟栈
+    // Time: O(n), Space: O(n)
+    public int largestRectangleAreaArray(int[] heights) {
+        if (heights == null || heights.length == 0) return 0;
+        int max = 0, n = heights.length, top = -1;
+        int[] st = new int[n + 1];
+        for (int r = 0; r <= n; ++r) {
+            int h = r == n ? 0 : heights[r];
+            while (top != -1 && h < heights[st[top]]) {
+                int idx = st[top--];
+                int l = top == -1 ? -1 : st[top];
+                max = Math.max(max, heights[idx] * (r - l - 1));
+            }
+            st[++top] = r;
         }
         return max;
     }
