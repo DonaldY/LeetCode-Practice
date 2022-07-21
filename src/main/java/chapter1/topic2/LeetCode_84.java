@@ -57,7 +57,7 @@ public class LeetCode_84 {
     }
 
     // 用数组模拟栈
-    // Time: O(n), Space: O(n)
+    // Time: O(n), Space: O(n), Faster: 99.32%
     public int largestRectangleAreaArray(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
         int max = 0, n = heights.length, top = -1;
