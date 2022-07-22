@@ -22,10 +22,11 @@ import java.util.Stack;
  *    当 r 对应的高度小于栈顶下标对应的高度时，对于栈顶下标对应的高度来说：
  *    - 下标 r 是它的右边界
  *    - 栈顶的前一个元素是它的左边界
- *
+ * 3. 数组代替栈
  */
 public class LeetCode_84 {
 
+    // 方法一：暴力法
     // Time: O(n), Space: O(1), Faster: 15.78%
     public int largestRectangleArea(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
@@ -39,6 +40,7 @@ public class LeetCode_84 {
         return max;
     }
 
+    // 方法二：用栈模拟
     // Time: O(n), Space: O(n), Faster: 49.57%
     public int largestRectangleAreaStack(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
@@ -56,7 +58,7 @@ public class LeetCode_84 {
         return max;
     }
 
-    // 用数组模拟栈
+    // 方法三：用数组模拟栈
     // Time: O(n), Space: O(n), Faster: 99.32%
     public int largestRectangleAreaArray(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
