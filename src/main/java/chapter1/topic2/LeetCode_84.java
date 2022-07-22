@@ -17,7 +17,7 @@ import java.util.Stack;
  * 你要计算出直方图中最大矩形的面积。
  *
  * 思路：
- * 1. 暴力法
+ * 1. 暴力法： 从两边扩散
  * 2. 辅助栈维护一个下标序列，这些下标对应的直方图高度依次递增。
  *    当 r 对应的高度小于栈顶下标对应的高度时，对于栈顶下标对应的高度来说：
  *    - 下标 r 是它的右边界
@@ -26,7 +26,7 @@ import java.util.Stack;
  */
 public class LeetCode_84 {
 
-    // 方法一：暴力法
+    // 方法一：暴力法, 超时
     // Time: O(n), Space: O(1), Faster: 15.78%
     public int largestRectangleArea(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
@@ -41,7 +41,7 @@ public class LeetCode_84 {
     }
 
     // 方法二：用栈模拟
-    // Time: O(n), Space: O(n), Faster: 49.57%
+    // Time: O(n), Space: O(n), Faster: 16.07%
     public int largestRectangleAreaStack(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
         int max = 0, n = heights.length;
