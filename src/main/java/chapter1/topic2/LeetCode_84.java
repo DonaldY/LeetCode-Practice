@@ -41,16 +41,17 @@ public class LeetCode_84 {
     }
 
     // 方法二：用栈模拟
+    // 宽度计算公式： r - l -1
     // Time: O(n), Space: O(n), Faster: 16.07%
     public int largestRectangleAreaStack(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
         int max = 0, n = heights.length;
         Stack<Integer> st = new Stack<>();
         for (int r = 0; r <= n; ++r) {
-            int h = r == n ? 0 : heights[r];
+            int h = r == n ? 0 : heights[r]; // 0 高度最小
             while (!st.empty() && h < heights[st.peek()]) {
                 int idx = st.pop();
-                int l = st.empty() ? -1 : st.peek();
+                int l = st.empty() ? -1 : st.peek(); // 注意：-1 特殊值
                 max = Math.max(max, heights[idx] * (r - l - 1));
             }
             st.push(r);
