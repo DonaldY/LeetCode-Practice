@@ -1,5 +1,7 @@
 package chapter4.topic3;
 
+import java.util.Stack;
+
 /**
  * @author donald
  * @date 2022/08/01
@@ -19,6 +21,7 @@ package chapter4.topic3;
  *
  * 思路：
  * 1. 暴力法： 2层 for 循环
+ * 2. 栈方法：
  */
 public class LeetCode_739 {
 
@@ -36,6 +39,23 @@ public class LeetCode_739 {
             }
             result[i] = ans;
         }
+        return result;
+    }
+
+    // 方法二：辅助栈
+    // Time: O(n), Space: O(n), Faster: 44.57%
+    public int[] dailyTemperaturesStack(int[] temperatures) {
+        int n = temperatures.length;
+        int[] result = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; ++i) {
+            while (!st.empty() && temperatures[st.peek()] < temperatures[i]) {
+                int idx = st.pop();
+                result[idx] = i - idx;
+            }
+            st.push(i);
+        }
+        // while (!st.empty()) result[st.pop()] = 0;
         return result;
     }
 }
