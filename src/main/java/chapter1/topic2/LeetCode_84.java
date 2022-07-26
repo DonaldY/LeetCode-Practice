@@ -29,6 +29,15 @@ import java.util.Stack;
  */
 public class LeetCode_84 {
 
+    public static void main(String[] args) {
+
+        LeetCode_84 leetCode_84 = new LeetCode_84();
+
+        int area = leetCode_84.largestRectangleAreaStack(new int[] {2});
+
+        System.out.println(area);
+    }
+
     // 方法一：暴力法, 超时
     // Time: O(n), Space: O(1), Faster: 15.78%
     public int largestRectangleArea(int[] heights) {
