@@ -1,5 +1,7 @@
 package chapter4.topic3;
 
+import java.util.Stack;
+
 /**
  * @author donald
  * @date 2022/08/01
@@ -19,6 +21,8 @@ package chapter4.topic3;
  *
  * 思路：
  * 1. 暴力法： 2层 for 循环
+ * 2. 栈方法： 辅助栈
+ * 3. 跳跃法：
  */
 public class LeetCode_739 {
 
@@ -35,6 +39,37 @@ public class LeetCode_739 {
                 }
             }
             result[i] = ans;
+        }
+        return result;
+    }
+
+    // 方法二：辅助栈
+    // Time: O(n), Space: O(n), Faster: 44.57%
+    public int[] dailyTemperaturesStack(int[] temperatures) {
+        int n = temperatures.length;
+        int[] result = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; ++i) {
+            while (!st.empty() && temperatures[st.peek()] < temperatures[i]) {
+                int idx = st.pop();
+                result[idx] = i - idx;
+            }
+            st.push(i);
+        }
+        // while (!st.empty()) result[st.pop()] = 0;
+        return result;
+    }
+
+    // 方法三：跳跃法
+    // Time: O(n), Space: O(1), Faster: 99.98%
+    public int[] dailyTemperaturesSkip(int[] temperatures) {
+        int n = temperatures.length;
+        int[] result = new int[n];
+        for (int i = n-2; i >= 0; --i) {
+            int j = i + 1;
+            while (temperatures[j] <= temperatures[i] && result[j] != 0) j += result[j];
+            if (temperatures[j] > temperatures[i]) result[i] = j - i;
+            // else result[i] = 0;
         }
         return result;
     }
