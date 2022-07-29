@@ -21,12 +21,8 @@ import java.util.Stack;
  *
  * 思路：
  * 1. 暴力法： 2层 for 循环
-<<<<<<< HEAD
  * 2. 栈方法： 辅助栈
- * 3. 跳跃法：
-=======
- * 2. 栈方法：
->>>>>>> 3c8533ae6063929e835626abc3db261f709abd0e
+ * 3. 跳跃法： 步长计算
  */
 public class LeetCode_739 {
 
