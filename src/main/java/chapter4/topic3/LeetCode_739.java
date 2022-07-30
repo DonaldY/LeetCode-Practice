@@ -29,7 +29,7 @@ public class LeetCode_739 {
     // Time: O(n ^ 2), Space: O(1), Faster: 6.67%
     public int[] dailyTemperatures(int[] temperatures) {
         if (null == temperatures || temperatures.length == 0) return new int[0];
-        int [] result = new int[temperatures.length];
+        int[] result = new int[temperatures.length];
         for (int i = 0; i < temperatures.length - 1; ++i) {
             int ans = 0;
             for (int j = i + 1; j < temperatures.length; ++j) {
@@ -65,7 +65,7 @@ public class LeetCode_739 {
     public int[] dailyTemperaturesSkip(int[] temperatures) {
         int n = temperatures.length;
         int[] result = new int[n];
-        for (int i = n-2; i >= 0; --i) {
+        for (int i = n - 2; i >= 0; --i) {
             int j = i + 1;
             while (temperatures[j] <= temperatures[i] && result[j] != 0) j += result[j];
             if (temperatures[j] > temperatures[i]) result[i] = j - i;
