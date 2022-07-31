@@ -23,6 +23,8 @@ package chapter2.topic4;
  * 思路：
  * 1. 栈 + 递归思想： 栈用来匹配 []
  *    - 匹配 [] ，可以提前记录下来
+ *
+ * 2. dfs 思想
  */
 public class LeetCode_394 {
 
@@ -57,6 +59,31 @@ public class LeetCode_394 {
                 p = right + 1;
             } else {
                 sb.append(s.charAt(p++));
+            }
+        }
+        return sb.toString();
+    }
+
+    // Time: O(m), Space: O(m)
+    public String decodeStringWithReferenceIndex(String s) {
+        return dfs(s, new int[]{0});
+    }
+
+    private String dfs(String s, int[] p) {
+        StringBuilder sb = new StringBuilder();
+        while (p[0] < s.length()) {
+            int q = p[0];
+            while (Character.isDigit(s.charAt(q))) ++q;
+            if (p[0] != q) {
+                int cnt = Integer.valueOf(s.substring(p[0], q));
+                p[0] = q + 1; // skip '['
+                String str = dfs(s, p);
+                for (int i = 0; i < cnt; ++i) sb.append(str);
+                p[0]++; // skip ']'
+            } else if (s.charAt(p[0]) == ']') {
+                break;
+            } else {
+                sb.append(s.charAt(p[0]++));
             }
         }
         return sb.toString();
