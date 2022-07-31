@@ -30,6 +30,7 @@ public class LeetCode_394 {
 
     // Time: O(m), Space: O(m), Faster: 100.00%
     public String decodeStringWithIndexMap(String s) {
+        // 1. 构建栈索引
         int n = s.length();
         int[] stack = new int[n];
         int[] indexes = new int[n];
@@ -42,6 +43,8 @@ public class LeetCode_394 {
                 indexes[idx] = i;
             }
         }
+
+        // 2. 递归
         return decode(s, 0, n-1, indexes);
     }
 
@@ -64,7 +67,7 @@ public class LeetCode_394 {
         return sb.toString();
     }
 
-    // Time: O(m), Space: O(m)
+    // Time: O(m), Space: O(m), Faster: 100.00%
     public String decodeStringWithReferenceIndex(String s) {
         return dfs(s, new int[]{0});
     }
