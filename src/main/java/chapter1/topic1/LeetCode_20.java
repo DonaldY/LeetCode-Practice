@@ -62,7 +62,7 @@ public class LeetCode_20 {
 
     }
 
-    // Time: O(n), Space: O(n)
+    // Time: O(n), Space: O(n), Faster: 98.96%
     public boolean isValidBracketsShort(String s) {
         Stack<Character> stack = new Stack<>();
 
