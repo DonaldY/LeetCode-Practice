@@ -62,8 +62,8 @@ public class LeetCode_173 {
 
         // T(avg): O(1), S(avg): O(h)
         public int next() {
-            TreeNode node = stack.pop();
-            pushLeft(node.right);
+            TreeNode node = stack.pop(); // 1. 把栈顶节点出栈，并把节点值返回
+            pushLeft(node.right);        // 2. 把栈顶节点右子树的最左侧分支入栈
             return node.val;
         }
 
