@@ -2,6 +2,7 @@ package chapter1.topic4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author donald
@@ -39,9 +40,40 @@ import java.util.List;
  * ```
  *
  * 思路：
- * 中序排序
+ * 1. 暴力法： 先全部计算好，中序排序
+ * 2. 辅助栈：
  */
 public class LeetCode_173 {
+
+    public class BSTIterator {
+
+        private final Stack<TreeNode> stack = new Stack<>();
+
+        private void pushLeft(TreeNode node) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+        }
+
+        public BSTIterator(TreeNode root) {
+            pushLeft(root);
+        }
+
+        // T(avg): O(1), S(avg): O(h)
+        public int next() {
+            TreeNode node = stack.pop();
+            pushLeft(node.right);
+            return node.val;
+        }
+
+        // T(avg): O(1), S(avg): O(h)
+        public boolean hasNext() {
+            return stack.size() != 0;
+        }
+
+    }
+
 }
 
 class TreeNode {
@@ -69,7 +101,7 @@ class BSTIterator {
 
     public BSTIterator(TreeNode root) {
         idx = 0;
-        arr = new ArrayList<Integer>();
+        arr = new ArrayList<>();
         inorderTraversal(root, arr);
     }
 
