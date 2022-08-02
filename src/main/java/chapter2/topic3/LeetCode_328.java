@@ -33,7 +33,7 @@ package chapter2.topic3;
  * 并且把头节点看作第一个节点，也就是说头节点是奇数节点。
  * 这个题目的时间复杂度要求是 O(n)，空间复杂度要求是 O(1)。
  *
- * 思路：
+ * 思路： 三指针
  *
  */
 
@@ -51,13 +51,14 @@ public class LeetCode_328 {
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null || head.next.next == null)
             return head;
-        ListNode evenHead = head.next;
-        ListNode odd = head, even = evenHead;
+        ListNode evenHead = head.next;         // 偶数
+        ListNode odd = head, even = evenHead;  // 奇数指针、偶数指针
         while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+            odd.next = even.next;   // 奇数的指针指向偶数的指针
+            odd = odd.next;         // 移动
+
+            even.next = odd.next;   // 偶数的指针指向奇数的指针
+            even = even.next;       // 移动
         }
         odd.next = evenHead;
         return head;
