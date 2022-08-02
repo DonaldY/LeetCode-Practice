@@ -52,12 +52,18 @@ public class LeetCode_369 {
 
         ListNode maybe = new ListNode(0), notNine = maybe;
         maybe.next = head;
-        for (ListNode p = head; p != null; p = p.next)
+        // 1. 找到最后一个不是 9 的节点：notNine
+        for (ListNode p = head; p != null; p = p.next) {
             if (p.val != 9)
                 notNine = p;
+        }
+        // 2. notNine 的数值 +1
         notNine.val += 1;
-        for (ListNode p = notNine.next; p != null; p = p.next)
+        // 3. notNine 之后的节点的数值均赋值为 0
+        for (ListNode p = notNine.next; p != null; p = p.next) {
             p.val = 0;
+        }
+        // 4. 判断需不需要额外头节点
         if (notNine == maybe) return maybe;
         else return head;
     }
