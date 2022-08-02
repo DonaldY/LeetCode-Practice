@@ -55,6 +55,20 @@ public class LeetCode_148 {
         return head;
     }
 
+    // Time: O(n*log(n)), Space: O(log(n)), Faster: 97.67%
+    public ListNode mergeSortList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode right = mergeSortList(slow.next);
+        slow.next = null;
+        ListNode left = mergeSortList(head);
+        return mergeTwoSortedLists(left, right);
+    }
+
     private ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0), p = dummy;
 
@@ -72,19 +86,5 @@ public class LeetCode_148 {
         if (l1 != null) p.next = l1;
         if (l2 != null) p.next = l2;
         return dummy.next;
-    }
-
-    // Time: O(n*log(n)), Space: O(log(n)), Faster: 97.67%
-    public ListNode mergeSortList(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode fast = head, slow = head;
-        while (fast.next != null && fast.next.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        ListNode right = mergeSortList(slow.next);
-        slow.next = null;
-        ListNode left = mergeSortList(head);
-        return mergeTwoSortedLists(left, right);
     }
 }
