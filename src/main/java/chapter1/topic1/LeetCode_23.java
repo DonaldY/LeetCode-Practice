@@ -63,6 +63,16 @@ public class LeetCode_23 {
         return node;
     }
 
+    // Time: O(k*n), Space: O(1), Faster: 22.49%
+    public ListNode mergeKSortedListsOneByOne(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        ListNode result = null;
+        for (ListNode list: lists) {
+            result = mergeTwoSortedLists(result, list);
+        }
+        return result;
+    }
+
     private ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0), p = dummy;
 
@@ -82,17 +92,8 @@ public class LeetCode_23 {
         return dummy.next;
     }
 
-    // Time: O(k*n), Space: O(1)
-    public ListNode mergeKSortedListsOneByOne(ListNode[] lists) {
-        if (lists == null || lists.length == 0) return null;
-        ListNode result = null;
-        for (ListNode list: lists) {
-            result = mergeTwoSortedLists(result, list);
-        }
-        return result;
-    }
 
-    // Time: O(n*log(k)), Space: O(k)
+    // Time: O(n*log(k)), Space: O(k), Faster: 70.34%
     public ListNode mergeKSortedListsMinHeap(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         Queue<ListNode> q = new PriorityQueue<>((a, b) -> a.val - b.val);
@@ -110,6 +111,12 @@ public class LeetCode_23 {
         return dummy.next;
     }
 
+    // Time: O(n*log(k)), Space: O(log(k)), Faster: 100.00%
+    public ListNode mergeKSortedListsDivideConquer(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        return merge(lists, 0, lists.length-1);
+    }
+
     private ListNode merge(ListNode[] lists, int start, int end) {
         if (start == end) return lists[start];
         if (start > end) return null;
@@ -117,11 +124,5 @@ public class LeetCode_23 {
         ListNode left = merge(lists, start, mid);
         ListNode right = merge(lists, mid+1, end);
         return mergeTwoSortedLists(left, right);
-    }
-
-    // Time: O(n*log(k)), Space: O(log(k))
-    public ListNode mergeKSortedListsDivideConquer(ListNode[] lists) {
-        if (lists == null || lists.length == 0) return null;
-        return merge(lists, 0, lists.length-1);
     }
 }
