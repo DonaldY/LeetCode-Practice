@@ -27,10 +27,10 @@ public class LeetCode_148 {
         return null;
     }
 
-    private void swap(ListNode a, ListNode b) {
-        int tmp = a.val;
-        a.val = b.val;
-        b.val = tmp;
+    // Time: O(n*log(n)), Space: O(n), Faster: 6.60%
+    public ListNode quickSortList(ListNode head) {
+        quickSort(head, null);
+        return head;
     }
 
     private void quickSort(ListNode head, ListNode end) {
@@ -49,10 +49,10 @@ public class LeetCode_148 {
         quickSort(slow.next, end);
     }
 
-    // Time: O(n*log(n)), Space: O(n), Faster: 6.60%
-    public ListNode quickSortList(ListNode head) {
-        quickSort(head, null);
-        return head;
+    private void swap(ListNode a, ListNode b) {
+        int tmp = a.val;
+        a.val = b.val;
+        b.val = tmp;
     }
 
     // Time: O(n*log(n)), Space: O(log(n)), Faster: 97.67%
