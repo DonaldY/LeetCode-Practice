@@ -14,34 +14,38 @@ public class LeetCode_621 {
     public int leastIntervalMaxHeap(char[] tasks, int n) {
         if (tasks == null || tasks.length == 0) return 0;
 
+        // 1. 统计每个任务数量
         int[] freqs = new int[26];
-        for (char t: tasks) ++freqs[t - 'A'];
+        for (char t : tasks) ++freqs[t - 'A'];
+
+        // 2. 构建最大堆
         Queue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());
-        for (int freq: freqs)
-            if (freq != 0)
-                q.add(freq);
+        for (int freq : freqs) {
+            if (freq != 0) q.add(freq);
+        }
 
         int result = 0, idle = 0;
         while (!q.isEmpty()) {
             result += (n + 1);
             idle = n + 1 - q.size();
-            int size = Math.min(n+1, q.size());
-            for (int i = 0; i < size; ++i)
+            int size = Math.min(n + 1, q.size());
+            for (int i = 0; i < size; ++i) {
                 freqs[i] = q.poll() - 1;
-            for (int i = 0; i < size; ++i)
-                if (freqs[i] != 0)
-                    q.add(freqs[i]);
+            }
+            for (int i = 0; i < size; ++i) {
+                if (freqs[i] != 0) q.add(freqs[i]);
+            }
         }
         return result - idle;
     }
 
-    // Time: O(m), Space: O(1)
+    // Time: O(m), Space: O(1), Faster: 100.00%
     public int leastIntervalMath(char[] tasks, int n) {
         if (tasks == null || tasks.length == 0) return 0;
         int[] freqs = new int[26];
-        for (char t: tasks) ++freqs[t - 'A'];
+        for (char t : tasks) ++freqs[t - 'A'];
         int maxFreq = 0, cnt = 0;
-        for (int freq: freqs) {
+        for (int freq : freqs) {
             if (freq > maxFreq) {
                 maxFreq = freq;
                 cnt = 1;
