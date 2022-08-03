@@ -34,4 +34,22 @@ public class LeetCode_621 {
         }
         return result - idle;
     }
+
+    // Time: O(m), Space: O(1)
+    public int leastIntervalMath(char[] tasks, int n) {
+        if (tasks == null || tasks.length == 0) return 0;
+        int[] freqs = new int[26];
+        for (char t: tasks) ++freqs[t - 'A'];
+        int maxFreq = 0, cnt = 0;
+        for (int freq: freqs) {
+            if (freq > maxFreq) {
+                maxFreq = freq;
+                cnt = 1;
+            } else if (freq == maxFreq) {
+                ++cnt;
+            }
+        }
+        int result = (n + 1) * (maxFreq - 1) + cnt;
+        return Math.max(result, tasks.length);
+    }
 }
