@@ -71,7 +71,9 @@ public class LeetCode_621 {
         int[] freqs = new int[26];
         for (char t : tasks) ++freqs[t - 'A'];
 
-        // 2.
+        // 2. 求 maxFreq 和 cnt
+        // maxFreq: 任务出现次数最多
+        // cnt: 有多少个 maxFreq
         int maxFreq = 0, cnt = 0;
         for (int freq : freqs) {
             if (freq > maxFreq) {
@@ -81,7 +83,10 @@ public class LeetCode_621 {
                 ++cnt;
             }
         }
+
+        // 3. 计算
         int result = (n + 1) * (maxFreq - 1) + cnt;
+        // 取最大值
         return Math.max(result, tasks.length);
     }
 }
