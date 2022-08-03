@@ -66,8 +66,12 @@ public class LeetCode_621 {
     // Time: O(m), Space: O(1), Faster: 100.00%
     public int leastIntervalMath(char[] tasks, int n) {
         if (tasks == null || tasks.length == 0) return 0;
+
+        // 1. 统计每个任务数量
         int[] freqs = new int[26];
         for (char t : tasks) ++freqs[t - 'A'];
+
+        // 2.
         int maxFreq = 0, cnt = 0;
         for (int freq : freqs) {
             if (freq > maxFreq) {
