@@ -1,6 +1,5 @@
 package chapter1.topic4;
 
-import java.util.List;
 
 /**
  * 160. Intersection of Two Linked Lists
@@ -17,11 +16,13 @@ import java.util.List;
  * 题意： 给出两个链表，找出最早相交的节点
  *
  * 思路：
- * 1. 把两个链表节点都记录下来，然后逐个比较
- * 2. 两层循环比较
- * 3. 找到两个链表末尾节点，然后向前找最近交叉点
- * 4. 入栈，然后出栈，相互比较
- * 5.
+ * 1. 暴力法： 先计算两个链表长度
+ *    1. 长度长的先走多出的几步
+ *    2. 一起走，比较是否相等
+ *
+ * 2. 走相同的距离，有相交的节点就会相遇：
+ *    p 先走 a 链，走完走 b 链
+ *    q 先走 b 链，走完走 a 链
  */
 class ListNode {
     int val;
@@ -36,7 +37,8 @@ public class LeetCode_160 {
         return null;
     }
 
-    // Time: o(m + n), Space: o(1)
+    // 方法一：
+    // Time: o(m + n), Space: o(1), Faster： 97.89%
     public ListNode getIntersectionNodeWithLen(ListNode headA, ListNode headB) {
 
         int lenA = 0, lenB = 0;
