@@ -70,6 +70,7 @@ public class LeetCode_310 {
 
         if (n <= 1 || edges == null) return Collections.singletonList(0);
 
+        // 1. 构建图
         List<List<Integer>> g = new ArrayList<>(n);
         for (int i = 0; i < n; ++i) g.add(new ArrayList<>());
         for (int[] e : edges) {
@@ -77,17 +78,21 @@ public class LeetCode_310 {
             g.get(e[1]).add(e[0]);
         }
 
-        boolean[] visited = new boolean[n];
-        int[] heights = new int[n];
-        int[] max = new int[]{0};
+        boolean[] visited = new boolean[n]; // 用于是否被访问过
+        int[] heights = new int[n];         // 用于记录从某个节点出发，得到的最高高度
+        int[] max = new int[]{0};           // 用于地址传参
         int minHeight = Integer.MAX_VALUE;
+
+        // 2. 遍历每个节点
         for (int i = 0; i < n; ++i) {
+            // 访问图
             dfs(g, visited, i, 0, max);
             heights[i] = max[0];
             if (heights[i] < minHeight) minHeight = heights[i];
             max[0] = 0;
         }
 
+        // 3. 求结果
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
             if (heights[i] == minHeight) result.add(i);
@@ -108,6 +113,8 @@ public class LeetCode_310 {
     // Time: O(n), Space: O(n), Faster: 80.51%
     public List<Integer> findMinHeightTreesShrink(int n, int[][] edges) {
         if (n == 1) return Collections.singletonList(0);
+
+        // 1. 构建图：邻接表
         List<List<Integer>> g = new ArrayList<>(n);
         for (int i = 0; i < n; ++i) {
             g.add(new ArrayList<>());
@@ -117,12 +124,15 @@ public class LeetCode_310 {
             g.get(e[1]).add(e[0]);
         }
 
+        // 2. 统计每个节点的度
         int[] degree = new int[n];
-        LinkedList<Integer> leaves = new LinkedList<>();
+        LinkedList<Integer> leaves = new LinkedList<>(); // 叶节点，度为1的点
         for (int i = 0; i < n; ++i) {
             degree[i] = g.get(i).size();
             if (degree[i] == 1) leaves.add(i);
         }
+
+        // 3. 遍历
         while (leaves.size() < n) {
             int size = leaves.size();
             n -= size;
