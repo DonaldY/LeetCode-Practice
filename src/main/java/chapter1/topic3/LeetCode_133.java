@@ -107,7 +107,7 @@ public class LeetCode_133 {
         }
     }
 
-    // Time: o(n ^ 2), Space: o(n), Faster: 100.00%
+    // Time: o(n ^ 2), Space: o(n), Faster: 68.95%
     public Node cloneGraph2(Node node) {
 
         if (node == null) return null;
