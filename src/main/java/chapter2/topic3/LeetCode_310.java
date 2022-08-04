@@ -71,9 +71,8 @@ public class LeetCode_310 {
         if (n <= 1 || edges == null) return Collections.singletonList(0);
 
         List<List<Integer>> g = new ArrayList<>(n);
-        for (int i = 0; i < n; ++i)
-            g.add(new ArrayList<>());
-        for (int[] e: edges) {
+        for (int i = 0; i < n; ++i) g.add(new ArrayList<>());
+        for (int[] e : edges) {
             g.get(e[0]).add(e[1]);
             g.get(e[1]).add(e[0]);
         }
@@ -100,8 +99,8 @@ public class LeetCode_310 {
                      int node, int dist, int[] max) {
         visited[node] = true;
         if (dist > max[0]) max[0] = dist;
-        for (int v: g.get(node)) {
-            if (!visited[v]) dfs(g, visited, v, dist+1, max);
+        for (int v : g.get(node)) {
+            if (!visited[v]) dfs(g, visited, v, dist + 1, max);
         }
         visited[node] = false;
     }
@@ -113,7 +112,7 @@ public class LeetCode_310 {
         for (int i = 0; i < n; ++i) {
             g.add(new ArrayList<>());
         }
-        for (int[] e: edges) {
+        for (int[] e : edges) {
             g.get(e[0]).add(e[1]);
             g.get(e[1]).add(e[0]);
         }
@@ -129,7 +128,7 @@ public class LeetCode_310 {
             n -= size;
             for (int i = 0; i < size; ++i) {
                 int leaf = leaves.poll();
-                for (int v: g.get(leaf)) {
+                for (int v : g.get(leaf)) {
                     --degree[v];
                     if (degree[v] == 1) leaves.add(v);
                 }
