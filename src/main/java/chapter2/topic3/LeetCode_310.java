@@ -106,7 +106,7 @@ public class LeetCode_310 {
         visited[node] = false;
     }
 
-    // Time: O(n), Space: O(n), Faster: 97.60%
+    // Time: O(n), Space: O(n), Faster: 80.51%
     public List<Integer> findMinHeightTreesShrink(int n, int[][] edges) {
         if (n == 1) return Collections.singletonList(0);
         List<List<Integer>> g = new ArrayList<>(n);
