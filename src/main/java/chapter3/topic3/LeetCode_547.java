@@ -1,5 +1,7 @@
 package chapter3.topic3;
 
+import java.util.regex.Pattern;
+
 /**
  * @author donald
  * @date 2022/08/05
@@ -92,5 +94,39 @@ public class LeetCode_547 {
         }
 
         return uf.count();
+    }
+
+    // 方法二： 暴力法 DFS
+    // Time: O(n^2), Space: O(n), Faster: 86.14%
+    public int findCircleNumDFS(int[][] isConnected) {
+        if (isConnected == null || isConnected.length == 0 ||
+                isConnected[0] == null || isConnected[0].length == 0) {
+            return 0;
+        }
+
+        int n = isConnected.length;
+        boolean[] isVisited = new boolean[n];
+
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!isVisited[i]) {
+                ++ cnt;
+                dfs(n, i, isConnected, isVisited);
+            }
+        }
+
+        return cnt;
+    }
+
+    private void dfs(int n, int i, int[][] isConnected, boolean[] isVisited) {
+        if (i >= n || i < 0) return;
+
+        for (int j = 0; j < n; ++j) {
+            if (j == i) continue;
+            if (isConnected[i][j] == 1 && !isVisited[j]) {
+                isVisited[j] = true;
+                dfs(n, j, isConnected, isVisited);
+            }
+        }
     }
 }
