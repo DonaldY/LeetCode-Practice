@@ -44,13 +44,26 @@ public class UnionFind {
     // 迭代查找，伴随压缩
     private int findPathCompressionIterative(int x) {
         int root = x;
+        // 1. 查找根节点
         while (parent[root] != root) root = parent[root];
+        // 2. 路径压缩：把查找路径上所有节点的父节点都更新为 根节点root
         while (parent[x] != root) {
             int tmp = parent[x];
             parent[x] = root;
             x = tmp;
         }
         return root;
+    }
+
+    // 这里只压缩一个层级。
+    // 上面那个方法是把压缩到 根节点了。
+    private int findPathCompressionIterative2(int x) {
+        while (parent[x] != x) {
+            // 进行路径压缩
+            parent[x] = parent[parent[x]];
+            x = parent[x];
+        }
+        return x;
     }
 
     // 1. 查找
