@@ -7,14 +7,16 @@ package datastructure;
  * 并查集，主要 2 个 API：
  * 1. 查找元素的根节点：查找 2 个节点是否连通
  * 2. 将 p 和 q 连接
+ *
+ * 并查集的关键在于如何把原问题转化成图的动态连通性问题。
  */
 public class UnionFind {
 
     private int[] parent, size;
 
     public UnionFind(int n) {
-        parent = new int[n];  //
-        size = new int[n];    //
+        parent = new int[n];  // 存储每个节点的父节点
+        size = new int[n];    // 记录每棵树的 “重量”
         for (int i = 0; i < n; ++i) {
             parent[i] = i;
             size[i] = 1;
@@ -61,6 +63,8 @@ public class UnionFind {
         int xRoot = find(x);
         int yRoot = find(y);
         if (xRoot == yRoot) return;
+
+        // 小树接到大树下面，较平衡
         if (size[xRoot] < size[yRoot]) {
             parent[xRoot] = yRoot;
             size[yRoot] += size[xRoot];
