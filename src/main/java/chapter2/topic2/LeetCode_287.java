@@ -27,8 +27,8 @@ import java.util.Arrays;
  *
  * 思路：
  * 1. 暴力法： 2次循环
- * 2. hashset
- * 3. 排序后查找
+ * 2. 二分搜索变种
+ * 3. 双指针
  */
 public class LeetCode_287 {
 
@@ -74,7 +74,7 @@ public class LeetCode_287 {
         return low;
     }
 
-    // 方法三：
+    // 方法三： 双指针
     // Time: O(n), Space: O(1), Faster: 93.12%
     public int findDuplicateTwoPointer(int[] nums) {
         int slow = nums[0];
