@@ -16,10 +16,8 @@ import java.util.Arrays;
  *
  * 思路：
  * 1. DP
- *
- * 状态 d(i) 表示以第 i 个数字结尾的最长递增子序列的长度
- *
- * d(i) = max(d(j)+1), a(i) > a(j)
+ *   状态 d(i) 表示以第 i 个数字结尾的最长递增子序列的长度
+ *   d(i) = max(d(j)+1), a(i) > a(j)
  *
  * 2. DP 保存结尾最小的数字， 例如蜘蛛纸牌
  */
@@ -68,18 +66,7 @@ public class LeetCode_300 {
         return max;
     }
 
-    private int binarySearchInsertPosition(int[] d, int len, int x) {
-        int low = 0, high = len - 1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (x < d[mid]) high = mid - 1;
-            else if (x > d[mid]) low = mid + 1;
-            else return mid;
-        }
-        return low;
-    }
-
-    // Time: o(n * log(n)), Space: o(n), Faster:  92.62%
+    // Time: o(n * log(n)), Space: o(n), Faster:  99.60%
     public int lengthOfLISBinarySearch(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         // 牌堆数初始化为 0
@@ -93,5 +80,16 @@ public class LeetCode_300 {
             if (left == len) ++len;
         }
         return len;
+    }
+
+    private int binarySearchInsertPosition(int[] d, int len, int x) {
+        int left = 0, right = len - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (x < d[mid]) right = mid - 1;
+            else if (x > d[mid]) left = mid + 1;
+            else return mid;
+        }
+        return left;
     }
 }

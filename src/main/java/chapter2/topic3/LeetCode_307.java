@@ -1,4 +1,4 @@
-package chapter2.topic2;
+package chapter2.topic3;
 
 import java.util.ArrayList;
 import java.util.List;
