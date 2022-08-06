@@ -27,7 +27,7 @@ import java.util.Queue;
  *
  * 思路：
  * 1. 暴力法： 维护一个最大堆，遍历每个数
- * 2.
+ * 2. k小，最小堆
  */
 public class LeetCode_378 {
 
@@ -48,7 +48,7 @@ public class LeetCode_378 {
         return maxHeap.peek();
     }
 
-    // Time: O(k*log(k)), Space: O(k), Faster:
+    // Time: O(k*log(k)), Space: O(k), Faster: 33.18%
     public int kthSmallestMinHeap(int[][] matrix, int k) {
         int m = matrix.length, n = matrix[0].length;
         Queue<Elem> minHeap = new PriorityQueue<>();
