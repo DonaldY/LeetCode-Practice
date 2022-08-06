@@ -24,7 +24,7 @@ package chapter2.topic2;
  * 思路：二分搜索
  */
 public class LeetCode_278 {
-
+    // Time: O(log(n)), Space: O(1), Faster: 34.00%
     public int firstBadVersion(int n) {
         int left = 1, right = n;
         while (left <= right) {
