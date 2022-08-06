@@ -53,15 +53,15 @@ public class LeetCode_300 {
     public int lengthOfLISDP(int [] nums) {
         if (nums == null || nums.length == 0) return 0;
         int n = nums.length, max = 1;
-        int [] d = new int[n];
-        d[0] = 1;
+        int [] dp = new int[n];
+        dp[0] = 1;
 
         for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
-                int cur = nums[i] > nums[j] ? d[j] + 1 : 1;
-                d[i] = Math.max(d[i], cur);
+                int cur = nums[i] > nums[j] ? dp[j] + 1 : 1;
+                dp[i] = Math.max(dp[i], cur);
             }
-            max = Math.max(max, d[i]);
+            max = Math.max(max, dp[i]);
         }
         return max;
     }
