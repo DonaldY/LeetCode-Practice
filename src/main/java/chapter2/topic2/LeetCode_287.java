@@ -47,7 +47,7 @@ public class LeetCode_287 {
     }
 
     // 方法一：暴力法
-    // Time: O(n^2), Space: O(1)
+    // Time: O(n^2), Space: O(1), Faster： 超出时间限制
     public int findDuplicateBruteForce(int[] nums) {
         for (int i = 0; i < nums.length; ++i) {
             for (int j = i+1; j < nums.length; ++j) {
@@ -58,7 +58,8 @@ public class LeetCode_287 {
         return -1;
     }
 
-    // Time: O(n*log(n)), Space: O(1), Faster: 48.39%
+    // 方法二： 二分搜索变种
+    // Time: O(n*log(n)), Space: O(1), Faster: 33.66%
     public int findDuplicateBinarySearch(int[] nums) {
         int low = 1, high = nums.length - 1;
         while (low < high) {
@@ -73,7 +74,8 @@ public class LeetCode_287 {
         return low;
     }
 
-    // Time: O(n), Space: O(1), Faster: 100.00%
+    // 方法三：
+    // Time: O(n), Space: O(1), Faster: 93.12%
     public int findDuplicateTwoPointer(int[] nums) {
         int slow = nums[0];
         int fast = nums[nums[0]];
