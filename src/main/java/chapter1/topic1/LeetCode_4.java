@@ -31,6 +31,8 @@ import java.util.List;
  * 偶数: (f((m + n) / 2) + f((m + n) / 2 + 1)) / 2 = (f(2) + f(3)) / 2 = 2.5
  *
  * 关键第k小的函数
+ *
+ *
  */
 public class LeetCode_4 {
 
@@ -92,9 +94,10 @@ public class LeetCode_4 {
 
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
         int total = nums1.length + nums2.length;
+        // 如果是奇数, 求 f((m + n) / 2 + 1)
         if ((total & 1) == 1) {
             return findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1);
-        } else {
+        } else { // 如果是偶数, 求 (f((m + n) / 2) + f((m + n) / 2 + 1)) / 2
             double a = findKthSmallestInSortedArrays(nums1, nums2, total / 2);
             double b = findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1);
             return (a + b) / 2;
