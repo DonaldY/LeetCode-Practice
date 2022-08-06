@@ -47,4 +47,37 @@ public class LeetCode_378 {
         }
         return maxHeap.peek();
     }
+
+    // Time: O(k*log(k)), Space: O(k), Faster:
+    public int kthSmallestMinHeap(int[][] matrix, int k) {
+        int m = matrix.length, n = matrix[0].length;
+        Queue<Elem> minHeap = new PriorityQueue<>();
+        for (int i = 0; i < m && i < k; ++i) {
+            minHeap.add(new Elem(i, 0, matrix[i][0]));
+        }
+        for (int i = 0; i < k - 1; ++i) {
+            Elem e = minHeap.poll();
+            ++e.col;
+            if (e.col < n) {
+                e.val = matrix[e.row][e.col];
+                minHeap.add(e);
+            }
+        }
+        return minHeap.peek().val;
+    }
+
+    class Elem implements Comparable<Elem> {
+        int row, col, val;
+
+        Elem(int row, int col, int val) {
+            this.row = row;
+            this.col = col;
+            this.val = val;
+        }
+
+        @Override
+        public int compareTo(Elem o) {
+            return this.val - o.val;
+        }
+    }
 }
