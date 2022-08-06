@@ -61,17 +61,17 @@ public class LeetCode_287 {
     // 方法二： 二分搜索变种
     // Time: O(n*log(n)), Space: O(1), Faster: 33.66%
     public int findDuplicateBinarySearch(int[] nums) {
-        int low = 1, high = nums.length - 1;
-        while (low < high) {
-            int mid = low + (high - low) / 2;
+        int left = 1, right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
             int count = 0;
             for (int num: nums)
                 if (num <= mid)
                     ++count;
-            if (count > mid) high = mid;
-            else low = mid + 1;
+            if (count > mid) right = mid;
+            else left = mid + 1;
         }
-        return low;
+        return left;
     }
 
     // 方法三： 双指针
