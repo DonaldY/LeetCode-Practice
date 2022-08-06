@@ -26,11 +26,9 @@ import java.util.Arrays;
  * 题意： 查找重复数字， 数字范围在 [1, n]
  *
  * 思路：
- * 1. 2次循环
+ * 1. 暴力法： 2次循环
  * 2. hashset
  * 3. 排序后查找
- *
- * 4.
  */
 public class LeetCode_287 {
 
@@ -48,13 +46,15 @@ public class LeetCode_287 {
         return -1;
     }
 
-
+    // 方法一：暴力法
     // Time: O(n^2), Space: O(1)
     public int findDuplicateBruteForce(int[] nums) {
-        for (int i = 0; i < nums.length; ++i)
-            for (int j = i+1; j < nums.length; ++j)
-                if (nums[i] == nums[j])
-                    return nums[i];
+        for (int i = 0; i < nums.length; ++i) {
+            for (int j = i+1; j < nums.length; ++j) {
+                if (nums[i] == nums[j]) return nums[i];
+            }
+        }
+
         return -1;
     }
 
