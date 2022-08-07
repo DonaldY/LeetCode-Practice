@@ -36,6 +36,7 @@ public class LeetCode_3 {
         System.out.println(longest.lengthOfLongestSubstring2N(str));
     }
 
+    // Faster: 86.70%
     public int lengthOfLongestSubstring(String s) {
 
         Map<Character, Integer> charIndicesMap = new HashMap<Character, Integer>(s.length());
@@ -82,7 +83,7 @@ public class LeetCode_3 {
         return maxLength;
     }
 
-    // Time: O(n), Space: O(m), m 是字符集大小, Faster:
+    // Time: O(n), Space: O(m), m 是字符集大小, Faster: 92.19%
     public int lengthOfLongestSubstring2N(String s) {
         int[] counts = new int[256];
         int i = 0, j = 0, maxLen = 0;
@@ -97,7 +98,7 @@ public class LeetCode_3 {
         return maxLen;
     }
 
-    // Time: O(n), Space: O(m)，m 是字符集大小
+    // Time: O(n), Space: O(m)，m 是字符集大小, Faster: 92.19%
     public int lengthOfLongestSubstring1N(String s) {
         int[] index = new int[256];
         Arrays.fill(index, -1);
