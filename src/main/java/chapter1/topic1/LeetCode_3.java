@@ -108,10 +108,10 @@ public class LeetCode_3 {
         int[] index = new int[256];
         Arrays.fill(index, -1);
         int maxLen = 0;
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            i = Math.max(index[s.charAt(j)] + 1, i);
-            maxLen = Math.max(maxLen, j - i + 1);
-            index[s.charAt(j)] = j;
+        for (int left = 0, right = 0; right < s.length(); ++right) {
+            left = Math.max(index[s.charAt(right)] + 1, left);
+            maxLen = Math.max(maxLen, right - left + 1);
+            index[s.charAt(right)] = right;
         }
         return maxLen;
     }
