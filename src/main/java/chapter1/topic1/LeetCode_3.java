@@ -84,6 +84,31 @@ public class LeetCode_3 {
     }
 
     // Time: O(n), Space: O(m), m 是字符集大小, Faster: 92.19%
+    public int lengthOfLongestSubstring2(String s) {
+
+        int [] counts = new int[256]; // 记录字符出现的次数
+        int left = 0, right = 0;      // 定义滑动窗口左右指针
+        int ans = 0;                  // 记录结果
+
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            ++right;     // 右指针右移动 +1
+            ++counts[c]; // 更新窗口内数据
+            // 判断左侧窗口是否要收缩
+            while (counts[c] > 1) {
+                char d = s.charAt(left);
+                ++left;
+                // 更新窗口内数据
+                --counts[d];
+            }
+            // 更新最大值
+            ans = Math.max(ans, right - left);
+        }
+
+        return ans;
+    }
+
+    // Time: O(n), Space: O(m), m 是字符集大小, Faster: 92.19%
     public int lengthOfLongestSubstring2N(String s) {
         int[] counts = new int[256];
         int i = 0, j = 0, maxLen = 0;
