@@ -62,7 +62,7 @@ public class LeetCode_438 {
         System.out.println(leetCode_438.findAnagrams("abab", "ab"));
     }
 
-    // Time: O(n * n), Space: O(n), Faster: 62.69%
+    // Time: O(n * n), Space: O(n), Faster: 86.62%
     public List<Integer> findAnagrams(String s, String p) {
 
         if (s == null || p == null
@@ -101,7 +101,7 @@ public class LeetCode_438 {
         return result;
     }
 
-    // Time: O(n), Space: O(k), Faster: 95.14%
+    // Time: O(n), Space: O(k), Faster: 94.93%
     public List<Integer> findAnagramsOn(String s, String p) {
         List<Integer> result = new ArrayList<>();
         if (s == null || p == null || s.length() < p.length()) return result;
