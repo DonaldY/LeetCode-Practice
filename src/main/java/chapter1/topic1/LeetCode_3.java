@@ -29,7 +29,7 @@ import java.util.Map;
 public class LeetCode_3 {
 
     public static void main(String[] args) {
-        String  str = "abcade";
+        String str = "abcade";
 
         LeetCode_3 longest = new LeetCode_3();
 
@@ -46,7 +46,7 @@ public class LeetCode_3 {
 
         int startIndex = 0;
 
-        char [] arr = s.toCharArray();
+        char[] arr = s.toCharArray();
 
         for (int j = 0; j < arr.length; ++j) {
 
@@ -82,7 +82,7 @@ public class LeetCode_3 {
         return maxLength;
     }
 
-    // Time: O(n), Space: O(m), m 是字符集大小
+    // Time: O(n), Space: O(m), m 是字符集大小, Faster:
     public int lengthOfLongestSubstring2N(String s) {
         int[] counts = new int[256];
         int i = 0, j = 0, maxLen = 0;
@@ -102,7 +102,7 @@ public class LeetCode_3 {
         int[] index = new int[256];
         Arrays.fill(index, -1);
         int maxLen = 0;
-        for (int i=0, j=0; j < s.length(); ++j) {
+        for (int i = 0, j = 0; j < s.length(); ++j) {
             i = Math.max(index[s.charAt(j)] + 1, i);
             maxLen = Math.max(maxLen, j - i + 1);
             index[s.charAt(j)] = j;

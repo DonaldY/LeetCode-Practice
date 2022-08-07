@@ -43,7 +43,7 @@ import java.util.TreeMap;
  */
 public class LeetCode_239 {
 
-    // Time: o(n * k), Space: o(n), Faster: 15.55%
+    // Time: o(n * k), Space: o(n), Faster: 超出时间限制
     public int[] maxSlidingWindow(int[] nums, int k) {
 
         if (nums == null || nums.length == 0) return new int[0];
@@ -64,7 +64,7 @@ public class LeetCode_239 {
             temp.add(max);
         }
 
-        int [] result = new int[temp.size()];
+        int[] result = new int[temp.size()];
 
         for (int i = 0; i < temp.size(); ++i) {
 
@@ -74,14 +74,14 @@ public class LeetCode_239 {
         return result;
     }
 
-    // Time: O(k*n), Space: O(1), Faster: 15.55%
+    // Time: O(k*n), Space: O(1), Faster: 超出时间限制
     public int[] maxNumInSlidingWindowBruteForce(int[] nums, int k) {
         if (nums == null || nums.length == 0) return nums;
         int n = nums.length;
         int[] result = new int[n - k + 1];
-        for (int left = 0; left <= n-k; ++left) {
+        for (int left = 0; left <= n - k; ++left) {
             int max = nums[left];
-            for (int i = left; i < left+k; ++i) {
+            for (int i = left; i < left + k; ++i) {
                 max = Math.max(max, nums[i]);
             }
             result[left] = max;
@@ -98,7 +98,7 @@ public class LeetCode_239 {
         int[] result = new int[n - k + 1];
         result[p++] = map.lastKey();
         for (int i = k; i < n; ++i) {
-            if (map.get(nums[i-k]) == i-k) map.remove(nums[i-k]);
+            if (map.get(nums[i - k]) == i - k) map.remove(nums[i - k]);
             map.put(nums[i], i);
             result[p++] = map.lastKey();
         }
@@ -113,13 +113,13 @@ public class LeetCode_239 {
         int[] maxFromLeft = new int[n];
         int[] maxFromRight = new int[n];
         maxFromLeft[0] = nums[0];
-        maxFromRight[n-1] = nums[n-1];
-        for (int i = 1, j = n-2; i < n; ++i, --j) {
-            maxFromLeft[i] = i % k == 0 ? nums[i] : Math.max(maxFromLeft[i-1], nums[i]);
-            maxFromRight[j] = j % k == k-1 ? nums[j] : Math.max(maxFromRight[j+1], nums[j]);
+        maxFromRight[n - 1] = nums[n - 1];
+        for (int i = 1, j = n - 2; i < n; ++i, --j) {
+            maxFromLeft[i] = i % k == 0 ? nums[i] : Math.max(maxFromLeft[i - 1], nums[i]);
+            maxFromRight[j] = j % k == k - 1 ? nums[j] : Math.max(maxFromRight[j + 1], nums[j]);
         }
-        for (int i = 0; i <= n-k; ++i) {
-            result[i] = Math.max(maxFromRight[i], maxFromLeft[i+k-1]);
+        for (int i = 0; i <= n - k; ++i) {
+            result[i] = Math.max(maxFromRight[i], maxFromLeft[i + k - 1]);
         }
         return result;
     }
