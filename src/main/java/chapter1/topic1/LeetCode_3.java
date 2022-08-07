@@ -36,55 +36,35 @@ public class LeetCode_3 {
         System.out.println(longest.lengthOfLongestSubstring2N(str));
     }
 
-    // Faster: 86.70%
+    // 方法一： 滑动窗口
+    // Time: O(n), Space: O(m), m 是字符集大小, Faster: 92.19%
     public int lengthOfLongestSubstring(String s) {
 
-        Map<Character, Integer> charIndicesMap = new HashMap<Character, Integer>(s.length());
+        int [] counts = new int[256]; // 记录字符出现的次数
+        int left = 0, right = 0;      // 定义滑动窗口左右指针
+        int ans = 0;                  // 记录结果
 
-        int maxLength = 0;
-
-        int length = 0;
-
-        int startIndex = 0;
-
-        char[] arr = s.toCharArray();
-
-        for (int j = 0; j < arr.length; ++j) {
-
-            if (charIndicesMap.containsKey(arr[j])) {
-
-                int index = charIndicesMap.get(arr[j]);
-
-                if (startIndex <= index) {
-
-                    if (maxLength < length) {
-                        maxLength = length;
-                    }
-
-                    startIndex = index + 1;
-
-                    length = j - index;
-                    charIndicesMap.put(arr[j], j);
-
-                    continue;
-                }
-
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            ++right;     // 右指针右移动 +1
+            ++counts[c]; // 更新窗口内数据
+            // 判断左侧窗口是否要收缩
+            while (counts[c] > 1) {
+                char d = s.charAt(left);
+                ++left;
+                // 更新窗口内数据
+                --counts[d];
             }
-
-            charIndicesMap.put(arr[j], j);
-
-            ++length;
+            // 更新最大值
+            ans = Math.max(ans, right - left);
         }
 
-        if (maxLength < length) {
-            maxLength = length;
-        }
-
-        return maxLength;
+        return ans;
     }
 
+    // 方法二： 滑动窗口优化
     // Time: O(n), Space: O(m), m 是字符集大小, Faster: 92.19%
-    public int lengthOfLongestSubstring2(String s) {
+    public int lengthOfLongestSubstring1(String s) {
 
         int [] counts = new int[256]; // 记录字符出现的次数
         int left = 0, right = 0;      // 定义滑动窗口左右指针
