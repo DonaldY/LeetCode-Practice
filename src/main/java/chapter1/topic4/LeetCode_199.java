@@ -28,7 +28,7 @@ import java.util.*;
 public class LeetCode_199 {
 
     // 方法一： BFS
-    // Time: O(n), Space: O(log(n)), Faster: 82.03%
+    // Time: O(n), Space: O(n), Faster: 82.03%
     public List<Integer> rightSideViewBFS(TreeNode root) {
         if (null == root) return Collections.emptyList();
         Queue<TreeNode> queue = new LinkedList<>();
@@ -45,5 +45,20 @@ public class LeetCode_199 {
             result.add(node.val);
         }
         return result;
+    }
+
+    // 方法二：DFS
+    // Time: O(n), Space: O(n), Faster: 100.00%
+    public List<Integer> rightSideViewDFS(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        dfs(root, result, 0);
+        return result;
+    }
+
+    private void dfs(TreeNode root, List<Integer> result, int level) {
+        if (root == null) return;
+        if (level == result.size()) result.add(root.val);
+        dfs(root.right, result, level+1);
+        dfs(root.left, result, level+1);
     }
 }
