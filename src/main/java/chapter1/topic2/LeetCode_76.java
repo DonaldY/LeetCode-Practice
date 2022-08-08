@@ -16,20 +16,18 @@ package chapter1.topic2;
  *
  * 题意：找到最小窗口，包含子串所有字符，如果没有返回 空
  *
- * 思路：
+ * 思路： 滑动窗口
  * 1. 记录子串位置，逐个比较
  * 2. 哈希表 + 双指针，逐个比较
  */
 public class LeetCode_76 {
 
-    // Time: o(n), Space: o(n), Faster: 88.65%
+    // Time: o(n), Space: o(n), Faster: 96.14%
     public String minWindow(String s, String t) {
-
         if (s == null || t == null) return "";
 
         int [] required = new int[256];
-
-        int start = 0, len = Integer.MAX_VALUE, requiredCnt = t.length();
+        int start = 0, len = Integer.MAX_VALUE, count = t.length();
 
         int left = 0, right = 0;
         for (int i = 0; i < t.length(); ++i) {
@@ -38,17 +36,17 @@ public class LeetCode_76 {
 
         for (; right < s.length(); ++right) {
             char r = s.charAt(right);
-            if (required[r] > 0) --requiredCnt;
+            if (required[r] > 0) --count;
             --required[r];
 
-            while (requiredCnt == 0) {
+            while (count == 0) {
                 if (right - left + 1 < len) {
                     start = left;
                     len = right - left + 1;
                 }
                 char l = s.charAt(left);
                 ++required[l];
-                if (required[l] > 0) ++requiredCnt;
+                if (required[l] > 0) ++count;
                 ++left;
             }
         }
