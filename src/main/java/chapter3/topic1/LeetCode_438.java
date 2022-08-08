@@ -64,40 +64,24 @@ public class LeetCode_438 {
 
     // Time: O(n * n), Space: O(n), Faster: 86.62%
     public List<Integer> findAnagrams(String s, String p) {
-
-        if (s == null || p == null
-                || s.length() == 0 || p.length() == 0 || s.length() < p.length()) {
-
-            return Collections.emptyList();
+        if (s == null || p == null || s.length() < p.length()) return Collections.emptyList();
+        int sLen = s.length(), pLen = p.length();
+        char[] pc = new char[26];
+        char[] sc = new char[26];
+        // 1. 初始化滑动窗口
+        for (int i = 0; i < pLen; ++i) {
+            pc[p.charAt(i) - 'a']++;
+            sc[s.charAt(i) - 'a']++;
         }
-
-        int [] sAtr = new int[256];
-        int [] pAtr = new int[256];
-
-        for (int i = 0; i < p.length(); ++i) {
-
-            pAtr[p.charAt(i)] ++;
-        }
-
-        for (int i = 0; i < p.length() - 1; ++i) {
-
-            sAtr[s.charAt(i)] ++;
-        }
-
         List<Integer> result = new ArrayList<>();
-
-        for (int i = 0; i <= s.length() - p.length(); ++i) {
-
-            sAtr[s.charAt(i + p.length() - 1)] ++;
-
-            if (Arrays.equals(sAtr, pAtr)) {
-
-                result.add(i);
-            }
-
-            sAtr[s.charAt(i)] --;
+        // 1.2. 判断初始化滑动窗口 是否 满足题意
+        if (Arrays.equals(sc, pc)) result.add(0);
+        // 2. 滑动窗口不断移动
+        for (int i = pLen; i < sLen; ++i) {
+            sc[s.charAt(i) - 'a']++;        // 右侧边扩
+            sc[s.charAt(i - pLen) - 'a']--; // 左侧边进
+            if (Arrays.equals(sc, pc)) result.add(i - pLen + 1); // 判断是否满足题意
         }
-
         return result;
     }
 
