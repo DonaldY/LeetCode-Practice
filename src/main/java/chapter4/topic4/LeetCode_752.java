@@ -109,7 +109,7 @@ public class LeetCode_752 {
         return new String(ch);
     }
 
-    // Time: O(b^d * d^2 + md), Space: O(b^d * d^2 + md), Faster: 15.30%
+    // Time: O(b^d * d^2 + md), Space: O(b^d * d^2 + md), Faster: 84.26%
     public int openLockBFS2(String[] deadends, String target) {
         // 记录需要跳过的死亡密码
         Set<String> deads = new HashSet<>();
@@ -124,7 +124,7 @@ public class LeetCode_752 {
         q1.add("0000");
         q2.add(target);
 
-        while (!q1.isEmpty() && q2.isEmpty()) {
+        while (!q1.isEmpty() && !q2.isEmpty()) {
             // 在遍历的过程不能修改哈希集合
             // 用 temp 存储 q1的扩散结果
             Set<String> temp = new HashSet<>();
