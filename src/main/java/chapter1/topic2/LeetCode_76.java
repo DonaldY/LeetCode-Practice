@@ -33,13 +33,16 @@ public class LeetCode_76 {
         // 2. 记录结果。 count： 记录需要的总字符数
         int start = 0, len = Integer.MAX_VALUE, count = t.length();
 
+        // 3. 滑动窗口移动
         int left = 0, right = 0;
         while (right < s.length()) {
             char r = s.charAt(right);
-            if (required[r] > 0) --count;
+            if (required[r] > 0) --count; // 命中需要的字符，总字符数 -1
             --required[r];
 
+            // 判断左侧窗口是否要收缩：已经获得所有字符
             while (count == 0) {
+                // 更新答案
                 if (right - left + 1 < len) {
                     start = left;
                     len = right - left + 1;
