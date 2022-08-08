@@ -25,12 +25,31 @@ package chapter4.topic4;
  * - 1 <= s.length, goal.length <= 100
  * - s 和 goal 由小写英文字母组成
  *
- *
+ * 思路：
+ * 1. 取巧法
+ * 2. 双指针法
  */
 public class LeetCode_796 {
 
-    // Time: O(n), Space: O(n), Faster: 100.00%
+    // 方法一： 取巧法
+    // Time: O(n^2), Space: O(1), Faster: 100.00%
     public boolean rotateString(String s, String goal) {
         return s.length() == goal.length() && (s + s).contains(goal);
+    }
+
+    // 方法二： 双指针法
+    // Time: O(n^2), Space: O(1)
+    public boolean rotateStringStrStr(String A, String B) {
+        if (A.length() != B.length()) return false;
+        String AA = A + A;
+        int n = A.length(), nn = 2 * n;
+        for (int start = 0; start <= n; ++start) {
+            int i = start, j = 0;
+            while (i < nn && j < n && AA.charAt(i) == B.charAt(j)) {
+                ++i; ++j;
+            }
+            if (j == n) return true;
+        }
+        return false;
     }
 }
