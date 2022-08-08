@@ -41,7 +41,7 @@ package chapter1.topic1;
  */
 public class LeetCode_12 {
 
-    // Time: o(n), Space: o(1), Faster: 67.31%
+    // Time: o(n), Space: o(1), Faster: 95.24%
     public String intToRoman(int num) {
 
         if (num == 0) return "";
