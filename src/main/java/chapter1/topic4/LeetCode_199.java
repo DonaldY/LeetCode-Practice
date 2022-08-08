@@ -58,7 +58,7 @@ public class LeetCode_199 {
     private void dfs(TreeNode root, List<Integer> result, int level) {
         if (root == null) return;
         if (level == result.size()) result.add(root.val);
-        dfs(root.right, result, level+1);
-        dfs(root.left, result, level+1);
+        dfs(root.right, result, level + 1);
+        dfs(root.left, result, level + 1);
     }
 }
