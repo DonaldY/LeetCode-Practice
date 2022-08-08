@@ -25,16 +25,16 @@ public class LeetCode_76 {
     // Time: o(n), Space: o(n), Faster: 96.14%
     public String minWindow(String s, String t) {
         if (s == null || t == null) return "";
-
+        // 1. 哈希表：用于记录需要的字符
         int [] required = new int[256];
-        int start = 0, len = Integer.MAX_VALUE, count = t.length();
-
-        int left = 0, right = 0;
         for (int i = 0; i < t.length(); ++i) {
             ++required[t.charAt(i)];
         }
+        // 2. 记录结果。 count： 记录需要的总字符数
+        int start = 0, len = Integer.MAX_VALUE, count = t.length();
 
-        for (; right < s.length(); ++right) {
+        int left = 0, right = 0;
+        while (right < s.length()) {
             char r = s.charAt(right);
             if (required[r] > 0) --count;
             --required[r];
@@ -49,6 +49,7 @@ public class LeetCode_76 {
                 if (required[l] > 0) ++count;
                 ++left;
             }
+            ++right;
         }
         return len == Integer.MAX_VALUE ? "": s.substring(start, start + len);
     }
