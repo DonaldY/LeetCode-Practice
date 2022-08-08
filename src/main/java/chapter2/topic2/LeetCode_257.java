@@ -55,4 +55,25 @@ public class LeetCode_257 {
         dfs(result, root.left, path);
         dfs(result, root.right, path);
     }
+
+    // Time: O(n*log(n)), Space: O(n), Faster: 99.97%
+    public List<String> binaryTreePathsV2(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        dfsV2(root, new StringBuilder(), result);
+        return result;
+    }
+
+    private void dfsV2(TreeNode root, StringBuilder path, List<String> result) {
+        if (root == null) return;
+        int len = path.length();
+        path.append(root.val);
+        if (root.left == null && root.right == null) {
+            result.add(path.toString());
+        } else {
+            path.append("->");
+            dfsV2(root.left, path, result);
+            dfsV2(root.right, path, result);
+        }
+        path.setLength(len);
+    }
 }
