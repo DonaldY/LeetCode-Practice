@@ -108,4 +108,56 @@ public class LeetCode_752 {
         }
         return new String(ch);
     }
+
+    // Time: O(b^d * d^2 + md), Space: O(b^d * d^2 + md), Faster: 15.30%
+    public int openLockBFS2(String[] deadends, String target) {
+        // 记录需要跳过的死亡密码
+        Set<String> deads = new HashSet<>();
+        for (String s : deadends) deads.add(s);
+        // 记录已经穷举过的密码，防止走回头路
+        Set<String> visited = new HashSet<>();
+        Set<String> q1 = new HashSet<>();
+        Set<String> q2 = new HashSet<>();
+        // 从起点开始启动 BFS
+        int step = 0;
+        // 初始化起点和终点
+        q1.add("0000");
+        q2.add(target);
+
+        while (!q1.isEmpty() && q2.isEmpty()) {
+            // 在遍历的过程不能修改哈希集合
+            // 用 temp 存储 q1的扩散结果
+            Set<String> temp = new HashSet<>();
+
+            // 将 q1 中的所有节点向周围扩散
+            for (String cur : q1) {
+                // 判断密码是否合法
+                if (deads.contains(cur)) {
+                    continue;
+                }
+                if (q2.contains(cur)) {
+                    return step;
+                }
+                visited.add(cur);
+
+                for (int j = 0; j < 4; ++j) {
+                    String up = plusOne(cur, j); // 向下拨， 0 -> 1
+                    if (!visited.contains(up)) {
+                        temp.add(up);
+                    }
+                    String down = minusOne(cur, j); // 向上拨， 0 -> 9
+                    if (!visited.contains(down)) {
+                        temp.add(down);
+                    }
+                }
+            }
+            ++step; // 增加步数
+            // temp 相当于 q1
+            // 这里交换 q1 q2，下一轮 while 就是扩散 q2
+            q1 = q2;
+            q2 = temp;
+        }
+        // 穷举完了，没有找到目标
+        return -1;
+    }
 }
