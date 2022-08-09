@@ -28,12 +28,12 @@ package chapter2.topic1;
  */
 public class LeetCode_208 {
 
-    // Faster: 87.89%
+    // Faster: 70.53%
     class Trie {
 
         private class TrieNode {
-            boolean endOfWord;
-            TrieNode [] children;
+            boolean endOfWord;    // 是否是一个单词结尾
+            TrieNode [] children; // 指向 26个 子节点
             TrieNode() {
                 this.endOfWord = false;
                 this.children = new TrieNode[26];
