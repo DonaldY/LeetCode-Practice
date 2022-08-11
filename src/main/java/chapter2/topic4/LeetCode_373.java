@@ -36,7 +36,7 @@ import java.util.*;
  *
  * 思路： 堆：优先队列
  * 1. 暴力法： 每个都计算放入堆中
- * 2. 剪枝： 取前几个
+ * 2. 剪枝： 取前 K 个
  *
  */
 public class LeetCode_373 {
@@ -98,23 +98,27 @@ public class LeetCode_373 {
         return result;
     }
 
+    // 方法二： 剪枝： 取前 K 个
     // Time: O(k*log(k)), Space: O(k), Faster: 94.72%
     public List<List<Integer>> kSmallestPairsMinHeap(int[] nums1,
                                                      int[] nums2, int k) {
         if (nums1 == null || nums1.length == 0
-                || nums2 == null || nums2.length == 0 || k <= 0) return new ArrayList<>();
+                || nums2 == null || nums2.length == 0 || k <= 0) {
+            return Collections.emptyList();
+        }
         int n1 = nums1.length, n2 = nums2.length;
         List<List<Integer>> result = new ArrayList<>();
         Queue<Elem> minHeap = new PriorityQueue<>(); // 最小堆
-
+        // 1. 取 nums1 前k个，均匹配 nums2 第一个元素
         for (int i = 0; i < n1 && i < k; ++i) {
             minHeap.add(new Elem(i, 0, nums1[i] + nums2[0]));
         }
-
+        // 2. 取最小堆前 K 个, [0, 0] 两数组的第一个元素均最小
         for (int i = 0; i < k && !minHeap.isEmpty(); ++i) {
             Elem e = minHeap.poll();
             result.add(Arrays.asList(nums1[e.idx1], nums2[e.idx2]));
             ++e.idx2;
+            // 遍历时候，比较加入
             if (e.idx2 < n2) {
                 e.sum = nums1[e.idx1] + nums2[e.idx2];
                 minHeap.add(e);
