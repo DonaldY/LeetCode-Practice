@@ -37,19 +37,19 @@ import java.util.*;
 public class LeetCode_347 {
 
     // 方法一： 暴力法， 哈希表存储值， 最大堆来排序
-    // Time: O(n * log(n)), Space: (n), Faster: 70.80%
+    // Time: O(n * log(n)), Space: (n), Faster: 89.66%
     public int[] topKFrequent(int[] nums, int k) {
         if (null == nums || nums.length == 0) return new int[0];
 
+        // 1. 哈希表：统计数字出现的次数
         Map<Integer, Integer> map = new HashMap<>();
-
         for (int num : nums) {
             int freq = map.getOrDefault(num, 0);
             map.put(num, freq + 1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
-
+        // 2. 最小堆，保留前 k 个
+        Queue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             queue.add(entry);
             if (queue.size() > k) {
@@ -58,7 +58,6 @@ public class LeetCode_347 {
         }
 
         int [] result = new int[k];
-
         for (int i = 0; i < k; ++i) {
             result[i] = queue.poll().getKey();
         }
@@ -66,14 +65,17 @@ public class LeetCode_347 {
         return result;
     }
 
-    // Time(avg): O(n), Time(worst): O(n^2), Space: O(n), Faster: 86.69%
+    // 方法二： 快速选择
+    // Time(avg): O(n), Time(worst): O(n^2), Space: O(n), Faster: 89.66%
     public int[] topKFrequentQuickSelect(int[] nums, int k) {
+        // 1. 哈希表：统计数字出现的次数
         Map<Integer, Integer> freqMap = new HashMap<>();
         for (int num: nums) {
             int freq = freqMap.getOrDefault(num, 0);
             freqMap.put(num, freq + 1);
         }
 
+        // 2. 最小堆，保留前 k 个
         List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(freqMap.entrySet());
         int low = 0, high = entries.size() - 1;
         while (low <= high) {
@@ -84,12 +86,9 @@ public class LeetCode_347 {
         }
 
         int[] result = new int[k];
-
         for (int i = 0; i < k; ++i) {
-
             result[i] = entries.get(i).getKey();
         }
-
         return result;
     }
 
@@ -103,5 +102,38 @@ public class LeetCode_347 {
             if (i < j) Collections.swap(entries, i, j);
         }
         return i;
+    }
+
+    // 方法三： 桶排序
+    // Time: O(n), Space: O(n), Faster:
+    public int[] topKFrequentBucketSort(int[] nums, int k) {
+        // 1. 哈希表：统计数字出现的次数
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        for (int num: nums) {
+            int freq = freqMap.getOrDefault(num, 0);
+            freqMap.put(num, freq + 1);
+        }
+
+        // 2. 定义桶
+        List<List<Integer>> buckets = new ArrayList<>(nums.length + 1);
+        for (int i = 0; i <= nums.length; ++i) buckets.add(new ArrayList<>());
+        for (Map.Entry<Integer, Integer> e: freqMap.entrySet()) {
+            buckets.get(e.getValue()).add(e.getKey());
+        }
+
+        // 3. 从后往前取 k 个元素。
+        List<Integer> result = new ArrayList<>();
+        for (int i = buckets.size() - 1; i >= 0 && k > 0; --i) {
+            List<Integer> bucket = buckets.get(i);
+            for (int j = 0; j < bucket.size() && k > 0; ++j) {
+                result.add(bucket.get(j));
+                --k;
+            }
+        }
+        int[] ans = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ans[i] = result.get(i);
+        }
+        return ans;
     }
 }
