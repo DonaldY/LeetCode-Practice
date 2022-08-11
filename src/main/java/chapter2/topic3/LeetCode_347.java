@@ -29,25 +29,21 @@ import java.util.*;
  * 前K个高频数字，给你一个不为空的整数数组，你要返回前 K 个出现频率最高的数字
  *
  * 思路：
- * 1. 暴力法，hash保存，最大堆
+ * 1. 暴力法： hash保存，最大堆
  *
  * 2. 快速选择法
  *
  */
 public class LeetCode_347 {
 
+    // 方法一： 暴力法， 哈希表存储值， 最大堆来排序
     // Time: O(n * log(n)), Space: (n), Faster: 70.80%
     public int[] topKFrequent(int[] nums, int k) {
-
-        if (null == nums || nums.length == 0) {
-
-            return new int[0];
-        }
+        if (null == nums || nums.length == 0) return new int[0];
 
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int num : nums) {
-
             int freq = map.getOrDefault(num, 0);
             map.put(num, freq + 1);
         }
@@ -55,11 +51,8 @@ public class LeetCode_347 {
         PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-
             queue.add(entry);
-
             if (queue.size() > k) {
-
                 queue.poll();
             }
         }
@@ -67,7 +60,6 @@ public class LeetCode_347 {
         int [] result = new int[k];
 
         for (int i = 0; i < k; ++i) {
-
             result[i] = queue.poll().getKey();
         }
 

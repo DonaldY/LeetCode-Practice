@@ -66,13 +66,18 @@ public class LeetCode_373 {
         return ans;
     }
 
+    // 方法一： 暴力法
     // Time: O(n1*n2*log(k)), Space: O(k), Faster: 超时
     public List<List<Integer>> kSmallestPairsMaxHeap(int[] nums1,
                                                      int[] nums2, int k) {
         if (nums1 == null || nums1.length == 0
-                || nums2 == null || nums2.length == 0 || k <= 0) return new ArrayList<>();
+                || nums2 == null || nums2.length == 0 || k <= 0) {
+            return Collections.emptyList();
+        }
         int n1 = nums1.length, n2 = nums2.length;
+        // 1. 创建最大堆
         Queue<Elem> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        // 2. 暴力遍历 2 数组
         for (int i = 0; i < n1; ++i) {
             for (int j = 0; j < n2; ++j) {
                 int sum = nums1[i] + nums2[j];
@@ -84,7 +89,8 @@ public class LeetCode_373 {
                 }
             }
         }
-        List<List<Integer>> result = new LinkedList<>();
+        List<List<Integer>> result = new ArrayList<>(k);
+        // 3. 取结果
         while (!maxHeap.isEmpty()) {
             Elem e = maxHeap.poll();
             result.add(0, Arrays.asList(nums1[e.idx1], nums2[e.idx2]));
