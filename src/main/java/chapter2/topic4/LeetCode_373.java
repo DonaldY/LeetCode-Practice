@@ -34,8 +34,9 @@ import java.util.*;
  * 题意：
  *
  *
- * 思路：
- * 1. 堆：优先队列（多路归并）
+ * 思路： 堆：优先队列
+ * 1. 暴力法： 每个都计算放入堆中
+ * 2. 剪枝： 取前几个
  *
  */
 public class LeetCode_373 {
@@ -101,7 +102,7 @@ public class LeetCode_373 {
         Queue<Elem> minHeap = new PriorityQueue<>(); // 最小堆
 
         for (int i = 0; i < n1 && i < k; ++i) {
-            minHeap.add(new Elem(i, 0, nums1[i]+nums2[0]));
+            minHeap.add(new Elem(i, 0, nums1[i] + nums2[0]));
         }
 
         for (int i = 0; i < k && !minHeap.isEmpty(); ++i) {
