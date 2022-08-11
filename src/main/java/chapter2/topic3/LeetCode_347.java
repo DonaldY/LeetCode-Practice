@@ -30,11 +30,16 @@ import java.util.*;
  *
  * 思路：
  * 1. 暴力法： hash保存，最大堆
- *
  * 2. 快速选择法
+ * 3. 桶排序
  *
  */
 public class LeetCode_347 {
+
+    public static void main(String[] args) {
+        LeetCode_347 leetCode_347 = new LeetCode_347();
+        System.out.println(Arrays.toString(leetCode_347.topKFrequentBucketSort(new int[]{1, 1, 1, 2, 2, 3}, 2)));
+    }
 
     // 方法一： 暴力法， 哈希表存储值， 最大堆来排序
     // Time: O(n * log(n)), Space: (n), Faster: 89.66%
@@ -105,7 +110,7 @@ public class LeetCode_347 {
     }
 
     // 方法三： 桶排序
-    // Time: O(n), Space: O(n), Faster:
+    // Time: O(n), Space: O(n), Faster: 97.25%
     public int[] topKFrequentBucketSort(int[] nums, int k) {
         // 1. 哈希表：统计数字出现的次数
         Map<Integer, Integer> freqMap = new HashMap<>();
@@ -130,8 +135,8 @@ public class LeetCode_347 {
                 --k;
             }
         }
-        int[] ans = new int[k];
-        for (int i = 0; i < k; ++i) {
+        int[] ans = new int[result.size()];
+        for (int i = 0; i < result.size(); ++i) {
             ans[i] = result.get(i);
         }
         return ans;
