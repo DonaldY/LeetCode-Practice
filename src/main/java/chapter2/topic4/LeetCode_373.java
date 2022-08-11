@@ -1,8 +1,6 @@
 package chapter2.topic4;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * @author donald
@@ -37,8 +35,8 @@ import java.util.PriorityQueue;
  *
  *
  * 思路：
- * 1. 优先队列（多路归并）
- * 2. 二分法
+ * 1. 堆：优先队列（多路归并）
+ *
  */
 public class LeetCode_373 {
 
@@ -66,4 +64,70 @@ public class LeetCode_373 {
 
         return ans;
     }
+
+    // Time: O(n1*n2*log(k)), Space: O(k), Faster: 超时
+    public List<List<Integer>> kSmallestPairsMaxHeap(int[] nums1,
+                                                     int[] nums2, int k) {
+        if (nums1 == null || nums1.length == 0
+                || nums2 == null || nums2.length == 0 || k <= 0) return new ArrayList<>();
+        int n1 = nums1.length, n2 = nums2.length;
+        Queue<Elem> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < n1; ++i) {
+            for (int j = 0; j < n2; ++j) {
+                int sum = nums1[i] + nums2[j];
+                if (maxHeap.size() < k) {
+                    maxHeap.add(new Elem(i, j, sum));
+                } else if (sum < maxHeap.peek().sum) {
+                    maxHeap.poll();
+                    maxHeap.add(new Elem(i, j, sum));
+                }
+            }
+        }
+        List<List<Integer>> result = new LinkedList<>();
+        while (!maxHeap.isEmpty()) {
+            Elem e = maxHeap.poll();
+            result.add(0, Arrays.asList(nums1[e.idx1], nums2[e.idx2]));
+        }
+        return result;
+    }
+
+    // Time: O(k*log(k)), Space: O(k), Faster: 94.72%
+    public List<List<Integer>> kSmallestPairsMinHeap(int[] nums1,
+                                                     int[] nums2, int k) {
+        if (nums1 == null || nums1.length == 0
+                || nums2 == null || nums2.length == 0 || k <= 0) return new ArrayList<>();
+        int n1 = nums1.length, n2 = nums2.length;
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<Elem> minHeap = new PriorityQueue<>();
+        for (int i = 0; i < n1 && i < k; ++i)
+            minHeap.add(new Elem(i, 0, nums1[i]+nums2[0]));
+
+        for (int i = 0; i < k && !minHeap.isEmpty(); ++i) {
+            Elem e = minHeap.poll();
+            result.add(Arrays.asList(nums1[e.idx1], nums2[e.idx2]));
+            ++e.idx2;
+            if (e.idx2 < n2) {
+                e.sum = nums1[e.idx1] + nums2[e.idx2];
+                minHeap.add(e);
+            }
+        }
+        return result;
+    }
+
+    class Elem implements Comparable<Elem> {
+        int idx1, idx2, sum;
+
+        Elem(int idx1, int idx2, int sum) {
+            this.idx1 = idx1;
+            this.idx2 = idx2;
+            this.sum = sum;
+        }
+
+        @Override
+        public int compareTo(Elem o) {
+            return this.sum - o.sum;
+        }
+    }
+
+
 }
