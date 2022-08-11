@@ -42,7 +42,7 @@ import java.util.PriorityQueue;
  */
 public class LeetCode_373 {
 
-    // Time: O(klogk), Space: O(k), Faster: 89.85%
+    // Time: O(klogk), Space: O(k), Faster: 64.86%
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         // k 表示容量
         PriorityQueue<int[]> pq = new PriorityQueue<>(k,
