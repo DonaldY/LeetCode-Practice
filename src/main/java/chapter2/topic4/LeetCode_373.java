@@ -98,9 +98,11 @@ public class LeetCode_373 {
                 || nums2 == null || nums2.length == 0 || k <= 0) return new ArrayList<>();
         int n1 = nums1.length, n2 = nums2.length;
         List<List<Integer>> result = new ArrayList<>();
-        Queue<Elem> minHeap = new PriorityQueue<>();
-        for (int i = 0; i < n1 && i < k; ++i)
+        Queue<Elem> minHeap = new PriorityQueue<>(); // 最小堆
+
+        for (int i = 0; i < n1 && i < k; ++i) {
             minHeap.add(new Elem(i, 0, nums1[i]+nums2[0]));
+        }
 
         for (int i = 0; i < k && !minHeap.isEmpty(); ++i) {
             Elem e = minHeap.poll();
