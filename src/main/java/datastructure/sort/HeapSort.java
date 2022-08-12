@@ -16,18 +16,18 @@ public class HeapSort {
     // Time: O(n*log(n)), Space: O(1)
     public void sort(int[] arr) {
         if (arr == null || arr.length == 0) return;
-
+        // 1. 构建堆： 最大堆
         buildMaxHeap(arr, arr.length - 1);
 
         for (int end = arr.length - 1; end > 0; --end) {
-            swap(arr, 0, end);
-            siftDown(arr, 0, end - 1);
+            swap(arr, 0, end);             // 确定当前堆最大值：交换
+            siftDown(arr, 0, end - 1); // 筛选：形成最大堆
         }
     }
 
     private void buildMaxHeap(int[] arr, int end) {
         for (int i = end / 2; i >= 0; --i) {
-            siftDown(arr, i, end);
+            siftDown(arr, i, end); // 筛选：形成最大堆
         }
     }
 
