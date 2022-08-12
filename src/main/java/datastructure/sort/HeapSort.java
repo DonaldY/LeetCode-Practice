@@ -13,10 +13,7 @@ package datastructure.sort;
  */
 public class HeapSort {
 
-    private void swap(int[] arr, int i, int j) {
-
-    }
-
+    // Time: O(n*log(n)), Space: O(1)
     public void sort(int[] arr) {
         if (arr == null || arr.length == 0) return;
 
@@ -34,6 +31,7 @@ public class HeapSort {
         }
     }
 
+    // Time: O(log(n))
     private void siftDown(int[] arr, int i, int end) {
         int parent = i, child = 2 * parent + 1;
         while (child <= end) {
@@ -43,5 +41,11 @@ public class HeapSort {
             parent = child;
             child = 2 * parent + 1;
         }
+    }
+
+    private void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 }
