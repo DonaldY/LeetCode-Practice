@@ -23,8 +23,8 @@ public class CountingSort {
         // Time: O(n+k), Space: O(n+k)
         public void sortLeft2Right(int[] arr) {
             if (arr == null || arr.length == 0) return;
-            int[] indexes = new int[k+1];
-            for (int num: arr) ++indexes[num];
+            int[] indexes = new int[k + 1];
+            for (int num : arr) ++indexes[num];
 
             int start = 0;
             for (int i = 0; i <= k; ++i) {
@@ -34,7 +34,7 @@ public class CountingSort {
             }
 
             int[] tmp = new int[arr.length];
-            for (int num: arr) {
+            for (int num : arr) {
                 int idx = indexes[num];
                 tmp[idx] = num;
                 ++indexes[num];
@@ -45,15 +45,15 @@ public class CountingSort {
         // Time: O(n+k), Space: O(n+k)
         public void sortRight2Left(int[] arr) {
             if (arr == null || arr.length == 0) return;
-            int[] indexes = new int[k+1];
-            for (int num: arr) ++indexes[num];
+            int[] indexes = new int[k + 1];
+            for (int num : arr) ++indexes[num];
 
             --indexes[0];
             for (int i = 1; i <= k; ++i)
-                indexes[i] = indexes[i] + indexes[i-1];
+                indexes[i] = indexes[i] + indexes[i - 1];
 
             int[] tmp = new int[arr.length];
-            for (int i = arr.length-1; i >= 0; --i) {
+            for (int i = arr.length - 1; i >= 0; --i) {
                 int idx = indexes[arr[i]];
                 tmp[idx] = arr[i];
                 --indexes[arr[i]];
