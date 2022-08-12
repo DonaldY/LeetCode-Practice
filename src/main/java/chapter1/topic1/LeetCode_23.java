@@ -97,9 +97,10 @@ public class LeetCode_23 {
     public ListNode mergeKSortedListsMinHeap(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         Queue<ListNode> q = new PriorityQueue<>((a, b) -> a.val - b.val);
-        for (ListNode list: lists)
-            if (list != null)
-                q.add(list);
+        for (ListNode list: lists) {
+            if (list != null) q.add(list);
+        }
+
         ListNode dummy = new ListNode(0), p = dummy;
 
         while (!q.isEmpty()) {
