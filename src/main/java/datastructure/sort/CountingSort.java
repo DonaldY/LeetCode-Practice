@@ -23,9 +23,11 @@ public class CountingSort {
         // Time: O(n+k), Space: O(n+k)
         public void sortLeft2Right(int[] arr) {
             if (arr == null || arr.length == 0) return;
+            // 1. 初始化索引数组：统计数字出现次数
             int[] indexes = new int[k + 1];
             for (int num : arr) ++indexes[num];
 
+            // 2. 更新索引数组： 每个元素的开始下标
             int start = 0;
             for (int i = 0; i <= k; ++i) {
                 int count = indexes[i];
@@ -33,31 +35,38 @@ public class CountingSort {
                 start += count;
             }
 
+            // 3. 遍历原数组，填充排序
             int[] tmp = new int[arr.length];
             for (int num : arr) {
                 int idx = indexes[num];
                 tmp[idx] = num;
                 ++indexes[num];
             }
+            // 拷贝回原数组
             System.arraycopy(tmp, 0, arr, 0, arr.length);
         }
 
         // Time: O(n+k), Space: O(n+k)
         public void sortRight2Left(int[] arr) {
             if (arr == null || arr.length == 0) return;
+            // 1. 初始化索引数组：统计数字出现次数
             int[] indexes = new int[k + 1];
             for (int num : arr) ++indexes[num];
 
+            // 2. 更新索引数组：
             --indexes[0];
-            for (int i = 1; i <= k; ++i)
+            for (int i = 1; i <= k; ++i) {
                 indexes[i] = indexes[i] + indexes[i - 1];
+            }
 
+            // 3. 遍历原数组，填充排序
             int[] tmp = new int[arr.length];
             for (int i = arr.length - 1; i >= 0; --i) {
                 int idx = indexes[arr[i]];
                 tmp[idx] = arr[i];
                 --indexes[arr[i]];
             }
+            // 拷贝回原数组
             System.arraycopy(tmp, 0, arr, 0, arr.length);
         }
 
