@@ -27,15 +27,18 @@ public class LeetCode_912 {
     // 计数排序
     // Time: O(n + k), Space: O(n + k), Faster: 99.97%
     public int[] sortArrayCounting(int[] nums) {
+        // 1. 找最大值和最小值
         int max = nums[0], min = nums[0];
         for (int num : nums) {
             max = Math.max(max, num);
             min = Math.min(min, num);
         }
+        // 2. 定义计数数组并统计
         int[] counts = new int[max - min + 1];
         for (int num : nums) {
-            ++counts[num - min];
+            ++counts[num - min]; // 落到数组上
         }
+        // 3. 遍历输出结果
         int[] result = new int[nums.length];
         for (int i = 0, j = 0; i < max - min + 1; ++i) {
             while (counts[i]-- > 0) {
