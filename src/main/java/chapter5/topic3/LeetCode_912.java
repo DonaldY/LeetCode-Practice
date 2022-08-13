@@ -47,4 +47,48 @@ public class LeetCode_912 {
         }
         return result;
     }
+
+    // 2 进制排序
+    public int[] sortArrayRedixSort1(int[] nums) {
+        sort(nums, 4, 0x0f);
+        return nums;
+    }
+
+    // Time: O(32/b * n), Space: O(n + 2^b), Faster: 98.95%
+    private void sort(int[] arr, int bits, int mask) {
+        if (arr == null || arr.length == 0) return;
+        int n = arr.length, cnt = 32 / bits;
+        int[] tmp = new int[n];
+        int[] indexes = new int[1 << bits];
+        for (int d = 0; d < cnt; ++d) {
+            for (int num : arr) {
+                int idx = (num >> (bits * d)) & mask;
+                ++indexes[idx];
+            }
+
+            --indexes[0];
+            for (int i = 1; i < indexes.length; ++i)
+                indexes[i] = indexes[i] + indexes[i - 1];
+
+            for (int i = n - 1; i >= 0; --i) {
+                int idx = (arr[i] >> (bits * d)) & mask;
+                tmp[indexes[idx]] = arr[i];
+                --indexes[idx];
+            }
+
+            Arrays.fill(indexes, 0);
+            int[] t = arr;
+            arr = tmp;
+            tmp = t;
+        }
+        // handle the negative number
+        // get the length of positive part
+        int len = 0;
+        for (; len < n; ++len)
+            if (arr[len] < 0) break;
+
+        System.arraycopy(arr, len, tmp, 0, n - len); // copy negative part to tmp
+        System.arraycopy(arr, 0, tmp, n - len, len); // copy positive part to tmp
+        System.arraycopy(tmp, 0, arr, 0, n); // copy back to arr
+    }
 }
