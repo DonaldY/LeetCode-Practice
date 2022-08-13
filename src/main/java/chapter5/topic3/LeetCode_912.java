@@ -48,7 +48,7 @@ public class LeetCode_912 {
         return result;
     }
 
-    // 2 进制排序
+    // 基数排序-二进制排序
     public int[] sortArrayRedixSort1(int[] nums) {
         sort(nums, 4, 0x0f);
         return nums;
@@ -90,5 +90,69 @@ public class LeetCode_912 {
         System.arraycopy(arr, len, tmp, 0, n - len); // copy negative part to tmp
         System.arraycopy(arr, 0, tmp, n - len, len); // copy positive part to tmp
         System.arraycopy(tmp, 0, arr, 0, n); // copy back to arr
+    }
+
+    // 基数排序-十进制排序, Faster: 74.74%
+    public int[] sortArrayRedixSort2(int[] nums) {
+        // RadixSort 基数排序
+        int n = nums.length;
+        // 预处理，让所有的数都大于等于0
+        for (int i = 0; i < n; ++i) {
+            nums[i] += 50000; // 50000为最小可能的数组大小
+        }
+        // 找出最大的数字，并获得其最大位数
+        int maxNum = nums[0];
+        for (int value : nums) {
+            if (value > maxNum) {
+                maxNum = value;
+            }
+        }
+        int num = maxNum, maxLen = 0;
+        while (num > 0) {
+            ++maxLen;
+            num /= 10;
+        }
+        // 基数排序，低位优先
+        int divisor = 1;
+        int[] tmp = new int[n];
+        for (int i = 0; i < maxLen; ++i) {
+            radixSort(nums, tmp, divisor);
+            swap(tmp, nums);
+            divisor *= 10;
+        }
+        // 减去预处理量
+        for (int i = 0; i < n; ++i) {
+            nums[i] -= 50000;
+        }
+        return nums;
+    }
+
+    private void swap(int[] nums1, int[] nums2) {
+        for (int i = 0; i < nums1.length; ++i) {
+            int temp = nums1[i];
+            nums1[i] = nums2[i];
+            nums2[i] = temp;
+        }
+    }
+
+    private void radixSort(int[] nums, int[] tmp, int divisor) {
+        int n = nums.length;
+        int[] counts = new int[10];
+        // 统计个、十、百、千、万上对应 0 ~ 9 的出现次数
+        for (int num : nums) {
+            int x = (num / divisor) % 10;
+            ++counts[x];
+        }
+        // 前缀和
+        for (int i = 1; i <= 9; ++i) {
+            counts[i] += counts[i - 1];
+        }
+        // 从后向前赋值
+        for (int i = n - 1; i >= 0; --i) {
+            int x = (nums[i] / divisor) % 10;
+            int index = counts[x] - 1;
+            tmp[index] = nums[i];
+            --counts[x];
+        }
     }
 }
