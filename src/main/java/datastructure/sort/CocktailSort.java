@@ -30,6 +30,7 @@ public class CocktailSort {
         arr[j] = tmp;
     }
 
+    // 优化一： bool swapped, 记录每一次遍历过程中，是否有元素交换
     // Time: O(n^2), Space: O(1)
     public void sortEarlyReturn(int[] arr) {
         if (arr == null || arr.length == 0) return;
@@ -59,6 +60,9 @@ public class CocktailSort {
         }
     }
 
+    // 优化2： int newLeft, newRight
+    //   记录从左向右最后发生交换的元素下标
+    //   记录从右向左最后发生交换的元素下标
     // Time: O(n^2), Space: O(1)
     public void sortSkip(int[] arr) {
         if (arr == null || arr.length == 0) return;
