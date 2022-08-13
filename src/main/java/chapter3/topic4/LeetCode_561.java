@@ -28,11 +28,11 @@ import java.util.Arrays;
  *
  * 思路：
  * 1. 暴力法： 排序后，隔一个添加
- * 2.
  */
 public class LeetCode_561 {
 
-    // Time: O(), Space: O(1), Faster: 9.26%
+    // 暴力法
+    // Time: O(nlog(n)), Space: O(1), Faster: 9.26%
     public int arrayPairSum(int[] nums) {
         if (null == nums || nums.length == 0) return -1;
         Arrays.sort(nums);
