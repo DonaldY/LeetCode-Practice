@@ -22,6 +22,8 @@ import java.util.List;
  * [1, 3]
  *
  * 由于 [1, 3] 和 [2, 4] 在时间上有重叠，因此同一个人不可能参加所有会议，返回 false。
+ *
+ * 思路： 排个序，再逐个与下一个比较
  */
 public class LeetCode_252 {
 
