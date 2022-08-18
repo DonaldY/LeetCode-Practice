@@ -33,7 +33,7 @@ public class LeetCode_252 {
         Interval(int s, int e) { start = s; end = e; }
     }
 
-    // Time: O(n*log(n)), Space: O(1)
+    // Time: O(n*log(n)), Space: O(1), VIP题 无法测试
     public boolean canAttendMeetings(List<Interval> intervals) {
         intervals.sort((a, b) -> a.start - b.start);
         for (int i = 0; i < intervals.size()-1; ++i) {
