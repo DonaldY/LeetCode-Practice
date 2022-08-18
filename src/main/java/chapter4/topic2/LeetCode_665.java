@@ -23,7 +23,9 @@ package chapter4.topic2;
  * 对于这个数组，你至少需要修改两个元素，才能将它变成非减数组，因此返回 false。
  *
  *
- *
+ * 要考虑中间的数：
+ * 2   3   4   1   6
+ *     <=  i  <=
  */
 public class LeetCode_665 {
 
