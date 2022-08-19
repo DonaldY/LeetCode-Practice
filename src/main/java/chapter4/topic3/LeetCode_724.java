@@ -24,6 +24,7 @@ package chapter4.topic3;
  * 思路：
  * 1. 两个数组： 1个求左边和、1个求右边个
  * 2. 1个数组
+ * 3. 不用数组
  */
 public class LeetCode_724 {
 
@@ -58,6 +59,19 @@ public class LeetCode_724 {
         for (int i = 0; i < n; ++i)
             if (preSum[i] == preSum[n] - preSum[i + 1])
                 return i;
+        return -1;
+    }
+
+    // 方法三：不用数组
+    // Time: O(n), Space: O(1), Faster: 67.66%
+    public int pivotIndexO1Space(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int sum = 0, total = 0;
+        for (int num : nums) total += num;
+        for (int i = 0; i < nums.length; ++i) {
+            if (total - sum - nums[i] == sum) return i;
+            sum += nums[i];
+        }
         return -1;
     }
 }
