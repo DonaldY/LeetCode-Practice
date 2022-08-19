@@ -1,5 +1,7 @@
 package chapter5.topic3;
 
+import java.util.Stack;
+
 /**
  * @author donald
  * @date 2021/04/27
@@ -21,7 +23,7 @@ package chapter5.topic3;
  * 2. 中序排序生成数据，然后查找
  * 3. 依据 BST 特性
  */
-public class loweetCode_938 {
+public class LeetCode_938 {
 
     public class TreeNode {
         int val;
@@ -51,6 +53,7 @@ public class loweetCode_938 {
         sumInter(root.right, low, high);
     }
 
+    // 方法三： 利用BST 特性
     // Time: O(n), Space: O(h), Faster: 100.00%
     public int rangeSumBST(TreeNode root, int low, int high) {
         if (root == null) return 0;
@@ -59,5 +62,25 @@ public class loweetCode_938 {
         return root.val +
                 rangeSumBST(root.left, low, high) +
                 rangeSumBST(root.right, low, high);
+    }
+
+    // 方法三： 利用BST 特性, 非递归法
+    // Time: O(n), Space: O(n), Faster: 13.48%
+    public int rangeSumBSTIterative(TreeNode root, int low, int high) {
+        int sum = 0;
+        Stack<TreeNode> st = new Stack<>();
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode node = st.pop();
+            if (node == null) continue;
+            if (node.val < low) st.push(node.right);
+            else if (node.val > high) st.push(node.left);
+            else {
+                sum += node.val;
+                st.push(node.left);
+                st.push(node.right);
+            }
+        }
+        return sum;
     }
 }
