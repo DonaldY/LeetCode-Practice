@@ -23,10 +23,11 @@ package chapter4.topic3;
  *
  * 思路：
  * 1. 两个数组： 1个求左边和、1个求右边个
+ * 2. 1个数组
  */
 public class LeetCode_724 {
 
-    // 方法一：
+    // 方法一： 2个数组
     // Time: O(n), Space: O(n), Faster: 67.66%
     public int pivotIndex(int[] nums) {
         if (null == nums || nums.length == 0) return -1;
@@ -43,6 +44,20 @@ public class LeetCode_724 {
         for (int i = 0, sum = 0; i < nums.length; ++i) {
             if (left[i] == right[i]) return i;
         }
+        return -1;
+    }
+
+    // 方法二： 一个数组
+    // Time: O(n), Space: O(n), Faster: 67.66%
+    public int pivotIndexOne(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int n = nums.length;
+        int[] preSum = new int[n + 1];
+        for (int i = 1; i <= n; ++i)
+            preSum[i] = preSum[i - 1] + nums[i - 1];
+        for (int i = 0; i < n; ++i)
+            if (preSum[i] == preSum[n] - preSum[i + 1])
+                return i;
         return -1;
     }
 }
