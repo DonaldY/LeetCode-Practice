@@ -48,4 +48,21 @@ public class LeetCode_170 {
         }
     }
 
+    public class TwoSumIIIO1Find {
+
+        private List<Integer> data = new ArrayList<>();
+        private Set<Integer> sumSet = new HashSet<>();
+
+        // Time: O(n)
+        public void add(int number) {
+            for (int num: data)
+                sumSet.add(num + number);
+            data.add(number);
+        }
+
+        // Time: O(1)
+        public boolean find(int value) {
+            return sumSet.contains(value);
+        }
+    }
 }
