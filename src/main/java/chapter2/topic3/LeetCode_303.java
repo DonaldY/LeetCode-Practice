@@ -39,4 +39,20 @@ public class LeetCode_303 {
             return sum;
         }
     }
+
+    // Faster: 100.00%
+    public class NumArrayImmutable {
+
+        private final int[] prefixSum;
+
+        public NumArrayImmutable(int[] nums) {
+            prefixSum = new int[nums.length + 1];
+            for (int i = 1; i < prefixSum.length; ++i)
+                prefixSum[i] = prefixSum[i - 1] + nums[i - 1];
+        }
+
+        public int sumRange(int i, int j) {
+            return prefixSum[j + 1] - prefixSum[i];
+        }
+    }
 }
