@@ -34,4 +34,19 @@ public class LeetCode_190 {
         }
         return result;
     }
+
+    /**
+     * 如果我们要翻转一个 32 位整数的二进制位，那么我们可以先以连续的16个二进制位为一组，然后交换相邻的两组二进制位。
+     * 接着以连续的 8个二进制位为一组，同样再以 4 个二进制位为一组， 2个二进制位为一组，1个二进制位为一组，
+     * 并和相邻的组进行交换。我们就可以得到翻转二进制位后的整数。
+     */
+    // Time: O(1), Space: O(1), Faster: 100.00%
+    public int reverseBitsInterchanging(int n) {
+        n = (n & 0x0000FFFF) << 16 | (n & 0xFFFF0000) >>> 16;
+        n = (n & 0x00FF00FF) << 8 | (n & 0xFF00FF00) >>> 8;
+        n = (n & 0x0F0F0F0F) << 4 | (n & 0xF0F0F0F0) >>> 4;
+        n = (n & 0x33333333) << 2 | (n & 0xCCCCCCCC) >>> 2;
+        n = (n & 0x55555555) << 1 | (n & 0xAAAAAAAA) >>> 1;
+        return n;
+    }
 }
