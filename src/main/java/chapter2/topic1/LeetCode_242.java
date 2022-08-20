@@ -68,7 +68,7 @@ public class LeetCode_242 {
         return true;
     }
 
-    // Time: O(n), Space: O(1), Faster: 37.40%
+    // Time: O(n), Space: O(n), Faster: 37.40%
     public boolean isAnagramCount(String s, String t) {
         if (s == null || t == null || s.length() != t.length()) return false;
         int[] counts = new int[26];
