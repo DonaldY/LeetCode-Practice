@@ -1,5 +1,6 @@
 package chapter2.topic1;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ import java.util.Map;
  * "ten" 中的字符 n 不存在于字符串 s 中。因此，它不是 s 的一个变位词。
  *
  * 1. 哈希表 : hashmap 两两比对
+ * 2. 排个序，逐一比对
  */
 public class LeetCode_242 {
     // Time: O(n), Space: O(n), Faster: 5.40%
@@ -49,6 +51,20 @@ public class LeetCode_242 {
                 return false;
             }
         }
+        return true;
+    }
+
+    // 方法二： 排序
+    // Time: O(n*log(n)), Space: O(n), Faster: 79.37%
+    public boolean isAnagramSort(String s, String t) {
+        if (s == null || t == null || s.length() != t.length()) return false;
+        char[] sc = s.toCharArray();
+        char[] tc = t.toCharArray();
+        Arrays.sort(sc);
+        Arrays.sort(tc);
+        for (int i = 0; i < sc.length; ++i)
+            if (sc[i] != tc[i])
+                return false;
         return true;
     }
 }
