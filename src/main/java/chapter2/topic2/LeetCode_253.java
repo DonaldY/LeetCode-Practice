@@ -2,6 +2,8 @@ package chapter2.topic2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * @author donald
@@ -34,6 +36,7 @@ import java.util.List;
  *
  * 思路：
  * 1. 暴力法： 先排序，再逐个比较
+ * 2. 最小堆： 先排序，再逐个比较
  */
 public class LeetCode_253 {
 
@@ -61,5 +64,22 @@ public class LeetCode_253 {
             else ends.set(idx, meeting.end);
         }
         return ends.size();
+    }
+
+    // 方法二： 最小堆
+    // Time: O(n*log(n)), Space: O(n)
+    public int minMeetingRoomsMinHeap(List<Interval> intervals) {
+        if (intervals == null || intervals.size() == 0) return 0;
+        // 1. 先排序
+        intervals.sort((a, b) -> a.start - b.start);
+        Queue<Integer> minHeap = new PriorityQueue<>();
+        minHeap.add(intervals.get(0).end);
+        for (int i = 1; i < intervals.size(); ++i) {
+            Interval meeting = intervals.get(i);
+            // 2. 比较： 是否有合适的会议室
+            if (minHeap.peek() <= meeting.start) minHeap.poll();
+            minHeap.add(meeting.end);
+        }
+        return minHeap.size();
     }
 }
