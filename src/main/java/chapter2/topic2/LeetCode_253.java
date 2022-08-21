@@ -33,7 +33,7 @@ import java.util.List;
  *
  *
  * 思路：
- * 1.
+ * 1. 暴力法： 先排序，再逐个比较
  */
 public class LeetCode_253 {
 
@@ -43,16 +43,20 @@ public class LeetCode_253 {
         Interval(int s, int e) { start = s; end = e; }
     }
 
+    // 方法一：暴力法
     // Time: O(n^2), Space: O(n)
     public int minMeetingRoomsBruteForce(List<Interval> intervals) {
         if (intervals == null || intervals.size() == 0) return 0;
+        // 1. 先排序
         intervals.sort((a, b) -> a.start - b.start);
-        List<Integer> ends = new ArrayList<>();
+        List<Integer> ends = new ArrayList<>(); // 存储会议结束时间，每一个表示一个会议室
         for (Interval meeting : intervals) {
             int idx = 0;
+            // 2. 找到合适的会议室
             while (idx < ends.size() && ends.get(idx) > meeting.start) {
                 ++idx;
             }
+            // 3. 更新会议室的结束时间
             if (idx == ends.size()) ends.add(meeting.end);
             else ends.set(idx, meeting.end);
         }
