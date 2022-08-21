@@ -1,5 +1,8 @@
 package chapter3.topic3;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author donald
  * @date 2022/08/21
@@ -23,11 +26,16 @@ package chapter3.topic3;
  *
  * 思路：
  * 1. 暴力法
+ * 2. 同余的概念： 当两个整数除以同一个数字，得到的余数相同，那么这个两个整数同余
+ *    a % k == b % k  => a - b = m * k
+ *                      s(i) - s(j)
+ *                      sum(j+1 ~ i)
+ *
  */
 public class LeetCode_523 {
 
     // 方法一： 暴力法
-    // Time: O(n ^ 2), Space: O(1), Faster:
+    // Time: O(n ^ 2), Space: O(1), Faster: 超出时间
     public boolean checkSubarraySum(int[] nums, int k) {
         if (nums == null || nums.length < 2) return false;
         for (int i = 0; i < nums.length; ++i) {
@@ -38,6 +46,26 @@ public class LeetCode_523 {
                     return true;
                 }
             }
+        }
+        return false;
+    }
+
+    // 方法二：
+    // Time: O(n), Space: O(k), Faster: 15.71%
+    public boolean checkSubarraySumMod(int[] nums, int k) {
+        if (nums == null || nums.length < 2) return false;
+        Map<Integer, Integer> map = new HashMap<>();
+        // key 余数， value 对应下标
+        map.put(0, -1);
+        int sum = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            sum += nums[i];
+            int mod = k == 0 ? sum : sum % k;
+            Integer j = map.get(mod);
+            if (j != null) {
+                // 连续
+                if (i - j > 1) return true;
+            } else map.put(mod, i);
         }
         return false;
     }
