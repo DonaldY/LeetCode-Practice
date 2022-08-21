@@ -1,5 +1,8 @@
 package chapter3.topic4;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author donald
  * @date 2022/08/21
@@ -24,6 +27,20 @@ package chapter3.topic4;
  *
  * 思路：
  * 1. 暴力法
+ * 2. 两个前缀和的差
+ *    sum(i~j) = sum(0~j) - sum(0~i-1)
+ *             = s(j) - s(i-1)  = K
+ *    s(j) - k = s(i-1)
+ *    可以保存在 哈希表中
+ *
+ *    举栗子： 1 2 1 -1                 s(j)   cnt
+ *    sum      sum-k      cnt          key    value
+ *     0                   0            0      1
+ *     1         -2        0            1      1
+ *     3          0        1            3      1
+ *     4          1        2            4      1
+ *     3          0        3            3      2
+ *
  */
 public class LeetCode_560 {
 
@@ -38,6 +55,26 @@ public class LeetCode_560 {
                 sum += nums[j];
                 if (sum == k) ++cnt;
             }
+        }
+        return cnt;
+    }
+
+    // 方法二： 前缀和
+    // Time: O(n), Space: O(n), Faster: 41.74%
+    public int subarraySumPrefixSum(int[] nums, int k) {
+        if (nums == null || nums.length == 0) return 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        // s(j)  cnt
+        // key   value
+        //  0      1
+        // 0 出现的次数为 1, 边界情况
+        map.put(0, 1);
+        int sum = 0, cnt = 0;
+        for (int num : nums) {
+            sum += num;
+            cnt += map.getOrDefault(sum - k, 0);
+            int sumCnt = map.getOrDefault(sum, 0);
+            map.put(sum, sumCnt + 1);
         }
         return cnt;
     }
