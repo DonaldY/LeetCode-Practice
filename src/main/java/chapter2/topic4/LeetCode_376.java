@@ -39,6 +39,7 @@ import java.util.Stack;
  */
 public class LeetCode_376 {
 
+    // 方法一： 栈
     // Time: O(n), Space: O(n), Faster: 100.00%
     public int wiggleMaxLength(int[] nums) {
         if (null == nums || nums.length == 0) return 0;
@@ -54,5 +55,45 @@ public class LeetCode_376 {
             stack.add(nums[nums.length - 1]);
         }
         return stack.size();
+    }
+
+    // 方法二： 贪心
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public int wiggleMaxLengthGreedy(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int i = 1, len = 1;
+        while (i < n && nums[i] == nums[i-1]) ++i;
+        while (i < n) {
+            if (nums[i] > nums[i-1]) ++len;
+            while (i < n && nums[i] >= nums[i-1]) ++i;
+            if (i < n) ++len;
+            while (i < n && nums[i] <= nums[i-1]) ++i;
+        }
+        return len;
+    }
+
+    // 方法三： DP
+    // Time: O(n), Space: O(n), Faster:
+    public int wiggleMaxLengthDP(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int[] up = new int[n];
+        int[] down = new int[n];
+        up[0] = 1;
+        down[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > nums[i-1]) {
+                up[i] = down[i-1] + 1;
+                down[i] = down[i-1];
+            } else if (nums[i] < nums[i-1]) {
+                down[i] = up[i-1] + 1;
+                up[i] = up[i-1];
+            } else {
+                up[i] = up[i-1];
+                down[i] = down[i-1];
+            }
+        }
+        return Math.max(up[n-1], down[n-1]);
     }
 }
