@@ -96,4 +96,17 @@ public class LeetCode_376 {
         }
         return Math.max(up[n-1], down[n-1]);
     }
+
+    // 方法四： DP
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public int wiggleMaxLengthDPO1(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int up = 1, down = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > nums[i-1]) up = down + 1;
+            else if (nums[i] < nums[i-1]) down = up + 1;
+        }
+        return Math.max(up, down);
+    }
 }
