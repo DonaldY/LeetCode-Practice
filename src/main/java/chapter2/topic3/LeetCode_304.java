@@ -37,25 +37,54 @@ public class LeetCode_304 {
 
         int[][] matrix;
         int[][] sum;
+
         public NumMatrix(int[][] matrix) {
             this.matrix = matrix;
-            if(matrix.length==0||matrix[0].length==0){return;}
+            if (matrix.length == 0 || matrix[0].length == 0) {
+                return;
+            }
             int m = matrix.length;
             int n = matrix[0].length;
             sum = new int[m + 1][n + 1];
-            for(int i = 1; i <= m; i++){
+            for (int i = 1; i <= m; i++) {
 
-                for(int j=1;j<=n;j++){
+                for (int j = 1; j <= n; j++) {
 
                     //注意是matrix[i-1][j-1]
-                    sum[i][j]=sum[i-1][j]+sum[i][j-1]-sum[i-1][j-1]+matrix[i-1][j-1];
+                    sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
                 }
             }
         }
+
         public int sumRegion(int row1, int col1, int row2, int col2) {
 
             return sum[row2 + 1][col2 + 1] - sum[row1][col2 + 1]
-                    -sum[row2 + 1][col1] + sum[row1][col1];
+                    - sum[row2 + 1][col1] + sum[row1][col1];
         }
+    }
+
+    public class NumMatrixImmutable {
+
+        private final int[][] prefixSum;
+
+        public NumMatrixImmutable(int[][] matrix) {
+            if (matrix == null || matrix.length == 0
+                    || matrix[0] == null || matrix[0].length == 0) {
+                prefixSum = new int[1][1];
+                return;
+            }
+            int m = matrix.length, n = matrix[0].length;
+            prefixSum = new int[m+1][n+1];
+            for (int i = 1; i <= m; ++i)
+                for (int j = 1; j <= n; ++j)
+                    prefixSum[i][j] = prefixSum[i][j-1] + prefixSum[i-1][j]
+                            - prefixSum[i-1][j-1] + matrix[i-1][j-1];
+        }
+
+        public int sumRegion(int row1, int col1, int row2, int col2) {
+            return prefixSum[row2+1][col2+1] - prefixSum[row2+1][col1]
+                    - prefixSum[row1][col2+1] + prefixSum[row1][col1];
+        }
+
     }
 }
