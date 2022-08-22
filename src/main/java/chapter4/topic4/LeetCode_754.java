@@ -27,8 +27,18 @@ package chapter4.topic4;
  *
  * 思路：
  * 1. 暴力法： DFS
- * 2. 数学方法：
+ * 2. 数学方法： 没有到达目标数字 target 就一直向右/左走
+ *             target = 1+2+3+...+n
+ *             target = -1+-2+-3+...+-n
+ *             一直到 sum >= target, (sum 是 1~n求和)
+ *             1. sum == target  => n(最小步数)
+ *             2. sum > target , 假设 1~n 中有 x , 需要改其符号
+ *                sum -2x = target => sum - target = 2x(x属于 1~n)偶数
  * 3. 数学方法：
+ *    sum = (1 + n) * n / 2 = target
+ *          n + n^2 = 2target => n^2 + n - 2t = 0
+ *          求根公式可知： a=1 b=1 c=-2target
+ *                      n=取整(求根公式)
  */
 public class LeetCode_754 {
 
@@ -54,7 +64,8 @@ public class LeetCode_754 {
     public int reachNumberMath(int target) {
         long t = Math.abs((long)target);
         long n = 0, sum = 0;
-        while (sum < t || ((sum-t) & 1) == 1) {
+        // sum < t || sum - t 不是偶数
+        while (sum < t || ((sum - t) & 1) == 1) {
             ++n;
             sum += n;
         }
@@ -64,12 +75,14 @@ public class LeetCode_754 {
     // 方法三： 数学方法
     // Time: O(1), Space: O(1), Faster: 100.00%
     public int reachNumberOpt(int target) {
+        // 1. 取正来方便计算
         long t = Math.abs((long)target);
-        int n = (int) Math.ceil((Math.sqrt(1 + 8*t) - 1) / 2);
-        long sum = (long) (n+1) * n / 2;
-        long diff = sum - t;
-        if ((diff & 1) == 0) return n;
-        else if ((n & 1) == 0) return n+1;
-        else return n+2;
+        // 2. 求根公式
+        int n = (int) Math.ceil((Math.sqrt(1 + 8 * t) - 1) / 2);
+        long sum = (long) (n + 1) * n / 2; // 求和
+        long diff = sum - t;               // 找到差值
+        if ((diff & 1) == 0) return n;     // 如果是偶数，则找到
+        else if ((n & 1) == 0) return n + 1;
+        else return n + 2;
     }
 }
