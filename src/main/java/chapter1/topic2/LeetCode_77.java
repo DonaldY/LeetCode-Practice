@@ -57,6 +57,14 @@ public class LeetCode_77 {
         }
     }
 
+    // Time: O(k*C(n, k)), Space: O(k), Faster: 99.99%
+    public List<List<Integer>> combineRecursive(int n, int k) {
+        if (k > n) return Collections.emptyList();
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> elem = new ArrayList<>();
+        combine(n, k, 1, elem, result);
+        return result;
+    }
 
     private void combine(int n, int k, int start,
                          List<Integer> elem, List<List<Integer>> result) {
@@ -71,16 +79,7 @@ public class LeetCode_77 {
         }
     }
 
-    // Time: O(k*C(n, k)), Space: O(k)
-    public List<List<Integer>> combineRecursive(int n, int k) {
-        if (k > n) return Collections.emptyList();
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> elem = new ArrayList<>();
-        combine(n, k, 1, elem, result);
-        return result;
-    }
-
-    // Time: O(k*C(n, k)), Space: O(k*C(n, k))
+    // Time: O(k*C(n, k)), Space: O(k*C(n, k)), Faster: 58.50%
     public List<List<Integer>> combineIterative(int n, int k) {
         if (k > n) return Collections.emptyList();
         List<List<Integer>> result = new ArrayList<>();
