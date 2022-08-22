@@ -28,6 +28,7 @@ package chapter4.topic4;
  * 思路：
  * 1. 暴力法： DFS
  * 2. 数学方法：
+ * 3. 数学方法：
  */
 public class LeetCode_754 {
 
@@ -58,5 +59,17 @@ public class LeetCode_754 {
             sum += n;
         }
         return (int) n;
+    }
+
+    // 方法三： 数学方法
+    // Time: O(1), Space: O(1), Faster: 100.00%
+    public int reachNumberOpt(int target) {
+        long t = Math.abs((long)target);
+        int n = (int) Math.ceil((Math.sqrt(1 + 8*t) - 1) / 2);
+        long sum = (long) (n+1) * n / 2;
+        long diff = sum - t;
+        if ((diff & 1) == 0) return n;
+        else if ((n & 1) == 0) return n+1;
+        else return n+2;
     }
 }
