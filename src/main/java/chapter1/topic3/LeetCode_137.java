@@ -32,6 +32,8 @@ import java.util.Map;
  *    6:   110
  *    2:    10
  * 统计后： 173   => 取模 3  得 a: 110 = 6
+ *
+ * 3. 方法三： 方法二上的优化
  */
 public class LeetCode_137 {
 
@@ -49,7 +51,7 @@ public class LeetCode_137 {
         return -1;
     }
 
-    // 方法二：
+    // 方法二： 统计二进制位
     // Time: O(n), Space: O(1), Faster: 90.17%
     public int singleNumberSum(int[] nums) {
         int result = 0;
@@ -60,5 +62,19 @@ public class LeetCode_137 {
             if (sum % 3 == 1) result |= (1 << bit);
         }
         return result;
+    }
+
+    // 方法三：
+    // Time: O(n), Space: O(1)
+    public int singleNumberBit(int[] nums) {
+        int ones = 0, twos = 0, threes = 0;
+        for (int num: nums) {
+            twos |= ones & num;
+            ones ^= num;
+            threes = ones & twos;
+            ones -= threes; // ones &= ~threes;
+            twos -= threes; // twos &= ~threes;
+        }
+        return ones;
     }
 }
