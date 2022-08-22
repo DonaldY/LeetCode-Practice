@@ -21,6 +21,7 @@ import java.util.Map;
  *
  * 思路：
  * 1. 哈希表记录
+ * 2. 统计二进制位
  */
 public class LeetCode_137 {
 
@@ -36,5 +37,18 @@ public class LeetCode_137 {
             if (entry.getValue() == 1) return entry.getKey();
         }
         return -1;
+    }
+
+    // 方法二：
+    // Time: O(n), Space: O(1), Faster: 90.17%
+    public int singleNumberSum(int[] nums) {
+        int result = 0;
+        for (int bit = 0; bit < 32; ++bit) {
+            int sum = 0;
+            for (int num: nums)
+                sum += (num >> bit) & 1;
+            if (sum % 3 == 1) result |= (1 << bit);
+        }
+        return result;
     }
 }
