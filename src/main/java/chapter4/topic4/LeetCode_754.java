@@ -27,6 +27,7 @@ package chapter4.topic4;
  *
  * 思路：
  * 1. 暴力法： DFS
+ * 2. 数学方法：
  */
 public class LeetCode_754 {
 
@@ -45,5 +46,17 @@ public class LeetCode_754 {
         int left = findNumber(start - cnt, target, cnt);
         int right = findNumber(start + cnt, target, cnt);
         return Math.min(left, right);
+    }
+
+    // 方法二： 数学
+    // Time: O(n), Space: O(1), Faster: 82.92%
+    public int reachNumberMath(int target) {
+        long t = Math.abs((long)target);
+        long n = 0, sum = 0;
+        while (sum < t || ((sum-t) & 1) == 1) {
+            ++n;
+            sum += n;
+        }
+        return (int) n;
     }
 }
