@@ -52,4 +52,18 @@ public class LeetCode_24 {
 
         return dummp.next;
     }
+
+    // Time: O(n), Space: O(1)
+    public ListNode swapPairsIterative(ListNode head) {
+        ListNode dummy = new ListNode(0), pre = dummy;
+        dummy.next = head;
+        while (pre.next != null && pre.next.next != null) {
+            ListNode first = pre.next, second = pre.next.next;
+            pre.next = second;
+            first.next = second.next;
+            second.next = first;
+            pre = first;
+        }
+        return dummy.next;
+    }
 }
