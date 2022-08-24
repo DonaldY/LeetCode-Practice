@@ -23,10 +23,43 @@ package chapter2.topic2;
  *
  * 最后得到的最小费用是 2 + 3 + 1 + 4 = 10。
  *
+ *     r  b  g
+ * 0   8  2  4
+ * 1   5  7  3
+ * 2   9  1  6
+ * 3   4  1  9
+ *
+ * 0 号房子选 b颜色，代价 2
+ * 1 号房子选 g颜色，代价 3
+ * 2 号房子选 b颜色，代价 1
+ * 3 号房子选 r颜色，代价 4
+ *
+ * 所以最小费用是 2 + 3 + 1 + 4 = 10。
+ *
+ *
+ * 思路：
+ * 1. 动态规划：
  */
 public class LeetCode_256 {
 
+    // Time: O(n), Space: O(n)
     public int minCost(int[][] costs) {
+        if (costs == null || costs.length == 0) return 0;
+        int n = costs.length;
+        int[][] d = new int[n][3];
+        d[0][0] = costs[0][0];
+        d[0][1] = costs[0][1];
+        d[0][2] = costs[0][2];
 
+        for (int i = 1; i < n; ++i) {
+            d[i][0] = Math.min(d[i-1][1], d[i-1][2]) + costs[i][0];
+            d[i][1] = Math.min(d[i-1][0], d[i-1][2]) + costs[i][1];
+            d[i][2] = Math.min(d[i-1][0], d[i-1][1]) + costs[i][2];
+        }
+        return min(d[n-1][0], d[n-1][1], d[n-1][2]);
+    }
+
+    private int min(int a, int b, int c) {
+        return Math.min(a, Math.min(b, c));
     }
 }
