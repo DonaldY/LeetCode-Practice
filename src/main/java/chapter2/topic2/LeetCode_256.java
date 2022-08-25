@@ -39,9 +39,20 @@ package chapter2.topic2;
  *
  * 思路：
  * 1. 动态规划：
+ *    d(i,j) 表示粉刷 0~i号房子，并且第i号房子使用第j种颜色的最小费用。
+ *    j的取值只有 0/1/2 三种， 分别表示红/蓝/绿 3种颜色。
+ *    - d(i,0) = min(d(i-1, 1), d(i-1, 2)) + a(i, 0)
+ *    - d(i,1) = min(d(i-1, 0), d(i-1, 2)) + a(i, 1)
+ *    - d(i,2) = min(d(i-1, 0), d(i-1, 1)) + a(i, 2)
+ *    初始值：
+ *    - d(0, 0) = a(0, 0)
+ *    - d(0, 1) = a(0, 1)
+ *    - d(0, 2) = a(0, 2)
+ * 2.
  */
 public class LeetCode_256 {
 
+    // 方法一： 动态规划
     // Time: O(n), Space: O(n)
     public int minCost(int[][] costs) {
         if (costs == null || costs.length == 0) return 0;
