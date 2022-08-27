@@ -49,7 +49,7 @@ package chapter2.topic2;
  *    - d(0, 1) = a(0, 1)
  *    - d(0, 2) = a(0, 2)
  *    结果： min(d(n-1, 0), d(n-1, 1), d(n-1, 2))
- * 2.
+ * 2. 在方法一上部分优化
  */
 public class LeetCode_256 {
 
@@ -73,5 +73,21 @@ public class LeetCode_256 {
 
     private int min(int a, int b, int c) {
         return Math.min(a, Math.min(b, c));
+    }
+
+
+    // 方法二： 部分优化
+    // Time: O(n), Space: O(n)
+    public int minCostOpt(int[][] costs) {
+        if (costs == null || costs.length == 0) return 0;
+        int n = costs.length;
+        int[][] d = new int[n+1][3];
+
+        for (int i = 1; i <= n; ++i) {
+            d[i][0] = Math.min(d[i-1][1], d[i-1][2]) + costs[i-1][0];
+            d[i][1] = Math.min(d[i-1][0], d[i-1][2]) + costs[i-1][1];
+            d[i][2] = Math.min(d[i-1][0], d[i-1][1]) + costs[i-1][2];
+        }
+        return min(d[n][0], d[n][1], d[n][2]);
     }
 }
