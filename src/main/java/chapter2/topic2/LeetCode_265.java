@@ -22,7 +22,15 @@ package chapter2.topic2;
  *
  *
  * 思路：
- * 1. DP
+ * 1. DP: d(i,j) 表示粉刷 0~i-1号房子，并且第 i-1 号房子使用第j种颜色的最小费用。
+ *    递推式： d(i,j) = min(d(i-1, c)) + a(i-1, j).
+ *           c: 0 -> k-1, c != j
+ *           i: 1 -> n
+ *           j: 0 -> k-1
+ *    最后求： min(d(n, i)), i: 0 -> k-1
+ *
+ * 2. 优化
+ * 3. 优化： 空间复杂度优化为常量
  *
  */
 public class LeetCode_265 {
@@ -37,15 +45,16 @@ public class LeetCode_265 {
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < k; ++j) {
                 int min = Integer.MAX_VALUE;
-                for (int c = 0; c < k; ++c)
-                    if (c != j)
-                        min = Math.min(min, d[i - 1][c]);
+                for (int c = 0; c < k; ++c) {
+                    if (c != j) min = Math.min(min, d[i - 1][c]);
+                }
                 d[i][j] = min + costs[i - 1][j];
             }
         }
         int min = d[n][0];
-        for (int i = 1; i < k; ++i)
+        for (int i = 1; i < k; ++i) {
             min = Math.min(min, d[n][i]);
+        }
         return min;
     }
 
@@ -74,8 +83,9 @@ public class LeetCode_265 {
             preIdx2 = idx2;
         }
         int min = d[n][0];
-        for (int i = 1; i < k; ++i)
+        for (int i = 1; i < k; ++i) {
             min = Math.min(min, d[n][i]);
+        }
         return min;
     }
 
