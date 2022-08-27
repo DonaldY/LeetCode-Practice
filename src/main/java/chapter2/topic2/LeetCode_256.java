@@ -48,6 +48,7 @@ package chapter2.topic2;
  *    - d(0, 0) = a(0, 0)
  *    - d(0, 1) = a(0, 1)
  *    - d(0, 2) = a(0, 2)
+ *    结果： min(d(n-1, 0), d(n-1, 1), d(n-1, 2))
  * 2.
  */
 public class LeetCode_256 {
