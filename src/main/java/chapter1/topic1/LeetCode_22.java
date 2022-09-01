@@ -32,15 +32,8 @@ public class LeetCode_22 {
         return Collections.emptyList();
     }
 
-    void generate(List<String> result, String str, int left, int right) {
-        if (left == 0 && right == 0) {
-            result.add(str);
-        } else {
-            if (left > 0) generate(result, str + '(', left - 1, right);
-            if (right > left) generate(result, str + '(', left, right - 1);
-        }
-    }
-
+    // 方法一： 回溯
+    // Time: O(4^n / sqrt(n)), Space: O(n), Faster: 75.69%
     public List<String> generateParentheses(int n) {
 
         if (n < 0) return Collections.emptyList();
@@ -49,6 +42,16 @@ public class LeetCode_22 {
         return result;
     }
 
+    private void generate(List<String> result, String str, int left, int right) {
+        if (left == 0 && right == 0) {
+            result.add(str);
+        } else {
+            if (left > 0) generate(result, str + '(', left - 1, right);
+            if (right > left) generate(result, str + ')', left, right - 1);
+        }
+    }
+
+    // 方法二：
     // 卡特兰数 Faster: 93.50%
     public List<String> generateParenthesesDP(int n) {
 
