@@ -20,6 +20,9 @@ public class PrintArray implements Runnable {
         thread3.start();
 
         Thread.sleep(5000);
+        System.out.println("done");
+        // 问题：主线程结束了，为什么子线程均还运行着？
+        // 现象：会结束，跟 thread3.setDaemon(true); 无关。
     }
 
     @Override
