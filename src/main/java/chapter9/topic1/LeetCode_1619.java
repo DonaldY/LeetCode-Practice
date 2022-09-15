@@ -35,7 +35,6 @@ public class LeetCode_1619 {
         // 结尾： arr.length * 19 / 20
         for (int i = arr.length / 20; i < arr.length * 19 / 20; i++) {
             ans += arr[i];
-
         }
         return ans / (arr.length * 9 / 10);
     }
