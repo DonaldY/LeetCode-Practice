@@ -37,7 +37,7 @@ public class LeetCode_15 {
         return Collections.emptyList();
     }
 
-    // Time: o(n ^ 2), Space: o(1), Faster: 97.48%
+    // Time: o(n ^ 2), Space: o(1), Faster: 99.78%
     public List<List<Integer>> threeNumSumToZeroOn2(int [] nums) {
 
         List<List<Integer>> result = new ArrayList<>();
