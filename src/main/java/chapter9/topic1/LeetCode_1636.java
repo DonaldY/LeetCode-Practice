@@ -69,6 +69,7 @@ public class LeetCode_1636 {
         for (Num num : list) {
             for (int i = 0; i < num.frequency; ++i) result[index++] = num.num;
         }
+        // 输出 int[]: numsList.stream().mapToInt(Integer::intValue).toArray();
         return result;
     }
 }
