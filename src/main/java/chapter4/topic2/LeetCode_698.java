@@ -1,5 +1,7 @@
 package chapter4.topic2;
 
+import java.util.Arrays;
+
 /**
  * @author donald
  * @date 2022/09/20
@@ -28,6 +30,7 @@ package chapter4.topic2;
  */
 public class LeetCode_698 {
 
+    // Faster: 22.28%
     public boolean canPartitionKSubsets(int[] nums, int k) {
         if (null == nums || nums.length == 0) return false;
         if (nums.length < k) return false;
@@ -38,14 +41,15 @@ public class LeetCode_698 {
         // 判断能否划分为 k 个子集
         if (sum % k != 0) return false;
 
+        Arrays.sort(nums);
         int subSum = sum / k; // 子集的和
 
         boolean[] isVisited = new boolean[nums.length];
         // 2. 回溯
-        return backtrack(nums, 0, subSum, k, isVisited);
+        return backtrack(nums, nums.length - 1, 0, subSum, k, isVisited);
     }
 
-    private boolean backtrack(int[] nums, int bucket, int target, int k,
+    private boolean backtrack(int[] nums, int idx, int bucket, int target, int k,
                               boolean[] isVisited) {
 
         if (k == 0) {  // 所有桶被装满了
@@ -53,15 +57,17 @@ public class LeetCode_698 {
         }
 
         if (bucket == target) { // 当前桶装满了，装下一个桶
-            return backtrack(nums, 0, target, k - 1, isVisited);
+            return backtrack(nums, nums.length - 1, 0, target, k - 1, isVisited);
         }
 
-        for (int i = 0; i < nums.length; ++i) {
+        if (idx == -1) return false;
+
+        for (int i = idx; i >= 0; i--) {
             if (isVisited[i]) continue;
             if (nums[i] + bucket > target) continue;
 
             isVisited[i] = true;
-            if (backtrack(nums, nums[i] + bucket, target, k, isVisited)) {
+            if (backtrack(nums, i - 1, nums[i] + bucket, target, k, isVisited)) {
                 return true;
             }
             isVisited[i] = false;
