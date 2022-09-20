@@ -27,6 +27,8 @@ import java.util.Arrays;
  * 主要分两步：
  * 1. 求子集的和
  * 2. 每个子集划分成桶，找是否满足题意
+ *
+ * Tips: 主要要剪枝，要不然一直超时。
  */
 public class LeetCode_698 {
 
@@ -41,7 +43,7 @@ public class LeetCode_698 {
         // 判断能否划分为 k 个子集
         if (sum % k != 0) return false;
 
-        Arrays.sort(nums);
+        Arrays.sort(nums); // 优化点： 为了之后的剪枝
         int subSum = sum / k; // 子集的和
 
         boolean[] isVisited = new boolean[nums.length];
@@ -49,6 +51,12 @@ public class LeetCode_698 {
         return backtrack(nums, nums.length - 1, 0, subSum, k, isVisited);
     }
 
+    // nums     ： 数组
+    // idx      ： 记录当前位置， 初始从数组末尾开始
+    // bucket   ： 当前桶里的值
+    // target   ： 目标值
+    // k        ： 目前还需要多少个桶
+    // isVisited： 记录是否访问过
     private boolean backtrack(int[] nums, int idx, int bucket, int target, int k,
                               boolean[] isVisited) {
 
@@ -67,6 +75,7 @@ public class LeetCode_698 {
             if (nums[i] + bucket > target) continue;
 
             isVisited[i] = true;
+            // 下一个开始找
             if (backtrack(nums, i - 1, nums[i] + bucket, target, k, isVisited)) {
                 return true;
             }
