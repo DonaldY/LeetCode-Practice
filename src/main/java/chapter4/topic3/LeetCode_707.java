@@ -43,7 +43,7 @@ package chapter4.topic3;
 public class LeetCode_707 {
 }
 
-// Faster: 75.30%
+// Faster: 85.25%
 class MyLinkedList {
 
     class Node {
