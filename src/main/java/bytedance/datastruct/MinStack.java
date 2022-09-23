@@ -1,5 +1,8 @@
 package bytedance.datastruct;
 
+import chapter1.topic1.LeetCode_3;
+
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
@@ -31,6 +34,40 @@ import java.util.Stack;
  * 2. 或者两个栈, 一个保存原始数, 一个保存最小数(只有比当前的数小的数, 才能加入)
  */
 public class MinStack {
+
+    public static void main(String[] args) {
+
+        MinStack minStack = new MinStack();
+        int [] arr = new int[] {2, 6, 3, 8, 10, 9};
+        System.out.println(Arrays.toString(minStack.printArr(arr)));
+
+        arr = new int[] {2, 9, 3, 8, 10, 9};
+        System.out.println(Arrays.toString(minStack.printArr(arr)));
+
+        arr = new int[] {7, 6, 3, 8, 10, 9};
+        System.out.println(Arrays.toString(minStack.printArr(arr)));
+    }
+
+    public int[] printArr(int[] arr) {
+        int [] result = new int[arr.length];
+        result[arr.length - 1] = -1;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(arr[arr.length - 1]);
+        for (int i = arr.length - 2; i >= 0; --i) {
+            result[i] = -1;
+            while (!stack.isEmpty()) {
+                int curMax = stack.peek();
+                if (arr[i] < curMax) {
+                    result[i] = curMax;
+                    break;
+                } else {
+                    stack.pop();
+                }
+            }
+            stack.push(arr[i]);
+        }
+        return result;
+    }
 
     private Queue<Integer> queue = new PriorityQueue<>();
 
