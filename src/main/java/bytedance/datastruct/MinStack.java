@@ -52,20 +52,18 @@ public class MinStack {
         int [] result = new int[arr.length];
         result[arr.length - 1] = -1;
         Stack<Integer> stack = new Stack<>();
-        stack.push(arr[arr.length - 1]);
-        for (int i = arr.length - 2; i >= 0; --i) {
-            result[i] = -1;
-            while (!stack.isEmpty()) {
-                int curMax = stack.peek();
-                if (arr[i] < curMax) {
-                    result[i] = curMax;
-                    break;
-                } else {
-                    stack.pop();
-                }
+        int index = 0;
+        for (int num : arr) {
+            while (!stack.isEmpty() && stack.peek() < num) {
+                stack.pop();
+                result[index ++] = num;
             }
-            stack.push(arr[i]);
+            stack.push(num);
         }
+        while (index < arr.length) {
+            result[index ++] = -1;
+        }
+
         return result;
     }
 
