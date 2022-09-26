@@ -83,7 +83,7 @@ public class Interview17 {
     }
 
     // 方法三：位运算
-    // Time: O(n), Space: O(1), Faster:
+    // Time: O(n), Space: O(1), Faster: 100.00%
     public int[] missingTwo3(int[] nums) {
         int n = nums.length + 2;
         int res = 0;
