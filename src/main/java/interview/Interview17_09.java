@@ -53,7 +53,7 @@ public class Interview17_09 {
     }
 
     // 方法二： 最小堆
-    // Time: O(n*logn), Space: O(k), Faster:
+    // Time: O(n*logn), Space: O(k), Faster: 29.09%
     public int getKthMagicNumberHeap(int k) {
         if (k <= 0) return -1;
         Set<Long> set = new HashSet<>(); // 存放访问过的数
@@ -61,14 +61,14 @@ public class Interview17_09 {
         // 放第一个数: 1
         set.add(1L);
         queue.add(1L);
-        int ans = 0;
+        long ans = 0;
         for (int i = 0; i < k; ++i) {
-            long num = queue.poll();
-            addNumToQueue(num * 3, set, queue);
-            addNumToQueue(num * 5, set, queue);
-            addNumToQueue(num * 7, set, queue);
+            ans = queue.poll();
+            addNumToQueue(ans * 3, set, queue);
+            addNumToQueue(ans * 5, set, queue);
+            addNumToQueue(ans * 7, set, queue);
         }
-        return ans;
+        return (int)ans;
     }
 
     private void addNumToQueue(long num, Set<Long> set, Queue<Long> queue) {
