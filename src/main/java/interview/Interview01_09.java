@@ -19,6 +19,7 @@ package interview;
  *
  * 思路：
  * 1. 暴力法： 取巧
+ * 2. 手动模拟
  */
 public class Interview01_09 {
 
@@ -30,5 +31,29 @@ public class Interview01_09 {
         if (s1.length() != s2.length()) return false;
         String s = s1 + s1;
         return s.contains(s2);
+    }
+
+    // 方法二： 暴力法， 手动模拟
+    // Time: O(n^2), Space: O(n), Faster: 18.52%
+    public boolean isFlipedStringByHand(String s1, String s2) {
+        if (null == s1) return false;
+        if (null == s2) return false;
+        if (s1.length() != s2.length()) return false;
+        if (s1.length() == 0) return true;
+        for (int i = 0; i < s1.length(); ++i) {
+            int start = i;
+            boolean flag = true;
+            for (int j = 0; j < s2.length(); ++j) {
+                if (s1.charAt(start % s1.length()) != s2.charAt(j)) {
+                    flag = false;
+                    ++start;
+                    break;
+                }
+            }
+            if (flag) {
+                return true;
+            }
+        }
+        return false;
     }
 }
