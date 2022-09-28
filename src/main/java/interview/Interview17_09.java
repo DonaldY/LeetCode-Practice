@@ -22,6 +22,8 @@ import java.util.Set;
  * 思路：
  * 1. 暴力法： 一个个算
  * 2. 最小堆： 枚举所有的3x、5x、7x，然后按照大小依次进行排列取第k个即可。
+ * 3. 动态规划： 3个指针记录
+ * https://leetcode.cn/problems/get-kth-magic-number-lcci/solution/di-kge-shu-by-capital-worker-c4pz/
  */
 public class Interview17_09 {
     // 1. 暴力法
@@ -75,5 +77,21 @@ public class Interview17_09 {
         if (set.contains(num)) return;
         set.add(num);
         queue.add(num);
+    }
+    
+    // 方法三： 动态规划
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public int getKthMagicNumberDP(int k) {
+        if (k <= 0) return -1;
+        int[] nums = new int[k + 1];
+        int num3 = 0, num5 = 0,num7 = 0;
+        nums[0] = 1;
+        for(int i = 1 ; i < k; i++){
+            nums[i] = Math.min(Math.min(nums[num3] * 3, nums[num5] * 5), nums[num7] * 7);
+            if(nums[i] == nums[num3] * 3) num3++;
+            if(nums[i] == nums[num5] * 5) num5++;
+            if(nums[i] == nums[num7] * 7) num7++;
+        }
+        return nums[k-1];
     }
 }
