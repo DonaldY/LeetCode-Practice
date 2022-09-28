@@ -20,7 +20,7 @@ package interview;
  * 思路：
  * 1. 暴力法： 取巧
  */
-public class Interview0109 {
+public class Interview01_09 {
 
     // 方法一： 暴力法
     // Time: O(n^2), Space: O(n), Faster: 100.00%
