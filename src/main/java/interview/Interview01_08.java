@@ -40,7 +40,9 @@ package interview;
  * 题意： 清零判断, 需要记录原先 0 的位置
  *
  * 思路：
- * 1. 暴力法： 一个个判断,
+ * 1. 暴力法： 二维标记变量记录 0， 一个个判断
+ * 2. 暴力法： 用 2 个一维数组记录 0
+ * 3. 在方法二上： 用原数组的第一列和第一行来记录 0， 用 2个 变量来标识是否为 0
  */
 public class Interview01_08 {
 
@@ -67,4 +69,25 @@ public class Interview01_08 {
         }
     }
 
+    // 方法二： 暴力法， 一维数组
+    // Time: O(n^2), Space: O(1), Faster: 100.00%
+    public void setZeroes2(int[][] matrix) {
+        if (null == matrix || matrix.length == 0) return;
+        boolean [] flagCol = new boolean[matrix[0].length];
+        boolean [] flagRow = new boolean[matrix.length];
+        for (int i = 0; i < matrix.length; ++i) {
+            for (int j = 0; j < matrix[0].length; ++j) {
+                if (matrix[i][j] == 0) {
+                    flagCol[j] = flagRow[i] = true;
+                }
+            }
+        }
+        for (int i = 0; i < matrix.length; ++i) {
+            for (int j = 0; j < matrix[0].length; ++j) {
+                if (flagCol[j] || flagRow[i]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
 }
