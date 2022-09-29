@@ -47,7 +47,7 @@ package interview;
 public class Interview01_08 {
 
     // 方法一： 暴力法
-    // Time: O(n^2), Space: O(1), Faster: 43.66%
+    // Time: O(nm), Space: O(nm), Faster: 43.66%
     public void setZeroes(int[][] matrix) {
         if (null == matrix || matrix.length == 0) return;
         boolean [][] flagMatrix = new boolean[matrix.length][matrix[0].length];
@@ -70,7 +70,7 @@ public class Interview01_08 {
     }
 
     // 方法二： 暴力法， 一维数组
-    // Time: O(n^2), Space: O(1), Faster: 100.00%
+    // Time: O(nm), Space: O(n), Faster: 100.00%
     public void setZeroes2(int[][] matrix) {
         if (null == matrix || matrix.length == 0) return;
         boolean [] flagCol = new boolean[matrix[0].length];
@@ -87,6 +87,49 @@ public class Interview01_08 {
                 if (flagCol[j] || flagRow[i]) {
                     matrix[i][j] = 0;
                 }
+            }
+        }
+    }
+
+    // 方法三： 2个变量
+    // Time: O(nm), Space: O(1), Faster: 100.00%
+    public void setZeroes3(int[][] matrix) {
+        if (null == matrix || matrix.length == 0) return;
+        boolean flagCol = false, flagRow = false;
+        for (int i = 0; i < matrix.length; ++i) {
+            if (matrix[i][0] == 0) {
+                flagCol = true;
+                break;
+            }
+        }
+        for (int i = 0; i < matrix[0].length; ++i) {
+            if (matrix[0][i] == 0) {
+                flagRow = true;
+                break;
+            }
+        }
+        for (int i = 1; i < matrix.length; ++i) {
+            for (int j = 1; j < matrix[0].length; ++j) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = matrix[0][j] = 0;
+                }
+            }
+        }
+        for (int i = 1; i < matrix.length; i++) {
+            for (int j = 1; j < matrix[0].length; j++) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        if (flagCol) {
+            for (int i = 0; i < matrix.length; ++i) {
+                matrix[i][0] = 0;
+            }
+        }
+        if (flagRow) {
+            for (int i = 0; i < matrix[0].length; ++i) {
+                matrix[0][i] = 0;
             }
         }
     }
