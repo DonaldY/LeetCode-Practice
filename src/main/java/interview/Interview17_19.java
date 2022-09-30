@@ -29,9 +29,15 @@ import java.util.Arrays;
  */
 public class Interview17_19 {
     public static void main(String[] args) {
-        Interview17_19 interview1719 = new Interview17_19();
+        /*Interview17_19 interview1719 = new Interview17_19();
 
-        System.out.println(Arrays.toString(interview1719.missingTwo(new int[]{2,3})));
+        System.out.println(Arrays.toString(interview1719.missingTwo(new int[]{2,3})));*/
+
+        int xor = 5;
+        int diff = xor & -xor;
+        System.out.println(Integer.toBinaryString(xor));
+        System.out.println(Integer.toBinaryString(-xor));
+        System.out.println(Integer.toBinaryString(diff));
     }
     // 方法一： 暴力法
     // Time: O(nlogn), Space: O(1), Faster: 16.17%
