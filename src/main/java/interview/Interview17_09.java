@@ -26,6 +26,17 @@ import java.util.Set;
  * https://leetcode.cn/problems/get-kth-magic-number-lcci/solution/di-kge-shu-by-capital-worker-c4pz/
  */
 public class Interview17_09 {
+    public static void main(String[] args) {
+
+        String st = "123";
+        String str1 = "hello";
+        String str2 = new String("hello");
+        String str3 = str2.intern(); //get an interned string obj
+
+        System.out.println(str1 == str2); //prints false
+        System.out.println(str1 == str3); //prints true
+    }
+
     // 1. 暴力法
     // Time： O(n*根号3n), Space: O(1), Faster: 超时
     public int getKthMagicNumber(int k) {
