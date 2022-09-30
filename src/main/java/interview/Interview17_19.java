@@ -36,7 +36,7 @@ public class Interview17_19 {
     // 方法一： 暴力法
     // Time: O(nlogn), Space: O(1), Faster: 16.17%
     public int[] missingTwo(int[] nums) {
-        if (null == nums || nums.length == 0) return new int[] {1, 2, 3};
+        if (null == nums || nums.length == 0) return new int[] {1, 2};
         Arrays.sort(nums);
         int cur = 1, index = 0;
         int[] ans = new int[2];
