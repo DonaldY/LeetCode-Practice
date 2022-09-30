@@ -93,13 +93,18 @@ public class Interview17_19 {
     public int[] missingTwo3(int[] nums) {
         int n = nums.length + 2;
         int res = 0;
+        // 1. 求缺失两数的异或值：相同两数异或为 0
         for (int i = 1; i <= n; i++) res ^= i;
         for (int i : nums) res ^= i;
+
+        // 2. 求最低位的 1
         int diff = res & -res;
         int o = 0;
+        // 3. 先求其中一个缺失的数，一组数异或
         for (int i = 1; i <= n; i++) {
             if ((diff & i) != 0) o ^= i;
         }
+        // 4 再利用相同两数异或为 0，求得其中一个缺失的数
         for (int i : nums) {
             if ((diff & i) != 0) o ^= i;
         }
