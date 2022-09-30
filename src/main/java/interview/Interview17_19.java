@@ -27,11 +27,11 @@ import java.util.Arrays;
  * 2. 等差数列求和
  * 3. 位运算： 异或取技巧
  */
-public class Interview17 {
+public class Interview17_19 {
     public static void main(String[] args) {
-        Interview17 interview17 = new Interview17();
+        Interview17_19 interview1719 = new Interview17_19();
 
-        System.out.println(Arrays.toString(interview17.missingTwo(new int[]{2,3})));
+        System.out.println(Arrays.toString(interview1719.missingTwo(new int[]{2,3})));
     }
     // 方法一： 暴力法
     // Time: O(nlogn), Space: O(1), Faster: 16.17%
