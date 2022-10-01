@@ -31,7 +31,8 @@ import java.util.Arrays;
  * 题目的意思是说 R 只能向右移动，并且只能移向 X， L 只能向左移动，并且只能移向 X。
  *
  * 思路： 双指针 left、right
- * 1. 把 X 去掉， 判断 start 和 end 字符串
+ * 1. 两个字符串都去掉X后 L R 排列要相同
+ * 2. L 不能右移动， R 不能左移动
  *
  *
  *
@@ -50,12 +51,16 @@ public class LeetCode_777 {
 
     // Time: O(n), Space: O(1), Faster: 54.32%
     public boolean canTransform(String start, String end) {
+        // 两个字符串都去掉X后 L R 排列要相同
         if (!(start.replace("X", "").equals(end.replace("X", "")))) {
             return false;
         }
         for (int left = 0, right = 0; left < start.length(); ++left) {
             if (start.charAt(left) == 'X') continue;
             while (end.charAt(right) == 'X') ++right;
+            // 1. 如果 left == right， 则值一定相同
+            // 2. 如果 left != right， start[left] == 'L' 且 left < right : 因为变换后， end 的 'L' 位置被换到左边
+            //                        start[left] == 'R' 且 left > right : 因为变换后， end 的 'R' 位置被换到右边
             if (left != right && (start.charAt(left) == 'L') == left < right) return false;
             ++right;
         }
