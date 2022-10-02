@@ -35,6 +35,14 @@ package chapter2.topic3;
  */
 public class LeetCode_338 {
 
+    public static void main(String[] args) {
+
+        int a = 5, b = 4;
+        System.out.println(Integer.toBinaryString(a));
+        System.out.println(Integer.toBinaryString(b));
+        System.out.println(Integer.toBinaryString(a & b));
+    }
+
     // Time: O(n * k), Space: O(1), Faster: 39.00%
     public int[] countBits(int num) {
 
@@ -58,7 +66,6 @@ public class LeetCode_338 {
             num &= (num - 1);
             ++cnt;
         }
-
         return cnt;
     }
 
