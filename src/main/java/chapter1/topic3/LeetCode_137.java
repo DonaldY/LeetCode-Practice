@@ -57,8 +57,9 @@ public class LeetCode_137 {
         int result = 0;
         for (int bit = 0; bit < 32; ++bit) {
             int sum = 0;
-            for (int num: nums)
+            for (int num: nums) {
                 sum += (num >> bit) & 1;
+            }
             if (sum % 3 == 1) result |= (1 << bit);
         }
         return result;
