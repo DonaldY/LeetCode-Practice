@@ -47,6 +47,7 @@ public class LeetCode_167 {
         return new int[] {-1, -1};
     }
 
+    // 方法二： 双指针
     // TimeL: o(n) Space: o(1) faster:  100.00%
     public int[] twoSum2(int[] nums, int target) {
 
@@ -59,7 +60,8 @@ public class LeetCode_167 {
         return new int[]{-1, -1};
     }
 
-    // TimeL: o(n) Space: o(1) faster:  100.00%
+    // 方法二： 双指针
+    // Time: o(n) Space: o(1) faster:  44.73%
     public int[] twoSum3(int[] numbers, int target) {
         if (null == numbers || numbers.length == 0) return new int[0];
         for (int left = 0, right = numbers.length - 1; left < right; ) {
@@ -71,6 +73,22 @@ public class LeetCode_167 {
                 ++left;
             } else if (leftNum + rightNum > target) {
                 --right;
+            }
+        }
+        return new int[] {-1, -1};
+    }
+
+    // 方法三： 双指针 + 二分查找
+    // Time: o(nlogn) Space: o(1) faster:  18.06%
+    public int[] twoSum4(int[] numbers, int target) {
+        if (null == numbers || numbers.length == 0) return new int[0];
+        for (int i = 0; i < numbers.length; ++i) {
+            int low = i + 1, high = numbers.length - 1;
+            while (low <= high) {
+                int mid = low + (high - low) / 2;
+                if (numbers[mid] == target - numbers[i]) return new int[] {i, mid};
+                else if (numbers[mid] < target - numbers[i]) low = mid + 1;
+                else high = mid - 1;
             }
         }
         return new int[] {-1, -1};
