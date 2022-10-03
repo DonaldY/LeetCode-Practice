@@ -58,4 +58,21 @@ public class LeetCode_167 {
         }
         return new int[]{-1, -1};
     }
+
+    // TimeL: o(n) Space: o(1) faster:  100.00%
+    public int[] twoSum3(int[] numbers, int target) {
+        if (null == numbers || numbers.length == 0) return new int[0];
+        for (int left = 0, right = numbers.length - 1; left < right; ) {
+            int leftNum = numbers[left];
+            int rightNum = numbers[right];
+            if (leftNum + rightNum == target) {
+                return new int[] {left, right};
+            } else if (leftNum + rightNum < target) {
+                ++left;
+            } else if (leftNum + rightNum > target) {
+                --right;
+            }
+        }
+        return new int[] {-1, -1};
+    }
 }
