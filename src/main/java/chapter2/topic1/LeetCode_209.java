@@ -33,6 +33,15 @@ package chapter2.topic1;
  *    2. 再前缀相减
  */
 public class LeetCode_209 {
+
+    public static void main(String[] args) {
+
+        int left = 0, right = 2;
+        System.out.println(left + right + 1>> 1);
+        System.out.println(left + (right - left) / 2);
+
+    }
+
     // 方法一： 滑动窗口
     // Time: O(n), Space: O(n), Faster: 99.98%
     public int minSubArrayLen(int target, int[] nums) {
@@ -50,13 +59,24 @@ public class LeetCode_209 {
         return ans == Integer.MAX_VALUE ? 0 : ans; // 需要判断是否有可行解
     }
     // 方法二： 前缀和 + 二分搜索
-    // Time: O(n), Space: O(n), Faster:
+    // Time: O(nlogn), Space: O(n), Faster: 40.18%
     public int minSubArrayLenSum(int target, int[] nums) {
         int[] sumArr = new int[nums.length + 1];
         // 1. 计算前缀和
         for (int i = 1; i <= nums.length; ++i) {
             sumArr[i] = sumArr[i - 1] + nums[i - 1];
         }
-        return 0;
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i <= nums.length; ++i) {
+            if (sumArr[i] < target) continue;
+            int left = 0, right = i, diff = sumArr[i] - target;
+            while (left < right) {
+                int mid = left + right + 1 >> 1; // 重点： 偏右边
+                if (sumArr[mid] <= diff) left = mid;
+                else right = mid - 1;
+            }
+            if (sumArr[right] <= diff) ans = Math.min(ans, i - right);
+        }
+        return ans == Integer.MAX_VALUE ? 0 : ans;
     }
 }
