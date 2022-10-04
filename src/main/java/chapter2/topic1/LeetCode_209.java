@@ -41,13 +41,13 @@ public class LeetCode_209 {
         while (end < nums.length) {
             sum += nums[end];
             while (target <= sum) {
-                ans = Math.min(end - start + 1, ans);
+                ans = Math.min(end - start + 1, ans); // 更新值： 注意这里是长度
                 sum -= nums[start];
                 ++start;
             }
             ++end;
         }
-        return ans == Integer.MAX_VALUE ? 0 : ans;
+        return ans == Integer.MAX_VALUE ? 0 : ans; // 需要判断是否有可行解
     }
     // 方法二： 前缀和 + 二分搜索
     // Time: O(n), Space: O(n), Faster:
