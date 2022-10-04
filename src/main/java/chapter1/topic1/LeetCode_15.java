@@ -1,9 +1,6 @@
 package chapter1.topic1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * 15. 3Sum
@@ -37,6 +34,27 @@ public class LeetCode_15 {
         return Collections.emptyList();
     }
 
+    // Time: O(n^3), Space: O(n), Faster: 超时
+    public List<List<Integer>> threeNumSumToZeroOn3(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Set<List<Integer>> set = new HashSet<>();  // 用于去重
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length; ++i) {
+            for (int j = i+1; j < nums.length; ++j) {
+                for (int k = j+1; k < nums.length; ++k)
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        List<Integer> elem = Arrays.asList(nums[i], nums[j], nums[k]);
+                        if (set.contains(elem)) continue;
+                        set.add(elem);
+                        result.add(elem);
+                    }
+            }
+        }
+
+        return result;
+    }
+
     // Time: o(n ^ 2), Space: o(1), Faster: 99.78%
     public List<List<Integer>> threeNumSumToZeroOn2(int [] nums) {
 
@@ -44,13 +62,13 @@ public class LeetCode_15 {
         Arrays.sort(nums);
 
         for (int k = nums.length - 1; k >= 2; --k) {
-            if (nums[k] < 0) break;
+            if (nums[k] < 0) break;  // 剪枝
             int target = -nums[k], i = 0, j = k - 1;
             while (i < j) {
                 if (nums[i] + nums[j] == target) {
                     result.add(Arrays.asList(nums[i], nums[j], nums[k]));
-                    while (i < j && nums[i + 1] == nums[i]) ++i;
-                    while (i < j && nums[j - 1] == nums[j]) --j;
+                    while (i < j && nums[i + 1] == nums[i]) ++i; // 跳过相同的数
+                    while (i < j && nums[j - 1] == nums[j]) --j; // 跳过相同的数
                     ++i; --j;
                 } else if (nums[i] + nums[j] < target) {
                     ++i;
@@ -58,7 +76,7 @@ public class LeetCode_15 {
                     --j;
                 }
             }
-            while (k >= 2 && nums[k - 1] == nums[k]) --k;
+            while (k >= 2 && nums[k - 1] == nums[k]) --k; // 跳过相同的数
         }
 
         return result;
