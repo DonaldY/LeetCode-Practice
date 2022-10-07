@@ -46,4 +46,49 @@ public class LeetCode_567 {
         }
         return false;
     }
+
+    // 方法：滑动窗口 + 哈希表
+    // Time: O(n), Space: O(1), Faster: 85.58%
+    public boolean checkInclusion2(String s1, String s2) {
+        if (s1.length() > s2.length()) return false;
+        int [] map = new int[26];
+        for (char c : s1.toCharArray()) ++map[c - 'a'];  // 1. 哈希表记录需要的字符个数
+        // 2. 滑动窗口移动
+        for (int left = 0, right = 0; right < s2.length(); ++right) {
+            --map[s2.charAt(right) - 'a'];           // 进滑动窗口
+            while (right - left + 1 > s1.length()) { // 出滑动窗口
+                ++map[s2.charAt(left) - 'a'];
+                ++left;
+            }
+            if (isValid(map)) return true;
+        }
+        return false;
+    }
+
+    private boolean isValid(int[] map) {
+        for (int num : map) {
+            if (num != 0) return false;
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
