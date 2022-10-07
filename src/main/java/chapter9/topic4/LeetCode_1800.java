@@ -37,11 +37,12 @@ package chapter9.topic4;
  *
  * 思路：
  * 1. 暴力法： 2层for
+ * 2. 简单模拟
  */
 public class LeetCode_1800 {
 
-    // 方法一：
-    // Time: O(n^2), Space: O(1), Faster: 100.00%
+    // 方法一： 暴力法
+    // Time: O(n), Space: O(1), Faster: 100.00%
     public int maxAscendingSum(int[] nums) {
         int ans = 0;
         for (int i = 0; i < nums.length; ++i) {
@@ -55,6 +56,19 @@ public class LeetCode_1800 {
                 }
             }
             ans = Math.max(ans, sum);
+        }
+        return ans;
+    }
+
+    // 方法二： 简单模拟
+    // Time: O(n), Space: O(1), Faster: 100.00%
+    public int maxAscendingSum2(int[] nums) {
+        int ans = nums[0];
+        int cur = nums[0];
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] > nums[i - 1]) cur += nums[i];
+            else cur = nums[i];
+            ans = Math.max(ans, cur);
         }
         return ans;
     }
