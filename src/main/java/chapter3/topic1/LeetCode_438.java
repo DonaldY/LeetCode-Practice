@@ -108,4 +108,51 @@ public class LeetCode_438 {
         }
         return result;
     }
+
+    // 方法： 滑动窗口 + 哈希表
+    // Time: O(n), Space: O(1), Faster: 81.93%
+    public List<Integer> findAnagrams2(String p, String s) {
+        if (s.length() > p.length()) return Collections.emptyList();
+        List<Integer> result = new ArrayList<>();
+        int[] map = new int[26];
+        for (char c : s.toCharArray()) ++map[c - 'a'];
+        for (int left = 0, right = 0; right < p.length(); ++right) {
+            --map[p.charAt(right) - 'a'];
+            while (right - left + 1 > s.length()) {
+                ++map[p.charAt(left) - 'a'];
+                ++left;
+            }
+            if (right - left + 1 == s.length()) {
+                if (isValid(map)) result.add(left);
+            }
+        }
+        return result;
+    }
+
+    private boolean isValid(int[] map) {
+        for (int num : map) {
+            if (num != 0) return false;
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
