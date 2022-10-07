@@ -116,4 +116,46 @@ public class LeetCode_3 {
         return maxLen;
     }
 
+    // 方法： 滑动窗口 + 哈希表
+    // Time: O(n), Space: O(n), Faster: 67.89%
+    public int lengthOfLongestSubstringMine(String s) {
+        if (null == s || s.length() == 0) return 0;
+        int ans = 1;
+        Map<Integer, Integer> map = new HashMap<>(); // 记录字符出现的下标
+        for (int left = 0, right = 0; right < s.length(); ++right) {
+            int c = s.charAt(right) - 'a';
+            if (map.containsKey(c)) {
+                int idx = map.get(c);
+                while (left <= idx) {
+                    map.remove(s.charAt(left) - 'a');
+                    ++left;
+                }
+            }
+            map.put(c, right);
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
