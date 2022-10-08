@@ -1,9 +1,6 @@
 package chapter5.topic2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author donald
@@ -25,6 +22,7 @@ import java.util.List;
  *
  * 思路：
  * 1. 暴力法： 2 层for
+ * 2. 哈希表 + TreeSet
  */
 public class LeetCode_870 {
 
@@ -49,5 +47,26 @@ public class LeetCode_870 {
             list.remove(index);
         }
         return result;
+    }
+
+    // 方法二： TreeSet + 哈希表
+    // Time: O(nlogn), Space: O(n), Faster:
+    public int[] advantageCountHash(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        TreeSet<Integer> tset = new TreeSet<>();     // 用来取大值
+        Map<Integer, Integer> map = new HashMap<>(); // 用来计数，key 数值， value 出现次数
+        for (int x : nums1) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+            if (map.get(x) == 1) tset.add(x);
+        }
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            Integer cur = tset.ceiling(nums2[i] + 1); // 找比这个数高的数
+            if (cur == null) cur = tset.ceiling(-1);  // 没找到，拿第一个数
+            ans[i] = cur;
+            map.put(cur, map.get(cur) - 1);          // 更新计数
+            if (map.get(cur) == 0) tset.remove(cur); // 这个数已经消失了
+        }
+        return ans;
     }
 }
