@@ -23,6 +23,7 @@ import java.util.*;
  * 思路：
  * 1. 暴力法： 2 层for
  * 2. 哈希表 + TreeSet
+ * 3. 双指针 + 排序
  */
 public class LeetCode_870 {
 
@@ -50,7 +51,7 @@ public class LeetCode_870 {
     }
 
     // 方法二： TreeSet + 哈希表
-    // Time: O(nlogn), Space: O(n), Faster:
+    // Time: O(nlogn), Space: O(n), Faster: 5.05%
     public int[] advantageCountHash(int[] nums1, int[] nums2) {
         int n = nums1.length;
         TreeSet<Integer> tset = new TreeSet<>();     // 用来取大值
@@ -69,4 +70,31 @@ public class LeetCode_870 {
         }
         return ans;
     }
+
+    // 方法三： 双指针 + 哈希表
+    // Time: O(nlogn), Space: O(n), Faster: 98.06%
+    public int[] advantageCountHash3(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        Map<Integer, List<Integer>> map = new HashMap<>(); // 哈希表记录：nums2 ， key： 值， value 下标
+        for (int i = 0; i < n; i++) {
+            List<Integer> list = map.getOrDefault(nums2[i], new ArrayList<>());
+            list.add(i);
+            map.put(nums2[i], list);
+        }
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int[] ans = new int[n];
+        // l1: 将 nums1 分配到 nums2 位置
+        // l2, r2: 代表还需要计算的值
+        for (int l1 = 0, l2 = 0, r2 = n - 1; l1 < n; l1++) {
+            int t = nums1[l1] > nums2[l2] ? l2 : r2;
+            List<Integer> list = map.get(nums2[t]);
+            int idx = list.remove(list.size() - 1);
+            ans[idx] = nums1[l1];
+            if (t == l2) l2++;
+            else r2--;
+        }
+        return ans;
+    }
+
 }
