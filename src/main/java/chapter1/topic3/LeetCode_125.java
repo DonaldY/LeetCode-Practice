@@ -92,4 +92,39 @@ class LeetCode_125_1 {
         }
         return true;
     }
+
+    // 方法：双指针
+    // Time: O(n), Space: O(), Faster: 93.91%
+    public boolean isPalindrome2(String s) {
+        s = s.toLowerCase();
+        for (int left = 0, right = s.length() - 1; left < right; ++left, --right) {
+            while (left < right && !isAlphanumeric(s.charAt(left))) ++left;
+            while (left < right && !isAlphanumeric(s.charAt(right))) --right;
+            if (left < right && s.charAt(left) != s.charAt(right)) return false;
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
