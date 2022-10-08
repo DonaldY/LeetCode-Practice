@@ -57,4 +57,24 @@ public class LeetCode_680 {
         }
         return true;
     }
+
+    // 双指针 + 递归
+    // Time: O(n), Space: O(1), Faster: 19.51%
+    public boolean validPalindrome2(String s) {
+        for (int left = 0, right = s.length() - 1; left < right; ++left, --right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return isPalindrome(s, left, right - 1) || isPalindrome(s, left + 1, right);
+            }
+        }
+        return true;
+    }
+
+    private boolean isPalindrome(String s, int left, int right) {
+        for (; left < right; ++left, --right) {
+            if (s.charAt(left) != s.charAt(right)) return false;
+        }
+        return true;
+    }
+
+
 }
