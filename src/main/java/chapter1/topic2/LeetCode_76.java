@@ -56,4 +56,38 @@ public class LeetCode_76 {
         }
         return len == Integer.MAX_VALUE ? "": s.substring(start, start + len);
     }
+
+    // 方法： 滑动窗口
+    // Time: O(n), Space: O(1), Faster: 30.48%
+    public String minWindow2(String s, String t) {
+        if (t.length() > s.length()) return "";
+        int n = t.length();
+        int[] map = new int[256];
+        for (char c : t.toCharArray()) ++map[c];
+        int left = 0, right = 0, minLen = Integer.MAX_VALUE;
+        for (int l = 0, r = 0; r < s.length(); ++r) {
+            --map[s.charAt(r)];
+            if (r - l + 1 < n) continue;
+            while (isValid(map)) {
+                int len = r - l + 1;
+                if (len < minLen) {
+                    minLen = len;
+                    left = l; right = r;
+                }
+                ++map[s.charAt(l)];
+                ++l;
+            }
+        }
+        if (minLen == Integer.MAX_VALUE) return "";
+        return s.substring(left, right + 1);
+    }
+
+    private boolean isValid(int[] map) {
+        for (int num : map) {
+            if (num > 0) return false;
+        }
+        return true;
+    }
+
+
 }
