@@ -22,6 +22,17 @@ import java.util.Stack;
  */
 public class LeetCode_234 {
 
+    public static void main(String[] args) {
+
+        LeetCode_234 leetCode_234 = new LeetCode_234();
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);node1.next = node2;
+        ListNode node3 = new ListNode(2);node2.next = node3;
+        ListNode node4 = new ListNode(1);node3.next = node4;
+
+        leetCode_234.isPalindrome3(node1);
+    }
+
     // 方法一：
     // Time: o(n) Space: o(n) faster: 21.12%
     public boolean isPalindrome(ListNode head) {
@@ -82,5 +93,45 @@ public class LeetCode_234 {
             if (pre.val != cur.val) return false;
         }
         return true;
+    }
+
+    // Time: O(n), Space: O(1), Faster: 69.58%
+    public boolean isPalindrome3(ListNode head) {
+        if (null == head) return true;
+        // 1. 找到链表中点
+        ListNode mid = getMidNode(head);
+        ListNode l2 = mid.next; // 后半链表
+        mid.next = null;        // 前半链表 结尾为null
+
+        // 2. 反转链表
+        l2 = reverse(l2);
+
+        // 3. 回文串比对
+        ListNode cur = head;
+        while (null != cur && null != l2) {
+            if (cur.val != l2.val) return false;
+            cur = cur.next;
+            l2 = l2.next;
+        }
+        return true;
+    }
+    private ListNode getMidNode(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    private ListNode reverse(ListNode node) {
+        ListNode pre = null, cur = node;
+        while (cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
     }
 }
