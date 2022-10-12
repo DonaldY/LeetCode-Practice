@@ -57,7 +57,7 @@ public class LeetCode_242 {
     // 方法二： 排序
     // Time: O(n*log(n)), Space: O(n), Faster: 79.37%
     public boolean isAnagramSort(String s, String t) {
-        if (s == null || t == null || s.length() != t.length()) return false;
+        if (s.length() != t.length()) return false;
         char[] sc = s.toCharArray();
         char[] tc = t.toCharArray();
         Arrays.sort(sc);
