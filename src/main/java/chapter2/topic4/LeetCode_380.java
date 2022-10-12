@@ -59,23 +59,23 @@ public class LeetCode_380 {
 // 2022.4.13 Faster: 51.32%
 class RandomizedSet {
 
-    private final Map<Integer, Integer> map = new HashMap<>();
-    private final List<Integer> data = new ArrayList<>();
-    private final Random RANDOM = new Random();
+    private final Map<Integer, Integer> map = new HashMap<>(); // 存储 key: 值, value: 下标
+    private final List<Integer> data = new ArrayList<>();      // 存储值
+    private final Random RANDOM = new Random();                // 随机数
 
     public boolean insert(int val) {
         if (map.containsKey(val)) return false;
         data.add(val);
-        map.put(val, data.size()-1);
+        map.put(val, data.size() - 1); // 末尾插入
         return true;
     }
 
     public boolean remove(int val) {
         if (!map.containsKey(val)) return false;
         int idx = map.get(val);
-        int lastVal = data.get(data.size()-1);
+        int lastVal = data.get(data.size() - 1);
         data.set(idx, lastVal);
-        data.remove(data.size()-1);
+        data.remove(data.size() - 1); // 删除的数放到末尾，再删除
         map.put(lastVal, idx);
         map.remove(val);
         return true;
