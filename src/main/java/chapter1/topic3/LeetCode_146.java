@@ -72,9 +72,7 @@ class Node {
 class LRUCache {
 
     private Queue<Node> queue;
-
     private int capacity;
-
     private Map<Integer, Node> map = new HashMap<>();
 
     public LRUCache(int capacity) {
@@ -88,7 +86,6 @@ class LRUCache {
         Node node = map.get(key);
 
         if (node != null) {
-
             queue.remove(node);
             queue.add(node);
             return node.getValue();
