@@ -31,18 +31,20 @@ public class LeetCode_199 {
     // Time: O(n), Space: O(n), Faster: 82.03%
     public List<Integer> rightSideViewBFS(TreeNode root) {
         if (null == root) return Collections.emptyList();
-        Queue<TreeNode> queue = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
+
+        // 标准 BFS
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
-            TreeNode node = null;
+            TreeNode node = null; // 用来记录每次最后一个节点
             while (size-- > 0) {
                 node = queue.poll();
                 if (null != node.left) queue.add(node.left);
                 if (null != node.right) queue.add(node.right);
             }
-            result.add(node.val);
+            result.add(node.val); // 结果
         }
         return result;
     }
