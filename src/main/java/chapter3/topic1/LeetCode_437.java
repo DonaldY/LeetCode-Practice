@@ -63,7 +63,7 @@ public class LeetCode_437 {
         return result;
     }
 
-    private int findPath(TreeNode root, int num, int sum) {
+    private int findPath(TreeNode root, long num, long sum) { // long： 防溢可能
 
         if (root == null) return 0;
 
@@ -87,7 +87,7 @@ public class LeetCode_437 {
                 pathSumRecursive(root.right, sum);
     }
 
-    private int pathFrom(TreeNode root, int sum) {
+    private int pathFrom(TreeNode root, long sum) {  // long： 防溢可能
         if (root == null) return 0;
         int cnt = 0;
         if (root.val == sum) ++cnt;
@@ -98,13 +98,13 @@ public class LeetCode_437 {
 
     // Time: O(n), Space: O(n), Faster: 95.86%
     public int pathSumPrefixSum(TreeNode root, int sum) {
-        Map<Integer, Integer> prefixSum = new HashMap<>();
-        prefixSum.put(0, 1);
+        Map<Long, Integer> prefixSum = new HashMap<>();   // long： 防溢可能
+        prefixSum.put(0L, 1);
         return dfs(root, 0, sum, prefixSum);
     }
 
-    private int dfs(TreeNode root, int cur, int sum,
-                    Map<Integer, Integer> prefixSum) {
+    private int dfs(TreeNode root, long cur, long sum,
+                    Map<Long, Integer> prefixSum) { // long： 防溢可能
         if (root == null) return 0;
         cur += root.val;
         int cnt = prefixSum.getOrDefault(cur - sum, 0);
