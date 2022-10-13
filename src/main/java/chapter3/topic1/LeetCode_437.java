@@ -96,6 +96,7 @@ public class LeetCode_437 {
         return cnt;
     }
 
+    // 前缀和计算
     // Time: O(n), Space: O(n), Faster: 95.86%
     public int pathSumPrefixSum(TreeNode root, int sum) {
         Map<Long, Integer> prefixSum = new HashMap<>();   // long： 防溢可能
@@ -111,7 +112,7 @@ public class LeetCode_437 {
         prefixSum.put(cur, prefixSum.getOrDefault(cur, 0) + 1);
         cnt += dfs(root.left, cur, sum, prefixSum);
         cnt += dfs(root.right, cur, sum, prefixSum);
-        prefixSum.put(cur, prefixSum.get(cur) - 1);
+        prefixSum.put(cur, prefixSum.get(cur) - 1); // 回溯，左子树的计算不能用于右子树
         return cnt;
     }
 }
