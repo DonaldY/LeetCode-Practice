@@ -42,44 +42,36 @@ import java.util.Queue;
  */
 public class LeetCode_297 {
 
-    // Encodes a tree to a single string.
+    // 序列化： BFS + 队列
     // Time: O(n), Space: O(n), Faster: 66.63%
     public String serialize(TreeNode root) {
-
         if (root == null) return "[]";
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
         StringBuilder result = new StringBuilder("[");
 
+        // 标准的 BFS
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
         while (!queue.isEmpty()) {
 
             TreeNode node = queue.poll();
-
             if (null == node) {
-
                 result.append("null");
             } else {
-
                 result.append(node.val);
                 queue.add(node.left);
                 queue.add(node.right);
             }
 
-            if (queue.isEmpty()) {
-
-                break;
-            }
-
+            if (queue.isEmpty()) break;
             result.append(",");
         }
 
         result.append("]");
-
         return result.toString();
     }
 
-    // Decodes your encoded data to tree.
+    // 反序列化
     // Time: O(n), Space: O(n)
     public TreeNode deserialize(String data) {
         if (data.equals("[]")) return null;
