@@ -1,7 +1,9 @@
 package chapter4.topic2;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author donald
@@ -9,6 +11,7 @@ import java.util.List;
  *
  * 思路：
  * 1. 先转为有序列表，再双指针查
+ * 2. DFS + 哈希表
  */
 public class LeetCode_653 {
 
@@ -37,5 +40,22 @@ public class LeetCode_653 {
         inorder(root.left, list);
         list.add(root.val);
         inorder(root.right, list);
+    }
+
+    Set<Integer> set = new HashSet<>();
+    // 方法二： DFS + 哈希表
+    // Time: O(n), Space: O(n), Faster: 96.53%
+    public boolean findTargetMap(TreeNode root, int k) {
+
+        if (root == null) {
+            return false;
+        }
+
+        if (set.contains(k - root.val)) {
+            return true;
+        }
+
+        set.add(root.val);
+        return findTargetMap(root.left, k) || findTargetMap(root.right, k);
     }
 }
