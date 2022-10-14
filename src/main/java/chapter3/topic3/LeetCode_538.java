@@ -37,6 +37,7 @@ class TreeNode {
 }
 public class LeetCode_538 {
 
+    // 方法一： 递归
     // Time: O(n), Space: O(n), Faster: 99.95%
     public TreeNode convertBST(TreeNode root) {
 
@@ -48,7 +49,6 @@ public class LeetCode_538 {
     }
 
     private int traverse(TreeNode root, int sum) {
-
         if (root == null) return sum;
 
         int cur = traverse(root.right, sum);
@@ -56,7 +56,8 @@ public class LeetCode_538 {
         return traverse(root.left, root.val);
     }
 
-    // Time: O(n), Space: O(n)
+    // 方法二： 用栈迭代
+    // Time: O(n), Space: O(n), Faster: 10.82%
     public TreeNode convertBSTIterative(TreeNode root) {
         Stack<TreeNode> st = new Stack<>();
         TreeNode cur = root;
