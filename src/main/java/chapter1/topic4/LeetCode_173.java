@@ -45,19 +45,20 @@ import java.util.Stack;
  */
 public class LeetCode_173 {
 
+    // Faster: 40.87%
     public class BSTIterator {
 
         private final Stack<TreeNode> stack = new Stack<>();
+
+        public BSTIterator(TreeNode root) {
+            pushLeft(root);
+        }
 
         private void pushLeft(TreeNode node) {
             while (node != null) {
                 stack.push(node);
                 node = node.left;
             }
-        }
-
-        public BSTIterator(TreeNode root) {
-            pushLeft(root);
         }
 
         // T(avg): O(1), S(avg): O(h)
