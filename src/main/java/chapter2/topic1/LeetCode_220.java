@@ -55,17 +55,17 @@ public class LeetCode_220 {
     }
 
     // 方法二：
-    // Time: O(n), Space: O(), Faster: 43.5%
+    // Time: O(nlogn), Space: O(n), Faster: 69.80%
     public boolean containsNearbyAlmostDuplicateWithTree(int[] nums, int k, int t) {
         int n = nums.length;
         TreeSet<Long> set = new TreeSet<>();
         for (int i = 0; i < n; i++) {
-            Long ceiling = set.ceiling((long) nums[i] - (long) t);
+            Long ceiling = set.ceiling((long) nums[i] - (long) t);  // 找到下一个比这小的数
             if (ceiling != null && ceiling <= (long) nums[i] + (long) t) {
                 return true;
             }
             set.add((long) nums[i]);
-            if (i >= k) {
+            if (i >= k) { // 超出范围，将区间外的移除
                 set.remove((long) nums[i - k]);
             }
         }
