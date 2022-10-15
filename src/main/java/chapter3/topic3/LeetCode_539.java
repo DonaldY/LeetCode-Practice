@@ -28,23 +28,16 @@ import java.util.List;
  */
 public class LeetCode_539 {
 
-    // 鸽巢原理:
+    // 方法二：鸽巢原理
+    // Time: O(nlogn), Space: O(1), Faster: 98.80%
     public int findMinDifference2(List<String> timePoints) {
+        // 一共只有 24 * 60 = 1440 种， 数组超过这个数就是出现重复的数了
+        // 相当于剪枝
         int n = timePoints.size();
         if (n > 1440) {
             return 0;
         }
-        Collections.sort(timePoints);
-        int ans = Integer.MAX_VALUE;
-        int t0Minutes = getMinutes(timePoints.get(0));
-        int preMinutes = t0Minutes;
-        for (int i = 1; i < n; ++i) {
-            int minutes = getMinutes(timePoints.get(i));
-            ans = Math.min(ans, minutes - preMinutes); // 相邻时间的时间差
-            preMinutes = minutes;
-        }
-        ans = Math.min(ans, t0Minutes + 1440 - preMinutes); // 首尾时间的时间差
-        return ans;
+        return findMinDifference(timePoints);
     }
 
     // 方法一： 排序
