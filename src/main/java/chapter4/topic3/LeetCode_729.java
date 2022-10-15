@@ -14,6 +14,6 @@ class MyCalendar {
     }
 
     public boolean book(int start, int end) {
-
+        return true;
     }
 }
