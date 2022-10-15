@@ -47,22 +47,24 @@ public class LeetCode_539 {
         return ans;
     }
 
-    // Faster: 27.25%
+    // 方法一： 排序
+    // Time: O(nlogn), Space: O(1), Faster: 30.97%
     public int findMinDifference(List<String> timePoints) {
-        Collections.sort(timePoints);
+        Collections.sort(timePoints);   // 1. 字符串排序
         int ans = Integer.MAX_VALUE;
-        int t0Minutes = getMinutes(timePoints.get(0));
-        int preMinutes = t0Minutes;
+
+        int t0Minutes = getMinutes(timePoints.get(0)); // 第一个数
+        int preMinutes = t0Minutes;                    // 前一个数
         for (int i = 1; i < timePoints.size(); ++i) {
             int minutes = getMinutes(timePoints.get(i));
-            ans = Math.min(ans, minutes - preMinutes); // 相邻时间的时间差
+            ans = Math.min(ans, minutes - preMinutes);  // 求相邻时间的时间差的最小值
             preMinutes = minutes;
         }
         ans = Math.min(ans, t0Minutes + 1440 - preMinutes); // 首尾时间的时间差
         return ans;
     }
 
-    public int getMinutes(String t) {
+    private int getMinutes(String t) {
         return ((t.charAt(0) - '0') * 10 + (t.charAt(1) - '0')) * 60 + (t.charAt(3) - '0') * 10 + (t.charAt(4) - '0');
     }
 }
