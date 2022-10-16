@@ -42,15 +42,15 @@ class MyCalendar2 {
         this.schedules = new TreeSet<>(Comparator.comparingInt(a -> a[0]));
     }
 
-    // Time: O(logn), Faster: 48.75%
+    // Time: O(logn), Faster: 64.88%
     public boolean book(int start, int end) {
         if (this.schedules.isEmpty()) {
             schedules.add(new int[] {start, end});
             return true;
         }
         int[] tmp = {end, 0};
-        int[] arr = schedules.ceiling(tmp);
-        int[] prev = arr == null ? schedules.last() : schedules.lower(arr);
+        int[] arr = schedules.ceiling(tmp); // 二分查找，找到第一个比他小的值
+        // 如果没找到 或者 结束时间比开始时间小
         if (arr == schedules.first() || schedules.lower(tmp)[1] <= start) {
             schedules.add(new int[]{start, end});
             return true;
