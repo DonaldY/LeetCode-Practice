@@ -42,7 +42,7 @@ public class LeetCode_347 {
     }
 
     // 方法一： 暴力法， 哈希表存储值， 最大堆来排序
-    // Time: O(n * log(n)), Space: (n), Faster: 89.66%
+    // Time: O(n * log(n)), Space: (n), Faster: 93.82%
     public int[] topKFrequent(int[] nums, int k) {
         if (null == nums || nums.length == 0) return new int[0];
 
