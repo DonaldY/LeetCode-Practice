@@ -1,7 +1,8 @@
 package chapter4.topic1;
 
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author donald
@@ -12,6 +13,33 @@ import java.util.List;
  * 2. 前缀树： 先构建前缀树，再一个个比较
  */
 public class LeetCode_648 {
+    // 方法一： hash表
+    // Time: O(n*m*m), Space: O(n), Faster: 33.86%
+    public String replaceWordsHash(List<String> dictionary, String sentence) {
+        if (null == dictionary || dictionary.isEmpty()) return sentence;
+        // 1. 创建hash表
+        Set<String> words = new HashSet<>(dictionary);
+
+        // 2. 比较对比字符串
+        String[] strArr = sentence.split(" "); // 按空格拆分
+        String[] result = new String[strArr.length]; // 存放结果
+        for (int i = 0; i < strArr.length; ++i) {
+            int minLen = Integer.MAX_VALUE;
+            String str = strArr[i];
+            for (String word : words) {
+                if (strArr[i].startsWith(word)) {
+                    if (word.length() < minLen) {
+                        minLen = word.length();
+                        str = word;
+                    }
+                }
+            }
+            result[i] = str;
+        }
+
+        // 3. 组装结果数组: 加回空格
+        return String.join(" ", result);
+    }
 
     private class TrieNode {
         boolean endOfWord;    // 是否是一个单词结尾
@@ -24,6 +52,7 @@ public class LeetCode_648 {
     private TrieNode root = new TrieNode();
 
     // 方法二： 前缀树
+    // Faster: 94.88%
     public String replaceWords(List<String> dictionary, String sentence) {
         if (null == dictionary || dictionary.isEmpty()) return sentence;
 
