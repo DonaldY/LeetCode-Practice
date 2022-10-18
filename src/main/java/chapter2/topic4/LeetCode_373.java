@@ -41,23 +41,22 @@ import java.util.*;
  */
 public class LeetCode_373 {
 
-    // Time: O(klogk), Space: O(k), Faster: 64.86%
+    // Time: O(klogk), Space: O(k), Faster: 69.91%
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-        // k 表示容量
+        // 1. 最小堆，容量为 k，
         PriorityQueue<int[]> pq = new PriorityQueue<>(k,
                 (o1, o2)-> nums1[o1[0]] + nums2[o1[1]] - nums1[o2[0]] - nums2[o2[1]]);
         List<List<Integer>> ans = new ArrayList<>();
         int m = nums1.length;
         int n = nums2.length;
+        // 2. 配对 nums1 和 nums2
         for (int i = 0; i < Math.min(m, k); i++) {
             pq.offer(new int[]{i,0});
         }
+        // 3. 加入 nums2
         while (k-- > 0 && !pq.isEmpty()) {
             int[] idxPair = pq.poll();
-            List<Integer> list = new ArrayList<>();
-            list.add(nums1[idxPair[0]]);
-            list.add(nums2[idxPair[1]]);
-            ans.add(list);
+            ans.add(Arrays.asList(nums1[idxPair[0]], nums2[idxPair[1]]));
             if (idxPair[1] + 1 < n) {
                 pq.offer(new int[]{idxPair[0], idxPair[1] + 1});
             }
@@ -99,7 +98,7 @@ public class LeetCode_373 {
     }
 
     // 方法二： 剪枝： 取前 K 个
-    // Time: O(k*log(k)), Space: O(k), Faster: 94.72%
+    // Time: O(k*log(k)), Space: O(k), Faster: 97.50%
     public List<List<Integer>> kSmallestPairsMinHeap(int[] nums1,
                                                      int[] nums2, int k) {
         if (nums1 == null || nums1.length == 0
