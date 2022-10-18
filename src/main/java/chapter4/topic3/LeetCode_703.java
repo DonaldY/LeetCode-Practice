@@ -30,21 +30,21 @@ public class LeetCode_703 {
         private Queue<Integer> minHeap = new PriorityQueue<>();
         private int k;
 
-        // Time: o(n * log(k)), Space: o(k), Faster: 32.62%
+        // Time: o(n * log(k)), Space: o(k), Faster: 96.69%
         public KthLargestElementInStream(int k, int [] nums) {
-            this.k = k;
+            this.k = k; // 定义长度为 k 的队列
             for (int num : nums) add(num);
         }
 
         // Time: o(log(k))
         public int add (int val) {
-            if (minHeap.size() < k) {
+            if (minHeap.size() < k) { // 队列不满
                 minHeap.add(val);
             } else if (val > minHeap.peek()) {
                 minHeap.poll();
                 minHeap.add(val);
             }
-            return minHeap.peek();
+            return minHeap.peek(); // 直接出最小
         }
     }
 
