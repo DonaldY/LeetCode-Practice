@@ -56,4 +56,30 @@ public class LeetCode_540 {
         }
         return -1;
     }
+
+    // 方法三：开区间
+    // Time: o(log(n)), Space: o(1), Faster: 100.00%
+    public int singleNonDuplicate2(int[] nums) {
+        int n = nums.length;
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (mid < n - 1 && nums[mid] == nums[mid + 1]) { // 处理右半边
+                if (mid % 2 == 1) {  // 奇 偶
+                    right = mid - 1;
+                } else {
+                    left = mid + 2;
+                }
+            } else if (mid > 0 && nums[mid] == nums[mid - 1]) { // 处理左半边
+                if (mid % 2 == 1) { // 偶 奇
+                    left = mid + 1;
+                } else {
+                    right = mid - 2;
+                }
+            } else {
+                return nums[mid]; // 找到答案
+            }
+        }
+        return -1;
+    }
 }
