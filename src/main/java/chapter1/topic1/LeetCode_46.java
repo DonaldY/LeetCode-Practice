@@ -1,6 +1,7 @@
 package chapter1.topic1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -93,6 +94,45 @@ public class LeetCode_46 {
             // 撤回
             elem.remove(elem.size() - 1);
             flag[i] = false;
+        }
+    }
+
+    // 排序 + 回溯： 2022.10.20
+    // Time: O(n*n!), Space: O(n), Faster: 100.00%
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        // 1. 排序
+        Arrays.sort(nums);
+
+        // 2. 回溯
+        boolean[] flag = new boolean[nums.length]; // 标记
+        dfsMy(nums, new ArrayList<>(), result, flag);
+
+        return result;
+    }
+
+    private void dfsMy(int[] nums, List<Integer> elem,
+                     List<List<Integer>> result, boolean[] flag) {
+
+        if (elem.size() == nums.length) {
+            result.add(new ArrayList<>(elem));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; ++i) {
+            if (flag[i]) continue;
+            // 标记
+            flag[i] = true;
+            elem.add(nums[i]);
+
+            dfsMy(nums, elem, result, flag);
+
+            // 撤回
+            elem.remove(elem.size() - 1);
+            flag[i] = false;
+
+            while (i + 1 < nums.length && nums[i] == nums[i + 1]) ++i;
         }
     }
 }
