@@ -61,7 +61,7 @@ public class LeetCode_69 {
             else high = mid - 1;
         }
 
-        return (int) high;
+        return (int) high; // 注意
     }
 
     // Time: o(log(n)), Space: o(1), Faster: 100.00%

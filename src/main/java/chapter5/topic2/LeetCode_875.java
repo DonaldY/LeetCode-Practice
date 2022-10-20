@@ -43,8 +43,6 @@ package chapter5.topic2;
  * 1. 暴力破解： 从 speed 1开始 到最大开始比较
  * 2. 二分查找
  *
- * []
- *
  */
 public class LeetCode_875 {
 
@@ -68,6 +66,22 @@ public class LeetCode_875 {
         return max;
     }
 
+    // Time: O(N * logN), Space: O(1), Faster: 61.37%
+    public int minEatingSpeedBinary(int [] piles, int H) {
+
+        int left = 1;
+        int right = getMax(piles) + 1; // 数组中最大值
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (canFinished(piles, mid, H)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
     private boolean canFinished(int[] piles, int speed, int h) {
 
         // 小心溢出
@@ -84,21 +98,5 @@ public class LeetCode_875 {
             max = Math.max(n, max);
         }
         return max;
-    }
-
-    // Time: O(N * logN), Space: O(1), Faster: 61.37%
-    public int minEatingSpeedBinary(int [] piles, int H) {
-
-        int left = 1, right = getMax(piles) + 1;
-        while (left < right) {
-            // 防止溢出
-            int mid = left + (right - left) / 2;
-            if (canFinished(piles, mid, H)) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
     }
 }
