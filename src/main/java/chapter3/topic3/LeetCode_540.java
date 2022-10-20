@@ -65,13 +65,13 @@ public class LeetCode_540 {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (mid < n - 1 && nums[mid] == nums[mid + 1]) { // 处理右半边
-                if (mid % 2 == 1) {  // 奇 偶
+                if (mid % 2 == 1) {  // mid 奇, mid + 1偶
                     right = mid - 1;
                 } else {
                     left = mid + 2;
                 }
             } else if (mid > 0 && nums[mid] == nums[mid - 1]) { // 处理左半边
-                if (mid % 2 == 1) { // 偶 奇
+                if (mid % 2 == 1) { // mid 偶, mid -1 奇
                     left = mid + 1;
                 } else {
                     right = mid - 2;
