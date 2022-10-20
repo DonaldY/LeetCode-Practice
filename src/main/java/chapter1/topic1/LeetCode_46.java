@@ -62,4 +62,37 @@ public class LeetCode_46 {
             Collections.swap(list, start, i);         // 撤销选择
         }
     }
+
+    // Time: O(n*n!), Space: O(n), Faster: 75.02%
+    public List<List<Integer>> permuteN(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        boolean[] flag = new boolean[nums.length]; // 标记
+
+        dfs(nums, new ArrayList<>(), result, flag);
+
+        return result;
+    }
+
+    private void dfs(int[] nums, List<Integer> elem,
+                     List<List<Integer>> result, boolean[] flag) {
+
+        if (elem.size() == nums.length) {
+            result.add(new ArrayList<>(elem));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; ++i) {
+            if (flag[i]) continue;
+            // 标记
+            flag[i] = true;
+            elem.add(nums[i]);
+
+            dfs(nums, elem, result, flag);
+
+            // 撤回
+            elem.remove(elem.size() - 1);
+            flag[i] = false;
+        }
+    }
 }
