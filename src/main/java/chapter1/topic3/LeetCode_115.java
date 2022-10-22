@@ -61,6 +61,7 @@ import java.util.Arrays;
 public class LeetCode_115 {
 
     int[][] dp;
+    // Time: O(n^2), Space: O(n^2), Faster: 62.00%
     public int numDistinct(String s, String t) {
         dp = new int[s.length()][t.length()];
         for(int[] e : dp) Arrays.fill(e, -1);
