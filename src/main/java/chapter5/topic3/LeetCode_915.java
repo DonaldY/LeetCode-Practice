@@ -15,6 +15,8 @@ import java.util.Arrays;
  *                ^
  *                |
  *               找到
+ *
+ * 2. 遍历一次：
  */
 public class LeetCode_915 {
 
@@ -41,5 +43,23 @@ public class LeetCode_915 {
             if (minArr[i] >= maxArr[i - 1]) return i;
         }
         return -1;
+    }
+
+    // 方法二： 遍历一次
+    // Time: O(n), Space: O(1), Faster: 92.81%
+    public int partitionDisjoint2(int[] nums) {
+        // 记左区间的最大值为leftMax
+        int left = 0, leftMax = nums[0], rightMax = leftMax;
+        for (int i = 1; i < nums.length; i++) {
+            if (leftMax > nums[i]) { // 如果数字nums[i]要小于leftMax那么很明显左区间是要往右移到i的
+                left = i;
+                leftMax = rightMax;
+            } else { // 如果数字nums[i]大于等于leftMax，那么左区间暂时不要往右移到i，
+                     // 因为后续可能会遇到小于leftMax的数字，所以暂时要将其最大值记录下来，记为rightMax，
+                     // 后续再遇到小于leftMax的数字时，将leftMax 置位rightMax
+                rightMax = Math.max(rightMax, nums[i]);
+            }
+        }
+        return left + 1;
     }
 }
