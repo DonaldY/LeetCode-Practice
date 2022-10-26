@@ -55,7 +55,7 @@ import java.util.Arrays;
  *
  * 思路：
  * 1. 暴力法： dfs 搜索，可优化（减枝、记忆）
- * 2. dp：
+ * 2. dp： 二维数组
  *
  */
 public class LeetCode_115 {
