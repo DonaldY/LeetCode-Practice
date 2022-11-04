@@ -42,7 +42,7 @@ package chapter4.topic4;
  */
 public class LeetCode_754 {
 
-    // 方法一： 暴力法 DFS
+    // 方法一： 暴力法 DFS (爆栈)
     // Time: O(2^n), Space: O(1), Faster: 爆栈 target = -100000
     public int reachNumber(int target) {
         if (0 == target) return 0;
