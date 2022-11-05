@@ -1,5 +1,8 @@
 package chapter6.topic2;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * @author donald
  * @date 2022/11/05
@@ -7,7 +10,7 @@ package chapter6.topic2;
 public class LeetCode_1106 {
 
     public boolean parseBoolExpr(String expression) {
-        Deque<Character> stack = new ArrayDeque<Character>();
+        Deque<Character> stack = new ArrayDeque<>();
         int n = expression.length();
         for (int i = 0; i < n; i++) {
             char c = expression.charAt(i);
