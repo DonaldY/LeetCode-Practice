@@ -6,7 +6,8 @@ package chapter4.topic4;
  */
 public class LeetCode_799 {
 
-    // Time: O(), Space: O(), Faster:
+    // 方法一： 模拟
+    // Time: O(query_row ^ 2), Space: O(query_row), Faster: 100%
     public double champagneTower(int poured, int query_row, int query_glass) {
         double[] row = {poured};
         for (int i = 1; i <= query_row; i++) {
