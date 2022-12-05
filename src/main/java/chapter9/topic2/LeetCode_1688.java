@@ -43,7 +43,7 @@ package chapter9.topic2;
  * 在每一场比赛中，输的队伍无法晋级，且不会再参加后续的比赛。
  * 由于最后只决出一个获胜队伍，因此就有 n-1 个无法晋级的队伍，也就是会有 n-1 场比赛。
  */
-public class LeeCode_1688 {
+public class LeetCode_1688 {
 
     // Time: O(n / 2), Space: O(1), Faster: 100.00%
     public int numberOfMatches(int n) {
