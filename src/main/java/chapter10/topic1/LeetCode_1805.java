@@ -1,12 +1,15 @@
 package chapter10.topic1;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author donald
  * @date 2022/12/06
  */
 public class LeetCode_1805 {
     public int numDifferentIntegers(String word) {
-        Set<String> set = new HashSet<String>();
+        Set<String> set = new HashSet<>();
         int n = word.length(), p1 = 0, p2;
         while (true) {
             while (p1 < n && !Character.isDigit(word.charAt(p1))) {
