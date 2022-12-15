@@ -1,4 +1,4 @@
-package chapter10;
+package chapter10.topic1;
 
 /**
  * @author donald
