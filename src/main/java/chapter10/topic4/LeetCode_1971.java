@@ -43,6 +43,8 @@ public class LeetCode_1971 {
         return false;
     }
 
+    // BFS
+    // Time: O(n + m), Space: O(n + m), Faster: 100%
     public boolean validPathBFS(int n, int[][] edges, int source, int destination) {
         List<Integer>[] adj = new List[n];
         for (int i = 0; i < n; i++) {
