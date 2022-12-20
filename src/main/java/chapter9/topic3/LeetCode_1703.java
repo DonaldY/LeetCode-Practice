@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class LeetCode_1703 {
 
+    // 贪心：
+    // Time: O(n), Space: O(n), Faster:
     public int minMoves(int[] nums, int k) {
         List<Integer> g = new ArrayList<>();
         List<Integer> preSum = new ArrayList<>();
