@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class LeetCode_2037 {
 
-    // 排序
+    // 思路：排序
     // Time: O(n ^ 2), Space: O(1), Faster: 97.41%
     public int minMovesToSeat(int[] seats, int[] students) {
         Arrays.sort(seats);
