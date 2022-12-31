@@ -5,7 +5,7 @@ package chapter12.topic4;
  * @date 2023/1/1
  */
 public class LeetCode_2351 {
-    // 哈希表
+    // 哈希表: 比对下
     // Time: O(n), Space: O(n), Faster: 100%
     public char repeatedCharacter(String s) {
         if (null == s || s.length() == 0) return 0;
