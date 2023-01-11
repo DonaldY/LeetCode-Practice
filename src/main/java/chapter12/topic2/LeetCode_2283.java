@@ -10,12 +10,18 @@ import java.util.Map;
 public class LeetCode_2283 {
 
     // 暴力法： HashMap
+    // Time: O(n), Space: O(n), Faster: 100%
     public boolean digitCount(String num) {
         if (null == num || num.length() == 0) return true;
-        Map<Character, Integer> map = new HashMap<>(num.length());
-        for (char c : num.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+        int[] arr = new int[num.length() + 1];
+        for (int i = 0; i < num.length(); ++i) {
+            int idx = num.charAt(i) - '0';
+            ++arr[idx];
         }
-
+        for (int i = 0; i < num.length(); ++i) {
+            int total = num.charAt(i) - '0';
+            if (arr[i] != total) return false;
+        }
+        return true;
     }
 }
