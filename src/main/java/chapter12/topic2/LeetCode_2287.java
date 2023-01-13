@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class LeetCode_2287 {
 
-    // 暴力法：哈希表 + 遍历
+    // 暴力法：哈希表 + 遍历(记录每个位置)
     // Time: O(n), Space: O(n), Faster: 22.75%
     public int rearrangeCharacters(String s, String target) {
         if (null == s || s.length() == 0) return 0;
