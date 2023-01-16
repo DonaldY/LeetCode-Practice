@@ -22,6 +22,7 @@ public class LeetCode_1813 {
                 && words1[words1.length - j - 1].equals(words2[words2.length - j - 1])) {
             j++;
         }
+        // 是否相等
         return i + j == Math.min(words1.length, words2.length);
     }
 }
