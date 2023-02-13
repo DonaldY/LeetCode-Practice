@@ -7,7 +7,7 @@ package chapter7.topic1;
 public class LeetCode_1234 {
 
     // 方法： 滑动窗口
-    // Time: O(n), Space: O(26), Faster:
+    // Time: O(n), Space: O(26), Faster: 22.95%
     public int balancedString(String s) {
         int[] cnt = new int[26];
         for (int i = 0; i < s.length(); i++) {
