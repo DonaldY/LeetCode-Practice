@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public class LeetCode_1487 {
 
+    // Time: 42.24%
     public String[] getFolderNames(String[] names) {
         Map<String, Integer> index = new HashMap<>();
         int n = names.length;
