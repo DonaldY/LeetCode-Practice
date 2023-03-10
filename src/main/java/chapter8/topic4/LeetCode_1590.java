@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public class LeetCode_1590 {
 
+    // Time: O(n), Space: O(n)
     public int minSubarray(int[] nums, int p) {
         int x = 0;
         for (int num : nums) {
