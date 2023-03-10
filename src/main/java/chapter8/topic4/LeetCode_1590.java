@@ -1,5 +1,8 @@
 package chapter8.topic4;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author donald
  * @date 2023/3/10
@@ -14,7 +17,7 @@ public class LeetCode_1590 {
         if (x == 0) {
             return 0;
         }
-        Map<Integer, Integer> index = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> index = new HashMap<>();
         int y = 0, res = nums.length;
         for (int i = 0; i < nums.length; i++) {
             index.put(y, i); // f[i] mod p = y，因此哈希表记录 y 对应的下标为 i
