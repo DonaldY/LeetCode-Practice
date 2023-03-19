@@ -5,6 +5,7 @@ package chapter9.topic1;
  * @date 2023/03/19
  */
 public class LeetCode_1625 {
+    // Faster: 81.13%
     public String findLexSmallestString(String s, int a, int b) {
         int n = s.length();
         boolean[] vis = new boolean[n];
