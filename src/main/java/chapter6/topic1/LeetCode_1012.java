@@ -10,6 +10,7 @@ public class LeetCode_1012 {
 
     int[][] dp;
 
+    // Faster: 17.86%
     public int numDupDigitsAtMostN(int n) {
         String sn = String.valueOf(n);
         dp = new int[sn.length()][1 << 10];
