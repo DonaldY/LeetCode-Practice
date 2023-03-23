@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2023/03/23
  */
 public class LeetCode_1630 {
-    // Time: O(nm), Space: O(n), Faster:
+    // Time: O(nm), Space: O(n), Faster: 97.22%
     public List<Boolean> checkArithmeticSubarrays(int[] nums, int[] l, int[] r) {
         int n = l.length;
         List<Boolean> ans = new ArrayList<>();
