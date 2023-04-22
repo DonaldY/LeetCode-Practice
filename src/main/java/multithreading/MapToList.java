@@ -63,7 +63,6 @@ public class MapToList {
             targetList.remove(0);
             if (targetList.isEmpty()) {
                 list.remove(idx);
-                i = 0; // 重置
                 continue;
             }
             ++i;
